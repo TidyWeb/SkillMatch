@@ -13,7 +13,7 @@ Planning and source research; the application has not been built yet. Salary pol
 
 ## Project documents
 
-- [Project plan (HTML)](Job_Search_App_Plan.html)
+- [View the project plan as a webpage](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
 - [Project plan (Markdown)](Job_Search_App_Plan.md)
 - [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
 - [Source library](Research/Vacancy_Sources/Source_Library.html)
