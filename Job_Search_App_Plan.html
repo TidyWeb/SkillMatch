@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Working plan for SkillMatch, a graduate-focused job matching app for the Unit 4 hackathon.">
+  <title>SkillMatch — Graduate Job-Matching App Plan</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #e9e9e2;
+      --paper: #f5f6f0;
+      --note: #dde2d6;
+      --ink: #20271f;
+      --muted: #596154;
+      --rule: #ccd2c6;
+      --blue: #36557e;
+      --blue-dark: #263f61;
+      --measure: 74rem;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      line-height: 1.62;
+    }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+    a:hover { color: var(--blue-dark); }
+    a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: .5rem;
+      z-index: 5;
+      padding: .5rem .8rem;
+      background: var(--paper);
+      color: var(--ink);
+      font: 600 .9rem var(--sans);
+    }
+    .skip-link:focus { left: .5rem; }
+    .topbar, main, footer { width: min(calc(100% - 3rem), var(--measure)); margin-inline: auto; }
+    .topbar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 0 .9rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--sans);
+    }
+    .wordmark { font: 650 .86rem var(--sans); letter-spacing: .11em; text-transform: uppercase; }
+    .topbar p { margin: 0; color: var(--muted); font-size: .82rem; }
+    main { padding-bottom: 4rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: end;
+      padding: clamp(3rem, 7vw, 6.5rem) 0 2.8rem;
+    }
+    .eyebrow, .section-index, .meta-label, .stage-output h3, .ref-heading {
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: .76rem;
+      font-weight: 650;
+      letter-spacing: .09em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .eyebrow { margin: 0 0 1.2rem; color: var(--blue); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 14ch;
+      margin-bottom: 1rem;
+      font-size: clamp(2.9rem, 6.5vw, 5.2rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.02;
+    }
+    .dek { max-width: 62ch; margin: 0; color: #343c33; font-size: clamp(1.12rem, 1.8vw, 1.3rem); }
+    .hero-note {
+      padding: 1.2rem 1.3rem 1.1rem;
+      border-top: 3px solid var(--blue);
+      background: var(--note);
+    }
+    .hero-note .meta-label { margin-bottom: .45rem; }
+    .hero-note p { margin: 0; font-size: 1.02rem; line-height: 1.5; }
+    .hero-note .date { display: block; margin-top: .8rem; color: var(--muted); font-size: .84rem; font-style: italic; }
+    .decision-line {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 1.4rem;
+      padding: 1.2rem 1.4rem;
+      border-block: 1px solid var(--rule);
+      background: rgba(221, 226, 214, .55);
+      font-family: var(--sans);
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+    .decision-line strong { color: var(--blue-dark); font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; }
+    .decision-line p { margin: 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 10rem minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: baseline;
+      margin: 3.8rem 0 1.15rem;
+    }
+    .section-head h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 2.45rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.16; }
+    .section-index { color: var(--blue); }
+    .stages {
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: var(--paper);
+    }
+    .stage {
+      display: grid;
+      grid-template-columns: 3.2rem minmax(0, 1fr) minmax(13rem, 17rem);
+      gap: 1.35rem;
+      padding: 1.7rem 1.8rem;
+      border-top: 1px solid var(--rule);
+    }
+    .stage:first-child { border-top: 0; }
+    .stage-number { padding-top: .03rem; color: var(--blue); font-size: 1.8rem; line-height: 1.15; }
+    .stage h3 { margin: 0 0 .65rem; font-size: 1.55rem; font-weight: 400; letter-spacing: -.02em; line-height: 1.2; }
+    .stage ul, .plain-list { margin: 0; padding-left: 1.15rem; }
+    .stage li, .plain-list li { padding-left: .18rem; margin: .3rem 0; }
+    .stage li::marker, .plain-list li::marker { color: var(--blue); }
+    .stage-output {
+      align-self: start;
+      padding: .25rem 0 .25rem 1rem;
+      border-left: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: .96rem;
+    }
+    .stage-output h3 { margin: 0 0 .35rem; }
+    .stage-output p { margin: 0; font-style: italic; line-height: 1.5; }
+    .phase-label { margin-left: .45rem; color: var(--blue); font: 600 .7rem var(--sans); letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-top: 3rem;
+      padding-top: 1.55rem;
+      border-top: 1px solid var(--rule);
+    }
+    .two-col h2 { margin-bottom: .8rem; font-size: 1.7rem; font-weight: 400; letter-spacing: -.02em; line-height: 1.2; }
+    .two-col p { color: var(--muted); }
+    .caveat { margin: .8rem 0 0; color: var(--muted); font-size: .98rem; }
+    .open-choices { padding: 1.2rem 1.35rem; background: var(--note); }
+    .open-choices ul { margin-bottom: 0; }
+    .references { margin-top: 3.3rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+    .references ul { display: flex; flex-wrap: wrap; gap: .5rem 1.8rem; margin: .55rem 0 0; padding-left: 1.1rem; font-size: .98rem; }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0 1.5rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font: .78rem var(--sans);
+    }
+    @media (max-width: 760px) {
+      .topbar, main, footer { width: min(calc(100% - 2rem), var(--measure)); }
+      .topbar { align-items: flex-start; flex-direction: column; gap: .2rem; }
+      .hero { grid-template-columns: 1fr; gap: 1.8rem; padding-top: 3.2rem; }
+      h1 { max-width: 12ch; }
+      .hero-note { max-width: 34rem; }
+      .decision-line, .section-head { grid-template-columns: 1fr; gap: .45rem; }
+      .section-head { margin-top: 2.8rem; }
+      .stage { grid-template-columns: 2.4rem minmax(0, 1fr); gap: .85rem; padding: 1.25rem 1.1rem; }
+      .stage-number { grid-row: 1 / span 2; }
+      .stage-output { grid-column: 2; margin-top: .25rem; }
+      .two-col { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.3rem; }
+      footer { flex-direction: column; gap: .3rem; }
+    }
+    @media (max-width: 420px) {
+      body { font-size: 1.04rem; }
+      .topbar, main, footer { width: min(calc(100% - 1.4rem), var(--measure)); }
+      .stage { padding-inline: .85rem; }
+      .stage h3 { font-size: 1.38rem; }
+      .phase-label { display: block; margin: .25rem 0 0; white-space: normal; }
+      .references ul { display: block; }
+    }
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .topbar, main, footer { width: 100%; }
+      .hero { padding: 1.8rem 0; }
+      .stages, .hero-note, .decision-line, .open-choices { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .stage { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to plan</a>
+  <header class="topbar">
+    <div class="wordmark">SkillMatch · Unit 4 Hackathon</div>
+    <p>A working plan for a graduate-focused job matching app</p>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Project plan / current direction</p>
+        <h1 id="page-title">Graduate Job-Matching App</h1>
+        <p class="dek">A focused search for early-career data and insight roles that fit a graduate’s skills and real journey to work.</p>
+      </div>
+      <aside class="hero-note" aria-label="Project audience and status">
+        <p class="meta-label">For</p>
+        <p>Code Institute Data Analytics with AI graduates looking for a first or early-career role.</p>
+        <span class="date">Working direction · 16 October 2026</span>
+      </aside>
+    </section>
+
+    <div class="decision-line" aria-label="Current technical direction">
+      <strong>Current direction</strong>
+      <p><b>Streamlit</b> interface · <b>local Python</b> parsing rules · <b>no paid LLM API</b> · West Midlands plus clearly eligible UK remote roles.</p>
+    </div>
+
+    <section aria-labelledby="pipeline-title">
+      <div class="section-head">
+        <p class="section-index">01 / the route</p>
+        <h2 id="pipeline-title">From vacancy to useful recommendation</h2>
+      </div>
+
+      <div class="stages">
+        <article class="stage">
+          <div class="stage-number" aria-hidden="true">1</div>
+          <div>
+            <h3>Collect and prepare</h3>
+            <ul>
+              <li>Use sources with an authorised API, feed or other permitted access route.</li>
+              <li>Keep the source, advert link, retrieval date and available job fields.</li>
+              <li>Normalize records, identify duplicates and mark stale or closed adverts.</li>
+            </ul>
+          </div>
+          <aside class="stage-output">
+            <h3>Record produced</h3>
+            <p>One traceable, current vacancy record per advert.</p>
+          </aside>
+        </article>
+
+        <article class="stage">
+          <div class="stage-number" aria-hidden="true">2</div>
+          <div>
+            <h3>Parse the advert <span class="phase-label">Phase 2 focus</span></h3>
+            <ul>
+              <li>Normalize text; match skill aliases with a controlled vocabulary and local Python rules.</li>
+              <li>Extract pay, title level, required experience, qualifications, skills and work location.</li>
+              <li>Label skill mentions required, desirable, incidental, negated or unclear where possible.</li>
+              <li>Keep the supporting sentence; send ambiguous wording to review instead of guessing.</li>
+            </ul>
+          </div>
+          <aside class="stage-output">
+            <h3>Evidence produced</h3>
+            <p>Structured facts linked to the exact text that supports them.</p>
+          </aside>
+        </article>
+
+        <article class="stage">
+          <div class="stage-number" aria-hidden="true">3</div>
+          <div>
+            <h3>Assess early-career suitability</h3>
+            <ul>
+              <li>Classify each advert as a plausible entry route, adjacent/stretch, experienced/senior or unresolved.</li>
+              <li>Record stated experience and qualifications; keep borderline or unclear wording visible for review.</li>
+              <li>Use title and advert context together; “senior stakeholders” alone does not make a role senior.</li>
+              <li>Preserve advertised pay, pay period and pro-rata details; keep missing pay unknown and do not estimate it.</li>
+              <li>Set the final salary policy only after the team resolves the £30,000 question.</li>
+            </ul>
+          </div>
+          <aside class="stage-output">
+            <h3>Assessment produced</h3>
+            <p>An explained entry-route category, with unknowns kept visible.</p>
+          </aside>
+        </article>
+
+        <article class="stage">
+          <div class="stage-number" aria-hidden="true">4</div>
+          <div>
+            <h3>Compare with the candidate</h3>
+            <ul>
+              <li>Seed the profile with course topics, labelled as course coverage rather than proven proficiency.</li>
+              <li>Let the candidate confirm confidence and add skills, qualifications and experience.</li>
+              <li>Compare confirmed skills with required and desirable advert skills; show evidence and gaps.</li>
+              <li>Use clear outcomes such as Good fit, Possible fit and Excluded; avoid an unexplained percentage.</li>
+            </ul>
+          </div>
+          <aside class="stage-output">
+            <h3>Fit explanation</h3>
+            <p>What matched, what is missing and which advert wording led to that conclusion.</p>
+          </aside>
+        </article>
+
+        <article class="stage">
+          <div class="stage-number" aria-hidden="true">5</div>
+          <div>
+            <h3>Check the journey and present results</h3>
+            <ul>
+              <li>Use the candidate’s home postcode and chosen travel limit.</li>
+              <li>Ignore commute distance for remote work; account for office days in hybrid roles.</li>
+              <li>Add car or public-transport time and cost only if a suitable routing source is available.</li>
+              <li>Show the source advert, suitability reasons and important unknowns.</li>
+            </ul>
+          </div>
+          <aside class="stage-output">
+            <h3>Remaining choice</h3>
+            <p>Routing provider, travel modes and travel-limit controls are not selected yet.</p>
+          </aside>
+        </article>
+      </div>
+    </section>
+
+    <div class="two-col">
+      <section aria-labelledby="analysis-title">
+        <p class="section-index">02 / analysis</p>
+        <h2 id="analysis-title">What the collected jobs can tell us</h2>
+        <ul class="plain-list">
+          <li>Which skills recur in plausible entry-route adverts.</li>
+          <li>How adverts fall across the early-career categories, and why.</li>
+          <li>Which sources add unique suitable vacancies.</li>
+          <li>How often salary, experience, location or work pattern is missing.</li>
+          <li>How commute limits change the reachable opportunities.</li>
+        </ul>
+        <p class="caveat">Report these as findings about the collected sample, not the whole job market unless source coverage supports that claim.</p>
+      </section>
+
+      <aside class="open-choices" aria-labelledby="open-title">
+        <p class="section-index">03 / team decisions</p>
+        <h2 id="open-title">Still to settle</h2>
+        <ul class="plain-list">
+          <li>Which sources permit collection, display, storage and analysis.</li>
+          <li>Live feed, reviewed snapshot, or both for the prototype.</li>
+          <li>Salary policy: hard £30,000 ceiling, candidate-set filter, or display-only. Current source research has no mandatory cutoff.</li>
+          <li>Routing method and treatment of non-annual or pro-rata pay.</li>
+          <li>Candidate and vacancy data-retention approach.</li>
+          <li>Final experience threshold for borderline roles.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <nav class="references" aria-label="Project research references">
+      <p class="ref-heading">Source research</p>
+      <ul>
+        <li><a href="Research/Vacancy_Source_Inventory.md">Vacancy source inventory</a></li>
+        <li><a href="Research/Vacancy_Sources/Search_Method_and_Coverage.md">Search method and coverage</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer>
+    <span>SkillMatch · Unit 4 hackathon · Working plan</span>
+    <span>Observed advert facts stay separate from inferred suitability.</span>
+  </footer>
+</body>
+</html>
