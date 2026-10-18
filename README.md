@@ -18,3 +18,11 @@ Planning and source research; the application has not been built yet. Salary pol
 - [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
 - [Source library](Research/Vacancy_Sources/Source_Library.html)
 - [Search method and coverage](Research/Vacancy_Sources/Search_Method_and_Coverage.md)
+
+## Viewing the HTML plan
+
+From the repository page, find **Project documents** in this README and select **View the project plan as a webpage**. This opens the rendered plan published with GitHub Pages.
+
+If you open `Job_Search_App_Plan.html` from the repository's **Code** file list and see HTML tags, you are viewing the source file. Return to this README and use the webpage link to read the formatted plan.
+
+GitHub Pages displays this static plan; it does not run the future Python/Streamlit application.
