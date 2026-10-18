@@ -13,7 +13,7 @@ Planning and source research; the application has not been built yet. Salary pol
 
 ## Project documents
 
-- [View the project plan as a webpage](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
+- [VIEW THE PROJECT PLAN AS A WEB PAGE](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
 - [Project plan (Markdown)](Job_Search_App_Plan.md)
 - [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
 - [Source library](Research/Vacancy_Sources/Source_Library.html)
@@ -21,7 +21,7 @@ Planning and source research; the application has not been built yet. Salary pol
 
 ## Viewing the HTML plan
 
-From the repository page, find **Project documents** in this README and select **View the project plan as a webpage**. This opens the rendered plan published with GitHub Pages.
+From the repository page, find **Project documents** in this README and select **VIEW THE PROJECT PLAN AS A WEB PAGE**. This opens the rendered plan published with GitHub Pages.
 
 If you open `Job_Search_App_Plan.html` from the repository's **Code** file list and see HTML tags, you are viewing the source file. Return to this README and use the webpage link to read the formatted plan.
 
