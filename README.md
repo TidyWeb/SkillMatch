@@ -14,11 +14,17 @@ Planning and source research; the application has not been built yet. Salary pol
 ## Project documents
 
 - [VIEW THE PROJECT PLAN AS A WEB PAGE](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
-- [Code Institute Diploma in Data Analytics with AI — Resources (sign-in required)](https://lms.codeinstitute.net/learner_resources/list/125519#resource_4602588)
+- [Code Institute resources — visual index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
+- [Code Institute resources — printable PDF index](Resources/Code_Institute_Resource_Index.pdf)
+- [Open the Code Institute resources in the LMS (sign-in required)](https://lms.codeinstitute.net/learner_resources/list/125519#resource_4602588)
 - [Project plan (Markdown)](Job_Search_App_Plan.md)
 - [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
 - [Source library](Research/Vacancy_Sources/Source_Library.html)
 - [Search method and coverage](Research/Vacancy_Sources/Search_Method_and_Coverage.md)
+
+## Viewing the Code Institute resource index
+
+The visual index and PDF preserve the resource names and links found on the saved LMS resources page. They do not contain the linked lessons or files. Opening those materials requires the Code Institute LMS to be available and your own account to be signed in.
 
 ## Viewing the HTML plan
 
