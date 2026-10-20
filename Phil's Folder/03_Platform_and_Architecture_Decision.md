@@ -4,6 +4,8 @@
 
 Choose a build and demo route that the team can finish, explain, and safely show within three or four days. Resolve the existing disagreement between the written Streamlit plan and older visuals proposing a custom-coded web app.
 
+The team also needs to decide how graduates will access and use SkillMatch. Possibilities include a hosted website that a user visits, with or without signing in; a Flask web application packaged in a container so it can run in different operating-system environments; or a hosted Streamlit app. Each route affects how easy the service is to reach, build, share, and keep available. Streamlit Community Cloud can hibernate inactive apps, so a visitor may first see a sleeping-app page and need to wake the app before using it. These delivery questions are supplementary to the core task, but matter if SkillMatch is to be useful to graduates beyond the hackathon.
+
 **Owner:** __________  **Reviewer:** __________  **Rotating hat today:** __________
 
 ## Options to compare
@@ -49,6 +51,7 @@ Test the chosen browser flow at a narrow viewport. A responsive web page may be 
 - [GitHub Pages: creating a site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 - [Streamlit Community Cloud: deploy an app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app)
 - [Streamlit Community Cloud: share an app](https://docs.streamlit.io/deploy/streamlit-community-cloud/share-your-app)
+- [Streamlit Community Cloud: app hibernation and waking](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app)
 - [Flask: deploying to production](https://flask.palletsprojects.com/en/stable/deploying/)
 - [MDN: making a PWA installable](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)
 
