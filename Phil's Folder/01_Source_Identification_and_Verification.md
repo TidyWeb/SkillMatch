@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Find a small number of useful vacancy sources and establish what the team can responsibly do with their data. The goal is not to re-create the existing research library or claim that one site represents the whole market.
+Identify useful vacancy sources that meet three must-haves: the team can access them without paying; SkillMatch does not depend on a paid API to use them; and there is a permitted way to retrieve the vacancy context the app needs, such as title, employer, location, work arrangement, requirements, pay, and status where available. Then verify that the planned demo use is allowed. A source being free to view or technically accessible does not by itself permit copying, storing, analysing, or displaying its content. The goal is not to re-create the existing research library or claim that one site represents the whole market.
 
 **Starting material:** [Vacancy source inventory](../../Research/Vacancy_Source_Inventory.md) and [search method and coverage](../../Research/Vacancy_Sources/Search_Method_and_Coverage.md). The existing 96 records are leads. The prior research did not approve any source for collection.
 
