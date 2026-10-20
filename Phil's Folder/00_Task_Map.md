@@ -31,16 +31,16 @@ These are workstream owners, not permanent role assignments. Keep a named owner 
 
 ## Role rotation
 
-Rotate the three formal hats daily: **Project Manager, Data Architect, Data Analyst**. For a three-person team, use this simple pattern and repeat the first day on Day 4:
+Rotate four responsibilities daily so all four team members have a clear role: **Project Manager, Data Architect, Data Analyst, and Integration and Validation**. The Integration and Validation lead connects the workstreams, checks that the agreed pieces work together, tracks test results and blockers, and helps keep the demo reproducible. This role does not mean that one person must do all the coding.
 
-| Day | Person A | Person B | Person C |
-|---|---|---|---|
-| 1 | Project Manager | Data Architect | Data Analyst |
-| 2 | Data Analyst | Project Manager | Data Architect |
-| 3 | Data Architect | Data Analyst | Project Manager |
-| 4 | Project Manager | Data Architect | Data Analyst |
+| Day | Person A | Person B | Person C | Person D |
+|---|---|---|---|---|
+| 1 | Project Manager | Data Architect | Data Analyst | Integration and Validation |
+| 2 | Integration and Validation | Project Manager | Data Architect | Data Analyst |
+| 3 | Data Analyst | Integration and Validation | Project Manager | Data Architect |
+| 4 | Data Architect | Data Analyst | Integration and Validation | Project Manager |
 
-Replace A/B/C with names at kickoff. For a larger team, share each hat and split its responsibilities. Keep the workstream owner attached to their deliverable across days. If Phil is the main coder, record **technical integration** as a continuing delivery responsibility alongside the rotating hats; this makes the coding workload visible without preventing others from researching, reviewing, testing, or contributing code.
+Replace A/B/C/D with team members' names at kickoff. Across the four days, each person takes each responsibility once. Keep the workstream owner attached to their deliverable across days. If Phil is the main coder, record **technical integration** as a continuing delivery responsibility alongside this rotation; teammates can still reduce uncertainty, supply reviewed sample records, test flows, review rules, and prepare the analysis story.
 
 The hackathon brief's role descriptions put dashboard building with the Data Analyst, while parts of its daily schedule assign dashboard work to the Data Architect. Agree at kickoff who owns the data pipeline and who owns the user-facing analysis/dashboard, and capture that in the decision log.
 
