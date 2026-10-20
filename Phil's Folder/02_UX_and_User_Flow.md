@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Make it obvious how a graduate moves from their situation to a useful, explainable shortlist. The task is to answer practical design questions with a rough wireframe and feedback, not to polish final graphics.
+Design an attractive, simple-to-use, effective interface where a graduate can enter their qualifications, skills, job requirements, and travel preferences. The interface should use those choices alongside each vacancy’s location and working arrangement to present possible jobs in a clear, logical way, showing why each role appears and how well it fits the user’s stated needs. For this task, test the proposed experience with a rough wireframe and feedback; final visual polish comes later.
 
 **Owner:** __________  **Reviewer:** __________  **Rotating hat today:** __________
 
