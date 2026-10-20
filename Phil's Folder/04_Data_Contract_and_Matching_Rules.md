@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Agree what the app knows, where each fact came from, and how it turns a candidate profile and a vacancy into a useful explanation. This is the bridge between source research, UX, and implementation.
+Before the app can match people with jobs, the team must agree what information to record for each candidate and vacancy, where vacancy details came from, and how to mark details that are unknown. This shared set of fields is the data contract. The team must also agree how the app compares a candidate’s qualifications, confirmed skills, experience, and travel preferences with a vacancy’s requirements, location, and work arrangement. For example, decide how to treat a job that requires Excel but lists SQL as desirable when a candidate has confirmed Excel but not SQL. These matching rules determine which vacancies appear for each candidate.
 
 **Owner:** __________  **Reviewer:** __________  **Rotating hat today:** __________
 
