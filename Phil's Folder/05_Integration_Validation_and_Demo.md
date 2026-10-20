@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Bring the research and small app slice together, catch obvious failures, and make sure the team can explain both the result and its limits. This work continues alongside the build; it is not left until the final hour.
+This is likely to be the trickiest phase of the project: the source research, user journey, data, matching rules, analysis, and code must all work together. The purpose is to bring those pieces into one working app and analysis, test them against known cases, catch and record problems, and make sure the team can run the project and repeat the demo reliably. Start connecting and checking pieces while they are being built; do not leave integration, testing, and demo preparation until the final hours. The demo should show what works and be clear about the limits of the sample and the app.
 
 **Owner:** __________  **Reviewer:** __________  **Rotating hat today:** __________
 
