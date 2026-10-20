@@ -14,6 +14,7 @@ Planning and source research; the application has not been built yet. Salary pol
 ## Project documents
 
 - [VIEW THE PROJECT PLAN AS A WEB PAGE](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
+- [Code Institute Diploma in Data Analytics with AI — Resources (sign-in required)](https://lms.codeinstitute.net/learner_resources/list/125519#resource_4602588)
 - [Project plan (Markdown)](Job_Search_App_Plan.md)
 - [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
 - [Source library](Research/Vacancy_Sources/Source_Library.html)
