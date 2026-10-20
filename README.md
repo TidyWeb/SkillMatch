@@ -14,7 +14,7 @@ Planning and source research; the application has not been built yet. Salary pol
 ## Project documents
 
 - [VIEW THE PROJECT PLAN AS A WEB PAGE](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
-- [Code Institute resources — visual index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
+- [Code Institute Resources Visual Index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
 - [Code Institute resources — printable PDF index](Resources/Code_Institute_Resource_Index.pdf)
 - [Open the Code Institute resources in the LMS (sign-in required)](https://lms.codeinstitute.net/learner_resources/list/125519#resource_4602588)
 - [Project plan (Markdown)](Job_Search_App_Plan.md)
@@ -24,11 +24,7 @@ Planning and source research; the application has not been built yet. Salary pol
 
 ## Viewing the Code Institute resource index
 
-The image below is a static snapshot for quick viewing. Click it to open the live resource page, where the resource links work.
-
-[![Code Institute learner resources — visual overview](Resources/Code_Institute_Resource_Index.png)](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
-
-The visual index and PDF preserve the resource names and links found on the saved LMS resources page. They do not contain the linked lessons or files. Opening those materials requires the Code Institute LMS to be available and your own account to be signed in.
+Open the [Code Institute Resources Visual Index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html) to follow the links to the LMS. You need an internet connection and your own Code Institute sign-in. The PDF is a printable list of resource names and links; it does not contain the course materials.
 
 ## Viewing the HTML plan
 
