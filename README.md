@@ -24,6 +24,10 @@ Planning and source research; the application has not been built yet. Salary pol
 
 ## Viewing the Code Institute resource index
 
+The image below is a static snapshot for quick viewing. Click it to open the live resource page, where the resource links work.
+
+[![Code Institute learner resources — visual overview](Resources/Code_Institute_Resource_Index.png)](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
+
 The visual index and PDF preserve the resource names and links found on the saved LMS resources page. They do not contain the linked lessons or files. Opening those materials requires the Code Institute LMS to be available and your own account to be signed in.
 
 ## Viewing the HTML plan
