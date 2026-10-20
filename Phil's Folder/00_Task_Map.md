@@ -31,7 +31,16 @@ These are workstream owners, not permanent role assignments. Keep a named owner 
 
 ## Role rotation
 
-Rotate four responsibilities daily so all four team members have a clear role: **Project Manager, Data Architect, Data Analyst, and Integration and Validation**. The Integration and Validation lead connects the workstreams, checks that the agreed pieces work together, tracks test results and blockers, and helps keep the demo reproducible. This role does not mean that one person must do all the coding.
+Rotate four responsibilities daily so all four team members have a clear role: **Project Manager, Data Architect, Data Analyst, and Integration and Validation**. These are practical day-to-day responsibilities, not job titles or exclusive ownership of every related task. Workstream owners stay attached to their deliverables across days.
+
+| Responsibility | What this person looks after | Likely task-pack work |
+|---|---|---|
+| **Project Manager** | Keeps the team moving together: confirms the day's goal, checks owners and reviewers, updates the task board, records decisions, raises blockers early, and keeps the final demo and handoffs on track. This person helps the team decide what to finish or defer; they do not have to manage every detail themselves. | Kickoff decision log and role/workstream coordination in this map; planning and demo coordination in [Task E — Integration, validation, and demo](05_Integration_Validation_and_Demo.md). |
+| **Data Architect** | Makes the app's technical and data structure understandable: compares realistic platform choices, agrees how information moves through the app, defines vacancy and candidate fields, and helps make matching rules consistent and explainable. Checks that design choices fit the source evidence and the time available. | [Task C — Platform and architecture decision](03_Platform_and_Architecture_Decision.md) and [Task D — Data contract and matching rules](04_Data_Contract_and_Matching_Rules.md); consults [Task A](01_Source_Identification_and_Verification.md) about source constraints. |
+| **Data Analyst** | Builds the evidence about the problem and the sample: checks what adverts actually say, records source and date evidence, helps shape and test the graduate's user journey, and prepares a modest finding from the reviewed data. Separates observed facts from the team's interpretation and explains sample limitations. | [Task A — Source identification and verification](01_Source_Identification_and_Verification.md), [Task B — UX and user flow](02_UX_and_User_Flow.md), and the sample-analysis work in [Task D](04_Data_Contract_and_Matching_Rules.md) and [Task E](05_Integration_Validation_and_Demo.md). |
+| **Integration and Validation** | Connects handoffs and checks that the agreed pieces work together: tracks the sample's provenance, coordinates joining data, rules, and screens with whoever is building them, runs the acceptance scenarios, records pass/fail/blockers, and checks that another teammate can repeat the demo. This role coordinates checking; it does not make one person solely responsible for all coding or testing. | [Task E — Integration, validation, and demo](05_Integration_Validation_and_Demo.md), and checks the results from [Task A](01_Source_Identification_and_Verification.md), [Task B](02_UX_and_User_Flow.md), [Task C](03_Platform_and_Architecture_Decision.md), and [Task D](04_Data_Contract_and_Matching_Rules.md). |
+
+Rotate these responsibilities using the four-day pattern below. Each person takes each responsibility once. The daily role guides that person's focus; it does not stop teammates from helping with other workstreams or reviewing one another's work.
 
 | Day | Person A | Person B | Person C | Person D |
 |---|---|---|---|---|
@@ -40,7 +49,7 @@ Rotate four responsibilities daily so all four team members have a clear role: *
 | 3 | Data Analyst | Integration and Validation | Project Manager | Data Architect |
 | 4 | Data Architect | Data Analyst | Integration and Validation | Project Manager |
 
-Replace A/B/C/D with team members' names at kickoff. Across the four days, each person takes each responsibility once. Keep the workstream owner attached to their deliverable across days. If Phil is the main coder, record **technical integration** as a continuing delivery responsibility alongside this rotation; teammates can still reduce uncertainty, supply reviewed sample records, test flows, review rules, and prepare the analysis story.
+Replace A/B/C/D with team members' names at kickoff. Across the four days, each person takes each responsibility once. Keep the workstream owner attached to their deliverable across days. If Phil is the main coder, record **implementation** as a continuing responsibility on the task board. The Integration and Validation role still rotates to coordinate checks and handoffs; teammates can also reduce uncertainty, supply reviewed sample records, test flows, review rules, and prepare the analysis story.
 
 The hackathon brief's role descriptions put dashboard building with the Data Analyst, while parts of its daily schedule assign dashboard work to the Data Architect. Agree at kickoff who owns the data pipeline and who owns the user-facing analysis/dashboard, and capture that in the decision log.
 
