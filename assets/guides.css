@@ -89,3 +89,14 @@ ol.do > li > strong:first-child { display: block; font-size: 1.08rem; }
 
 /* Keep the long prompt from taking over the page: it scrolls inside its box. */
 .promptbox pre { max-height: 14rem; overflow-y: auto; }
+
+/* Mid-width fix: site.css drops the card's right padding below 1240px but still lets
+   content be as wide as the whole card, so text ran into (and past) the right edge. */
+@media (max-width: 1240px) {
+  .page { max-width: calc(var(--measure) + 5.375rem); padding-right: 2.6875rem; }
+  .page > * { max-width: 100%; }
+}
+@media (max-width: 700px) {
+  .page { padding: 1.6rem 1.2rem 2rem; }
+  h1 { font-size: 2rem; }
+}
