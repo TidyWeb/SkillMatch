@@ -65,3 +65,27 @@ a.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
 .week td:first-child { white-space: nowrap; font-weight: 700; width: 9rem; }
 .hub-foot { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .88rem; color: var(--ink-muted); }
 @media (max-width: 600px) { .hub-head { flex-direction: column; align-items: flex-start; } }
+
+/* ---------- Step strip: where you are in the A-series ---------- */
+.strip { list-style: none; display: flex; gap: .3rem; padding: 0; margin: 0 0 1.6rem; font-family: var(--sans); font-size: .8rem; max-width: none !important; flex-wrap: wrap; }
+.strip li { margin: 0; flex: 1 1 6.5rem; }
+.strip a, .strip span { display: block; padding: .45rem .55rem; border-radius: 6px; border: 1px solid var(--rule); background: var(--paper-deep); color: var(--ink-muted); text-decoration: none; line-height: 1.25; }
+.strip b { display: block; color: var(--ink); }
+.strip a:hover { border-color: var(--accent); }
+.strip .now { background: var(--accent); border-color: var(--accent); color: #fff; }
+.strip .now b { color: #fff; }
+
+/* Numbered actions on a page */
+ol.do { counter-reset: do; list-style: none; padding: 0; }
+ol.do > li { counter-increment: do; position: relative; padding: 0 0 .2rem 2.6rem; margin: 0 0 1.3rem; }
+ol.do > li::before { content: counter(do); position: absolute; left: 0; top: .05rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--paper-deep); border: 1px solid var(--rule); font: 700 .9rem/1.8rem var(--sans); text-align: center; color: var(--accent); }
+ol.do > li > strong:first-child { display: block; font-size: 1.08rem; }
+.cmd { font-family: var(--mono); font-size: .85rem; background: var(--paper-deep); border: 1px solid var(--rule); border-radius: 6px; padding: .6rem .8rem; margin: .5rem 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.os { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .5rem 0; }
+.os div { border: 1px solid var(--rule); border-radius: 6px; padding: .6rem .8rem; font-size: .95rem; }
+.os div > b { display: block; font-family: var(--sans); font-size: .8rem; color: var(--accent); }
+.done-when { font-family: var(--sans); font-size: .95rem; background: var(--paper-deep); border-left: 3px solid #3f6b45; border-radius: 0 6px 6px 0; padding: .7rem 1rem; margin: 1.8rem 0 0; }
+@media (max-width: 700px) { .os { grid-template-columns: 1fr; } }
+
+/* Keep the long prompt from taking over the page: it scrolls inside its box. */
+.promptbox pre { max-height: 14rem; overflow-y: auto; }

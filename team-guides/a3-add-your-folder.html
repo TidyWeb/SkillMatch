@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add your folder · SkillMatch team guides</title>
+<meta name="description" content="One prompt, and the AI makes your folder, puts it on its own branch and uploads it. You approve each step. About 10 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
+      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Switch on the AI</span></a></li>
+      <li><a href="a3-add-your-folder.html" aria-current="page"><span class="n">A3</span><span>Add your folder</span></a></li>
+      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
+      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+<main class="content" id="main">
+<article class="page">
+<ol class="strip" aria-label="Steps"><li><a href="a1-get-skillmatch.html"><b>A1</b>Get SkillMatch onto your machine</a></li><li><a href="a2-switch-on-the-ai.html"><b>A2</b>Switch on the AI</a></li><li><span class="now" aria-current="step"><b>A3</b>Add your folder</span></li><li><a href="a4-send-it-for-review.html"><b>A4</b>Send it for review</a></li></ol>
+<header class="chapter-head">
+  <p class="chapter-num">Step 3 of 4</p>
+  <h1>Add your folder</h1>
+  <p class="standfirst">One prompt, and the AI makes your folder, puts it on its own branch and uploads it. You approve each step. About 10 minutes.</p>
+</header>
+
+<ol class="do">
+<li><strong>Pick your name and copy the prompt</strong>
+<div class="picker" role="group" aria-label="Choose your name">
+  <button type="button" data-name="Oana" aria-pressed="true">Oana</button>
+  <button type="button" data-name="John" aria-pressed="false">John</button>
+  <button type="button" data-name="Esmat" aria-pressed="false">Esmat</button>
+</div>
+<div class="promptbox">
+  <button type="button" class="btn btn-lime" id="copyBtn">Copy prompt</button>
+  <pre id="prompt" aria-live="polite"></pre>
+</div></li>
+
+<li><strong>Paste it into the Agent chat and press Enter</strong>
+It explains each step and waits for you to click <strong>Allow</strong>. When it asks about you, remember the repository is <strong>public</strong>: background and interests, nothing private.</li>
+
+<li><strong>Read each command before you allow it</strong>
+<table class="check">
+  <thead><tr><th class="ok">Fine to allow</th><th class="stop">Stop and ask Phil</th></tr></thead>
+  <tbody>
+    <tr><td><code>git remote -v</code>, <code>git status</code>, <code>git config</code></td><td>Changing or deleting anything outside your folder</td></tr>
+    <tr><td><code>git checkout</code>, <code>git pull</code></td><td>A push with <code>--force</code> or <code>-f</code></td></tr>
+    <tr><td><code>git add</code>, <code>git commit</code>, <code>git push</code> on your branch</td><td>Committing while on <code>main</code>, or any "merge conflict"</td></tr>
+  </tbody>
+</table></li>
+
+</ol>
+
+<p class="done-when"><strong>Done when:</strong> the AI's summary says your branch is pushed, and gives you a pull request link or a GitHub link to open one.</p>
+
+<nav class="pager" aria-label="Steps"><a class="prev" href="a2-switch-on-the-ai.html"><small>Previous</small><strong>A2. Switch on the AI</strong></a><a class="next" href="a4-send-it-for-review.html"><small>Next</small><strong>A4. Send it for review</strong></a></nav>
+</article>
+</main>
+</div>
+<script src="../assets/guides.js"></script>
+<script>
+(function () {
+  var template = [
+    "You are helping me make my first contribution to my team's GitHub repository, TidyWeb/SkillMatch, which is open in this VS Code workspace.",
+    "",
+    "Goal: add a personal folder called \"{NAME}'s Folder\" at the top level of the repository, containing one file, README.md, and put it on GitHub as a pull request for Phil (GitHub user TidyWeb) to review.",
+    "",
+    "Rules:",
+    "- Only create \"{NAME}'s Folder/README.md\". Do not change, move, rename or delete any other file.",
+    "- The folder name contains an apostrophe and a space, so always put the path in double quotes in terminal commands.",
+    "- Never commit to main and never force-push.",
+    "- Before each step, explain in plain English what you are about to do, and wait for my approval before running any terminal command.",
+    "- If anything unexpected happens (wrong repository, merge conflict, push rejected, sign-in error), stop and tell me. Do not try to fix it yourself.",
+    "",
+    "Steps:",
+    "1. Run git remote -v and confirm the origin is https://github.com/TidyWeb/SkillMatch.git. If it isn't, stop.",
+    "2. Switch to main and pull the latest changes.",
+    "3. Show me the output of git config user.name and git config user.email, and ask me to confirm they are right. If either is missing, ask me for the value and set it for this repository only.",
+    "4. Create and switch to a new branch called add-{SLUG}-folder.",
+    "5. Ask me for two or three sentences about my background before the course and what I'd like to work on in SkillMatch. Remind me the repository is public, so nothing private. Then create \"{NAME}'s Folder/README.md\" with this content and show it to me before saving:",
+    "",
+    "   # {NAME}'s Folder",
+    "",
+    "   Working space for {NAME} in the SkillMatch hackathon project.",
+    "",
+    "   ## About me",
+    "",
+    "   (my sentences here)",
+    "",
+    "6. Stage only that file and commit it with the message: Add {NAME}'s folder",
+    "7. Push the branch to GitHub (git push -u origin add-{SLUG}-folder).",
+    "8. If you can create pull requests, open one from add-{SLUG}-folder into main titled \"Add {NAME}'s folder\". If you can't, give me the link GitHub printed after the push.",
+    "9. Finish with a short summary of what you did and the pull request link."
+  ].join("\n");
+  var pre = document.getElementById("prompt"), copyBtn = document.getElementById("copyBtn");
+  var buttons = document.querySelectorAll(".picker button");
+  function fill(name) {
+    pre.textContent = template.split("{NAME}").join(name).split("{SLUG}").join(name.toLowerCase());
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.name === name ? "true" : "false"); });
+    copyBtn.textContent = "Copy prompt"; copyBtn.classList.remove("done");
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { fill(b.dataset.name); }); });
+  copyBtn.addEventListener("click", function () {
+    function done() { copyBtn.textContent = "Copied"; copyBtn.classList.add("done"); }
+    function sel() { var r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = "Selected: press Ctrl+C"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(pre.textContent).then(done, sel); } else { sel(); }
+  });
+  fill("Oana");
+})();
+</script>
+</body>
+</html>

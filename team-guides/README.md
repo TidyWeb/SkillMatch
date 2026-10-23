@@ -4,6 +4,11 @@ These guides are web pages. Clicking the `.html` files in this folder shows thei
 
 **[Open the SkillMatch team hub](https://tidyweb.github.io/SkillMatch/)**: every guide, prototype and plan in one place.
 
-## Guides
+## Getting started
 
-- **[A1. Add your folder with an AI assistant](https://tidyweb.github.io/SkillMatch/team-guides/a1-create-your-folder-with-ai.html)**: get your own folder into the repository and appear as a contributor.
+1. [A1. Get SkillMatch onto your machine](https://tidyweb.github.io/SkillMatch/team-guides/a1-get-skillmatch.html)
+2. [A2. Switch on the AI](https://tidyweb.github.io/SkillMatch/team-guides/a2-switch-on-the-ai.html)
+3. [A3. Add your folder](https://tidyweb.github.io/SkillMatch/team-guides/a3-add-your-folder.html)
+4. [A4. Send it for review](https://tidyweb.github.io/SkillMatch/team-guides/a4-send-it-for-review.html)
+
+Stuck? [Help and other routes](https://tidyweb.github.io/SkillMatch/team-guides/help.html)
