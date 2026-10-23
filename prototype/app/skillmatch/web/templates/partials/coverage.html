@@ -1,0 +1,47 @@
+{% from "partials/_tier.html" import meter with context %}
+<section class="coverage" aria-labelledby="cov-h">
+  <h2 id="cov-h">{{ meter(m.tier, m.tier_label) }}{% if m.distance_miles is not none %} <span class="hint">· {{ m|distance }} from {{ profile.outcode }}</span>{% endif %}</h2>
+  <ul class="reasons">{% for r in m.reasons %}<li>{{ r }}</li>{% endfor %}</ul>
+
+  {% set answers = [] %}{% set seen = [] %}{% for c in m.coverage %}{% for t in c.tags if t.status == 'met' and t.answer %}{% if t.tag_id not in seen %}{% set _ = seen.append(t.tag_id) %}{% set _ = answers.append(t.answer) %}{% endif %}{% endfor %}{% endfor %}
+  {% if answers %}
+  <div class="answers answers-full">
+    <h3>How your background answers this advert</h3>
+    <ul>{% for a in answers %}<li>{{ a }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+
+  <h3>Requirement by requirement</h3>
+  <p class="hint" id="req-table-note">The advert's words on the left; what in your profile answers each one on the right. Requirements we couldn't link to a skill or competency are shown but don't count towards the group.</p>
+  <div class="table-wrap">
+  <table class="req-table" aria-describedby="req-table-note">
+    <thead><tr><th scope="col">The advert says</th><th scope="col">Type</th><th scope="col">Your profile</th></tr></thead>
+    <tbody>
+    {% for c in m.coverage %}
+      <tr class="status-{{ c.status }}">
+        <td data-label="The advert says"><span class="quote">“{{ c.sentence }}”</span></td>
+        <td data-label="Type">{{ c.strength|capfirst }}{% if c.confidence == 'inferred' %}<br><span class="hint">our guess: no cue word</span>{% endif %}</td>
+        <td data-label="Your profile">
+          <span class="status status-{{ c.status }}">{{ {'met': '✓ Met', 'partly': '◐ Partly met', 'gap': '✕ Not yet', 'unclassified': '· Not counted'}[c.status] }}</span>
+          {% if c.status == 'unclassified' %}<p class="hint">We couldn't link this to a skill or competency, so it doesn't count either way.</p>{% endif %}
+          {% if c.tags %}<ul class="tag-results">
+          {% for t in c.tags %}
+            <li><span class="tag-label">{{ t.label|capfirst }}</span>:
+              {% if t.status in ['met', 'partly'] %}{{ t.answer|answer_body }}{% else %}{{ t.gap|answer_body }}{% endif %}</li>
+          {% endfor %}
+          </ul>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% if not m.coverage %}<p>We couldn't find requirements in this advert. Read it in full on the source site.</p>{% endif %}
+
+  {% if m.gap_advice %}
+  <div class="advice">
+    <h3>What would close the gaps</h3>
+    <ul>{% for g in m.gap_advice %}<li>{{ g }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+</section>

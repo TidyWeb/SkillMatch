@@ -1,0 +1,18 @@
+{
+  // SkillMatch prototype in GitHub Codespaces.
+  // Opens with the app installed and built from the 120 synthetic adverts (no API keys, no real advert data),
+  // then starts it and opens it in a browser tab.
+  "name": "SkillMatch prototype",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install uv && cd prototype/app && uv sync && uv run python -m skillmatch.etl --mode fixtures",
+  "postAttachCommand": {
+    "skillmatch": "cd prototype/app && uv run flask --app skillmatch.web:create_app run --host 0.0.0.0 --port 5000"
+  },
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": { "label": "SkillMatch", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "codespaces": { "openFiles": ["prototype/README.md"] }
+  }
+}

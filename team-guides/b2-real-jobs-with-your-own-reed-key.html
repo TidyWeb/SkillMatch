@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>See real jobs with your own Reed key · SkillMatch team guides</title>
+<meta name="description" content="Swap the made-up adverts for live West Midlands jobs from Reed, using your own free key. About 45 minutes, most of it waiting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
+      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Switch on the AI</span></a></li>
+      <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
+      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
+      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>The prototype</h2><ol>
+      <li><a href="b1-try-the-prototype.html"><span class="n">B1</span><span>Try the prototype</span></a></li>
+      <li><a href="b2-real-jobs-with-your-own-reed-key.html" aria-current="page"><span class="n">B2</span><span>See real jobs with your own Reed key</span></a></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+<main class="content" id="main">
+<article class="page">
+<ol class="strip" aria-label="Steps"><li><a href="b1-try-the-prototype.html"><b>B1</b>Try the prototype</a></li><li><span class="now" aria-current="step"><b>B2</b>See real jobs with your own Reed key</span></li></ol>
+<header class="chapter-head">
+  <p class="chapter-num">Step 2 of 2</p>
+  <h1>See real jobs with your own Reed key</h1>
+  <p class="standfirst">Swap the made-up adverts for live West Midlands jobs from Reed, using your own free key. About 45 minutes, most of it waiting.</p>
+</header>
+
+<ol class="do">
+<li><strong>Get a free Reed key</strong>
+Register at <a href="https://www.reed.co.uk/developers/jobseeker">reed.co.uk/developers</a>. Your key arrives by email. It's private: never paste it into a file, a chat or Discord.</li>
+
+<li><strong>Save it in GitHub</strong>
+Your picture → <strong>Settings → Codespaces → New secret</strong>. Name: <code>REED_API_KEY</code>. Value: your key. Under <strong>Repository access</strong>, choose <code>TidyWeb/SkillMatch</code>. Click <strong>Add secret</strong>.</li>
+
+<li><strong>Restart your codespace</strong>
+Secrets only load when a codespace starts. At <a href="https://github.com/codespaces">github.com/codespaces</a>, click <strong>…</strong> next to yours → <strong>Stop codespace</strong>, then open it again. (No codespace yet? Just do <a href="b1-try-the-prototype.html">B1</a> now.)</li>
+
+<li><strong>Fetch the real jobs</strong>
+In the terminal at the bottom, run:
+<div class="cmd">cd prototype/app &amp;&amp; uv run python -m skillmatch.etl --mode live</div>
+It takes 25–40 minutes. Leave the tab open. It's finished when it prints a <em>quality report</em> line.</li>
+
+<li><strong>Restart once more</strong>
+Stop and reopen the codespace as in step 3, so the app loads the new jobs.</li>
+</ol>
+
+<p class="callout">Real adverts are for trying the app only. They stay inside your own codespace. Don't copy them into the repository, Discord or the presentation until Reed has said yes.</p>
+
+<p class="done-when"><strong>Done when:</strong> the footer says <strong>Live snapshot</strong> with today's date, and job links open on reed.co.uk.</p>
+
+<nav class="pager" aria-label="Steps"><a class="prev" href="b1-try-the-prototype.html"><small>Previous</small><strong>B1. Try the prototype</strong></a><a class="next" href="../index.html"><small>Next</small><strong>Back to the team hub</strong></a></nav>
+</article>
+</main>
+</div>
+<script src="../assets/guides.js"></script>
+
+</body>
+</html>

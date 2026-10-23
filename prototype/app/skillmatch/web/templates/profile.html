@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block title %}Your profile{% endblock %}
+{% block content %}
+<header class="page-head">
+  <h1>What can you already do?</h1>
+  <p class="lede">SkillMatch matches people's skills, not job titles. Tell us what you learned on the course and what your previous working life involved. We'll show which entry-level data jobs in the West Midlands ask for exactly that, and how your background answers each requirement.</p>
+  <p class="note">Your profile stays in this browser tab. It is sent with each search and never stored; closing the tab clears it.</p>
+</header>
+
+<section class="demo" aria-labelledby="demo-h">
+  <h2 id="demo-h">Try a demo profile</h2>
+  <p>Six fictional people who finished the course. Load one, look at their matches, then change anything you like.</p>
+  <ul class="demo-list">
+    {% for p in persona_cards %}
+    <li>
+      <button type="button" class="button-secondary" data-persona="{{ p.id }}">{{ p.button }}</button>
+      <span class="demo-summary">{{ p.summary }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="status" id="demo-status" role="status" aria-live="polite"></p>
+</section>
+
+<form id="profile-form" class="profile-form" novalidate>
+  <fieldset class="block">
+    <legend><span class="step">1</span> Where you live and how you travel</legend>
+    <div class="field">
+      <label for="postcode">Home postcode</label>
+      <input id="postcode" name="postcode" autocomplete="postal-code" inputmode="text" maxlength="8" aria-describedby="postcode-hint postcode-error">
+      <p class="hint" id="postcode-hint">A full postcode or just the first part, like B91. Only the first part is ever used: it places you to within a few miles, which is enough for straight-line distances.</p>
+      <p class="error" id="postcode-error" aria-live="polite"></p>
+    </div>
+    <fieldset class="field">
+      <legend class="label">How do you travel?</legend>
+      <div class="choices">
+        {% for value, label in travel.items() %}
+        <label class="choice"><input type="radio" name="travel" value="{{ value }}"> {{ label }}</label>
+        {% endfor %}
+      </div>
+      <p class="hint">We show this back to you. Travel times are planned for a later version; for now results use straight-line distance.</p>
+    </fieldset>
+    <div class="field-row">
+      <div class="field">
+        <label for="max_miles">Maximum distance (miles, optional)</label>
+        <input id="max_miles" name="max_miles" type="number" min="1" max="200" step="1" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="max_office_days">Most office days a week you can do</label>
+        <select id="max_office_days" name="max_office_days">
+          {% for d in range(0, 6) %}<option value="{{ d }}" {% if d == 5 %}selected{% endif %}>{{ d }}{% if d == 5 %} (any){% endif %}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label class="choice"><input type="checkbox" id="include_remote" name="include_remote" checked> Include UK-remote jobs</label>
+    </div>
+  </fieldset>
+
+  <fieldset class="block">
+    <legend><span class="step">2</span> Technical skills</legend>
+    <p class="hint">Everything the course covers is set to "Learned on the course". Raise anything you've used in a project or feel confident with, and untick anything you didn't cover.</p>
+    <div class="skill-grid">
+      {% for s in course_skills %}
+      <div class="skill-row">
+        <label for="skill-{{ s.id }}">{{ s.label }}</label>
+        <select id="skill-{{ s.id }}" data-skill="{{ s.id }}">
+          <option value="">Not ticked</option>
+          <option value="course" selected>Learned on the course</option>
+          <option value="project">Used in a project</option>
+          <option value="confident">Confident</option>
+        </select>
+      </div>
+      {% endfor %}
+    </div>
+    <div id="other-skills" class="skill-grid"></div>
+    <div class="field add-row">
+      <label for="add-skill">Add another skill</label>
+      <div class="inline">
+        <select id="add-skill">
+          <option value="">Choose a skill…</option>
+          {% for s in other_skills %}<option value="{{ s.id }}">{{ s.label }}</option>{% endfor %}
+        </select>
+        <button type="button" class="button-secondary" id="add-skill-btn">Add</button>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="block">
+    <legend><span class="step">3</span> Your previous working life</legend>
+    <p class="hint">Add up to four previous roles. Pick the closest kind of role or type your job title. We'll suggest the competencies that kind of role usually shows. Tick only the ones that are true for you, and add one line of evidence to make each one count in full.</p>
+    <div id="roles"></div>
+    <button type="button" class="button-secondary" id="add-role">Add another role</button>
+  </fieldset>
+
+  <fieldset class="block">
+    <legend><span class="step">4</span> Qualifications</legend>
+    <div class="field">
+      <label class="choice"><input type="checkbox" id="ci_diploma" checked> Code Institute Data Analytics with AI diploma</label>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="degree">Degree</label>
+        <select id="degree">
+          {% for value, label in degrees.items() %}<option value="{{ value }}">{{ label }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="other_quals">Other qualifications (optional)</label>
+        <input id="other_quals" maxlength="200">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="block">
+    <legend><span class="step">5</span> Experience and pay</legend>
+    <div class="field-row">
+      <div class="field">
+        <label for="data_years">Years in a data job</label>
+        <input id="data_years" type="number" min="0" max="40" step="0.5" value="0" inputmode="decimal">
+        <p class="hint">Most people finishing the course have none. That's fine: we look for jobs that don't demand it.</p>
+      </div>
+      <div class="field">
+        <label for="min_salary">Minimum salary per year (optional)</label>
+        <input id="min_salary" type="number" min="0" step="1000" inputmode="numeric">
+        <p class="hint">Adverts that don't state pay are never hidden by this.</p>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <button type="submit" class="button-primary">See my matches</button>
+    <button type="button" class="button-quiet" id="clear-profile">Clear my profile</button>
+  </div>
+  <p class="status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+
+<template id="role-template">
+  <fieldset class="role">
+    <legend class="role-legend">Role <span data-role-n></span></legend>
+    <div class="field-row">
+      <div class="field">
+        <label data-for="title">Job title (optional)</label>
+        <input data-field="title" maxlength="80" list="archetype-names" autocomplete="organization-title">
+      </div>
+      <div class="field">
+        <label data-for="archetype">Closest kind of role</label>
+        <select data-field="archetype">
+          <option value="">Choose…</option>
+          {% for a in archetypes %}<option value="{{ a.id }}">{{ a.label }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+    <p class="hint match-note" data-match-note aria-live="polite"></p>
+    <div class="field-row">
+      <div class="field">
+        <label data-for="seniority">Level</label>
+        <select data-field="seniority">
+          <option value="individual">Individual</option>
+          <option value="supervisor">Supervisor</option>
+          <option value="manager">Manager</option>
+          <option value="senior_manager">Senior manager</option>
+          <option value="director">Director</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-for="years">Years</label>
+        <input data-field="years" type="number" min="0" max="60" step="0.5" inputmode="decimal">
+      </div>
+    </div>
+    <div class="competencies" data-competencies></div>
+    <div class="field add-row">
+      <label data-for="add-comp">Add another competency from this role</label>
+      <div class="inline">
+        <select data-field="add-comp"></select>
+        <button type="button" class="button-secondary" data-add-comp>Add</button>
+      </div>
+    </div>
+    <button type="button" class="button-quiet" data-remove-role>Remove this role</button>
+  </fieldset>
+</template>
+
+<datalist id="archetype-names">
+  {% for a in archetypes %}<option value="{{ a.label }}">{% for al in a.aliases %}<option value="{{ al|capitalize }}">{% endfor %}{% endfor %}
+</datalist>
+<script type="application/json" id="taxonomy-data">{{ taxonomy_json|tojson }}</script>
+<script type="application/json" id="persona-data">{{ personas_json|tojson }}</script>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='profile.js') }}" defer></script>{% endblock %}

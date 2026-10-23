@@ -1,0 +1,30 @@
+{% set mode = "live snapshot " ~ snap.meta.get('snapshot_date') if data.mode == "live" else "synthetic fixtures" %}
+<figure class="figure">
+  <figcaption>
+    <h3>Your matches on the map</h3>
+    <p class="hint">Coloured by how well each advert fits your profile; darker means a better fit, and the legend names each shade. Your home is placed from {{ data.outcode or "your postcode" }} only. <span class="n">n = {{ data.points|length }} mapped adverts</span> · {{ mode }}. Markers sharing a town centre are spread slightly so each can be clicked.</p>
+  </figcaption>
+  <div id="map-you" class="map" role="img" aria-label="Map of your matches coloured by fit"></div>
+  <ul class="map-legend" aria-label="Map legend">
+    {% for t in data.tiers %}<li><span class="swatch swatch-{{ t.id }}" aria-hidden="true"></span>{{ {'strong': 'Strong fit', 'good': 'Good fit', 'stretch': 'Stretch', 'not_yet': 'Not yet'}[t.id] }} <span class="count">{{ t.n }}</span></li>{% endfor %}
+    {% if data.home %}<li><span class="swatch swatch-home" aria-hidden="true"></span>Your area</li>{% endif %}
+  </ul>
+</figure>
+
+<div class="chart-grid">
+  <figure class="figure">
+    <figcaption><h3>Your competencies most in demand</h3><p class="hint">How many entry-plausible adverts ask for each competency you ticked. <span class="n">n = {{ data.n_entry }} entry-plausible adverts</span> · {{ mode }}</p></figcaption>
+    {% if data.my_competencies %}
+    <div class="chart-box" style="height: {{ 2 + data.my_competencies|length * 2.9 }}rem"><canvas id="chart-mine" role="img" aria-label="Bar chart of your competencies by demand"></canvas></div>
+    <details class="table-twin"><summary>Show as a table</summary><div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">Your competency</th><th scope="col">Adverts asking for it</th></tr></thead><tbody>{% for r in data.my_competencies %}<tr><td>{{ r.label|capfirst }}</td><td>{{ r.n }}</td></tr>{% endfor %}</tbody></table></div></details>
+    {% else %}<p>You haven't ticked any competencies yet. <a href="{{ url_for('web.profile') }}">Add your previous roles</a>.</p>{% endif %}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>Your matches by distance</h3><p class="hint">Straight-line miles from {{ data.outcode or "your area" }}. <span class="n">n = {{ data.n_results }} matches</span> · {{ mode }}</p></figcaption>
+    {% if data.home %}
+    <div class="chart-box" style="height: {{ 2 + data.distance_bands|length * 2.2 }}rem"><canvas id="chart-distance" role="img" aria-label="Bar chart of matches by distance band"></canvas></div>
+    <details class="table-twin"><summary>Show as a table</summary><div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">Distance</th><th scope="col">Matches</th></tr></thead><tbody>{% for r in data.distance_bands %}<tr><td>{{ r.label|capfirst }}</td><td>{{ r.n }}</td></tr>{% endfor %}</tbody></table></div></details>
+    {% else %}<p>Add your postcode to your profile to see distances.</p>{% endif %}
+  </figure>
+</div>
+<script type="application/json" id="insights-personal">{{ data|tojson }}</script>

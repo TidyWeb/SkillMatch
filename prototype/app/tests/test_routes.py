@@ -1,0 +1,140 @@
+import json
+import os
+import tempfile
+import time
+from pathlib import Path
+
+import pytest
+
+from skillmatch import config
+from skillmatch.etl.pipeline import run
+from skillmatch.profile import personas
+from skillmatch.web import create_app
+
+
+@pytest.fixture(scope="module")
+def db(tmp_path_factory):
+    d = tmp_path_factory.mktemp("web")
+    run("fixtures", db_path=d / "web.db", reports_dir=d / "reports", offline=True)
+    return d / "web.db"
+
+
+@pytest.fixture
+def client(db):
+    return create_app({"TESTING": True, "DB_PATH": str(db)}).test_client()
+
+
+def profile_json(pid="chef_wolverhampton", **extra):
+    return json.dumps({**personas()[pid], **extra})
+
+
+@pytest.mark.parametrize("path", ["/", "/results", "/insights", "/sources", "/about", "/healthz"])
+def test_get_pages(client, path):
+    r = client.get(path)
+    assert r.status_code == 200
+    assert b"SkillMatch" in r.data or path == "/healthz"
+
+
+def test_footer_shows_data_mode(client):
+    assert b"Fixtures" in client.get("/").data
+
+
+def test_results_for_every_persona(client):
+    seen = set()
+    for pid in personas():
+        r = client.post("/results", data={"profile": profile_json(pid)})
+        assert r.status_code == 200
+        html = r.data.decode()
+        assert "How your background answers this" in html
+        assert "Also search these sources near you" in html
+        assert "senior roles hidden" in html
+        seen.add(html.split("tier-strong", 1)[-1][:2000])
+    assert len(seen) == len(personas())  # different people get different lists
+
+
+def test_results_without_profile(client):
+    r = client.post("/results", data={})
+    assert r.status_code == 200 and b"Start with your profile" in r.data
+
+
+def test_reveal_senior_roles(client):
+    r = client.post("/results", data={"profile": profile_json(), "reveal": "senior role"})
+    assert b"Shown because you asked" in r.data
+    assert b"Hidden by default: senior role" in r.data
+
+
+def test_filters(client):
+    r = client.post(
+        "/results",
+        data={
+            "profile": profile_json(),
+            "tier": "strong",
+            "arrangement": "hybrid",
+            "max_miles": "10",
+        },
+    )
+    html = r.data.decode()
+    assert r.status_code == 200
+    assert 'Not yet</span> <span class="count">' not in html.split("Hidden from this list")[-1]
+
+
+def test_job_pages(client, db):
+    from skillmatch.repository import load
+
+    snap = load(db)
+    ids = [v["vacancy_id"] for v in snap.shown][:3]
+    for job_id in ids:
+        assert client.get(f"/job/{job_id}").status_code == 200
+        r = client.post(f"/job/{job_id}", data={"profile": profile_json("teacher_stoke")})
+        assert r.status_code == 200
+        assert b"Requirement by requirement" in r.data
+    assert client.get("/job/nope:1").status_code == 404
+
+
+def test_insights_personal(client):
+    r = client.post("/insights", data={"profile": profile_json("nurse_worcester")})
+    assert r.status_code == 200
+
+
+def test_archetype_api(client):
+    assert client.get("/api/archetype?title=Head+Chef").get_json()["id"] == "kitchen_manager"
+    assert client.get("/api/archetype?title=zzzz").get_json() == {}
+
+
+def test_profile_is_never_written_to_disk_or_cookies(client, db):
+    """Post a profile with a unique marker; no file anywhere we can see may contain it afterwards."""
+    marker = f"MARKER-{time.time_ns()}"
+    prof = personas()["retail_telford"]
+    prof = {**prof, "roles": [{**prof["roles"][0], "competencies": {"kpi_monitoring": marker}}]}
+    start = time.time() - 1
+    responses = [
+        client.post("/results", data={"profile": json.dumps(prof)}),
+        client.post("/insights", data={"profile": json.dumps(prof)}),
+    ]
+    from skillmatch.repository import load
+
+    job_id = load(db).shown[0]["vacancy_id"]
+    responses.append(client.post(f"/job/{job_id}", data={"profile": json.dumps(prof)}))
+    for r in responses:
+        assert r.status_code == 200
+        assert "Set-Cookie" not in r.headers
+    roots = [config.ROOT, Path(tempfile.gettempdir()), db.parent]
+    for root in roots:
+        for dirpath, dirnames, filenames in os.walk(root):
+            dirnames[:] = [
+                d for d in dirnames if d not in (".git", ".venv", "node_modules", "__pycache__")
+            ]
+            for name in filenames:
+                p = Path(dirpath) / name
+                try:
+                    if p.stat().st_mtime < start or p.stat().st_size > 5_000_000:
+                        continue
+                    assert marker.encode() not in p.read_bytes(), f"profile data found in {p}"
+                except (PermissionError, FileNotFoundError, OSError):
+                    continue
+
+
+def test_full_postcode_is_reduced_to_outward_code(client):
+    r = client.post("/results", data={"profile": profile_json(postcode="WV1 1SH")})
+    html = r.data.decode()
+    assert "near WV1" in html and "1SH" not in html

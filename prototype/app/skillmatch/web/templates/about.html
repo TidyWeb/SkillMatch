@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<article class="prose">
+<header class="page-head">
+  <h1>How SkillMatch works</h1>
+  <p class="lede">SkillMatch is for people finishing Code Institute's Data Analytics with AI course in the West Midlands: teachers, nurses, researchers, managers, chefs and many more, who have new data skills and years of experience elsewhere. It matches people's skills, not job titles or sector history.</p>
+</header>
+
+<h2>Matching, step by step</h2>
+<ol>
+  <li><strong>Collecting adverts.</strong> Each night we collect data adverts from official feeds (see <a href="{{ url_for('web.sources') }}">Sources</a>), keep those in the West Midlands or open to UK-remote workers, and remove duplicates while keeping every link.</li>
+  <li><strong>Hiding what isn't for you yet.</strong> Titles with senior words (senior, lead, manager, head of, director and similar) are hidden, as are non-data jobs and paid training courses advertised as jobs. Nothing is deleted: your results say how many were hidden and let you show them. "Senior stakeholders" in a description never hides a job; only the title counts.</li>
+  <li><strong>Reading each advert.</strong> Rules split the advert into statements and sort each into essential, desirable or "describes the job", using headings ("Essential", "Nice to have") and wording ("must", "ideally", "would be advantageous"). Each statement is linked to the technical skills and transferable competencies it signals, using a reviewable vocabulary. We keep the advert's own sentence as evidence.</li>
+  <li><strong>Comparing with your profile.</strong> For each requirement:
+    <ul>
+      <li><strong>Met</strong> when you've used the skill in a project or are confident in it, or you've ticked the competency and given a line of evidence.</li>
+      <li><strong>Partly met</strong> when you learned the skill on the course only, know a closely related tool (Tableau for Power BI, say), or ticked the competency without evidence.</li>
+      <li><strong>Not yet</strong> when nothing in your profile answers it.</li>
+    </ul>
+    A competency you showed at manager level or above answers requirements about leadership, senior stakeholders or reporting to leadership.</li>
+  <li><strong>Experience in data.</strong> Only an advert's explicit demand for experience in a data role ("2+ years as a data analyst", "3 years' SQL") is compared with your years in a data job. Up to a year's gap doesn't count against you when the advert welcomes newcomers or accepts equivalent experience.</li>
+  <li><strong>Grouping.</strong>
+    <ul>
+      <li><strong>Strong fit:</strong> every essential requirement met, at most one only partly, and no data-experience gap.</li>
+      <li><strong>Good fit:</strong> at most one essential requirement not yet in your profile.</li>
+      <li><strong>Stretch:</strong> two essential gaps, or about two years' data experience short.</li>
+      <li><strong>Not yet:</strong> three or more gaps, or a bigger experience gap.</li>
+    </ul>
+    There are no percentages: a score would suggest a precision the rules don't have.</li>
+  <li><strong>Explaining it.</strong> For each requirement you meet, SkillMatch writes a sentence from your own evidence line, such as "Requirement: reporting to senior leadership. Your evidence: as a kitchen manager, you ran weekly stock and margin reports for the owners." No AI writes these, and nothing calls an AI service: they are fixed templates filled from your profile.</li>
+</ol>
+
+<h2>Limitations</h2>
+<ul>
+  <li><strong>Distances are straight lines</strong> from the centre of your postcode district, not travel times. Ten miles across a city can be an hour by bus. Travel-time estimates are planned.</li>
+  <li><strong>Coverage is partial.</strong> We can only read sources with an official feed. Many good jobs are on council, NHS, charity and recruiter sites we can only link to. Use the "Also search these sources" links on your results.</li>
+  <li><strong>Reading adverts by rule is imperfect.</strong> Adverts are written in many styles. Some requirements are missed or misread, and some can't be linked to a skill ("a full driving licence"). Those are shown on the job page and don't count either way. Always read the full advert before applying.</li>
+  <li><strong>The vocabularies are drafts</strong> for the team to review. They decide which phrases count as which competency, so they shape every result.</li>
+  <li><strong>Salaries are shown only as advertised.</strong> We never estimate missing pay.</li>
+  <li><strong>The insights describe this snapshot</strong> of adverts, not the whole job market.</li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+<ul>
+  <li>Your profile lives in your browser's session storage for this tab only. Closing the tab clears it, and there are no accounts.</li>
+  <li>When you look at results, your browser sends the profile with that one request. The server uses it to build the page and then forgets it. It isn't written to disk, logged, put in a cookie or sent to any analytics.</li>
+  <li><strong>Only the first part of your postcode is used</strong> (for example B91 from B91 3QS). Your browser removes the second part before anything is sent, and SkillMatch looks up only that first part, either in its own table or with postcodes.io. It places you to within a few miles, which is enough for straight-line distances.</li>
+  <li>Job titles you type are matched to a kind of role on our server; they aren't stored either.</li>
+  <li>Pages load a few open-source libraries (HTMX, Chart.js, Leaflet) from public code servers, and the map loads tiles from OpenStreetMap. Those servers see your IP address, as with any website.</li>
+</ul>
+
+<h2>Who made it</h2>
+<p>SkillMatch was built by Tidy Web for a Code Institute hackathon. The code is MIT-licensed. The demo profiles are fictional people, and the fixture adverts are invented.</p>
+</article>
+{% endblock %}

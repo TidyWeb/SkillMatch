@@ -1,0 +1,73 @@
+name,lat,lon,region,county,approximate
+Aldridge,52.60541,-1.91722,West Midlands,Walsall,false
+Atherstone,52.57722,-1.54642,West Midlands,Warwickshire,false
+Bedworth,52.47852,-1.47192,West Midlands,Warwickshire,false
+Birmingham,52.47928,-1.90294,West Midlands,Birmingham,false
+Bridgnorth,52.53584,-2.41982,West Midlands,Shropshire,false
+Brierley Hill,52.47251,-2.10454,West Midlands,Dudley,false
+Bromsgrove,52.33523,-2.05928,West Midlands,Worcestershire,false
+Burton upon Trent,52.80738,-1.64479,West Midlands,Staffordshire,false
+Burton-on-Trent,52.80738,-1.64479,West Midlands,Staffordshire,false
+Cannock,52.68995,-2.03317,West Midlands,Staffordshire,false
+Chelmsley Wood,52.47971,-1.7326,West Midlands,Solihull,false
+Cheltenham,51.90073,-2.07669,South West,Gloucestershire,false
+Cheshire,53.09503,-2.44176,North West,Cheshire East,true
+Coleshill,52.49734,-1.70552,West Midlands,Warwickshire,false
+Coventry,52.40771,-1.50686,West Midlands,Coventry,false
+Crewe,53.09503,-2.44176,North West,Cheshire East,false
+Derby,52.92469,-1.47805,East Midlands,City of Derby,false
+Derbyshire,52.92469,-1.47805,East Midlands,City of Derby,true
+Droitwich,52.26809,-2.1457,West Midlands,Worcestershire,false
+Droitwich Spa,52.26809,-2.1457,West Midlands,Worcestershire,false
+Dudley,52.51005,-2.08316,West Midlands,Dudley,false
+Ellesmere,52.90728,-2.89376,West Midlands,Shropshire,false
+Evesham,52.09262,-1.94742,West Midlands,Worcestershire,false
+Gaydon,52.18246,-1.47134,West Midlands,Warwickshire,false
+Gloucester,51.86455,-2.24693,South West,Gloucestershire,false
+Gloucestershire,51.86455,-2.24693,South West,Gloucestershire,true
+Halesowen,52.45341,-2.06091,West Midlands,Dudley,false
+Hereford,52.05598,-2.71755,West Midlands,County of Herefordshire,false
+Herefordshire,52.05598,-2.71755,West Midlands,County of Herefordshire,true
+Kenilworth,52.34256,-1.5791,West Midlands,Warwickshire,false
+Kidderminster,52.3882,-2.24923,West Midlands,Worcestershire,false
+Kingswinford,52.49767,-2.16576,West Midlands,Dudley,false
+Leamington,52.29196,-1.53581,West Midlands,Warwickshire,false
+Leamington Spa,52.29196,-1.53581,West Midlands,Warwickshire,false
+Leicester,52.63361,-1.13346,East Midlands,City of Leicester,false
+Leominster,52.2272,-2.73883,West Midlands,County of Herefordshire,false
+Lichfield,52.68308,-1.82729,West Midlands,Staffordshire,false
+Ludlow,52.36765,-2.71901,West Midlands,Shropshire,false
+Lutterworth,52.45459,-1.20027,East Midlands,Leicestershire,false
+Macclesfield,53.2606,-2.12554,North West,Cheshire East,false
+Malvern,52.12509,-2.33159,West Midlands,Worcestershire,false
+Newcastle-under-Lyme,53.01116,-2.22801,West Midlands,Staffordshire,false
+Nuneaton,52.52214,-1.46773,West Midlands,Warwickshire,false
+Oldbury,52.50509,-2.01593,West Midlands,Sandwell,false
+Oswestry,52.86061,-3.05553,West Midlands,Shropshire,false
+Redditch,52.30693,-1.94152,West Midlands,Worcestershire,false
+Royal Leamington Spa,52.29196,-1.53581,West Midlands,Warwickshire,false
+Royal Sutton Coldfield,52.5631,-1.82313,West Midlands,Birmingham,false
+Rugby,52.37218,-1.26265,West Midlands,Warwickshire,false
+Shrewsbury,52.70817,-2.75433,West Midlands,Shropshire,false
+Shropshire,52.70817,-2.75433,West Midlands,Shropshire,true
+Smethwick,52.49074,-1.96776,West Midlands,Sandwell,false
+Solihull,52.41275,-1.77755,West Midlands,Solihull,false
+Stafford,52.8058,-2.11666,West Midlands,Staffordshire,false
+Staffordshire,52.8058,-2.11666,West Midlands,Staffordshire,true
+Stoke-on-Trent,53.02218,-2.17337,West Midlands,City of Stoke-on-Trent,false
+Stone,52.90141,-2.14516,West Midlands,Staffordshire,false
+Stourbridge,52.45507,-2.1433,West Midlands,Dudley,false
+Stratford-upon-Avon,52.19269,-1.70635,West Midlands,Warwickshire,false
+Sutton Coldfield,52.5631,-1.82313,West Midlands,Birmingham,false
+Tamworth,52.63343,-1.69245,West Midlands,Staffordshire,false
+Telford,52.6754,-2.44875,West Midlands,Telford and Wrekin,false
+Walsall,52.58622,-1.98034,West Midlands,Walsall,false
+Warwick,52.28345,-1.58923,West Midlands,Warwickshire,false
+Warwickshire,52.28345,-1.58923,West Midlands,Warwickshire,true
+Wellington,52.70071,-2.51526,West Midlands,Telford and Wrekin,false
+West Bromwich,52.52018,-1.99686,West Midlands,Sandwell,false
+West Midlands,52.47928,-1.90294,West Midlands,Birmingham,true
+West Midlands (Region),52.47928,-1.90294,West Midlands,Birmingham,true
+Wolverhampton,52.5862,-2.12992,West Midlands,City of Wolverhampton,false
+Worcester,52.19293,-2.22109,West Midlands,Worcestershire,false
+Worcestershire,52.19293,-2.22109,West Midlands,Worcestershire,true

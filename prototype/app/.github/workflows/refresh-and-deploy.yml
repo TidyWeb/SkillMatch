@@ -1,0 +1,87 @@
+# Nightly: rebuild the vacancy database from live sources, test, bake it into the container and
+# deploy to Cloud Run. Vacancy data is never committed: it lives only in the built image.
+# One-time Google Cloud setup: docs/deploy.md.
+name: refresh-and-deploy
+
+on:
+  schedule:
+    - cron: "30 2 * * *" # 02:30 UTC every night
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # for Workload Identity Federation (no stored Google keys)
+
+concurrency:
+  group: refresh-and-deploy
+  cancel-in-progress: false
+
+env:
+  REGION: europe-west2
+  SERVICE: skillmatch
+  REPOSITORY: skillmatch
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.12.3"
+
+      - name: Install
+        run: uv sync --frozen
+
+      - name: Check the Reed key is configured
+        env:
+          REED_API_KEY: ${{ secrets.REED_API_KEY }}
+        run: test -n "$REED_API_KEY" || { echo "::error::Set the REED_API_KEY repository secret"; exit 1; }
+
+      - name: Refresh vacancies (live ETL)
+        env:
+          REED_API_KEY: ${{ secrets.REED_API_KEY }}
+          CVLIBRARY_FEED_URL: ${{ secrets.CVLIBRARY_FEED_URL }}
+        run: uv run python -m skillmatch.etl --mode live
+
+      - name: Test
+        run: uv run pytest
+
+      - name: Keep the data-quality report
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-report
+          path: reports/quality_*.md
+          retention-days: 30
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build and push the image
+        run: |
+          IMAGE="${REGION}-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/${REPOSITORY}/${SERVICE}:${GITHUB_SHA::12}-${GITHUB_RUN_ID}"
+          gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy "$SERVICE" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --region "$REGION" \
+            --image "$IMAGE" \
+            --port 8080 \
+            --min-instances 0 \
+            --max-instances 1 \
+            --memory 512Mi \
+            --cpu 1 \
+            --allow-unauthenticated \
+            --quiet

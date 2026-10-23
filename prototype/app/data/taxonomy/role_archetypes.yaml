@@ -1,0 +1,217 @@
+# DRAFT: for team review
+#
+# Previous careers ("archetypes") and the competencies each one typically evidences.
+# When a user picks an archetype, or types a job title that fuzzy-matches one, the app proposes
+# these competencies. The user then ticks only the ones that are true for them and can add
+# one line of evidence each.
+#
+# Each archetype:
+#   id                lower_snake_case, never change once used
+#   label             what the user sees
+#   aliases           other job titles people type for this career (used for fuzzy matching)
+#   competencies      ids from competencies.yaml, most characteristic first
+#   example_evidence  one realistic evidence line, written as the user would ("Ran …", "Led …")
+#
+# See docs/taxonomy_review_guide.md for how to review this file.
+
+archetypes:
+  - id: phd_researcher
+    label: PhD researcher or postdoc
+    aliases: [PhD student, doctoral researcher, postdoctoral researcher, research fellow, research associate, postdoc]
+    competencies: [research_methods, analytical_thinking, technical_writing, communicating_non_technical, independent_working, project_management, numerical_confidence, training_others, organisation_prioritising, clear_communication, stakeholder_management]
+    example_evidence: Designed and ran a three-year survey study of 1,200 participants and published the results in two journals.
+  - id: teacher
+    label: Teacher
+    aliases: [secondary teacher, primary teacher, head of department, school teacher, classroom teacher, head of year, SENCO]
+    competencies: [communicating_non_technical, training_others, kpi_monitoring, data_entry_records, organisation_prioritising, stakeholder_management, regulatory_compliance, sector_education, clear_communication, analytical_thinking]
+    example_evidence: Tracked attainment data for 180 pupils each term and presented progress to parents and the senior leadership team.
+  - id: lecturer
+    label: Lecturer or tutor
+    aliases: [university lecturer, college lecturer, FE lecturer, senior lecturer, tutor, teaching fellow]
+    competencies: [training_others, communicating_non_technical, research_methods, technical_writing, analytical_thinking, sector_education, clear_communication, independent_working]
+    example_evidence: Designed and taught a statistics module to 90 first-year students and redesigned its assessment.
+  - id: nurse
+    label: Nurse or midwife
+    aliases: [staff nurse, ward sister, charge nurse, midwife, nurse practitioner, district nurse, practice nurse, ward manager]
+    competencies: [attention_to_detail, data_entry_records, problem_solving_pressure, confidential_data, regulatory_compliance, teamwork, sector_health_care, customer_service, following_procedures, scheduling_rota_planning, clear_communication, analytical_thinking, stakeholder_management, organisation_prioritising]
+    example_evidence: Audited medication records on a 28-bed ward each month and cut recording errors by a third.
+  - id: nhs_administrator
+    label: NHS or healthcare administrator
+    aliases: [medical secretary, ward clerk, practice manager, patient services administrator, health records officer, booking coordinator]
+    competencies: [data_entry_records, attention_to_detail, confidential_data, scheduling_rota_planning, customer_service, sector_health_care, following_procedures, organisation_prioritising]
+    example_evidence: Managed outpatient booking lists for four clinics and produced weekly waiting-time reports for the service manager.
+  - id: social_worker
+    label: Social worker
+    aliases: [social worker, case worker, caseworker, family support worker, youth worker, probation officer]
+    competencies: [confidential_data, stakeholder_management, technical_writing, data_entry_records, problem_solving_pressure, regulatory_compliance, sector_public_policing, independent_working, clear_communication]
+    example_evidence: Held a caseload of 20 families, wrote court reports and kept case records up to date on Mosaic.
+  - id: police_civil_service
+    label: Police officer or civil servant
+    aliases: [police officer, police constable, detective, civil servant, executive officer, higher executive officer, policy officer, intelligence officer]
+    competencies: [regulatory_compliance, confidential_data, technical_writing, analytical_thinking, following_procedures, problem_solving_pressure, sector_public_policing, stakeholder_management, clear_communication]
+    example_evidence: Analysed incident data to identify crime hotspots and briefed the neighbourhood team each week.
+  - id: accountant_bookkeeper
+    label: Accountant or bookkeeper
+    aliases: [accountant, bookkeeper, accounts assistant, finance officer, management accountant, credit controller, payroll officer, accounts payable]
+    competencies: [numerical_confidence, attention_to_detail, budget_cost_control, reporting_to_leadership, regulatory_compliance, data_entry_records, commercial_awareness, following_procedures, clear_communication, analytical_thinking]
+    example_evidence: Produced monthly management accounts and variance reports for the directors of a £5m business.
+  - id: retail_store_manager
+    label: Retail store manager
+    aliases: [store manager, shop manager, branch manager, deputy store manager, assistant store manager, area manager]
+    competencies: [kpi_monitoring, team_leadership, stock_inventory_supply, scheduling_rota_planning, budget_cost_control, customer_insight, commercial_awareness, reporting_to_leadership, sector_retail_hospitality, training_others, clear_communication, analytical_thinking, stakeholder_management, organisation_prioritising]
+    example_evidence: Ran a store with 35 staff and £4m turnover, reviewing weekly sales, margin and shrinkage KPIs with the area manager.
+  - id: retail_assistant
+    label: Retail or sales assistant
+    aliases: [sales assistant, shop assistant, retail assistant, cashier, customer assistant, store colleague]
+    competencies: [customer_service, stock_inventory_supply, teamwork, attention_to_detail, sector_retail_hospitality, clear_communication]
+    example_evidence: Counted and recorded stock for the weekly order and handled customer queries on the shop floor.
+  - id: warehouse_supervisor
+    label: Warehouse or logistics supervisor
+    aliases: [warehouse supervisor, warehouse manager, logistics supervisor, shift manager, transport planner, distribution supervisor, team leader warehouse, goods in supervisor]
+    competencies: [kpi_monitoring, team_leadership, stock_inventory_supply, scheduling_rota_planning, process_improvement, regulatory_compliance, multi_site_coordination, sector_manufacturing_logistics, problem_solving_pressure, clear_communication, stakeholder_management, organisation_prioritising]
+    example_evidence: Supervised a night shift of 25, tracked picks per hour against target and reorganised the pick path to cut walking time.
+  - id: kitchen_manager
+    label: Kitchen manager or head chef
+    aliases: [head chef, sous chef, kitchen manager, chef de cuisine, catering manager, executive chef]
+    competencies: [stock_inventory_supply, budget_cost_control, scheduling_rota_planning, team_leadership, regulatory_compliance, problem_solving_pressure, kpi_monitoring, training_others, sector_retail_hospitality, attention_to_detail, clear_communication, stakeholder_management, organisation_prioritising]
+    example_evidence: Ran weekly stock and margin reports for a 40-cover restaurant and cut food waste by 15%.
+  - id: hospitality_manager
+    label: Hospitality, hotel or bar manager
+    aliases: [hotel manager, restaurant manager, bar manager, pub manager, general manager hospitality, front of house manager, duty manager]
+    competencies: [team_leadership, customer_insight, kpi_monitoring, budget_cost_control, scheduling_rota_planning, customer_service, commercial_awareness, sector_retail_hospitality, clear_communication]
+    example_evidence: Tracked covers, spend per head and review scores weekly and changed the rota to match busy periods.
+  - id: call_centre_team_leader
+    label: Call or contact centre team leader
+    aliases: [contact centre team leader, call centre supervisor, customer service team leader, contact centre manager, call centre agent]
+    competencies: [kpi_monitoring, team_leadership, customer_service, training_others, customer_insight, scheduling_rota_planning, problem_solving_pressure, data_entry_records, clear_communication, stakeholder_management, organisation_prioritising]
+    example_evidence: Led a team of 12 advisers, reported daily call-handling and first-contact-resolution figures and coached the lowest performers.
+  - id: sales_executive
+    label: Sales executive or account manager
+    aliases: [sales executive, account manager, business development executive, sales representative, sales manager, key account manager]
+    competencies: [stakeholder_management, negotiation, commercial_awareness, kpi_monitoring, customer_insight, clear_communication, independent_working, customer_service]
+    example_evidence: Managed 60 business accounts, tracked my pipeline in Salesforce and beat target in three of four quarters.
+  - id: marketing_coordinator
+    label: Marketing coordinator or executive
+    aliases: [marketing executive, marketing assistant, marketing officer, digital marketing executive, social media manager, communications officer, campaign executive]
+    competencies: [customer_insight, kpi_monitoring, communicating_non_technical, project_management, technical_writing, commercial_awareness, stakeholder_management, analytical_thinking]
+    example_evidence: Reported email and social campaign results monthly and used them to move budget to the best-performing channels.
+  - id: hr_officer
+    label: HR officer or adviser
+    aliases: [HR officer, HR adviser, HR advisor, HR administrator, people adviser, recruitment coordinator, HR business partner]
+    competencies: [confidential_data, regulatory_compliance, data_entry_records, stakeholder_management, technical_writing, attention_to_detail, following_procedures, reporting_to_leadership, clear_communication]
+    example_evidence: Maintained HR records for 400 staff and produced the monthly absence and turnover report for the leadership team.
+  - id: project_manager
+    label: Project or programme manager
+    aliases: [project manager, programme manager, project coordinator, PMO officer, project officer, delivery manager]
+    competencies: [project_management, stakeholder_management, reporting_to_leadership, budget_cost_control, change_management, organisation_prioritising, team_leadership, technical_writing, clear_communication]
+    example_evidence: Delivered a £1.2m systems project on time, reporting RAG status to the steering committee every fortnight.
+  - id: operations_manager
+    label: Operations manager
+    aliases: [operations manager, operations director, general manager, service manager, site manager, production manager]
+    competencies: [kpi_monitoring, process_improvement, team_leadership, budget_cost_control, multi_site_coordination, reporting_to_leadership, scheduling_rota_planning, stakeholder_management, problem_solving_pressure, clear_communication, analytical_thinking]
+    example_evidence: Ran operations across three sites, owned the weekly KPI pack and led a process review that cut turnaround time by 20%.
+  - id: senior_manager
+    label: Senior manager
+    aliases: [senior manager, head of department, head of service, regional manager, divisional manager, department head]
+    competencies: [reporting_to_leadership, stakeholder_management, team_leadership, budget_cost_control, change_management, kpi_monitoring, commercial_awareness, multi_site_coordination, clear_communication]
+    example_evidence: Led a department of 60 with a £3m budget and presented quarterly performance to the executive board.
+  - id: company_director
+    label: Company director or plc board member
+    aliases: [director, managing director, company director, board member, non-executive director, plc director, chief executive, CEO, CFO, COO]
+    competencies: [reporting_to_leadership, commercial_awareness, stakeholder_management, budget_cost_control, change_management, team_leadership, negotiation, regulatory_compliance, kpi_monitoring, clear_communication, analytical_thinking]
+    example_evidence: Sat on a plc board, reviewed monthly financial and operational dashboards and reported to shareholders and the audit committee.
+  - id: small_business_owner
+    label: Small business owner
+    aliases: [business owner, self-employed, sole trader, founder, owner manager, franchisee, shop owner]
+    competencies: [commercial_awareness, budget_cost_control, independent_working, customer_insight, negotiation, stock_inventory_supply, problem_solving_pressure, data_entry_records]
+    example_evidence: Ran my own business for eight years, keeping the books, tracking sales by product and negotiating with suppliers.
+  - id: engineer
+    label: Engineer
+    aliases: [mechanical engineer, electrical engineer, civil engineer, design engineer, quality engineer, process engineer, manufacturing engineer, maintenance engineer]
+    competencies: [analytical_thinking, problem_solving_pressure, numerical_confidence, process_improvement, technical_writing, attention_to_detail, project_management, regulatory_compliance, sector_manufacturing_logistics, clear_communication]
+    example_evidence: Analysed production-line fault data to find the root cause of recurring stoppages and wrote the fix into the maintenance plan.
+  - id: tradesperson_site_manager
+    label: Tradesperson or site manager
+    aliases: [electrician, plumber, joiner, carpenter, builder, site manager, site supervisor, foreman, construction manager, gas engineer]
+    competencies: [project_management, scheduling_rota_planning, regulatory_compliance, budget_cost_control, problem_solving_pressure, team_leadership, customer_service, independent_working, sector_energy_property]
+    example_evidence: Priced and scheduled jobs for a team of four, kept health and safety records and managed materials budgets.
+  - id: armed_forces
+    label: Armed forces
+    aliases: [soldier, army, royal navy, RAF, armed forces, military, NCO, officer cadet, veteran, service leaver]
+    competencies: [team_leadership, problem_solving_pressure, following_procedures, organisation_prioritising, training_others, confidential_data, stakeholder_management, independent_working]
+    example_evidence: Led a section of eight, planned logistics for exercises and trained new recruits on equipment procedures.
+  - id: charity_fundraising_officer
+    label: Charity or fundraising officer
+    aliases: [fundraiser, fundraising officer, charity officer, volunteer coordinator, community officer, programme officer, impact officer]
+    competencies: [stakeholder_management, research_methods, technical_writing, kpi_monitoring, data_entry_records, communicating_non_technical, sector_charity, project_management]
+    example_evidence: Managed supporter records on Raiser's Edge and wrote the annual impact report for funders and trustees.
+  - id: journalist_writer
+    label: Journalist or writer
+    aliases: [journalist, reporter, writer, editor, copywriter, content writer, subeditor, editorial assistant]
+    competencies: [research_methods, communicating_non_technical, technical_writing, organisation_prioritising, independent_working, analytical_thinking, clear_communication, attention_to_detail]
+    example_evidence: Researched and wrote data-led news stories to daily deadlines, checking every figure with the source.
+  - id: film_tv_production
+    label: Film, TV or events production
+    aliases: [producer, production coordinator, production manager, assistant producer, researcher tv, runner, production assistant]
+    competencies: [project_management, scheduling_rota_planning, budget_cost_control, stakeholder_management, problem_solving_pressure, organisation_prioritising, teamwork, negotiation]
+    example_evidence: Scheduled a 30-day shoot, tracked a £400k budget daily and kept cast, crew and locations coordinated.
+  - id: scientist_lab_technician
+    label: Scientist or lab technician
+    aliases: [laboratory technician, lab technician, research scientist, chemist, biologist, analyst chemist, quality control analyst, biomedical scientist]
+    competencies: [research_methods, attention_to_detail, data_entry_records, analytical_thinking, following_procedures, regulatory_compliance, technical_writing, numerical_confidence]
+    example_evidence: Ran and recorded 200 sample tests a week to ISO 17025 standards and investigated out-of-specification results.
+  - id: pharmacist
+    label: Pharmacist or pharmacy technician
+    aliases: [pharmacist, pharmacy technician, dispenser, pharmacy manager, locum pharmacist]
+    competencies: [attention_to_detail, regulatory_compliance, confidential_data, customer_service, stock_inventory_supply, following_procedures, sector_health_care, data_entry_records, clear_communication]
+    example_evidence: Checked over 300 prescriptions a day, kept controlled-drug records audit-ready and managed stock ordering.
+  - id: it_support
+    label: IT support or service desk
+    aliases: [IT support, service desk analyst, helpdesk, desktop support, IT technician, first line support, second line support]
+    competencies: [problem_solving_pressure, customer_service, data_entry_records, following_procedures, training_others, technical_writing, kpi_monitoring, clear_communication]
+    example_evidence: Resolved around 40 tickets a day, logged every fix in the knowledge base and wrote how-to guides for staff.
+  - id: administrator_pa
+    label: Administrator or PA
+    aliases: [administrator, office administrator, personal assistant, PA, executive assistant, secretary, office manager, receptionist, admin assistant]
+    competencies: [data_entry_records, organisation_prioritising, attention_to_detail, confidential_data, scheduling_rota_planning, stakeholder_management, clear_communication, reporting_to_leadership]
+    example_evidence: Kept the director's diary and board papers, maintained the contacts database and produced the monthly office report.
+  - id: recruiter
+    label: Recruiter or recruitment consultant
+    aliases: [recruitment consultant, recruiter, talent acquisition, resourcer, recruitment manager]
+    competencies: [stakeholder_management, negotiation, kpi_monitoring, commercial_awareness, customer_service, data_entry_records, clear_communication, independent_working]
+    example_evidence: Managed 15 live vacancies at a time, tracked my placements and fill rates and negotiated fees with clients.
+  - id: estate_agent
+    label: Estate or lettings agent
+    aliases: [estate agent, lettings agent, property manager, negotiator, lettings negotiator, branch manager estate agency]
+    competencies: [negotiation, customer_service, commercial_awareness, stakeholder_management, regulatory_compliance, kpi_monitoring, data_entry_records, sector_energy_property]
+    example_evidence: Negotiated sales on around 50 homes a year and kept compliance records for every let.
+  - id: insurance_claims_handler
+    label: Insurance or claims handler
+    aliases: [claims handler, claims adjuster, underwriter, insurance administrator, loss adjuster, customer service insurance]
+    competencies: [attention_to_detail, regulatory_compliance, data_entry_records, customer_service, analytical_thinking, following_procedures, sector_finance_insurance, confidential_data]
+    example_evidence: Assessed 25 claims a week against policy terms, recorded decisions and flagged suspected fraud patterns.
+  - id: bank_branch_staff
+    label: Bank or building society staff
+    aliases: [bank cashier, customer adviser bank, personal banker, branch manager bank, mortgage adviser, financial adviser]
+    competencies: [customer_service, regulatory_compliance, confidential_data, attention_to_detail, kpi_monitoring, sector_finance_insurance, following_procedures, numerical_confidence]
+    example_evidence: Handled customer accounts and lending applications under FCA rules and hit monthly service targets.
+  - id: events_manager
+    label: Events manager
+    aliases: [events manager, event coordinator, conference organiser, wedding planner, events executive]
+    competencies: [project_management, budget_cost_control, stakeholder_management, scheduling_rota_planning, negotiation, problem_solving_pressure, customer_insight, organisation_prioritising]
+    example_evidence: Planned 20 conferences a year with budgets up to £150k and surveyed delegates afterwards to improve the next one.
+  - id: care_worker
+    label: Care worker or support worker
+    aliases: [care assistant, support worker, healthcare assistant, carer, senior carer, domiciliary carer, residential support worker]
+    competencies: [data_entry_records, confidential_data, following_procedures, customer_service, problem_solving_pressure, teamwork, sector_health_care, attention_to_detail, clear_communication]
+    example_evidence: Recorded daily care notes for eight residents and spotted changes that I escalated to the nurse in charge.
+  - id: public_sector_officer
+    label: Council or public sector officer
+    aliases: [council officer, housing officer, licensing officer, benefits officer, revenues officer, local government officer, planning officer]
+    competencies: [regulatory_compliance, data_entry_records, customer_service, following_procedures, stakeholder_management, sector_public_policing, technical_writing, kpi_monitoring]
+    example_evidence: Processed housing applications, kept the caseload database accurate and reported monthly performance figures to my manager.
+  - id: logistics_driver
+    label: Driver or delivery operative
+    aliases: [delivery driver, HGV driver, van driver, courier, bus driver, taxi driver]
+    competencies: [independent_working, following_procedures, customer_service, organisation_prioritising, regulatory_compliance, sector_manufacturing_logistics, problem_solving_pressure]
+    example_evidence: Planned my own multi-drop route of 120 deliveries a day and kept accurate tachograph and delivery records.

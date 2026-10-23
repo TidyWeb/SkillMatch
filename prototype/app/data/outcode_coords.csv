@@ -1,0 +1,231 @@
+outcode,lat,lon,district
+B1,52.47971,-1.90949,Birmingham
+B2,52.48787,-1.89715,Birmingham
+B3,52.48374,-1.90375,Birmingham
+B4,52.48528,-1.89267,Birmingham
+B5,52.46888,-1.89765,Birmingham
+B6,52.50523,-1.88612,Birmingham
+B7,52.49411,-1.87239,Birmingham
+B8,52.49114,-1.84135,Birmingham
+B9,52.47823,-1.85086,Birmingham
+B10,52.46957,-1.85237,Birmingham
+B11,52.45443,-1.85858,Birmingham
+B12,52.46104,-1.88442,Birmingham
+B13,52.43774,-1.87863,Birmingham
+B14,52.41736,-1.88983,Birmingham; Bromsgrove; Solihull
+B15,52.46629,-1.92328,Birmingham
+B16,52.47752,-1.93421,Birmingham; Sandwell
+B17,52.46125,-1.95873,Birmingham
+B18,52.49117,-1.92552,Birmingham; Sandwell
+B19,52.4971,-1.90568,Birmingham
+B20,52.51555,-1.91921,Birmingham
+B21,52.50691,-1.94147,Birmingham; Sandwell
+B23,52.52852,-1.85527,Birmingham
+B24,52.51973,-1.827,Birmingham
+B25,52.46519,-1.82175,Birmingham
+B26,52.46152,-1.78866,Birmingham; Solihull
+B27,52.44452,-1.82277,Birmingham; Solihull
+B28,52.42755,-1.84313,Birmingham; Solihull
+B29,52.43768,-1.94752,Birmingham
+B30,52.42201,-1.92773,Birmingham
+B31,52.40799,-1.97386,Birmingham; Bromsgrove
+B32,52.44835,-1.99451,Birmingham; Bromsgrove
+B33,52.48033,-1.7884,Birmingham
+B34,52.49642,-1.78172,Birmingham
+B35,52.51893,-1.78883,Birmingham
+B36,52.50417,-1.7785,Birmingham; Solihull
+B37,52.47853,-1.74229,Birmingham; Solihull
+B38,52.39987,-1.93477,Birmingham; Bromsgrove
+B40,52.45621,-1.72058,Solihull
+B42,52.53382,-1.91184,Birmingham; Sandwell
+B43,52.5485,-1.93085,Birmingham; Sandwell; Walsall
+B44,52.54571,-1.88511,Birmingham
+B45,52.38867,-2.00881,Birmingham; Bromsgrove
+B46,52.50905,-1.6948,North Warwickshire
+B47,52.38547,-1.87987,Birmingham; Bromsgrove; Stratford-on-Avon
+B48,52.35472,-1.94694,Bromsgrove; Stratford-on-Avon
+B49,52.21808,-1.86725,Stratford-on-Avon; Wychavon
+B50,52.16797,-1.85606,Stratford-on-Avon; Wychavon
+B60,52.32521,-2.05158,Bromsgrove; Wychavon
+B61,52.34655,-2.06879,Bromsgrove; Wychavon
+B62,52.45652,-2.03375,Birmingham; Bromsgrove; Dudley; Sandwell
+B63,52.45147,-2.06997,Dudley
+B64,52.47257,-2.06937,Dudley; Sandwell
+B65,52.48363,-2.04383,Dudley; Sandwell
+B66,52.49269,-1.96465,Birmingham; Sandwell
+B67,52.48559,-1.97881,Sandwell
+B68,52.47865,-2.00138,Sandwell
+B69,52.50278,-2.03019,Sandwell
+B70,52.52105,-2.00449,Sandwell
+B71,52.53606,-1.99049,Sandwell
+B72,52.55009,-1.82191,Birmingham
+B73,52.55318,-1.84237,Birmingham
+B74,52.58435,-1.86226,Birmingham; Lichfield; Walsall
+B75,52.5786,-1.80827,Birmingham; Lichfield; North Warwickshire
+B76,52.54337,-1.78165,Birmingham; North Warwickshire
+B77,52.61868,-1.66802,North Warwickshire; Tamworth
+B78,52.60637,-1.67447,Lichfield; North Warwickshire; Tamworth
+B79,52.65049,-1.68022,Lichfield; North Warwickshire; North West Leicestershire; Tamworth
+B80,52.27326,-1.89226,Redditch; Stratford-on-Avon
+B90,52.39829,-1.82565,Bromsgrove; Solihull
+B91,52.41401,-1.78353,Solihull
+B92,52.43722,-1.77319,Birmingham; Solihull
+B93,52.38026,-1.74425,Solihull; Warwick
+B94,52.3496,-1.79467,Solihull; Stratford-on-Avon; Warwick
+B95,52.28577,-1.78065,Stratford-on-Avon; Warwick
+B96,52.25146,-1.96036,Redditch; Stratford-on-Avon; Wychavon
+B97,52.2996,-1.95487,Bromsgrove; Redditch; Stratford-on-Avon
+B98,52.30218,-1.91278,Bromsgrove; Redditch; Stratford-on-Avon
+B99,52.49595,-1.89423,Birmingham
+CV1,52.40944,-1.5064,Coventry
+CV2,52.42461,-1.46345,Coventry; Nuneaton and Bedworth; Rugby
+CV3,52.39121,-1.47812,Coventry; Rugby; Warwick
+CV4,52.39696,-1.57292,Coventry; Solihull; Warwick
+CV5,52.4129,-1.55633,Coventry; Solihull
+CV6,52.43445,-1.50737,Coventry; Nuneaton and Bedworth
+CV7,52.44733,-1.56595,Coventry; North Warwickshire; Nuneaton and Bedworth; Rugby; Solihull
+CV8,52.35184,-1.54184,Coventry; Rugby; Solihull; Warwick
+CV9,52.58644,-1.56206,Hinckley and Bosworth; North Warwickshire
+CV10,52.52615,-1.50247,Hinckley and Bosworth; North Warwickshire; Nuneaton and Bedworth
+CV11,52.52025,-1.45212,Hinckley and Bosworth; Nuneaton and Bedworth; Rugby
+CV12,52.4788,-1.47236,North Warwickshire; Nuneaton and Bedworth; Rugby
+CV13,52.61625,-1.41259,Hinckley and Bosworth; Nuneaton and Bedworth
+CV21,52.37698,-1.25053,Rugby
+CV22,52.35859,-1.2778,Rugby
+CV23,52.36786,-1.27851,Rugby; Stratford-on-Avon; Warwick; West Northamptonshire
+CV31,52.27774,-1.52437,Stratford-on-Avon; Warwick
+CV32,52.29817,-1.5313,Warwick
+CV33,52.24839,-1.48991,Stratford-on-Avon; Warwick
+CV34,52.28065,-1.57695,Warwick
+CV35,52.22253,-1.59385,Stratford-on-Avon; Warwick
+CV36,52.059,-1.62218,Stratford-on-Avon
+CV37,52.18133,-1.71639,Stratford-on-Avon; Wychavon
+CV47,52.23478,-1.38584,Rugby; Stratford-on-Avon
+WV1,52.58649,-2.11574,Wolverhampton
+WV2,52.57374,-2.11843,Wolverhampton
+WV3,52.57903,-2.15661,South Staffordshire; Wolverhampton
+WV4,52.56136,-2.14478,Dudley; South Staffordshire; Wolverhampton
+WV5,52.53415,-2.21085,Shropshire; South Staffordshire
+WV6,52.59666,-2.18329,Shropshire; South Staffordshire; Wolverhampton
+WV7,52.63552,-2.27901,Shropshire; South Staffordshire
+WV8,52.62589,-2.18754,Shropshire; South Staffordshire; Wolverhampton
+WV9,52.63778,-2.1436,South Staffordshire; Wolverhampton
+WV10,52.61914,-2.11353,South Staffordshire; Wolverhampton
+WV11,52.61068,-2.07187,South Staffordshire; Walsall; Wolverhampton
+WV12,52.60585,-2.04035,Walsall; Wolverhampton
+WV13,52.58516,-2.05802,Walsall; Wolverhampton
+WV14,52.55739,-2.07888,Dudley; Sandwell; Walsall; Wolverhampton
+WV15,52.51477,-2.37398,Shropshire; South Staffordshire
+WV16,52.50895,-2.44163,Shropshire
+WS1,52.57932,-1.97841,Walsall
+WS2,52.58938,-2.00442,Walsall
+WS3,52.61963,-1.9917,Cannock Chase; South Staffordshire; Walsall
+WS4,52.60688,-1.95871,Walsall
+WS5,52.56602,-1.95826,Sandwell; Walsall
+WS6,52.6586,-2.02321,South Staffordshire
+WS7,52.67973,-1.92166,Lichfield
+WS8,52.64737,-1.93314,Cannock Chase; Lichfield; Walsall
+WS9,52.60999,-1.91848,Lichfield; Walsall
+WS10,52.56062,-2.0223,Sandwell; Walsall
+WS11,52.68787,-2.0169,Cannock Chase; South Staffordshire
+WS12,52.70744,-2.00218,Cannock Chase; South Staffordshire; Stafford
+WS13,52.69376,-1.81741,Lichfield
+WS14,52.66447,-1.8169,Lichfield
+WS15,52.75864,-1.91705,Cannock Chase; East Staffordshire; Lichfield; Stafford
+DY1,52.5165,-2.09671,Dudley
+DY2,52.49637,-2.08141,Dudley
+DY3,52.53083,-2.13123,Dudley; South Staffordshire; Wolverhampton
+DY4,52.53292,-2.05549,Dudley; Sandwell
+DY5,52.48058,-2.12391,Dudley
+DY6,52.49866,-2.16409,Dudley; South Staffordshire
+DY7,52.46634,-2.23138,Dudley; Shropshire; South Staffordshire; Wyre Forest
+DY8,52.4609,-2.15589,Bromsgrove; Dudley; South Staffordshire; Wyre Forest
+DY9,52.43304,-2.12255,Bromsgrove; Dudley; Wyre Forest
+DY10,52.38688,-2.22371,Bromsgrove; South Staffordshire; Wychavon; Wyre Forest
+DY11,52.38439,-2.26229,South Staffordshire; Wychavon; Wyre Forest
+DY12,52.38637,-2.33217,Malvern Hills; Shropshire; Wyre Forest
+DY13,52.33668,-2.28161,Malvern Hills; Wychavon; Wyre Forest
+DY14,52.38049,-2.46841,Malvern Hills; Shropshire; Wyre Forest
+WR1,52.19563,-2.22201,Worcester
+WR2,52.18877,-2.24937,Malvern Hills; Worcester
+WR3,52.21713,-2.21388,Worcester; Wychavon
+WR4,52.20374,-2.18955,Worcester; Wychavon
+WR5,52.17441,-2.20209,Malvern Hills; Worcester; Wychavon
+WR6,52.23012,-2.38234,"Herefordshire, County of; Malvern Hills; Worcester; Wychavon; Wyre Forest"
+WR7,52.19683,-2.04884,Worcester; Wychavon
+WR8,52.07441,-2.2066,Malvern Hills; Tewkesbury; Worcester; Wychavon
+WR9,52.26663,-2.15848,Wychavon; Wyre Forest
+WR10,52.11537,-2.06806,Wychavon
+WR11,52.09564,-1.92884,Cotswold; Stratford-on-Avon; Tewkesbury; Wychavon
+WR12,52.04051,-1.87006,Cotswold; Tewkesbury; Wychavon
+WR13,52.09367,-2.34246,"Forest of Dean; Herefordshire, County of; Malvern Hills"
+WR14,52.11428,-2.32027,"Herefordshire, County of; Malvern Hills"
+WR15,52.30543,-2.56978,"Herefordshire, County of; Malvern Hills; Shropshire"
+ST1,53.02739,-2.17292,Stoke-on-Trent
+ST2,53.02816,-2.13544,Staffordshire Moorlands; Stoke-on-Trent
+ST3,52.98076,-2.12286,Stafford; Staffordshire Moorlands; Stoke-on-Trent
+ST4,52.99412,-2.18531,Newcastle-under-Lyme; Stafford; Stoke-on-Trent
+ST5,53.01529,-2.23998,Newcastle-under-Lyme; Stafford; Stoke-on-Trent
+ST6,53.05793,-2.18973,Newcastle-under-Lyme; Staffordshire Moorlands; Stoke-on-Trent
+ST7,53.08873,-2.2688,Cheshire East; Newcastle-under-Lyme; Staffordshire Moorlands; Stoke-on-Trent
+ST8,53.1156,-2.16787,Staffordshire Moorlands; Stoke-on-Trent
+ST9,53.05264,-2.09597,Staffordshire Moorlands; Stoke-on-Trent
+ST10,52.98809,-1.96436,East Staffordshire; Stafford; Staffordshire Moorlands
+ST11,52.96547,-2.06363,Stafford; Staffordshire Moorlands; Stoke-on-Trent
+ST12,52.94702,-2.17262,Stafford; Stoke-on-Trent
+ST13,53.10094,-2.01937,Staffordshire Moorlands
+ST14,52.90438,-1.87044,Derbyshire Dales; East Staffordshire; Stafford; Staffordshire Moorlands
+ST15,52.9003,-2.15065,Stafford; Staffordshire Moorlands
+ST16,52.81426,-2.12101,Stafford
+ST17,52.78837,-2.09907,South Staffordshire; Stafford
+ST18,52.81469,-2.07975,East Staffordshire; South Staffordshire; Stafford
+ST19,52.70871,-2.14758,Shropshire; South Staffordshire
+ST20,52.79838,-2.27759,Stafford
+ST21,52.87275,-2.27001,Newcastle-under-Lyme; Stafford
+TF1,52.70336,-2.50328,Telford and Wrekin
+TF2,52.70165,-2.43865,Shropshire; Telford and Wrekin
+TF3,52.66768,-2.44871,Telford and Wrekin
+TF4,52.66289,-2.47201,Telford and Wrekin
+TF5,52.71718,-2.53924,Telford and Wrekin
+TF6,52.73623,-2.55709,Shropshire; Telford and Wrekin
+TF7,52.63932,-2.45027,Telford and Wrekin
+TF8,52.6295,-2.48265,Shropshire; Telford and Wrekin
+TF9,52.8973,-2.46977,Cheshire East; Newcastle-under-Lyme; Shropshire; Stafford; Telford and Wrekin
+TF10,52.76945,-2.38716,Shropshire; South Staffordshire; Stafford; Telford and Wrekin
+TF11,52.66512,-2.3582,Shropshire; South Staffordshire; Telford and Wrekin
+TF12,52.61216,-2.48174,Shropshire
+TF13,52.57812,-2.58368,Shropshire
+SY1,52.72275,-2.74042,Shropshire
+SY2,52.705,-2.72917,Shropshire
+SY3,52.69919,-2.77367,Shropshire
+SY4,52.79812,-2.75466,Shropshire; Telford and Wrekin
+SY5,52.65166,-2.8336,Powys; Shropshire
+SY6,52.53824,-2.79107,Shropshire
+SY7,52.42502,-2.88635,"Herefordshire, County of; Powys; Shropshire"
+SY8,52.36497,-2.69527,"Herefordshire, County of; Malvern Hills; Shropshire"
+SY9,52.49909,-2.99054,Powys; Shropshire
+SY10,52.83991,-3.12238,Powys; Shropshire; Wrexham
+SY11,52.87032,-3.03062,Shropshire
+SY12,52.90313,-2.89469,Shropshire
+SY13,52.95198,-2.68962,Cheshire East; Cheshire West and Chester; Shropshire; Wrexham
+SY14,53.03141,-2.76819,Cheshire East; Cheshire West and Chester; Shropshire; Wrexham
+SY15,52.55352,-3.1333,Powys; Shropshire
+SY16,52.52039,-3.31198,Powys
+SY17,52.51702,-3.46973,Powys
+SY18,52.44176,-3.5493,Powys
+SY19,52.57916,-3.63461,Powys
+SY20,52.61499,-3.81859,Ceredigion; Gwynedd; Powys
+SY21,52.65825,-3.20671,Powys; Shropshire
+SY22,52.7565,-3.18649,Powys; Shropshire
+SY23,52.37925,-4.05196,Ceredigion; Powys
+SY24,52.47324,-4.02053,Ceredigion
+SY25,52.2382,-3.93674,Ceredigion; Powys
+HR1,52.06049,-2.6771,"Herefordshire, County of"
+HR2,52.00934,-2.78553,"Herefordshire, County of"
+HR3,52.09455,-3.08795,"Herefordshire, County of; Powys"
+HR4,52.09054,-2.77139,"Herefordshire, County of"
+HR5,52.19634,-3.03646,"Herefordshire, County of; Powys"
+HR6,52.23358,-2.77303,"Herefordshire, County of"
+HR7,52.18571,-2.52365,"Herefordshire, County of; Malvern Hills"
+HR8,52.04518,-2.44548,"Forest of Dean; Herefordshire, County of; Malvern Hills"
+HR9,51.90787,-2.58232,"Forest of Dean; Herefordshire, County of"

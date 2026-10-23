@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Your matches{% endblock %}
+{% block content %}
+<header class="page-head">
+  <h1>Your matches</h1>
+  <p class="lede">Entry-level and early-career data roles in the West Midlands and UK-remote, grouped by how well your profile answers what each advert asks for. Within each group the nearest come first. Distances are straight-line, not travel time.</p>
+</header>
+
+<div data-if-no-profile hidden class="panel">
+  <h2>Start with your profile</h2>
+  <p>We need to know your skills and previous roles before we can match you. It takes a few minutes, or you can <a href="{{ url_for('web.profile') }}">load a demo profile</a>.</p>
+  <p><a class="button-primary" href="{{ url_for('web.profile') }}">Build my profile</a></p>
+</div>
+
+<div data-send-profile data-if-profile hidden>
+  <form id="filters" class="filters" hx-post="{{ url_for('web.results_list') }}" hx-target="#results"
+        hx-trigger="load, change" hx-include="[name=reveal]" hx-indicator="#results-loading" aria-label="Filter your matches">
+    <div class="filter">
+      <label for="f-miles">Within (miles)</label>
+      <input id="f-miles" name="max_miles" type="number" min="1" max="200" inputmode="numeric" placeholder="Any">
+    </div>
+    <fieldset class="filter filter-tiers">
+      <legend class="label">Show</legend>
+      {% for t in tiers %}
+      <label class="choice"><input type="checkbox" name="tier" value="{{ t }}" checked> {{ {'strong': 'Strong fit', 'good': 'Good fit', 'stretch': 'Stretch', 'not_yet': 'Not yet'}[t] }}</label>
+      {% endfor %}
+    </fieldset>
+    <div class="filter">
+      <label for="f-arr">Arrangement</label>
+      <select id="f-arr" name="arrangement">
+        <option value="any">Any</option><option value="onsite">On site</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option>
+      </select>
+    </div>
+    <div class="filter">
+      <label for="f-src">Source</label>
+      <select id="f-src" name="source_tier">
+        <option value="any">All sources</option>
+        {% for k, label in source_tiers.items() %}<option value="{{ k }}">{{ label }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="filter filter-check">
+      <label class="choice"><input type="checkbox" name="salary_stated"> Salary stated only</label>
+    </div>
+    <input type="hidden" name="reveal" value="">
+    <noscript><p>SkillMatch needs JavaScript to keep your profile in this tab.</p></noscript>
+  </form>
+  <p id="results-loading" class="loading" aria-live="polite">Matching your profile…</p>
+  <div id="results" aria-live="polite"></div>
+</div>
+{% endblock %}

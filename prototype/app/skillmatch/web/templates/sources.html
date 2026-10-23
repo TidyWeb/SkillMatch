@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Sources{% endblock %}
+{% block content %}
+<header class="page-head">
+  <h1>Where the jobs come from</h1>
+  <p class="lede">SkillMatch only uses official APIs and documented feeds, never scraping. Where a site has no feed, a team member can record an advert by hand in our own words, or we link you to the site's own search.</p>
+  {% if snap %}<p class="note">{% if data_mode == 'live' %}This is a live snapshot built on {{ snapshot_date }}{% else %}You're looking at synthetic fixtures: realistic but invented adverts used when no API keys are set{% endif %}. The data is refreshed every night when deployed.</p>{% endif %}
+</header>
+
+<section class="source-tier prose" aria-labelledby="tier-a">
+  <h2 id="tier-a">Tier A: collected automatically</h2>
+  <p>Official, free routes that allow automated access. We keep data and analyst adverts only, check the location ourselves, and link every card back to the original advert.</p>
+  {% for s in (snap.sources if snap else []) if s.tier == 'A' %}
+  <div class="source-card">
+    <h3>{{ s.name }} <span class="count">{{ "on" if s.enabled else "off" }}</span></h3>
+    <p>{{ s.notes }}</p>
+    <p class="hint">Credit shown on each job: “{{ s.attribution }}”.{% if s.docs_url %} <a href="{{ s.docs_url }}" rel="noopener">Provider documentation</a>.{% endif %}
+      {% set n = counts.get(s.source_id, 0) %}{% if n %} {{ n }} adverts collected in this snapshot, before our filters.{% endif %}</p>
+  </div>
+  {% endfor %}
+  <div class="panel">
+    <h3>CV-Library</h3>
+    <p>We're waiting for CV-Library's partner team to send the affiliate feed address, so CV-Library jobs aren't included yet. When they are, CV-Library's own title, salary, company and location will be shown unchanged, and every click will go to the job on cv-library.co.uk.</p>
+    <p><a class="button-secondary" href="{{ register_url }}" rel="noopener">Register with CV-Library</a></p>
+  </div>
+</section>
+
+<section class="source-tier prose" aria-labelledby="tier-b">
+  <h2 id="tier-b">Tier B: checked by hand</h2>
+  <p>Some useful sources (council and NHS portals, charity boards, recruiters) have no feed we're allowed to use. A team member can open an advert, check it, and record only the facts: title, employer, place, arrangement, salary as stated, closing date and the requirements <em>in our own words</em>. No advert text is copied. {% set n = counts.get('curated', 0) %}{{ n }} hand-checked adverts in this snapshot.</p>
+</section>
+
+<section class="source-tier" aria-labelledby="tier-c">
+  <h2 id="tier-c">Tier C: links to search yourself</h2>
+  <p class="prose">For every other source in the team's register of {{ groups.values()|map('length')|sum }} sources, we build a link to its own search. Where we know how the site's search address works, it's pre-filled with your town and “data analyst”; otherwise it opens the site's search page and says so. We collect nothing from these sites.</p>
+  {% for kind, rows in groups.items() %}
+  <details class="disc-group">
+    <summary>{{ kind }} <span class="count">{{ rows|length }}</span></summary>
+    <ul class="disc-list">{% for r in rows %}<li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a> <span class="hint">{{ "pre-filled" if r.prefilled else "search page" }}</span></li>{% endfor %}</ul>
+  </details>
+  {% endfor %}
+</section>
+
+<section class="prose" aria-labelledby="docs-h">
+  <h2 id="docs-h">What the providers' documentation says</h2>
+  <p>We read each provider's documentation and terms before connecting to it. In plain English:</p>
+  <ul>
+    <li><strong>Reed</strong> publishes its search and job-details API with a free key. It states no rate limit, attribution rule or storage terms, so we stay cautious: about one request a second, a hard cap per run, responses cached for a day, and no copying of whole adverts. Reed's website terms forbid copying for commercial use; SkillMatch is a non-commercial education project. Before any public launch the team should ask Reed to confirm this use is fine.</li>
+    <li><strong>Greenhouse, Lever and Workable</strong> document public, read-only routes to each employer's published jobs. There's no search across employers, so we list the employers we follow.</li>
+    <li><strong>We Work Remotely</strong> offers its RSS feed for anyone to use, asking that links go back to it. <strong>Remote OK</strong>'s feed asks users to link back to the job on Remote OK, name it as the source and not use its logo. Its salary figures may be estimates, so we don't show them.</li>
+    <li><strong>CV-Library</strong>'s affiliate terms page refused our automated check, so the conditions above come from the team's notes and still need confirming against the page itself.</li>
+    <li><strong>Adzuna</strong> is not used: its free key is for evaluation only.</li>
+    <li><strong>Postcodes</strong> come from postcodes.io (no key). Contains OS data © Crown copyright and database right; contains Royal Mail data © Royal Mail copyright and database right; source: Office for National Statistics.</li>
+    <li><strong>Map tiles</strong> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li>
+  </ul>
+  {% if snap and snap.source_runs %}
+  <h3>Last refresh</h3>
+  <div class="table-wrap"><table class="data-table">
+    <thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col">Adverts read in full</th></tr></thead>
+    <tbody>{% for r in snap.source_runs %}<tr><td>{{ {'reed': 'Reed', 'ats': 'Employer boards (Greenhouse, Lever, Workable)', 'we_work_remotely': 'We Work Remotely', 'remote_ok': 'Remote OK', 'cv_library': 'CV-Library', 'curated': 'Checked by hand', 'fixture': 'Synthetic fixtures'}.get(r.source_id, r.source_id) }}</td><td>{{ r.status }}</td><td>{{ r.kept }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="hint">Finished {{ snap.meta.get('built_at', '')[:16].replace('T', ' ') }} UTC.</p>
+  {% endif %}
+</section>
+{% endblock %}

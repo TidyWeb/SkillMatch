@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SkillMatch{% endblock %} · SkillMatch</title>
+  <meta name="description" content="Match the skills from your previous career to entry-level data jobs in the West Midlands.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%231f4e8c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
+  {% block head %}{% endblock %}
+  <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="{{ url_for('web.profile') }}">Skill<span>Match</span></a>
+      <nav aria-label="Main">
+        {% set here = request.endpoint %}
+        <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
+        <a href="{{ url_for('web.results') }}" {% if here == 'web.results' %}aria-current="page"{% endif %}>Your matches</a>
+        <a href="{{ url_for('web.insights') }}" {% if here == 'web.insights' %}aria-current="page"{% endif %}>Insights</a>
+        <a href="{{ url_for('web.sources') }}" {% if here == 'web.sources' %}aria-current="page"{% endif %}>Sources</a>
+        <a href="{{ url_for('web.about') }}" {% if here == 'web.about' %}aria-current="page"{% endif %}>About</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="colophon">
+    <div class="wrap colophon-inner">
+      <p>
+        {% if data_mode == 'live' %}
+          <span class="badge badge-live">Live snapshot · {{ snapshot_date }}</span>
+        {% elif data_mode == 'fixtures' %}
+          <span class="badge badge-fixtures">Fixtures · synthetic adverts</span>
+        {% else %}
+          <span class="badge">No data built yet</span>
+        {% endif %}
+      </p>
+      <p>SkillMatch by Tidy Web. Your profile stays in this browser tab and is never stored. <a href="{{ url_for('web.about') }}#privacy">Privacy</a> · <a href="{{ url_for('web.sources') }}">Sources and attribution</a></p>
+    </div>
+  </footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

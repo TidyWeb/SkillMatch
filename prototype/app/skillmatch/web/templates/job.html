@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ v.title }}{% endblock %}
+{% block content %}
+<p class="back"><a href="{{ url_for('web.results') }}">← Back to your matches</a></p>
+<header class="page-head job-head">
+  <h1>{{ v.title }}</h1>
+  <p class="card-meta">{{ v.employer or "Employer not named" }} · {{ v|place }}{% if v.contract_type %} · {{ v.contract_type|capfirst }}{% endif %}</p>
+  {% if v.excluded_reason %}<p class="flag">Hidden from results by default: {{ v.excluded_reason }}{% if v.title_excluded_word %} (“{{ v.title_excluded_word }}” in the title){% endif %}.</p>{% endif %}
+  <dl class="facts facts-wide">
+    <div><dt>Arrangement</dt><dd>{{ v|arrangement }}{% if v.arrangement_text %} <span class="quote">“{{ v.arrangement_text }}”</span>{% endif %}</dd></div>
+    <div><dt>Pay</dt><dd>{{ v|salary }}</dd></div>
+    <div><dt>Data experience asked for</dt><dd>
+      {% if v.data_years is not none %}{{ v.data_years|round(1)|replace('.0', '') }} year{{ '' if v.data_years == 1 else 's' }}{% if v.data_years_implied %} (implied, no number given){% endif %} <span class="quote">“{{ v.data_years_text }}”</span>
+      {% else %}Not asked for{% endif %}</dd></div>
+    <div><dt>Degree</dt><dd>{{ {'required': 'Required', 'or_equivalent': 'Degree or equivalent experience', 'desirable': 'Desirable, not required', 'not_mentioned': 'Not mentioned'}[v.degree or 'not_mentioned'] }}{% if v.degree_text %} <span class="quote">“{{ v.degree_text }}”</span>{% endif %}</dd></div>
+    {% if v.entry_signals %}<div><dt>Open to newcomers</dt><dd><ul class="chips">{% for s in v.entry_signals %}<li>{{ s }}</li>{% endfor %}</ul></dd></div>{% endif %}
+  </dl>
+  <p class="source-line"><a class="button-primary" href="{{ v.url }}" target="_blank" rel="noopener">Read the full advert and apply on {{ v.source_label }}</a></p>
+  <p class="attribution">{{ v.attribution }}{% if v.posted_date %} · Posted {{ v.posted_date }}{% endif %}{% if v.expiration_date %} · Closes {{ v.expiration_date }}{% endif %}{% if also %} · Also listed by {% for a in also %}<a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.source_label }}{% if a.employer and a.employer != v.employer %} ({{ a.employer }}){% elif a.source_label == v.source_label %} (another advert){% endif %}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+</header>
+
+<div data-send-profile data-if-profile hidden>
+  <div hx-post="{{ url_for('web.job_coverage', job_id=v.vacancy_id) }}" hx-trigger="load" hx-swap="outerHTML">
+    <p class="loading">Checking each requirement against your profile…</p>
+  </div>
+</div>
+
+<section data-if-no-profile hidden aria-labelledby="req-h">
+  <h2 id="req-h">What the advert asks for</h2>
+  <p class="hint"><a href="{{ url_for('web.profile') }}">Build your profile</a> to see how your background answers each requirement.</p>
+  {% set counted = reqs|selectattr('strength', 'in', ['essential', 'desirable'])|list %}
+  {% if counted %}
+  <ul class="req-plain">
+    {% for r in counted %}
+    <li><span class="strength strength-{{ r.strength }}">{{ r.strength|capfirst }}</span> {{ r.evidence_sentence }}{% if r.text_ours %} <span class="hint">— our reading: {{ r.text_ours }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% else %}<p>We couldn't find a list of requirements in this advert. Read it in full on the source site.</p>{% endif %}
+</section>
+
+{% if duties %}
+<details class="duties">
+  <summary>What the job involves <span class="count">{{ duties|length }}</span></summary>
+  <ul>{% for d in duties %}<li>{{ d.evidence_sentence }}</li>{% endfor %}</ul>
+</details>
+{% endif %}
+{% endblock %}
