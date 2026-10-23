@@ -1,5 +1,9 @@
 # SkillMatch
 
+## [👉 OPEN THE TEAM HUB](https://tidyweb.github.io/SkillMatch/)
+
+Guides, the project board, prototypes and plans, all as clickable web pages. Start there.
+
 An early-career job-matching project for Code Institute Data Analytics with AI graduates.
 
 - **Focus:** West Midlands vacancies and remote roles with confirmed UK eligibility.

@@ -40,3 +40,28 @@ table.check .stop { color: #8a3b2b; }
   body > .shell { display: grid !important; }
   body > .skip { display: block !important; }
 }
+
+/* ---------- Team hub (index.html) ---------- */
+.hub { max-width: 72rem; margin: 0 auto; padding: 3rem clamp(1rem, 5vw, 3rem) 4rem; }
+.hub-head { display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2.2rem; }
+.hub-head img { width: 88px; height: 88px; border-radius: 14px; flex: none; }
+.hub-head h1 { margin: 0 0 .4rem; }
+.hub-head p { margin: 0; font-size: 1.15rem; max-width: 40rem; }
+.hub h2 { margin: 2.6rem 0 .3rem; }
+.hub .sub { font-family: var(--sans); color: var(--ink-muted); margin: 0 0 1rem; font-size: .95rem; }
+.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16.5rem, 1fr)); gap: 1rem; }
+.tiles li { margin: 0; }
+.tile { display: flex; flex-direction: column; height: 100%; background: var(--plate); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.1rem 1.2rem 1rem; text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s; }
+a.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+.tile .kind { font-family: var(--sans); font-size: .78rem; font-weight: 700; color: var(--accent); letter-spacing: .02em; margin-bottom: .35rem; }
+.tile strong { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; line-height: 1.25; margin-bottom: .4rem; }
+.tile span.d { font-family: var(--sans); font-size: .9rem; line-height: 1.45; color: var(--ink-muted); flex: 1; }
+.tile .go { font-family: var(--sans); font-size: .85rem; font-weight: 700; color: var(--accent); margin-top: .8rem; }
+.tile.start { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tile.start .kind, .tile.start .go, .tile.start span.d { color: #fff; }
+.tile.soon { background: transparent; border-style: dashed; }
+.tile.soon .kind, .tile.soon .go { color: var(--ink-muted); }
+.week { width: 100%; }
+.week td:first-child { white-space: nowrap; font-weight: 700; width: 9rem; }
+.hub-foot { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .88rem; color: var(--ink-muted); }
+@media (max-width: 600px) { .hub-head { flex-direction: column; align-items: flex-start; } }
