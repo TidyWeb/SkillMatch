@@ -1,0 +1,5 @@
+# Browser-automation snapshots left by verification runs
+.playwright-cli/
+# Python and editor clutter
+__pycache__/
+.DS_Store
