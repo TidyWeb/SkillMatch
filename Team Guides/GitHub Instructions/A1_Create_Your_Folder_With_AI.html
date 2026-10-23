@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A1. Add your folder with AI · SkillMatch team guides</title>
+<meta name="description" content="How Oana, John and Esmat use an AI assistant in VS Code to add their own folder to the SkillMatch repository through a pull request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="https://github.com/TidyWeb/SkillMatch" title="SkillMatch on GitHub" target="_blank" rel="noopener noreferrer"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch on GitHub"></a>
+  <a class="site-name" href="https://github.com/TidyWeb/SkillMatch">SkillMatch team guides<small>Working together on GitHub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="A1_Create_Your_Folder_With_AI.html" aria-current="page"><span class="n">A1</span><span>Add your folder with AI</span></a></li>
+      <li><span class="soon"><span class="n">A2</span><span>Picking up a task from the board</span></span></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+
+<main class="content" id="main">
+<article class="page">
+<header class="chapter-head">
+  <p class="chapter-num">Guide A1</p>
+  <h1>Add your folder with an AI assistant</h1>
+  <p class="standfirst">Oana, John and Esmat: this process gets your own personal folder into the shared SkillMatch repository. Once it's merged, you appear in the Contributors list on the repository's front page, and the work counts on your own GitHub profile. An AI assistant in VS Code does the typing; you read and approve each step.</p>
+</header>
+
+<section class="keypoints" aria-label="Key points">
+  <h2>In short</h2>
+  <ul>
+    <li>You'll end up with a folder called <code>Your-name's Folder</code> next to <code>Phil's Folder</code>, containing a short <code>README.md</code> about you.</li>
+    <li>It goes up as a <strong>pull request</strong>, so it shows on your GitHub profile and nothing changes for anyone else until Phil merges it.</li>
+    <li>The AI is <strong>GitHub Copilot</strong>, built into VS Code. The free plan is enough. Allow 20 minutes the first time.</li>
+  </ul>
+</section>
+
+<h2>What happens, in order</h2>
+<p>Your work travels on its own branch, a separate lane, and only reaches <code>main</code>, the team's shared version, at the last step.</p>
+<figure class="plate diagram wide">
+  <div class="sheet">
+    <div class="flow" role="img" aria-label="Five stages: your laptop, your branch, push to GitHub, pull request, Phil merges into main">
+      <div class="box"><b>1 · Your laptop</b>The AI makes your folder in VS Code<span class="who">You approve each step</span></div>
+      <div class="box"><b>2 · Your branch</b>A separate lane, e.g. <code>add-esmat-folder</code><span class="who">The AI creates it</span></div>
+      <div class="box"><b>3 · Push</b>Your branch is uploaded to GitHub<span class="who">The AI, once you approve</span></div>
+      <div class="box"><b>4 · Pull request</b>"Please check this and add it to main"<span class="who">The AI, or you</span></div>
+      <div class="box shared"><b>5 · main</b>Your folder joins the shared version<span class="who">Phil reviews and merges</span></div>
+    </div>
+  </div>
+  <figcaption>Nothing in steps 1 to 4 can change the shared version. If something goes wrong before step 5, the shared version is untouched.</figcaption>
+</figure>
+
+<h2>Before you start</h2>
+<ul>
+  <li><strong>You've accepted the invite</strong> to TidyWeb/SkillMatch. Esmat: look for the email from GitHub, or check <a href="https://github.com/notifications">github.com/notifications</a>.</li>
+  <li><strong>SkillMatch is cloned to your computer</strong> and opens in VS Code. If not, do step 02 of the "How we collaborate" guide first.</li>
+  <li><strong>You know which email your GitHub account uses</strong>: on GitHub, click your picture → Settings → Emails. You'll need it in step 4.</li>
+</ul>
+
+<h2><span class="step-n">Step 1</span>Open SkillMatch in VS Code</h2>
+<p>File → Open Folder… and choose your SkillMatch folder. In the Explorer on the left you should see <code>Phil's Folder</code>, <code>Research</code> and <code>README.md</code>. If you don't, you've opened the wrong folder.</p>
+
+<h2><span class="step-n">Step 2</span>Connect the AI to your GitHub account</h2>
+<p>Copilot connects with your own GitHub sign-in. That means it can do exactly what your account is allowed to do in SkillMatch, and nothing more.</p>
+<ol>
+  <li>Open the Chat view: the chat icon at the top of VS Code, or <code>Ctrl+Alt+I</code> (Mac: <code>Cmd+Ctrl+I</code>).</li>
+  <li>If asked, choose <strong>Sign in with GitHub</strong>, using the <strong>same account that received Phil's invite</strong>. If offered a plan, pick <strong>Copilot Free</strong>.</li>
+  <li>Below the chat box is a mode menu. Set it to <strong>Agent</strong>. In Agent mode the AI can create files and run commands, and it asks you before running each command.</li>
+</ol>
+<p class="aside">VS Code moves its menus around now and then, so your wording may differ slightly. You're looking for three things: the Chat view, signed in with GitHub, set to Agent.</p>
+
+<h2><span class="step-n">Step 3</span>Pick your name and give the AI its instructions</h2>
+<p>Click your name, and the prompt fills itself in. Copy it, paste it into the Copilot chat, and press Enter.</p>
+<div class="picker" role="group" aria-label="Choose your name">
+  <button type="button" data-name="Oana" aria-pressed="true">Oana</button>
+  <button type="button" data-name="John" aria-pressed="false">John</button>
+  <button type="button" data-name="Esmat" aria-pressed="false">Esmat</button>
+</div>
+<div class="promptbox">
+  <button type="button" class="btn btn-lime" id="copyBtn">Copy prompt</button>
+  <pre id="prompt" aria-live="polite"></pre>
+</div>
+<p>The AI will ask you for two or three sentences about yourself for your README. <strong>The repository is public</strong>, so write what you'd put on LinkedIn: your background before the course and what you'd like to work on. No phone number, address or anything private.</p>
+
+<h2><span class="step-n">Step 4</span>Read before you approve</h2>
+<p>Before each command the AI explains what it's about to do, then waits for you to click <strong>Continue</strong> or <strong>Allow</strong>. The prompt tells it to stay inside these limits, but you are the final check.</p>
+<table class="check">
+  <thead><tr><th class="ok">Fine to approve</th><th class="stop">Stop and ask Phil</th></tr></thead>
+  <tbody>
+    <tr><td><code>git remote -v</code>, <code>git status</code>, <code>git config user.email</code>: these only look</td><td>Anything that changes or deletes a file outside your folder</td></tr>
+    <tr><td><code>git checkout main</code> then <code>git pull</code></td><td>Any push containing <code>--force</code> or <code>-f</code></td></tr>
+    <tr><td><code>git checkout -b add-yourname-folder</code></td><td>A commit or push while the branch is <code>main</code></td></tr>
+    <tr><td>Creating your folder and its <code>README.md</code></td><td><code>git reset</code>, <code>git rebase</code>, or any mention of a merge conflict</td></tr>
+    <tr><td><code>git add</code>, <code>git commit</code> and <code>git push</code> on your branch</td><td>A message saying the push was rejected</td></tr>
+  </tbody>
+</table>
+<p><strong>Check the email.</strong> Git stamps every commit with a name and email, and GitHub only credits the commit to you if that email belongs to your account. The AI will show you the email before it commits. Compare it with GitHub → Settings → Emails. If it's wrong, tell the AI the right one and it will set it for SkillMatch only.</p>
+
+<h2><span class="step-n">Step 5</span>Open the pull request</h2>
+<p>If the AI could create the pull request, it gives you a link. If it couldn't, go to <a href="https://github.com/TidyWeb/SkillMatch">github.com/TidyWeb/SkillMatch</a>. A yellow banner will say your branch had recent pushes: click <strong>Compare &amp; pull request</strong>. Check the base is <code>main</code>, keep the title <em>Add [your name]'s folder</em>, and click <strong>Create pull request</strong>.</p>
+<p>That's your part done. Phil reviews it and merges it. If he asks for a change, the pull request page shows his comment, and you can ask the AI to make the change on the same branch and push again.</p>
+
+<h2><span class="step-n">Step 6</span>Check it arrived</h2>
+<ol>
+  <li>Once Phil has merged it, open <a href="https://github.com/TidyWeb/SkillMatch">github.com/TidyWeb/SkillMatch</a>. Your folder should be in the file list.</li>
+  <li>In VS Code, switch back to <code>main</code> (bottom-left corner) and Pull, so your copy has the merged version too.</li>
+  <li>On the repository's front page, your picture appears under <strong>Contributors</strong> on the right, and your own GitHub profile shows the commit. Either can take up to a day to update, and neither happens unless the email check in step 4 was right.</li>
+</ol>
+
+<p class="callout">If something unexpected happens, stop. Don't try fixes the AI suggests for a rejected push or a merge conflict. Take a screenshot and ask Phil. Nothing you've done can break the shared version.</p>
+
+<h2>Using a different AI</h2>
+<p>The prompt works with any AI coding assistant that can work in a GitHub repository. You give it the repository and the prompt in the same way. For example:</p>
+<ul>
+  <li><strong>Claude Code</strong> (in a browser at claude.ai/code), if you have a paid Claude plan. You connect GitHub once, choose <code>TidyWeb/SkillMatch</code>, and paste the prompt. It works on its own branch and offers a <strong>Create PR</strong> button when it's done.</li>
+  <li><strong>ChatGPT's Codex</strong>, if your ChatGPT plan includes it. It connects to GitHub in a similar way.</li>
+</ul>
+<p class="aside">A plain chat window that can't reach your files or GitHub (ordinary ChatGPT or Claude chat) can't do this for you. It can only explain the steps. Use the route below instead.</p>
+
+<h2>No AI to hand? Do it in the browser</h2>
+<p>This takes about three minutes and gets you the same result.</p>
+<ol>
+  <li>Open <a href="https://github.com/TidyWeb/SkillMatch">github.com/TidyWeb/SkillMatch</a> and click <strong>Add file → Create new file</strong>.</li>
+  <li>In the name box, type <code>Esmat's Folder/README.md</code>, using your own name. Typing the <code>/</code> turns the first part into a folder.</li>
+  <li>Write two or three public-safe sentences about yourself.</li>
+  <li>Click <strong>Commit changes…</strong>, choose <strong>Create a new branch for this commit and start a pull request</strong>, then <strong>Propose changes</strong> and <strong>Create pull request</strong>.</li>
+</ol>
+
+<nav class="pager" aria-label="Guides"><a class="prev" href="https://github.com/TidyWeb/SkillMatch"><small>Back to</small><strong>The repository</strong></a><a class="next" href="https://github.com/users/TidyWeb/projects/3"><small>Next</small><strong>The project board</strong></a></nav>
+</article>
+</main>
+</div>
+
+<script>
+(function () {
+  var template = [
+    "You are helping me make my first contribution to my team's GitHub repository, TidyWeb/SkillMatch, which is open in this VS Code workspace.",
+    "",
+    "Goal: add a personal folder called \"{NAME}'s Folder\" at the top level of the repository, containing one file, README.md, and get it onto GitHub as a pull request for Phil (GitHub user TidyWeb) to review.",
+    "",
+    "Rules:",
+    "- Only create \"{NAME}'s Folder/README.md\". Do not change, move, rename or delete any other file.",
+    "- The folder name contains an apostrophe and a space, so always put the path in double quotes in terminal commands.",
+    "- Never commit to main and never force-push.",
+    "- Before each step, explain in plain English what you are about to do, and wait for my approval before running any terminal command.",
+    "- If anything unexpected happens (wrong repository, merge conflict, push rejected, authentication error), stop and tell me. Do not try to fix it yourself.",
+    "",
+    "Steps:",
+    "1. Run git remote -v and confirm the origin is https://github.com/TidyWeb/SkillMatch.git. If it isn't, stop.",
+    "2. Switch to main and pull the latest changes.",
+    "3. Show me the output of git config user.name and git config user.email. Ask me to confirm the email is one linked to my GitHub account, so the commit is credited to me. If either is missing or wrong, ask me for the right value and set it for this repository only (git config without --global).",
+    "4. Create and switch to a new branch called add-{SLUG}-folder.",
+    "5. Ask me for two or three sentences about my background before the course and what I'd like to work on in SkillMatch. Remind me the repository is public, so nothing private. Then create \"{NAME}'s Folder/README.md\" with this content and show it to me before saving:",
+    "",
+    "   # {NAME}'s Folder",
+    "",
+    "   Working space for {NAME} in the SkillMatch hackathon project.",
+    "",
+    "   ## About me",
+    "",
+    "   (my sentences here)",
+    "",
+    "6. Stage only that file and commit it with the message: Add {NAME}'s folder",
+    "7. Push the branch to GitHub (git push -u origin add-{SLUG}-folder).",
+    "8. If you can create pull requests, open one from add-{SLUG}-folder into main titled \"Add {NAME}'s folder\". If you can't, give me the link GitHub printed after the push so I can open it myself.",
+    "9. Finish with a short summary of what you did and the pull request link."
+  ].join("\n");
+
+  var pre = document.getElementById("prompt");
+  var copyBtn = document.getElementById("copyBtn");
+  var buttons = document.querySelectorAll(".picker button");
+
+  function fill(name) {
+    pre.textContent = template.split("{NAME}").join(name).split("{SLUG}").join(name.toLowerCase());
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.name === name ? "true" : "false"); });
+    copyBtn.textContent = "Copy prompt";
+    copyBtn.classList.remove("done");
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { fill(b.dataset.name); }); });
+
+  copyBtn.addEventListener("click", function () {
+    var text = pre.textContent;
+    function done() { copyBtn.textContent = "Copied"; copyBtn.classList.add("done"); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { selectText(); });
+    } else { selectText(); }
+  });
+  function selectText() {
+    var r = document.createRange(); r.selectNodeContents(pre);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    copyBtn.textContent = "Selected: press Ctrl+C";
+  }
+
+  var bar = document.querySelector(".sidebar"), toggle = document.querySelector(".menu-toggle");
+  toggle.addEventListener("click", function () {
+    var open = bar.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  fill("Oana");
+})();
+</script>
+</body>
+</html>
