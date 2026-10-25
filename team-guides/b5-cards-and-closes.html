@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards, numbers and &#x27;Closes&#x27; · SkillMatch team guides</title>
+<meta name="description" content="Every card on the project board is a numbered GitHub issue. One short line in a pull request connects the two, and can close the card automatically when the change is merged. Get the number wrong and it closes the wrong card.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
+      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Pick your AI assistant</span></a></li>
+      <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
+      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
+      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Understanding GitHub</h2><ol>
+      <li><a href="b1-the-big-picture.html"><span class="n">B1</span><span>The big picture</span></a></li>
+      <li><a href="b2-your-copy-and-the-shared-copy.html"><span class="n">B2</span><span>Your copy and the shared copy</span></a></li>
+      <li><a href="b3-add-files-to-the-repository.html"><span class="n">B3</span><span>Add files to the repository</span></a></li>
+      <li><a href="b4-open-a-pull-request-properly.html"><span class="n">B4</span><span>Open a pull request, properly</span></a></li>
+      <li><a href="b5-cards-and-closes.html" aria-current="page"><span class="n">B5</span><span>Cards, numbers and &#x27;Closes&#x27;</span></a></li>
+      <li><a href="b6-glossary.html"><span class="n">B6</span><span>Glossary</span></a></li>
+      <li><a href="b7-who-does-what.html"><span class="n">B7</span><span>Who does what</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>The prototype</h2><ol>
+      <li><a href="c1-try-the-prototype.html"><span class="n">C1</span><span>Try the prototype</span></a></li>
+      <li><a href="c2-real-jobs-with-your-own-reed-key.html"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Working on a task</h2><ol>
+      <li><a href="d1-start-from-the-latest.html"><span class="n">D1</span><span>Start from the latest</span></a></li>
+      <li><a href="d2-make-a-branch.html"><span class="n">D2</span><span>Make a branch for your card</span></a></li>
+      <li><a href="d3-save-and-upload.html"><span class="n">D3</span><span>Save and upload</span></a></li>
+      <li><a href="d4-open-a-pull-request.html"><span class="n">D4</span><span>Open a pull request</span></a></li>
+      <li><a href="d5-after-its-merged.html"><span class="n">D5</span><span>After it&#x27;s merged</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Reviewing and merging</h2><ol>
+      <li><a href="e1-review-a-pull-request.html"><span class="n">E1</span><span>Review a pull request</span></a></li>
+      <li><a href="e2-merge-it.html"><span class="n">E2</span><span>Merge it</span></a></li>
+      <li><a href="e3-when-theres-a-conflict.html"><span class="n">E3</span><span>When there&#x27;s a conflict</span></a></li>
+      <li><a href="e4-protect-main.html"><span class="n">E4</span><span>Protect main</span></a></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+<main class="content" id="main">
+<article class="page">
+<ol class="strip" aria-label="Steps"><li><a href="b1-the-big-picture.html"><b>B1</b>The big picture</a></li><li><a href="b2-your-copy-and-the-shared-copy.html"><b>B2</b>Your copy and the shared copy</a></li><li><a href="b3-add-files-to-the-repository.html"><b>B3</b>Add files to the repository</a></li><li><a href="b4-open-a-pull-request-properly.html"><b>B4</b>Open a pull request, properly</a></li><li><span class="now" aria-current="step"><b>B5</b>Cards, numbers and &#x27;Closes&#x27;</span></li><li><a href="b6-glossary.html"><b>B6</b>Glossary</a></li><li><a href="b7-who-does-what.html"><b>B7</b>Who does what</a></li></ol>
+<header class="chapter-head">
+  <p class="chapter-num">Step 5 of 7</p>
+  <h1>Cards, numbers and &#x27;Closes&#x27;</h1>
+  <p class="standfirst">Every card on the project board is a numbered GitHub issue. One short line in a pull request connects the two, and can close the card automatically when the change is merged. Get the number wrong and it closes the wrong card.</p>
+</header>
+
+<h2>Where the number comes from</h2>
+<ol class="do">
+<li><strong>Open the board</strong>
+<a href="https://github.com/users/TidyWeb/projects/3">The SkillMatch project board</a>. Every card is a GitHub <em>issue</em>.</li>
+<li><strong>Click a card</strong>
+Its number is next to the title, with a hash: <code>#27</code>. It's also at the end of the address in your browser.</li>
+</ol>
+
+<p class="callout"><strong>Apart from card 27 in the warning further down, the card numbers in these examples are made up.</strong> Never copy one. Use the number of your own card, or you may close someone else's.</p>
+
+<h2>What "Closes #27" does</h2>
+<p>If the description of a pull request has this on a line of its own:</p>
+<div class="cmd">Closes #27</div>
+<p>then when the pull request is <strong>merged</strong>, GitHub closes issue 27 automatically, and the card moves to Done on the board. Nobody has to drag anything. <code>Fixes #27</code> and <code>Resolves #27</code> do the same thing. This only happens when the pull request goes into main.</p>
+<div class="flow" aria-label="From pull request to a finished card">
+<div class="box"><b>1 · The card</b>"Add interface examples", card <code>#31</code> on the board.<span class="who">Find its number</span></div>
+<div class="box"><b>2 · The description</b>Your pull request ends with <code>Closes #31</code>.<span class="who">You write it</span></div>
+<div class="box shared"><b>3 · Merge</b>The pull request is accepted into main.<span class="who">After review</span></div>
+<div class="box"><b>4 · Card finished</b>Issue 31 closes; the card moves to Done.<span class="who">Automatic</span></div>
+</div>
+
+<h2>The three things you can write</h2>
+<table>
+<thead><tr><th>You write</th><th>What happens on merge</th><th>Use it when</th></tr></thead>
+<tbody>
+<tr><td><code>Closes #31</code></td><td>Card 31 closes and moves to Done</td><td>This pull request <em>finishes</em> the card</td></tr>
+<tr><td><code>Supports #31</code></td><td>Card 31 gets a link to this pull request, and stays open</td><td>It's part of the card's work, but not all of it</td></tr>
+<tr><td><code>Closes: none</code></td><td>Nothing closes</td><td>It belongs to no card. This one is our own convention</td></tr>
+</tbody>
+</table>
+<p>Two cards at once: repeat the word, <code>Closes #31, closes #32</code>. A single <code>Closes #31, #32</code> only closes the first.</p>
+
+<h2>Why the number matters</h2>
+<p class="callout">A real example from this project: an AI assistant guessed <code>Closes #27</code>. Card 27 was "Agree how we work", the team's Day 1 card. If that pull request had been merged, the card would have closed itself, with the team's first job not done.</p>
+
+<h2>Check before you create</h2>
+<ol class="do">
+<li><strong>Read the card's title next to its number</strong>
+Does card 31 really say what this pull request does?</li>
+<li><strong>Look at the Development box</strong>
+On the pull request form, the sidebar's <strong>Development</strong> box lists which card will close. "None yet" is right unless you meant to close one.</li>
+<li><strong>Not sure? Write <code>Closes: none</code></strong>
+It's always safe. Phil can link the card when he reviews.</li>
+</ol>
+
+<h2>If it's wrong</h2>
+<p><strong>Before it's merged:</strong> edit the description (the pencil on the pull request's first comment) and correct the line. <strong>After:</strong> open the card that closed and click <strong>Reopen</strong>, then tell Phil.</p>
+<p>GitHub's own explanation: <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue">Linking a pull request to an issue</a>.</p>
+<p class="done-when"><strong>Done when:</strong> you can find a card's number, say what <code>Closes #31</code> will do, and check the Development box before creating a pull request.</p>
+
+<nav class="pager" aria-label="Steps"><a class="prev" href="b4-open-a-pull-request-properly.html"><small>Previous</small><strong>B4. Open a pull request, properly</strong></a><a class="next" href="b6-glossary.html"><small>Next</small><strong>B6. Glossary</strong></a></nav>
+</article>
+</main>
+</div>
+<script src="../assets/guides.js"></script>
+
+</body>
+</html>
