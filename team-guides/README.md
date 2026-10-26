@@ -26,6 +26,7 @@ These guides are web pages. Clicking an `.html` file in this folder shows its so
 
 1. [C1. Try the prototype](https://tidyweb.github.io/SkillMatch/team-guides/c1-try-the-prototype.html)
 2. [C2. See real jobs with your own Reed key](https://tidyweb.github.io/SkillMatch/team-guides/c2-real-jobs-with-your-own-reed-key.html)
+3. [C3. How SkillMatch finds the jobs](https://tidyweb.github.io/SkillMatch/team-guides/c3-how-skillmatch-finds-the-jobs.html)
 
 ## Working on a task (everyone)
 
