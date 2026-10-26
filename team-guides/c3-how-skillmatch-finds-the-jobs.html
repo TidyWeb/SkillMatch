@@ -162,7 +162,7 @@ A parser reads the requirement sentences in each advert that survives. A parser 
 The matcher compares each advert with the graduate's own profile, requirement by requirement, and marks each one met, partly met or a gap. Adverts are sorted into Strong, Good, Stretch and Not yet, with a plain-English reason for each. The results card shows the title, employer, distance, the fit, and where the advert came from ("Job via Reed"). The click goes to the original advert, which is where the graduate applies. SkillMatch never handles the application.</li>
 </ol>
 
-<p class="callout">In hackathon terms this is the ETL pipeline. Steps 1 to 3 are Extract. Steps 4, 6 and 7 are Transform. Step 5 is Load, and step 8 feeds the dashboard. The judging sheet gives the ETL pipeline 25% of the marks.</p>
+<p class="callout">In data terms this is an ETL pipeline: Extract, Transform, Load. Steps 1 to 3 are Extract. Steps 4, 6 and 7 are Transform. Step 5 is Load, and step 8 is where the results reach the user. From the first live run, each run will also record how many adverts passed or failed each stage, so we can analyse what the pipeline did.</p>
 
 <h2>Four ways to get adverts</h2>
 <p>Not every site hands its adverts over the same way. SkillMatch uses four routes, and the list further down says which route each site gets.</p>
