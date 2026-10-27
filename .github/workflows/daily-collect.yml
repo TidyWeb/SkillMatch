@@ -82,6 +82,7 @@ jobs:
         run: uv run pytest
 
       - name: Publish the live database for Codespaces
+        continue-on-error: true
         working-directory: prototype/app
         env:
           GH_TOKEN: ${{ github.token }}
