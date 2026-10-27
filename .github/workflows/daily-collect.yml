@@ -81,6 +81,18 @@ jobs:
         working-directory: prototype/app
         run: uv run pytest
 
+      - name: Publish the live database for Codespaces
+        continue-on-error: true
+        working-directory: prototype/app
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          database="$(find data/processed -maxdepth 1 -type f -name 'skillmatch_live_*.db' -printf '%f\n' | sort | tail -n 1)"
+          test -n "$database" || { echo "::error::No live database was written"; exit 1; }
+          cp "data/processed/$database" skillmatch_live_latest.db
+          gh release view live-data || gh release create live-data --title "Latest live data" --notes "Overwritten daily by the collection job. Used by Codespaces."
+          gh release upload live-data skillmatch_live_latest.db --clobber
+
       - name: Find the new snapshot
         id: snapshot
         run: |
