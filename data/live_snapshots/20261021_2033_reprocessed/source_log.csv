@@ -1,0 +1,7 @@
+run_id,source,source_id,at,status,error_type,board,note,count,requests
+20261021T203222Z_reprocessed,reed,,2026-10-27T13:24:46+00:00,ok,,,"{""search_unique"": 2565, ""expired_in_search"": 0, ""excluded_at_search"": 2480, ""survived_search"": 85, ""details_fetched"": 85}",,0
+20261021T203222Z_reprocessed,ats,,2026-10-27T13:24:46+00:00,ok,,,"{""gymshark"": 8, ""monzo"": 39, ""kpler"": 30, ""biffa"": 142}",,0
+20261021T203222Z_reprocessed,curated,,2026-10-27T13:24:46+00:00,ok,,,"{""rows"": 0}",,0
+20261021T203222Z_reprocessed,cv_library,,2026-10-27T13:24:46+00:00,disabled,,,not configured,,0
+20261021T203222Z_reprocessed,remote_ok,,2026-10-27T13:24:46+00:00,ok,,,"{""items"": 99, ""kept"": 9}",,0
+20261021T203222Z_reprocessed,we_work_remotely,,2026-10-27T13:24:46+00:00,ok,,,"{""items"": 93, ""kept"": 13}",,0
