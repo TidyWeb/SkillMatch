@@ -1,0 +1,1532 @@
+run_id,vacancy_id,skill,strength,confidence,description_coverage
+20261027T165029704247Z,greenhouse:gymshark-4863068101,crm_systems,desirable,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4958803101,excel,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4959277101,data_analysis,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4959277101,data_cleaning,unclear,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4959277101,erp_systems,desirable,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4959277101,excel,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4959277101,power_bi,desirable,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,agile_methods,unclear,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,apis_json,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,aws,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,azure,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,gcp,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4974208101,git,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-4983839101,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,greenhouse:gymshark-5006556101,data_analysis,unclear,stated,full
+20261027T165029704247Z,greenhouse:gymshark-5012170101,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,greenhouse:gymshark-5012170101,microsoft_office,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-5758065,looker,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-5758065,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-5758065,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-5758065,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-6180814,python,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-6180814,sql,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-6180814,statistics,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-6635837,machine_learning,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-6636147,machine_learning,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-7194922,looker,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-7194922,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-7194922,statistics,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-7904675,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-7904675,looker,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-7904675,python,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-7904675,sas,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-7904675,sql,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-7996955,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-7996955,statistics,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8013699,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8041029,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8041029,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8041029,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8050756,agile_methods,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8050756,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8050756,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8050756,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8092745,looker,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-8092745,python,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-8092745,sql,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-8098655,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8098915,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8103509,agile_methods,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8103509,generative_ai,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8103509,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8103509,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8103509,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8121191,generative_ai,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8121191,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8121191,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8121191,sql,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8121253,crm_systems,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8132044,excel,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8132044,google_sheets,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8132044,python,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8132044,sql,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8143930,generative_ai,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8158933,sql,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8172921,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8195436,sql,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8225843,data_analysis,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8225870,data_analysis,unclear,stated,full
+20261027T165029704247Z,greenhouse:monzo-8232726,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8236487,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8236487,data_analysis,essential,stated,full
+20261027T165029704247Z,greenhouse:monzo-8236487,looker,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8236487,power_bi,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8236487,sql,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8236487,tableau,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8245673,etl,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8261197,dashboards_reporting,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8261197,google_sheets,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8261197,looker,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8264501,looker,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8264501,python,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8264501,sql,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8281671,crm_systems,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8288562,generative_ai,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8288562,machine_learning,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8288562,python,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8305634,data_analysis,essential,inferred,full
+20261027T165029704247Z,greenhouse:monzo-8305679,data_analysis,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8305679,excel,desirable,stated,full
+20261027T165029704247Z,greenhouse:monzo-8318522,hr_systems,essential,inferred,full
+20261027T165029704247Z,lever:kpler-0354b55d-7141-4491-98bc-538daeed8593,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-0354b55d-7141-4491-98bc-538daeed8593,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-0354b55d-7141-4491-98bc-538daeed8593,postgresql,desirable,stated,full
+20261027T165029704247Z,lever:kpler-0354b55d-7141-4491-98bc-538daeed8593,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-04129e3c-8390-4ce7-9e7f-30787378caf5,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-05f76103-21ef-40af-b6f8-05413b27af04,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-06747d49-ea1e-458c-93e6-1489a1a9c612,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-0b2a75d9-931d-4424-8454-6128aa486401,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-0cc8cd10-def3-4955-8f81-7d3cdd0e33ab,gis,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,agile_methods,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,aws,desirable,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,gcp,desirable,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,git,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,machine_learning,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-10105b9b-ed9c-4ebe-8f3b-76b18edeccb8,statistics,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,gis,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-15474088-c317-42ba-bb01-502a4b1617d3,statistics,desirable,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,apis_json,unclear,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,databricks,unclear,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-187966a4-ec74-4e60-94ee-016ffdb95d11,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-19dc1d40-6a2f-47a2-bca6-64c845938625,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-1c976953-88d4-4487-9c56-2b8ff2587857,sql,essential,inferred,full
+20261027T165029704247Z,lever:kpler-23e9e7db-ca92-4663-8b60-eed96c3859f1,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-23e9e7db-ca92-4663-8b60-eed96c3859f1,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-23e9e7db-ca92-4663-8b60-eed96c3859f1,postgresql,desirable,stated,full
+20261027T165029704247Z,lever:kpler-23e9e7db-ca92-4663-8b60-eed96c3859f1,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-253cb923-88b8-4dac-abd6-e498852ebb95,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,aws,desirable,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,git,essential,stated,full
+20261027T165029704247Z,lever:kpler-2601aa33-d727-4ca1-bfbb-92bfb4e9776b,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-277d7691-3890-4953-9fac-8503c1f36061,business_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-28234859-8c3e-4782-94f8-4b8c0458584a,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-294664b3-aec1-4721-8d98-b58f8255a352,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-294664b3-aec1-4721-8d98-b58f8255a352,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,data_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,etl,unclear,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,power_bi,desirable,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,tableau,desirable,stated,full
+20261027T165029704247Z,lever:kpler-2ab253d2-3388-4713-9c0c-24da8a04fcbc,vba,essential,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,data_analysis,essential,inferred,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,databases_general,unclear,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,etl,unclear,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-35db18e4-9d96-4378-901b-f712325f1dd2,vba,essential,stated,full
+20261027T165029704247Z,lever:kpler-3a57da80-b4ed-434e-8048-ed2f1fd84408,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-3a57da80-b4ed-434e-8048-ed2f1fd84408,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-3aba2e72-9f7a-4ff7-bc57-902da0779c6c,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-3c351162-0b2f-4670-b03f-5954b50a02c1,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-401edb1b-674a-4278-9fee-3f35fa6384d4,data_cleaning,desirable,stated,full
+20261027T165029704247Z,lever:kpler-401edb1b-674a-4278-9fee-3f35fa6384d4,etl,desirable,stated,full
+20261027T165029704247Z,lever:kpler-401edb1b-674a-4278-9fee-3f35fa6384d4,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-45bf6d24-51e3-4c80-a663-696e816e5613,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,aws,desirable,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-46986845-66bf-4ff9-9c91-31065945ffea,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-47fa1ed6-a4fd-41c6-9ae1-f1f3750f1fb7,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-496215e6-1dd9-46c2-b243-36211f5ca5eb,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-49c47c9b-87ca-45e8-bed4-e56f5e4766f8,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-49c47c9b-87ca-45e8-bed4-e56f5e4766f8,gis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-5040a241-ce9f-48a4-ac8e-54161dcad948,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-5c6e077d-3c12-4ea3-a053-b02d42880134,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-5c6e077d-3c12-4ea3-a053-b02d42880134,databricks,unclear,stated,full
+20261027T165029704247Z,lever:kpler-5d5c2a52-9a9b-4307-9221-ab40d294c889,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-616907ff-3ac5-47ef-a8de-077579a691ad,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-616907ff-3ac5-47ef-a8de-077579a691ad,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-616907ff-3ac5-47ef-a8de-077579a691ad,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-616907ff-3ac5-47ef-a8de-077579a691ad,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-616907ff-3ac5-47ef-a8de-077579a691ad,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,apis_json,desirable,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,databricks,essential,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,etl,unclear,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-62852003-0da0-47bd-b1d7-5a9404f55f47,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,agile_methods,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,data_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-65674b91-1b8e-402b-b1aa-875a13ec0949,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,aws,desirable,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,git,essential,stated,full
+20261027T165029704247Z,lever:kpler-6ac79b30-6b3b-4934-a603-7a5ed57fa379,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-74de4815-c366-4b45-a41d-3fd57ce12ce7,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-74de4815-c366-4b45-a41d-3fd57ce12ce7,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-74de4815-c366-4b45-a41d-3fd57ce12ce7,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-74de4815-c366-4b45-a41d-3fd57ce12ce7,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-74de4815-c366-4b45-a41d-3fd57ce12ce7,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-764db18a-b285-4be5-bf7e-c27c43214bb4,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-7d2b0b9f-9dae-4eee-aff8-f7493fee8e26,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8406b890-cd64-4f78-bc58-f8f842e8db72,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,agile_methods,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,data_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a52af87-a0dd-46d6-bc25-9c40bab1f49c,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-8a854040-5c93-426f-a864-abc3d70d27f7,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8b3a689a-a3d9-4ebe-8c42-b2f5b9373c6a,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-8b3a689a-a3d9-4ebe-8c42-b2f5b9373c6a,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-8b3a689a-a3d9-4ebe-8c42-b2f5b9373c6a,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-8b3a689a-a3d9-4ebe-8c42-b2f5b9373c6a,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-8b3a689a-a3d9-4ebe-8c42-b2f5b9373c6a,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-8b58e2c6-9219-4976-ab8a-da39d23dbd6b,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,data_analysis,essential,inferred,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,data_cleaning,essential,inferred,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,python,essential,inferred,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,sql,essential,inferred,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,t_sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-8c26d839-713f-4bfb-82cd-cc2a38938358,tableau,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8ef8d27a-3f7f-442f-ba0e-9da0e8af10c0,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-8ff15f9a-f8a7-415c-88c3-dbbc0583d934,sql,essential,inferred,full
+20261027T165029704247Z,lever:kpler-926f6537-4e06-4999-9690-b340fef64b9c,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-93bd2f6a-9e6c-440d-a053-74250b7d892c,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,apis_json,unclear,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,data_cleaning,essential,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,databases_general,unclear,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,databricks,desirable,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,postgresql,unclear,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-95d8b151-477c-4d2e-8070-6dc4e94ed1f6,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-98a0722a-8224-48ea-830a-58a606806383,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,apis_json,unclear,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,data_cleaning,essential,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,databases_general,unclear,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,databricks,desirable,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,postgresql,unclear,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-9e07834d-855a-4971-ab40-d8b34ddb3075,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-9e6b85f4-65a0-45a6-8e47-0c41174da616,agile_methods,desirable,stated,full
+20261027T165029704247Z,lever:kpler-9e6b85f4-65a0-45a6-8e47-0c41174da616,apis_json,desirable,stated,full
+20261027T165029704247Z,lever:kpler-9e6b85f4-65a0-45a6-8e47-0c41174da616,business_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-a26f4209-45d6-45b0-b560-3e812e0ecb8a,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-a35396e8-6cec-4095-83ab-5384353728c2,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ab8a61f8-fce0-4c12-b576-c7d277c07cda,sql,essential,inferred,full
+20261027T165029704247Z,lever:kpler-ac538a08-baee-4949-a055-32ceed587d7f,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-ac538a08-baee-4949-a055-32ceed587d7f,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-ac538a08-baee-4949-a055-32ceed587d7f,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-ac538a08-baee-4949-a055-32ceed587d7f,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-ac538a08-baee-4949-a055-32ceed587d7f,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,apis_json,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,data_analysis,essential,inferred,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,data_cleaning,essential,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,databases_general,essential,inferred,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,etl,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ad06b78b-ce98-42b9-8fc6-887aa07bae5d,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,postgresql,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-aee5db97-5ade-4893-9b09-4e630e0288cf,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-b3ffa04d-60b6-4761-9a41-5e40944b043e,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,data_analysis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-b4c1a77c-585e-402b-af76-c18a5c10c6d1,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-b7007015-01fa-483a-ab3b-5d2a6c910274,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-bbfca9dc-240c-4fdd-8710-20b6c55b87fd,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-bbfca9dc-240c-4fdd-8710-20b6c55b87fd,erp_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-bbfca9dc-240c-4fdd-8710-20b6c55b87fd,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-bbfca9dc-240c-4fdd-8710-20b6c55b87fd,google_sheets,essential,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-bc4338ab-5392-4b2b-bdc7-13ad466ad911,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-bd68099b-f15b-43fb-ad5d-def3e96bc265,agile_methods,unclear,stated,full
+20261027T165029704247Z,lever:kpler-bd68099b-f15b-43fb-ad5d-def3e96bc265,apis_json,unclear,stated,full
+20261027T165029704247Z,lever:kpler-c1c461f8-b95a-49ab-ad43-f8b519e59778,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,lever:kpler-c1c461f8-b95a-49ab-ad43-f8b519e59778,gis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-c49c1eb2-36f8-488d-ac27-cc920e6435a9,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-c49c1eb2-36f8-488d-ac27-cc920e6435a9,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-c49c1eb2-36f8-488d-ac27-cc920e6435a9,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c49c1eb2-36f8-488d-ac27-cc920e6435a9,sql,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c49c1eb2-36f8-488d-ac27-cc920e6435a9,statistics,essential,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,apis_json,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,data_cleaning,essential,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,etl,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,python,desirable,stated,full
+20261027T165029704247Z,lever:kpler-c51380da-4888-4609-8fc1-c16cc8b7d25a,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,data_analysis,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,data_cleaning,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,git,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,google_sheets,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,looker,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,power_bi,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,statistics,essential,stated,full
+20261027T165029704247Z,lever:kpler-caa9dbc6-f48f-437b-994f-64d233010da7,tableau,essential,stated,full
+20261027T165029704247Z,lever:kpler-d2ae744f-9539-4e0d-9d42-6014001833fc,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,lever:kpler-d2ae744f-9539-4e0d-9d42-6014001833fc,gis,unclear,stated,full
+20261027T165029704247Z,lever:kpler-db2189b5-98b8-410e-9110-24d98201973d,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,data_analysis,essential,inferred,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,databases_general,unclear,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,etl,unclear,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-db490413-d848-4030-988c-1bb90bd84072,vba,essential,stated,full
+20261027T165029704247Z,lever:kpler-dd8e0a88-62fe-4711-80b5-3380e492f41c,crm_systems,unclear,stated,full
+20261027T165029704247Z,lever:kpler-ddd03a08-f4ad-43b1-9813-93c38ad30392,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-e8c4b6f8-8233-409a-8c72-445a6821cdd8,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,generative_ai,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-e914f4a8-2a6a-41d1-9c0a-51fdd23a5e75,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,data_analysis,essential,inferred,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,data_cleaning,unclear,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,excel,essential,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,sql,essential,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,statistics,essential,stated,full
+20261027T165029704247Z,lever:kpler-eaa3af74-23c5-4804-8889-9152f83e1236,vba,essential,stated,full
+20261027T165029704247Z,lever:kpler-ebc88846-7eb7-4ade-8770-fa6572bbdbc5,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-ec047856-55e1-4f01-b882-7f609c11fb3d,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-ee3ad1a8-7c6c-4633-9d4f-4116621037d9,apis_json,desirable,stated,full
+20261027T165029704247Z,lever:kpler-f00d81b8-332d-40fd-89bc-2e90ea26931f,crm_systems,desirable,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,apis_json,essential,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,data_analysis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,databases_general,essential,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-f317019a-942b-4280-8699-e1f19084effe,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,aws,essential,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,databases_general,desirable,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,etl,essential,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,generative_ai,desirable,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,gis,desirable,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,postgresql,desirable,stated,full
+20261027T165029704247Z,lever:kpler-fd027bed-7a3f-4e51-ab7b-6da91fcf26bb,python,essential,stated,full
+20261027T165029704247Z,lever:kpler-fd1fc67c-b448-413e-bdba-66811dee0b99,crm_systems,essential,stated,full
+20261027T165029704247Z,lever:kpler-feaf8e1c-7e6b-494b-8686-9ea557529c76,sql,essential,inferred,full
+20261027T165029704247Z,reed:56486014,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486014,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486014,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486066,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486066,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486066,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486077,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486077,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486077,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486081,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486081,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486081,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486188,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486188,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486188,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486384,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486384,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486384,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486389,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486389,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486389,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486441,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486441,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486441,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486442,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486442,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486442,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486452,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486452,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486452,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486461,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486461,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486461,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486467,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486467,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486467,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486473,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486473,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486473,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486492,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486492,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486492,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486501,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486501,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486501,statistics,essential,stated,full
+20261027T165029704247Z,reed:56486502,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486502,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:56486502,statistics,essential,stated,full
+20261027T165029704247Z,reed:57190824,agile_methods,essential,stated,full
+20261027T165029704247Z,reed:57190824,apis_json,desirable,stated,full
+20261027T165029704247Z,reed:57190824,aws,desirable,stated,full
+20261027T165029704247Z,reed:57190824,azure,desirable,stated,full
+20261027T165029704247Z,reed:57190824,business_analysis,essential,stated,full
+20261027T165029704247Z,reed:57190824,data_ethics_gdpr,desirable,stated,full
+20261027T165029704247Z,reed:57190824,generative_ai,desirable,stated,full
+20261027T165029704247Z,reed:57250713,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57250713,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,reed:57250713,sql,essential,stated,full
+20261027T165029704247Z,reed:57262885,agile_methods,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57336659,crm_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57347003,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57347003,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57347003,databricks,essential,stated,full
+20261027T165029704247Z,reed:57347003,etl,unclear,stated,full
+20261027T165029704247Z,reed:57347003,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57347003,python,essential,stated,full
+20261027T165029704247Z,reed:57347003,sql,essential,stated,full
+20261027T165029704247Z,reed:57347022,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57347022,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57347022,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57347022,databricks,essential,stated,full
+20261027T165029704247Z,reed:57347022,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57347022,python,desirable,stated,full
+20261027T165029704247Z,reed:57347022,sql,essential,stated,full
+20261027T165029704247Z,reed:57348194,agile_methods,desirable,stated,full
+20261027T165029704247Z,reed:57348194,business_analysis,desirable,stated,full
+20261027T165029704247Z,reed:57348194,data_analysis,desirable,stated,full
+20261027T165029704247Z,reed:57348194,sql,desirable,stated,full
+20261027T165029704247Z,reed:57348194,testing_uat,unclear,stated,full
+20261027T165029704247Z,reed:57348560,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57350110,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57351204,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57352161,excel,essential,stated,full
+20261027T165029704247Z,reed:57352161,generative_ai,desirable,stated,full
+20261027T165029704247Z,reed:57352161,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57352190,azure,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57352443,data_cleaning,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57352781,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57352781,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57352781,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57352781,machine_learning,desirable,stated,full
+20261027T165029704247Z,reed:57352781,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57352781,python,desirable,stated,full
+20261027T165029704247Z,reed:57352781,qlik,essential,stated,full
+20261027T165029704247Z,reed:57352781,r_language,desirable,stated,full
+20261027T165029704247Z,reed:57352781,sql,essential,stated,full
+20261027T165029704247Z,reed:57352781,tableau,essential,stated,full
+20261027T165029704247Z,reed:57352819,hr_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57354450,agile_methods,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57354896,azure,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57354896,microsoft_office,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57355106,business_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57355117,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57355117,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57355117,excel,essential,stated,full
+20261027T165029704247Z,reed:57355117,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57355117,sql,unclear,stated,full
+20261027T165029704247Z,reed:57355204,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57356217,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57356640,azure,essential,stated,full
+20261027T165029704247Z,reed:57356640,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57356640,dashboards_reporting,essential,inferred,full
+20261027T165029704247Z,reed:57356640,etl,essential,inferred,full
+20261027T165029704247Z,reed:57356640,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57359847,crm_systems,essential,stated,full
+20261027T165029704247Z,reed:57359847,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57359847,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57359847,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57359847,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57359847,sql,essential,stated,full
+20261027T165029704247Z,reed:57359859,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57359859,etl,essential,stated,full
+20261027T165029704247Z,reed:57359859,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57359859,sql,essential,stated,full
+20261027T165029704247Z,reed:57359885,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57359885,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57359885,hr_systems,essential,stated,full
+20261027T165029704247Z,reed:57361972,erp_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57362515,erp_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57363224,agile_methods,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57363659,dashboards_reporting,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57364092,excel,essential,stated,full
+20261027T165029704247Z,reed:57364092,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57364159,apis_json,essential,stated,full
+20261027T165029704247Z,reed:57364159,azure,essential,stated,full
+20261027T165029704247Z,reed:57364159,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57364159,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57364159,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57364159,databricks,desirable,stated,full
+20261027T165029704247Z,reed:57364159,etl,essential,stated,full
+20261027T165029704247Z,reed:57364159,generative_ai,desirable,stated,full
+20261027T165029704247Z,reed:57364159,python,essential,stated,full
+20261027T165029704247Z,reed:57364159,sql,essential,stated,full
+20261027T165029704247Z,reed:57364563,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57368461,data_cleaning,essential,inferred,full
+20261027T165029704247Z,reed:57368461,erp_systems,essential,inferred,full
+20261027T165029704247Z,reed:57368461,excel,essential,inferred,full
+20261027T165029704247Z,reed:57368461,hr_systems,essential,inferred,full
+20261027T165029704247Z,reed:57369709,dashboards_reporting,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57370951,data_cleaning,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57371752,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57372296,apis_json,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57373219,data_ethics_gdpr,desirable,stated,full
+20261027T165029704247Z,reed:57373339,hr_systems,desirable,stated,search excerpt only
+20261027T165029704247Z,reed:57376369,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57376369,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57376369,databases_general,desirable,stated,full
+20261027T165029704247Z,reed:57376369,gcp,desirable,stated,full
+20261027T165029704247Z,reed:57376369,looker,desirable,stated,full
+20261027T165029704247Z,reed:57376369,mysql,desirable,stated,full
+20261027T165029704247Z,reed:57376369,sql,desirable,stated,full
+20261027T165029704247Z,reed:57376369,statistics,desirable,stated,full
+20261027T165029704247Z,reed:57376369,web_analytics,essential,inferred,full
+20261027T165029704247Z,reed:57377096,power_bi,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57377096,sql,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57377240,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57377240,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57377240,excel,essential,stated,full
+20261027T165029704247Z,reed:57377240,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57377264,erp_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57378607,gcp,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57379573,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57380318,agile_methods,desirable,stated,full
+20261027T165029704247Z,reed:57380318,azure,desirable,stated,full
+20261027T165029704247Z,reed:57380318,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57380318,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57380318,databricks,desirable,stated,full
+20261027T165029704247Z,reed:57380318,etl,essential,stated,full
+20261027T165029704247Z,reed:57380318,excel,essential,stated,full
+20261027T165029704247Z,reed:57380318,git,desirable,stated,full
+20261027T165029704247Z,reed:57380318,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57380318,python,essential,stated,full
+20261027T165029704247Z,reed:57380318,sql,essential,stated,full
+20261027T165029704247Z,reed:57382099,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57382099,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57382099,data_cleaning,desirable,stated,full
+20261027T165029704247Z,reed:57382099,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57382099,power_automate,essential,stated,full
+20261027T165029704247Z,reed:57382099,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57383270,excel,essential,stated,full
+20261027T165029704247Z,reed:57383270,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57383769,databases_general,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57383872,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57383956,aws,essential,stated,full
+20261027T165029704247Z,reed:57383956,azure,essential,stated,full
+20261027T165029704247Z,reed:57383956,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57383956,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57383956,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57383956,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57383956,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57383956,databricks,essential,stated,full
+20261027T165029704247Z,reed:57383956,sql,essential,stated,full
+20261027T165029704247Z,reed:57385360,power_bi,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57386068,machine_learning,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57386095,crm_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57386112,crm_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57387645,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57389419,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57389419,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57389419,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57389419,sql,essential,stated,full
+20261027T165029704247Z,reed:57392300,microsoft_office,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57392300,power_automate,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57392709,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57393874,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57393874,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57393874,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57393874,excel,essential,stated,full
+20261027T165029704247Z,reed:57393874,hr_systems,essential,stated,full
+20261027T165029704247Z,reed:57393874,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57393874,sql,desirable,stated,full
+20261027T165029704247Z,reed:57393979,crm_systems,essential,stated,full
+20261027T165029704247Z,reed:57393979,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57393979,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57393979,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57393979,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57393979,sql,essential,stated,full
+20261027T165029704247Z,reed:57394549,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57394549,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57394613,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57396918,data_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57396918,excel,essential,inferred,full
+20261027T165029704247Z,reed:57397263,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57397263,data_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57397263,data_cleaning,essential,inferred,full
+20261027T165029704247Z,reed:57397263,excel,essential,inferred,full
+20261027T165029704247Z,reed:57397263,hr_systems,essential,inferred,full
+20261027T165029704247Z,reed:57397588,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57398086,generative_ai,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57399398,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57399398,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57399806,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57399806,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57399806,excel,essential,stated,full
+20261027T165029704247Z,reed:57399806,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57399806,sql,essential,stated,full
+20261027T165029704247Z,reed:57399806,vba,essential,stated,full
+20261027T165029704247Z,reed:57400031,crm_systems,essential,inferred,full
+20261027T165029704247Z,reed:57400031,data_cleaning,essential,inferred,full
+20261027T165029704247Z,reed:57400031,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,reed:57400031,excel,essential,inferred,full
+20261027T165029704247Z,reed:57401465,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57401465,excel,desirable,stated,full
+20261027T165029704247Z,reed:57401465,microsoft_office,desirable,stated,full
+20261027T165029704247Z,reed:57401465,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57401465,sql,desirable,stated,full
+20261027T165029704247Z,reed:57401465,tableau,desirable,stated,full
+20261027T165029704247Z,reed:57402439,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402439,excel,essential,stated,full
+20261027T165029704247Z,reed:57402747,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57402906,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402906,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402906,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402906,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402906,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402906,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402906,git,essential,stated,full
+20261027T165029704247Z,reed:57402906,sql,essential,stated,full
+20261027T165029704247Z,reed:57402920,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402920,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402920,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402920,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402920,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402920,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402920,git,essential,stated,full
+20261027T165029704247Z,reed:57402920,sql,essential,stated,full
+20261027T165029704247Z,reed:57402922,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402922,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402922,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402922,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402922,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402922,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402922,git,essential,stated,full
+20261027T165029704247Z,reed:57402922,sql,essential,stated,full
+20261027T165029704247Z,reed:57402927,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402927,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402927,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402927,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402927,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402927,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402927,git,essential,stated,full
+20261027T165029704247Z,reed:57402927,sql,essential,stated,full
+20261027T165029704247Z,reed:57402935,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402935,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402935,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402935,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402935,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402935,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402935,git,essential,stated,full
+20261027T165029704247Z,reed:57402935,sql,essential,stated,full
+20261027T165029704247Z,reed:57402938,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402938,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402938,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402938,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402938,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402938,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402938,git,essential,stated,full
+20261027T165029704247Z,reed:57402938,sql,essential,stated,full
+20261027T165029704247Z,reed:57402945,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57402945,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57402945,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57402945,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57402945,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57402945,etl,unclear,stated,full
+20261027T165029704247Z,reed:57402945,git,essential,stated,full
+20261027T165029704247Z,reed:57402945,sql,essential,stated,full
+20261027T165029704247Z,reed:57403264,hr_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57403580,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57403580,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57403580,excel,essential,stated,full
+20261027T165029704247Z,reed:57403580,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57406911,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57406911,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,reed:57406911,databases_general,desirable,stated,full
+20261027T165029704247Z,reed:57406911,erp_systems,essential,stated,full
+20261027T165029704247Z,reed:57406911,etl,desirable,stated,full
+20261027T165029704247Z,reed:57406911,excel,desirable,stated,full
+20261027T165029704247Z,reed:57406911,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57406911,python,desirable,stated,full
+20261027T165029704247Z,reed:57406911,sql,desirable,stated,full
+20261027T165029704247Z,reed:57407154,data_cleaning,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57407154,excel,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57409084,gcp,essential,stated,full
+20261027T165029704247Z,reed:57409969,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57411351,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57411351,excel,essential,stated,full
+20261027T165029704247Z,reed:57412158,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57412158,excel,essential,stated,full
+20261027T165029704247Z,reed:57412158,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57412694,azure,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57413954,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57413954,crm_systems,essential,stated,full
+20261027T165029704247Z,reed:57413954,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57413954,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57413954,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57413954,erp_systems,unclear,stated,full
+20261027T165029704247Z,reed:57413954,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57413954,sql,essential,stated,full
+20261027T165029704247Z,reed:57415625,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57416368,agile_methods,essential,stated,full
+20261027T165029704247Z,reed:57416368,azure,essential,stated,full
+20261027T165029704247Z,reed:57416368,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57416368,data_ethics_gdpr,desirable,stated,full
+20261027T165029704247Z,reed:57416368,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57416368,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57416368,sql,essential,stated,full
+20261027T165029704247Z,reed:57416368,testing_uat,essential,stated,full
+20261027T165029704247Z,reed:57416812,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57416812,data_ethics_gdpr,desirable,stated,full
+20261027T165029704247Z,reed:57416984,machine_learning,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57417897,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57417897,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57417897,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57417897,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57417897,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57417897,python,essential,stated,full
+20261027T165029704247Z,reed:57417897,sql,essential,stated,full
+20261027T165029704247Z,reed:57417897,statistics,essential,stated,full
+20261027T165029704247Z,reed:57417897,tableau,essential,stated,full
+20261027T165029704247Z,reed:57418077,agile_methods,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57418394,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57418400,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57418402,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57418494,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57418495,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57419169,excel,essential,stated,full
+20261027T165029704247Z,reed:57419169,google_sheets,essential,stated,full
+20261027T165029704247Z,reed:57419169,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57419174,excel,essential,stated,full
+20261027T165029704247Z,reed:57419174,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57419272,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57419272,data_analysis,desirable,stated,full
+20261027T165029704247Z,reed:57419272,excel,desirable,stated,full
+20261027T165029704247Z,reed:57419744,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57419744,data_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57419744,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,reed:57419744,excel,essential,inferred,full
+20261027T165029704247Z,reed:57419744,microsoft_office,essential,inferred,full
+20261027T165029704247Z,reed:57420008,databricks,essential,stated,full
+20261027T165029704247Z,reed:57420008,power_bi,essential,inferred,full
+20261027T165029704247Z,reed:57420008,python,desirable,stated,full
+20261027T165029704247Z,reed:57422175,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57422175,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57422175,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57422175,sql,essential,stated,full
+20261027T165029704247Z,reed:57422457,crm_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57423791,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57425188,azure,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57425193,azure,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57425409,dashboards_reporting,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57425857,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57426002,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57426441,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57426973,microsoft_office,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57426973,power_automate,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57428274,data_ethics_gdpr,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57428469,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57429038,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57429367,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57429385,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,reed:57429385,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57429385,sql,desirable,stated,full
+20261027T165029704247Z,reed:57429572,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57429572,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57429572,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57429572,etl,essential,stated,full
+20261027T165029704247Z,reed:57429572,power_bi,essential,inferred,full
+20261027T165029704247Z,reed:57429572,sql,essential,inferred,full
+20261027T165029704247Z,reed:57429572,t_sql,essential,inferred,full
+20261027T165029704247Z,reed:57429864,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57429864,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57429864,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57429864,excel,essential,stated,full
+20261027T165029704247Z,reed:57429864,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57429864,statistics,essential,stated,full
+20261027T165029704247Z,reed:57429867,crm_systems,essential,stated,full
+20261027T165029704247Z,reed:57429867,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57429867,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57429867,erp_systems,essential,stated,full
+20261027T165029704247Z,reed:57429867,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57430704,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57431132,databases_general,essential,inferred,full
+20261027T165029704247Z,reed:57431132,etl,essential,inferred,full
+20261027T165029704247Z,reed:57431251,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57431496,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57431496,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57431496,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57431496,databricks,essential,stated,full
+20261027T165029704247Z,reed:57431496,excel,essential,stated,full
+20261027T165029704247Z,reed:57431496,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57431496,sql,essential,stated,full
+20261027T165029704247Z,reed:57432814,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,reed:57432814,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57432814,excel,essential,stated,full
+20261027T165029704247Z,reed:57435250,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57437013,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57437013,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57437013,excel,essential,stated,full
+20261027T165029704247Z,reed:57437013,generative_ai,desirable,stated,full
+20261027T165029704247Z,reed:57437291,generative_ai,unclear,stated,full
+20261027T165029704247Z,reed:57437507,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57437838,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57437838,excel,essential,stated,full
+20261027T165029704247Z,reed:57438387,generative_ai,essential,stated,full
+20261027T165029704247Z,reed:57438387,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57438515,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57439916,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57440369,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57440369,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57440369,excel,essential,stated,full
+20261027T165029704247Z,reed:57440369,python,essential,stated,full
+20261027T165029704247Z,reed:57440369,sql,essential,stated,full
+20261027T165029704247Z,reed:57440369,tableau,essential,stated,full
+20261027T165029704247Z,reed:57440426,generative_ai,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57440746,power_bi,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57442185,excel,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57442299,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57442523,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57442523,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57442523,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57442523,excel,essential,stated,full
+20261027T165029704247Z,reed:57442640,crm_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57443464,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57444705,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57446926,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57446945,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57446948,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57446985,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57447173,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57447173,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57447173,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57447173,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57447173,etl,essential,stated,full
+20261027T165029704247Z,reed:57447173,sql,essential,stated,full
+20261027T165029704247Z,reed:57447173,testing_uat,unclear,stated,full
+20261027T165029704247Z,reed:57448501,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57450270,crm_systems,desirable,stated,full
+20261027T165029704247Z,reed:57450270,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57450270,looker,desirable,stated,full
+20261027T165029704247Z,reed:57450270,web_analytics,essential,stated,full
+20261027T165029704247Z,reed:57450279,crm_systems,desirable,stated,full
+20261027T165029704247Z,reed:57450279,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57450279,looker,desirable,stated,full
+20261027T165029704247Z,reed:57450279,web_analytics,essential,stated,full
+20261027T165029704247Z,reed:57450342,agile_methods,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57451267,aws,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57451268,azure,essential,inferred,full
+20261027T165029704247Z,reed:57451268,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57451268,databases_general,essential,inferred,full
+20261027T165029704247Z,reed:57451268,etl,essential,inferred,full
+20261027T165029704247Z,reed:57451268,machine_learning,essential,inferred,full
+20261027T165029704247Z,reed:57451268,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57451268,sql,essential,inferred,full
+20261027T165029704247Z,reed:57451293,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57451293,looker,desirable,stated,full
+20261027T165029704247Z,reed:57451293,statistics,unclear,stated,full
+20261027T165029704247Z,reed:57451293,web_analytics,essential,stated,full
+20261027T165029704247Z,reed:57451816,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57452187,agile_methods,desirable,stated,full
+20261027T165029704247Z,reed:57452187,azure,desirable,stated,full
+20261027T165029704247Z,reed:57452187,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57452187,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57452187,databricks,desirable,stated,full
+20261027T165029704247Z,reed:57452187,etl,essential,stated,full
+20261027T165029704247Z,reed:57452187,excel,essential,stated,full
+20261027T165029704247Z,reed:57452187,git,desirable,stated,full
+20261027T165029704247Z,reed:57452187,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57452187,python,essential,stated,full
+20261027T165029704247Z,reed:57452187,sql,essential,stated,full
+20261027T165029704247Z,reed:57452488,azure,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57452488,databases_general,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57452488,sql,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57452625,azure,essential,stated,full
+20261027T165029704247Z,reed:57452625,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57452625,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57452625,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57452625,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57452625,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57452625,sql,essential,stated,full
+20261027T165029704247Z,reed:57453304,business_analysis,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57454167,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57454813,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57454813,excel,unclear,stated,full
+20261027T165029704247Z,reed:57455009,microsoft_office,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57455009,power_automate,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57456037,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57456362,aws,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57456510,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57456510,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57456510,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57456510,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57456510,etl,unclear,stated,full
+20261027T165029704247Z,reed:57456510,power_bi,unclear,stated,full
+20261027T165029704247Z,reed:57456510,sql,essential,stated,full
+20261027T165029704247Z,reed:57456510,t_sql,essential,stated,full
+20261027T165029704247Z,reed:57456510,tableau,desirable,stated,full
+20261027T165029704247Z,reed:57456518,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57456518,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57456518,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57456518,databricks,essential,stated,full
+20261027T165029704247Z,reed:57456518,excel,essential,stated,full
+20261027T165029704247Z,reed:57456518,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57456518,sql,essential,stated,full
+20261027T165029704247Z,reed:57456642,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57456840,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57456840,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57456840,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57456840,excel,essential,stated,full
+20261027T165029704247Z,reed:57456840,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57456840,sql,desirable,stated,full
+20261027T165029704247Z,reed:57457448,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57457448,excel,essential,stated,full
+20261027T165029704247Z,reed:57457542,data_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57457794,microsoft_office,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57459072,erp_systems,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57463848,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57465902,crm_systems,essential,stated,full
+20261027T165029704247Z,reed:57465902,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57465902,erp_systems,essential,stated,full
+20261027T165029704247Z,reed:57465902,excel,essential,stated,full
+20261027T165029704247Z,reed:57466082,hr_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57466280,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57466440,business_analysis,desirable,stated,full
+20261027T165029704247Z,reed:57466440,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57466440,excel,essential,stated,full
+20261027T165029704247Z,reed:57466440,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57466440,sql,essential,stated,full
+20261027T165029704247Z,reed:57467614,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57467687,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57467703,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57467841,sql,essential,stated,full
+20261027T165029704247Z,reed:57467841,tableau,desirable,stated,full
+20261027T165029704247Z,reed:57468232,hr_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57468747,aws,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57471860,agile_methods,essential,stated,full
+20261027T165029704247Z,reed:57471860,crm_systems,desirable,stated,full
+20261027T165029704247Z,reed:57471860,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57471860,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57471860,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57471860,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57471860,excel,essential,stated,full
+20261027T165029704247Z,reed:57471860,generative_ai,desirable,stated,full
+20261027T165029704247Z,reed:57471860,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57471860,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57471860,tableau,essential,stated,full
+20261027T165029704247Z,reed:57472113,power_bi,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57472375,data_analysis,desirable,stated,full
+20261027T165029704247Z,reed:57472375,data_cleaning,desirable,stated,full
+20261027T165029704247Z,reed:57472375,excel,essential,inferred,full
+20261027T165029704247Z,reed:57472687,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57473121,apis_json,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57473121,aws,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57473121,data_cleaning,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57473121,python,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57473265,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57474620,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57476114,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57476512,data_ethics_gdpr,desirable,stated,full
+20261027T165029704247Z,reed:57476538,azure,essential,inferred,full
+20261027T165029704247Z,reed:57476538,data_cleaning,essential,inferred,full
+20261027T165029704247Z,reed:57476538,databases_general,essential,inferred,full
+20261027T165029704247Z,reed:57476538,sql,essential,stated,full
+20261027T165029704247Z,reed:57476538,t_sql,essential,inferred,full
+20261027T165029704247Z,reed:57476654,agile_methods,essential,inferred,full
+20261027T165029704247Z,reed:57476654,azure,essential,stated,full
+20261027T165029704247Z,reed:57476654,databases_general,essential,inferred,full
+20261027T165029704247Z,reed:57476654,etl,essential,inferred,full
+20261027T165029704247Z,reed:57476654,sql,essential,inferred,full
+20261027T165029704247Z,reed:57476654,t_sql,essential,inferred,full
+20261027T165029704247Z,reed:57478255,azure,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57478255,sql,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57478343,sql,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57478655,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57478723,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57479387,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57479756,business_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57479756,data_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57479756,data_cleaning,essential,inferred,full
+20261027T165029704247Z,reed:57479756,python,essential,inferred,full
+20261027T165029704247Z,reed:57479756,sql,essential,inferred,full
+20261027T165029704247Z,reed:57479756,statistics,essential,inferred,full
+20261027T165029704247Z,reed:57480746,business_analysis,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57480887,case_management_systems,unclear,stated,full
+20261027T165029704247Z,reed:57480887,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57481353,sql,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57481353,t_sql,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57481408,excel,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57481852,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57481852,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57481852,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57481852,erp_systems,unclear,stated,full
+20261027T165029704247Z,reed:57481852,power_automate,essential,stated,full
+20261027T165029704247Z,reed:57481852,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57481908,crm_systems,essential,inferred,full
+20261027T165029704247Z,reed:57481908,data_analysis,essential,inferred,full
+20261027T165029704247Z,reed:57481976,azure,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57481976,databases_general,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57481976,sql,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57481983,azure,essential,stated,full
+20261027T165029704247Z,reed:57481983,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57481983,data_cleaning,essential,stated,full
+20261027T165029704247Z,reed:57481983,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57481983,erp_systems,desirable,stated,full
+20261027T165029704247Z,reed:57481983,power_bi,essential,stated,full
+20261027T165029704247Z,reed:57481983,sql,essential,stated,full
+20261027T165029704247Z,reed:57483085,erp_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57483086,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57483086,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57483122,hr_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57483463,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57484016,azure,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57484016,databricks,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57484016,power_bi,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57484145,microsoft_office,essential,stated,full
+20261027T165029704247Z,reed:57485921,agile_methods,desirable,stated,full
+20261027T165029704247Z,reed:57485921,azure,desirable,stated,full
+20261027T165029704247Z,reed:57485921,business_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57485921,dashboards_reporting,desirable,stated,full
+20261027T165029704247Z,reed:57485921,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57485921,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,reed:57485921,databases_general,unclear,stated,full
+20261027T165029704247Z,reed:57485921,databricks,desirable,stated,full
+20261027T165029704247Z,reed:57485921,dbt,desirable,stated,full
+20261027T165029704247Z,reed:57485921,power_bi,essential,inferred,full
+20261027T165029704247Z,reed:57485921,sql,unclear,stated,full
+20261027T165029704247Z,reed:57485921,testing_uat,unclear,stated,full
+20261027T165029704247Z,reed:57486191,agile_methods,essential,stated,full
+20261027T165029704247Z,reed:57487210,excel,essential,stated,full
+20261027T165029704247Z,reed:57487512,power_bi,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57488031,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57488616,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57488860,databases_general,unclear,stated,full
+20261027T165029704247Z,reed:57488860,power_bi,desirable,stated,full
+20261027T165029704247Z,reed:57489676,dashboards_reporting,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57490062,data_analysis,unclear,stated,full
+20261027T165029704247Z,reed:57490062,excel,essential,stated,full
+20261027T165029704247Z,reed:57491011,azure,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57491011,microsoft_office,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57491233,agile_methods,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57491665,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57491866,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57492885,azure,essential,stated,full
+20261027T165029704247Z,reed:57492885,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57492885,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,reed:57492885,databases_general,essential,stated,full
+20261027T165029704247Z,reed:57492885,databricks,essential,stated,full
+20261027T165029704247Z,reed:57492885,dbt,essential,stated,full
+20261027T165029704247Z,reed:57492885,etl,essential,stated,full
+20261027T165029704247Z,reed:57492885,git,unclear,stated,full
+20261027T165029704247Z,reed:57492885,postgresql,essential,stated,full
+20261027T165029704247Z,reed:57492885,sql,essential,stated,full
+20261027T165029704247Z,reed:57492885,statistics,essential,stated,full
+20261027T165029704247Z,reed:57492885,t_sql,essential,stated,full
+20261027T165029704247Z,reed:57493105,crm_systems,desirable,stated,search excerpt only
+20261027T165029704247Z,reed:57493119,agile_methods,essential,stated,search excerpt only
+20261027T165029704247Z,reed:57493189,data_cleaning,unclear,stated,full
+20261027T165029704247Z,reed:57493189,dbt,essential,stated,full
+20261027T165029704247Z,reed:57493189,etl,unclear,stated,full
+20261027T165029704247Z,reed:57493189,git,essential,stated,full
+20261027T165029704247Z,reed:57493189,python,essential,stated,full
+20261027T165029704247Z,reed:57493189,sql,essential,stated,full
+20261027T165029704247Z,reed:57493429,dashboards_reporting,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57493980,dashboards_reporting,essential,inferred,full
+20261027T165029704247Z,reed:57493980,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57493980,databases_general,unclear,stated,full
+20261027T165029704247Z,reed:57493980,etl,essential,stated,full
+20261027T165029704247Z,reed:57493980,power_bi,essential,inferred,full
+20261027T165029704247Z,reed:57493980,sql,essential,stated,full
+20261027T165029704247Z,reed:57494497,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57494965,crm_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57494979,databricks,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57495057,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57495727,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57495752,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57495831,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,reed:57495831,data_analysis,essential,stated,full
+20261027T165029704247Z,reed:57495831,excel,essential,stated,full
+20261027T165029704247Z,reed:57495831,python,essential,stated,full
+20261027T165029704247Z,reed:57495831,sql,essential,stated,full
+20261027T165029704247Z,reed:57495831,tableau,essential,stated,full
+20261027T165029704247Z,reed:57495838,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57495862,data_analysis,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57496621,hr_systems,unclear,stated,search excerpt only
+20261027T165029704247Z,reed:57496747,dashboards_reporting,essential,inferred,search excerpt only
+20261027T165029704247Z,reed:57498124,erp_systems,essential,inferred,search excerpt only
+20261027T165029704247Z,remote_ok:1136795,python,essential,stated,full
+20261027T165029704247Z,remote_ok:1136796,apis_json,essential,inferred,full
+20261027T165029704247Z,remote_ok:1136796,aws,essential,inferred,full
+20261027T165029704247Z,remote_ok:1136796,azure,essential,inferred,full
+20261027T165029704247Z,remote_ok:1136796,gcp,essential,inferred,full
+20261027T165029704247Z,remote_ok:1136841,machine_learning,essential,stated,full
+20261027T165029704247Z,remote_ok:1137072,erp_systems,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137155,erp_systems,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137155,etl,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137194,excel,essential,stated,full
+20261027T165029704247Z,remote_ok:1137194,power_bi,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137375,data_analysis,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137388,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137388,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137394,apis_json,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137394,python,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137407,crm_systems,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137410,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137412,hr_systems,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137414,databases_general,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137421,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137421,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137434,data_analysis,essential,stated,full
+20261027T165029704247Z,remote_ok:1137434,excel,essential,stated,full
+20261027T165029704247Z,remote_ok:1137434,microsoft_office,essential,stated,full
+20261027T165029704247Z,remote_ok:1137434,statistics,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137439,crm_systems,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137439,generative_ai,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137451,crm_systems,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137451,data_cleaning,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137463,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137466,statistics,essential,stated,full
+20261027T165029704247Z,remote_ok:1137474,generative_ai,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137475,aws,essential,stated,full
+20261027T165029704247Z,remote_ok:1137475,azure,essential,stated,full
+20261027T165029704247Z,remote_ok:1137475,gcp,essential,stated,full
+20261027T165029704247Z,remote_ok:1137475,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137478,apis_json,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137478,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137480,crm_systems,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137480,microsoft_office,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137481,databases_general,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137481,microsoft_office,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137481,sas,essential,stated,full
+20261027T165029704247Z,remote_ok:1137482,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137482,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,remote_ok:1137488,crm_systems,essential,stated,full
+20261027T165029704247Z,remote_ok:1137488,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137506,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137507,generative_ai,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137508,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137508,aws,essential,stated,full
+20261027T165029704247Z,remote_ok:1137508,data_analysis,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137508,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137508,databases_general,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137508,databricks,essential,stated,full
+20261027T165029704247Z,remote_ok:1137508,etl,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137508,gcp,essential,stated,full
+20261027T165029704247Z,remote_ok:1137508,python,essential,stated,full
+20261027T165029704247Z,remote_ok:1137510,databases_general,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137514,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137522,generative_ai,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137524,agile_methods,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137524,crm_systems,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137525,microsoft_office,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137527,aws,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137527,generative_ai,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137527,python,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137530,google_sheets,essential,stated,full
+20261027T165029704247Z,remote_ok:1137530,microsoft_office,essential,stated,full
+20261027T165029704247Z,remote_ok:1137530,python,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137531,gcp,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137531,machine_learning,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137531,python,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137531,statistics,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137535,business_analysis,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137535,erp_systems,essential,stated,full
+20261027T165029704247Z,remote_ok:1137536,business_analysis,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137537,etl,essential,stated,full
+20261027T165029704247Z,remote_ok:1137537,postgresql,essential,stated,full
+20261027T165029704247Z,remote_ok:1137538,git,essential,stated,full
+20261027T165029704247Z,remote_ok:1137538,python,essential,stated,full
+20261027T165029704247Z,remote_ok:1137540,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137540,mysql,essential,stated,full
+20261027T165029704247Z,remote_ok:1137540,postgresql,essential,stated,full
+20261027T165029704247Z,remote_ok:1137540,python,essential,stated,full
+20261027T165029704247Z,remote_ok:1137548,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,data_analysis,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,excel,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,looker,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,power_bi,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,python,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,sas,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,sql,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,statistics,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137548,tableau,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137550,data_cleaning,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137550,excel,essential,stated,full
+20261027T165029704247Z,remote_ok:1137550,microsoft_office,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137551,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137554,erp_systems,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137555,apis_json,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,data_cleaning,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,databases_general,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,excel,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137555,generative_ai,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,google_sheets,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137555,r_language,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137556,erp_systems,essential,stated,full
+20261027T165029704247Z,remote_ok:1137556,excel,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,agile_methods,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,aws,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,azure,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,gcp,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,python,essential,stated,full
+20261027T165029704247Z,remote_ok:1137557,sql,essential,stated,full
+20261027T165029704247Z,remote_ok:1137560,erp_systems,essential,stated,full
+20261027T165029704247Z,remote_ok:1137562,agile_methods,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137562,apis_json,essential,stated,full
+20261027T165029704247Z,remote_ok:1137563,crm_systems,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137568,apis_json,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137568,aws,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137568,azure,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137568,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137568,etl,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137568,gcp,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137568,python,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137569,google_sheets,essential,stated,full
+20261027T165029704247Z,remote_ok:1137571,apis_json,essential,inferred,full
+20261027T165029704247Z,remote_ok:1137572,apis_json,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137572,generative_ai,essential,stated,full
+20261027T165029704247Z,remote_ok:1137572,git,unclear,stated,full
+20261027T165029704247Z,remote_ok:1137572,python,desirable,stated,full
+20261027T165029704247Z,remote_ok:1137573,crm_systems,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:air-apps-framer-website-designer-1,statistics,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:anthropic-anthropic-stem-fellow,data_analysis,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:anthropic-anthropic-stem-fellow,machine_learning,essential,stated,full
+20261027T165029704247Z,we_work_remotely:aquifer-development-manager,agile_methods,essential,stated,full
+20261027T165029704247Z,we_work_remotely:aquifer-development-manager,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:beyondtrust-enterprise-account-manager-sled-1,crm_systems,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:bondex-fullstack-web3-engineer-solidity-rust-typescript,python,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:brex-senior-field-marketing-manager,crm_systems,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:brex-senior-field-marketing-manager,erp_systems,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:bullfinch-recruitment-crm-retention-junior,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:bybit-animator-intern,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:bybit-blockchain-risk-control-lead,data_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:bybit-blockchain-risk-control-lead,generative_ai,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:bybit-blockchain-risk-control-lead,machine_learning,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:bybit-blockchain-risk-control-lead,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:bybit-blockchain-risk-control-lead,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cadence-health-bilingual-spanish-speaking-health-coach,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cadence-health-bilingual-spanish-speaking-licensed-practical-nurse,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,business_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,databases_general,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,dbt,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,git,essential,stated,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,looker,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,power_bi,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,sql,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:carrot-business-intelligence-analyst,tableau,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:cata-kor-graphic-designer,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:clover-health-data-analyst-clinical-data-effectiveness,dashboards_reporting,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:clover-health-data-analyst-clinical-data-effectiveness,data_cleaning,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:coinbase-associate-manager-internal-audit,data_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:coinbase-associate-manager-internal-audit,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:coinbase-broker-dealer-operations-associate,agile_methods,essential,stated,full
+20261027T165029704247Z,we_work_remotely:coinbase-broker-dealer-operations-associate,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:coinbase-broker-dealer-operations-associate,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:collibra-senior-customer-engineer-collibra-public-sector,data_cleaning,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:collibra-senior-customer-engineer-collibra-public-sector,etl,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:collibra-senior-customer-engineer-collibra-public-sector,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:committee-for-children-senior-product-manager-edtech-innovation,agile_methods,essential,stated,full
+20261027T165029704247Z,we_work_remotely:committee-for-children-senior-product-manager-edtech-innovation,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-analytics-business-partner,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-customer-success-engineer-sydney,aws,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-customer-success-engineer-sydney,azure,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-customer-success-engineer-sydney,databricks,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-customer-success-engineer-sydney,etl,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-customer-success-engineer-sydney,gcp,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-product-management-security,etl,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-product-management-security,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-solutions-engineering-enterprise-amer,etl,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-solutions-engineering-enterprise-amer,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-solutions-engineering-enterprise-amer-1,etl,essential,stated,full
+20261027T165029704247Z,we_work_remotely:cribl-director-solutions-engineering-enterprise-amer-1,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:current-freelance-marketo-email-engineer,crm_systems,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:current-senior-product-designer-webflow-temp-to-perm,agile_methods,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:current-senior-product-designer-webflow-temp-to-perm,crm_systems,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:current-senior-product-designer-webflow-temp-to-perm,statistics,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:division50-sales-development-representative-crm-conversational-ai-messaging-automation,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:division50-sales-development-representative-crm-conversational-ai-messaging-automation,generative_ai,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:duckduckgo-senior-backend-engineer,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:fivetran-enterprise-account-executive,etl,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:freshly-commerce-technical-support-specialist-1,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,business_analysis,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,data_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,databricks,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,etl,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,generative_ai,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,machine_learning,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gemini-lead-technical-compliance,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gusto-inc-payment-operations-analyst,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:gusto-inc-senior-product-design-manager-payroll,generative_ai,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:hr-plus-web-developer-fresh-graduate-welcome-wfh-policy-on-job-training,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:hr-plus-web-developer-fresh-graduate-welcome-wfh-policy-on-job-training,git,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:hr-plus-web-developer-fresh-graduate-welcome-wfh-policy-on-job-training,mysql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-customer-success-manager-emea,apis_json,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,agile_methods,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,aws,essential,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,gcp,essential,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,machine_learning,essential,stated,full
+20261027T165029704247Z,we_work_remotely:jumio-machine-learning-engineer-iv-fraud,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:keeper-security-bilingual-channel-sales-engineer-french-emea,aws,essential,stated,full
+20261027T165029704247Z,we_work_remotely:keeper-security-bilingual-channel-sales-engineer-french-emea,azure,essential,stated,full
+20261027T165029704247Z,we_work_remotely:keeper-security-bilingual-channel-sales-engineer-french-emea,crm_systems,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:keeper-security-communications-intern,microsoft_office,essential,stated,full
+20261027T165029704247Z,we_work_remotely:legion-principal-product-manager-agentic-ai,erp_systems,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:legion-principal-product-manager-agentic-ai,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:maptiler-head-of-design-maps-platform-remote-in-europe,agile_methods,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:maptiler-head-of-design-maps-platform-remote-in-europe,generative_ai,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:maptiler-head-of-design-maps-platform-remote-in-europe,gis,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:maven-clinic-director-pm-payments-client-success,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:mercury-customer-support-manager-risk,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,we_work_remotely:netlify-senior-marketing-operations-manager,crm_systems,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:netlify-senior-marketing-operations-manager,data_analysis,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:netlify-senior-marketing-operations-manager,data_ethics_gdpr,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:ping-identity-channel-account-manager-1,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:ping-identity-channel-account-manager-1,data_analysis,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:ping-identity-director-partner-operations,aws,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:ping-identity-director-partner-operations,azure,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:ping-identity-director-partner-operations,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:ping-identity-director-partner-operations,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:ping-identity-director-partner-operations,data_cleaning,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,aws,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,azure,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,gcp,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,postgresql,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:planetscale-software-engineer-planetscale-postgres,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,aws,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,azure,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,gcp,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,mysql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,postgresql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-solutions-engineer,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:planetscale-video-editor,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,business_analysis,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,erp_systems,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,etl,essential,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,gcp,essential,stated,full
+20261027T165029704247Z,we_work_remotely:prospex-crm-senior-software-engineer,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,aws,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,azure,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,gcp,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,git,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,mysql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,postgresql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-node-js-nest-js-4,sql,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,aws,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,data_ethics_gdpr,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,gcp,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,postgresql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,python,essential,stated,full
+20261027T165029704247Z,we_work_remotely:proxify-ab-senior-backend-developer-python-11,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:reddit-engineering-manager-knowledge-graph-platform,apis_json,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:reddit-engineering-manager-knowledge-graph-platform,data_cleaning,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:reddit-frontend-engineer-ads,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:replika-lifecycle-crm-specialist,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:replika-lifecycle-crm-specialist,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-marketing-automation-manager-canada-spain-india,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-marketing-automation-manager-canada-spain-india,data_cleaning,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-marketing-automation-manager-canada-spain-india,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-marketing-automation-manager-canada-spain-india,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-marketing-automation-manager-canada-spain-india,sql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,business_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,data_cleaning,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,data_ethics_gdpr,essential,stated,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,generative_ai,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:storyblok-salesforce-lead-usa,statistics,essential,stated,full
+20261027T165029704247Z,we_work_remotely:talkspace-client-support-supervisor,agile_methods,essential,stated,full
+20261027T165029704247Z,we_work_remotely:talkspace-client-support-supervisor,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:talkspace-client-support-supervisor,looker,essential,stated,full
+20261027T165029704247Z,we_work_remotely:tebra-senior-software-engineer,gcp,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:tebra-senior-software-engineer,oracle_db,essential,stated,full
+20261027T165029704247Z,we_work_remotely:toggl-senior-full-stack,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:toggl-senior-full-stack,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:toggl-senior-full-stack,databases_general,essential,stated,full
+20261027T165029704247Z,we_work_remotely:toggl-senior-full-stack,postgresql,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:twikey-senior-java-developer,apis_json,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:twikey-senior-java-developer,data_analysis,essential,stated,full
+20261027T165029704247Z,we_work_remotely:twikey-senior-java-developer,generative_ai,essential,stated,full
+20261027T165029704247Z,we_work_remotely:upgrade-ai-experience-engineer-conversational-ai,apis_json,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:upgrade-ai-experience-engineer-conversational-ai,generative_ai,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:upgrade-ai-experience-engineer-conversational-ai,statistics,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:upstart-devops-engineer-ii-cloud-platform,aws,essential,stated,full
+20261027T165029704247Z,we_work_remotely:upsun-product-manager,generative_ai,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:upsun-senior-it-systems-engineer,google_sheets,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,agile_methods,essential,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,business_analysis,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,crm_systems,essential,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,mysql,essential,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,statistics,essential,stated,full
+20261027T165029704247Z,we_work_remotely:veracode-senior-website-manager,web_analytics,essential,stated,full
+20261027T165029704247Z,we_work_remotely:vercel-site-engineer,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:vercel-site-engineer,statistics,essential,stated,full
+20261027T165029704247Z,we_work_remotely:vertex-marketing-group-distribution-engineer,apis_json,unclear,stated,full
+20261027T165029704247Z,we_work_remotely:vested-inc-senior-software-engineer-1,apis_json,essential,stated,full
+20261027T165029704247Z,we_work_remotely:wisevu-web-development-project-manager,agile_methods,desirable,stated,full
+20261027T165029704247Z,we_work_remotely:wisevu-web-development-project-manager,hr_systems,essential,inferred,full
+20261027T165029704247Z,we_work_remotely:workiva-principal-experience-designer-visual-design-design-systems,generative_ai,essential,stated,full
+20261027T165029704247Z,workable:biffa-0FB2FC923D,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-0FB2FC923D,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-0FB2FC923D,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-14B4ED62FE,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-14B4ED62FE,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-14B4ED62FE,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-21A26BA208,excel,desirable,stated,full
+20261027T165029704247Z,workable:biffa-21A26BA208,microsoft_office,desirable,stated,full
+20261027T165029704247Z,workable:biffa-27E83F3B38,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-27E83F3B38,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-27E83F3B38,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-2FD9E0BE75,business_analysis,essential,stated,full
+20261027T165029704247Z,workable:biffa-2FD9E0BE75,dashboards_reporting,essential,stated,full
+20261027T165029704247Z,workable:biffa-2FD9E0BE75,databases_general,essential,stated,full
+20261027T165029704247Z,workable:biffa-2FD9E0BE75,power_bi,essential,inferred,full
+20261027T165029704247Z,workable:biffa-2FD9E0BE75,sql,essential,stated,full
+20261027T165029704247Z,workable:biffa-30BA0E95A1,dbt,unclear,stated,full
+20261027T165029704247Z,workable:biffa-30BA0E95A1,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-40729AAF88,microsoft_office,desirable,stated,full
+20261027T165029704247Z,workable:biffa-4139606D44,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-4DD5E4501E,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-4FF9D720D7,excel,desirable,stated,full
+20261027T165029704247Z,workable:biffa-5C10277036,agile_methods,essential,stated,full
+20261027T165029704247Z,workable:biffa-5C10277036,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,workable:biffa-5C10277036,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-6537AD1D7A,excel,desirable,stated,full
+20261027T165029704247Z,workable:biffa-6537AD1D7A,microsoft_office,desirable,stated,full
+20261027T165029704247Z,workable:biffa-6D029D8A69,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-6D029D8A69,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-6D029D8A69,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-73B00FBE37,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-7ABF207175,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-81F0DFF200,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-8289175DB0,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-8289175DB0,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-871F30850B,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-87A25C582E,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,workable:biffa-87A25C582E,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-87A25C582E,git,unclear,stated,full
+20261027T165029704247Z,workable:biffa-87A25C582E,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-9857F380C7,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-9857F380C7,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-9E4D40345E,crm_systems,essential,stated,full
+20261027T165029704247Z,workable:biffa-9E4D40345E,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-B20D3AB350,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-B20D3AB350,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-B83509C289,data_cleaning,unclear,stated,full
+20261027T165029704247Z,workable:biffa-C93AB07FC4,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-C93AB07FC4,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-C93AB07FC4,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-D6DB9671D5,statistics,unclear,stated,full
+20261027T165029704247Z,workable:biffa-D9B8A1322C,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-D9B8A1322C,survey_tools,unclear,stated,full
+20261027T165029704247Z,workable:biffa-DA27A55E3E,dashboards_reporting,unclear,stated,full
+20261027T165029704247Z,workable:biffa-DA27A55E3E,data_analysis,essential,stated,full
+20261027T165029704247Z,workable:biffa-DA27A55E3E,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-E7E9F45722,agile_methods,essential,stated,full
+20261027T165029704247Z,workable:biffa-E7E9F45722,azure,essential,stated,full
+20261027T165029704247Z,workable:biffa-E7E9F45722,business_analysis,essential,stated,full
+20261027T165029704247Z,workable:biffa-E7E9F45722,power_bi,essential,stated,full
+20261027T165029704247Z,workable:biffa-E7E9F45722,testing_uat,unclear,stated,full
+20261027T165029704247Z,workable:biffa-EB46463096,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-F0A372DBFC,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-F0A372DBFC,microsoft_office,unclear,stated,full
+20261027T165029704247Z,workable:biffa-F0A372DBFC,power_bi,essential,stated,full
+20261027T165029704247Z,workable:biffa-F0F335F4E6,data_analysis,unclear,stated,full
+20261027T165029704247Z,workable:biffa-F0F335F4E6,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-F0F335F4E6,microsoft_office,essential,stated,full
+20261027T165029704247Z,workable:biffa-F34472BDD7,business_analysis,essential,stated,full
+20261027T165029704247Z,workable:biffa-F52D9CF2BC,excel,essential,stated,full
+20261027T165029704247Z,workable:biffa-F9BF3A2397,dashboards_reporting,unclear,stated,full

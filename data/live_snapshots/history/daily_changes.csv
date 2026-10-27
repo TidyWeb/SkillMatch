@@ -16,3 +16,12 @@ run_id,run_date,source,new,gone,still_live,completeness,comparable,days_listed_g
 20261027T124644998193Z,2026-10-27,remote_ok,,,,complete,false,,
 20261027T124644998193Z,2026-10-27,we_work_remotely,,,,complete,false,,
 20261027T124644998193Z,2026-10-27,workable,,,,complete,false,,
+20261027T165029704247Z,2026-10-27,ats,0,0,0,complete,true,0,
+20261027T165029704247Z,2026-10-27,curated,0,0,0,complete,true,0,
+20261027T165029704247Z,2026-10-27,cv_library,0,,0,incomplete,true,,
+20261027T165029704247Z,2026-10-27,greenhouse,0,0,84,complete,true,0,
+20261027T165029704247Z,2026-10-27,lever,1,1,100,complete,true,0.0,0
+20261027T165029704247Z,2026-10-27,reed,3380,,1717,incomplete,true,,
+20261027T165029704247Z,2026-10-27,remote_ok,0,0,99,complete,true,0,
+20261027T165029704247Z,2026-10-27,we_work_remotely,3,4,91,complete,true,0.0,0;0;0;0
+20261027T165029704247Z,2026-10-27,workable,2,10,123,complete,true,5.4,0;6;6;6;6;6;6;6;6;6
