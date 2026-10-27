@@ -29,17 +29,17 @@ jobs:
           echo "UK:  $(TZ=Europe/London date '+%Y-%m-%d %H:%M:%S %Z')"
 
       - name: Check out the app
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Check out the live-data branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: data-snapshots
           path: snapshot-export
           fetch-depth: 0
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v10
         with:
           version: "0.12.3"
 
@@ -90,7 +90,7 @@ jobs:
           echo "path=$snapshot" >> "$GITHUB_OUTPUT"
 
       - name: Upload the snapshot artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: skillmatch-snapshot-${{ github.run_id }}
           path: ${{ steps.snapshot.outputs.path }}
@@ -125,7 +125,7 @@ jobs:
 
       - name: Upload the database for deployment
         if: ${{ vars.DEPLOY_ENABLED == 'true' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: skillmatch-live-database-${{ github.run_id }}
           path: ${{ runner.temp }}/skillmatch-database/*.db
@@ -146,7 +146,7 @@ jobs:
       REPOSITORY: skillmatch
     steps:
       - name: Check out the app
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Download the database from collection
         uses: actions/download-artifact@v4
