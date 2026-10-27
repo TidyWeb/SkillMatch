@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 from bs4 import BeautifulSoup, NavigableString, Tag
 
 from skillmatch.taxonomy import Taxonomy, get_taxonomy
+from skillmatch.text import clean_text
 
 # ---------------------------------------------------------------------------------------------
 # 1. HTML -> lines
@@ -50,6 +51,7 @@ def html_to_lines(html: str | None) -> list[Line]:
     Treats <br> as a line break, <li> and text bullets (*, •, ·, -) as items, decodes double
     escaped HTML (Greenhouse), and re-joins sentences that agencies hard-wrap across lines.
     """
+    html = clean_text(html)
     if not html:
         return []
     if "&lt;" in html and "<" not in html.replace("&lt;", ""):
@@ -586,6 +588,8 @@ def _snippet(text: str, m: re.Match, width: int = 120) -> str:
 
 
 def uk_remote_eligibility(text: str, structured_country: str | None = None) -> str:
+    text = clean_text(text)
+    structured_country = clean_text(structured_country)
     if NOT_UK.search(text):
         return "no"
     if UK_ONLY.search(text):
@@ -599,7 +603,7 @@ def uk_remote_eligibility(text: str, structured_country: str | None = None) -> s
 
 def parse_salary(text: str) -> dict | None:
     """Salary as stated in free text. Never estimates; period only when stated or unambiguous."""
-    for m in SALARY_RE.finditer(text or ""):
+    for m in SALARY_RE.finditer(clean_text(text)):
         try:
             lo = float(m.group("lo").replace(",", "")) * (1000 if m.group("lok") else 1)
             hi = m.group("hi")
@@ -650,6 +654,8 @@ def parse_advert(
     tax: Taxonomy | None = None,
     structured_country: str | None = None,
 ) -> ParsedAdvert:
+    html, title = clean_text(html), clean_text(title)
+    structured_country = clean_text(structured_country)
     tax = tax or get_taxonomy()
     lines = html_to_lines(html)
     reqs: list[Requirement] = []

@@ -2,12 +2,10 @@
 
 from flask import Flask
 
-from skillmatch import config
-
 
 def create_app(test_config: dict | None = None) -> Flask:
     app = Flask(__name__)
-    app.config.from_mapping(DB_PATH=str(config.DB_PATH))
+    app.config.from_mapping(DB_PATH=None)
     if test_config:
         app.config.update(test_config)
 

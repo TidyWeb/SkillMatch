@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How SkillMatch finds the jobs · SkillMatch team guides</title>
+<meta name="description" content="How SkillMatch gets from a list of recruiters' websites to a short list of suitable adverts for Code Institute graduates: fetch the pages, pull out the details, filter, match and link back. Includes the full list of websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+
+<style>
+.pill { display: inline-block; font-family: var(--sans); font-size: .76rem; font-weight: 700; padding: .12rem .55rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--paper-deep); color: var(--ink-muted); white-space: nowrap; }
+.pill.built { background: #3f6b45; border-color: #3f6b45; color: #fff; }
+.pill.wait { background: transparent; border-color: var(--accent); color: var(--accent); }
+.pill.todo { background: var(--plate); }
+.pill.skip { background: transparent; border-style: dashed; }
+details.group { border: 1px solid var(--rule); border-radius: 8px; background: var(--plate); margin: .7rem 0; font-family: var(--sans); }
+details.group > summary { cursor: pointer; padding: .7rem 1rem; font-weight: 700; list-style-position: inside; }
+details.group > summary .ct { color: var(--ink-muted); font-weight: 400; margin-left: .4rem; }
+details.group table { margin: 0 0 .4rem; font-size: .9rem; }
+details.group td a { overflow-wrap: anywhere; }
+.tally { display: flex; flex-wrap: wrap; gap: .5rem; margin: .8rem 0 1.2rem; padding: 0; list-style: none; font-family: var(--sans); max-width: none !important; }
+.tally li { margin: 0; }
+.cmd.code { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
+      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Pick your AI assistant</span></a></li>
+      <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
+      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
+      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Understanding GitHub</h2><ol>
+      <li><a href="b1-the-big-picture.html"><span class="n">B1</span><span>The big picture</span></a></li>
+      <li><a href="b2-your-copy-and-the-shared-copy.html"><span class="n">B2</span><span>Your copy and the shared copy</span></a></li>
+      <li><a href="b3-add-files-to-the-repository.html"><span class="n">B3</span><span>Add files to the repository</span></a></li>
+      <li><a href="b4-open-a-pull-request-properly.html"><span class="n">B4</span><span>Open a pull request, properly</span></a></li>
+      <li><a href="b5-cards-and-closes.html"><span class="n">B5</span><span>Cards, numbers and &#x27;Closes&#x27;</span></a></li>
+      <li><a href="b6-glossary.html"><span class="n">B6</span><span>Glossary</span></a></li>
+      <li><a href="b7-who-does-what.html"><span class="n">B7</span><span>Who does what</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>The prototype</h2><ol>
+      <li><a href="c1-try-the-prototype.html"><span class="n">C1</span><span>Try the prototype</span></a></li>
+      <li><a href="c2-real-jobs-with-your-own-reed-key.html"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
+      <li><a href="c3-how-skillmatch-finds-the-jobs.html" aria-current="page"><span class="n">C3</span><span>How SkillMatch finds the jobs</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Working on a task</h2><ol>
+      <li><a href="d1-start-from-the-latest.html"><span class="n">D1</span><span>Start from the latest</span></a></li>
+      <li><a href="d2-make-a-branch.html"><span class="n">D2</span><span>Make a branch for your card</span></a></li>
+      <li><a href="d3-save-and-upload.html"><span class="n">D3</span><span>Save and upload</span></a></li>
+      <li><a href="d4-open-a-pull-request.html"><span class="n">D4</span><span>Open a pull request</span></a></li>
+      <li><a href="d5-after-its-merged.html"><span class="n">D5</span><span>After it&#x27;s merged</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Reviewing and merging</h2><ol>
+      <li><a href="e1-review-a-pull-request.html"><span class="n">E1</span><span>Review a pull request</span></a></li>
+      <li><a href="e2-merge-it.html"><span class="n">E2</span><span>Merge it</span></a></li>
+      <li><a href="e3-when-theres-a-conflict.html"><span class="n">E3</span><span>When there&#x27;s a conflict</span></a></li>
+      <li><a href="e4-protect-main.html"><span class="n">E4</span><span>Protect main</span></a></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+<main class="content" id="main">
+<article class="page">
+
+<ol class="strip" aria-label="Steps"><li><a href="c1-try-the-prototype.html"><b>C1</b>Try the prototype</a></li><li><a href="c2-real-jobs-with-your-own-reed-key.html"><b>C2</b>See real jobs with your own Reed key</a></li><li><span class="now" aria-current="step"><b>C3</b>How SkillMatch finds the jobs</span></li></ol>
+<header class="chapter-head">
+  <p class="chapter-num">Step 3 of 3</p>
+  <h1>How SkillMatch finds the jobs</h1>
+  <p class="standfirst">SkillMatch doesn't make up vacancies. Each night it visits a list of websites, saves what is advertised there, drops the adverts a Code Institute graduate shouldn't see, and links every advert that's left back to the page it came from. This guide walks through each stage and lists every website on the list.</p>
+</header>
+
+<p class="callout"><strong>Where this stands on 26 October 2026.</strong> Working now: Reed, four employer job boards (Gymshark, Monzo, Kpler and Biffa), We Work Remotely and Remote OK. Not built yet: reading the recruitment agencies' own pages, which is most of the list at the bottom. Waiting: CV-Library's jobs feed, requested through their website on 22 October.</p>
+
+<h2>The idea, in a shop window</h2>
+<p>Picture someone walking round every recruitment agency in the West Midlands, photographing the adverts in the windows. Back at a desk, they sort the photos. Senior roles go in the bin. So do jobs in Newcastle, and courses dressed up as jobs. Whatever is left gets pinned to a board, each with a note saying which window it came from. A graduate looking at that board sees only adverts worth their time, and one click takes them back to the real advert to apply.</p>
+<p>SkillMatch does the same thing with a computer, and does it every night. The five stages are below.</p>
+
+<div class="flow" aria-label="Five stages from website to results page">
+<div class="box"><b>1 · Choose the websites</b>A list of web addresses.<span class="who">Phil's register</span></div>
+<div class="box"><b>2 · Fetch the pages</b>Ask each site for its page of adverts.<span class="who">The computer</span></div>
+<div class="box"><b>3 · Pull out the details</b>Title, employer, town, salary, link.<span class="who">The computer</span></div>
+<div class="box shared"><b>4 · Filter</b>Drop what a graduate shouldn't see.<span class="who">Rules we wrote</span></div>
+<div class="box shared"><b>5 · Match and link back</b>Score the fit, send the click to the original.<span class="who">SkillMatch</span></div>
+</div>
+
+<h2>Step by step</h2>
+<ol class="do">
+<li><strong>Choose the websites</strong>
+Every site SkillMatch reads is on one list, called the source register. It lives in <code>Research/Vacancy_Sources/source_register.json</code> and has 96 entries. Each entry records the site's name, its address (a URL, the text you type into a browser's address bar), what kind of site it is, and which area it covers. Nothing gets visited unless it is on this list. The whole list is at the bottom of this page.</li>
+
+<li><strong>Fetch the page</strong>
+The computer asks the site for a page, the same way your browser does. What comes back is HTML, the code that describes the page. Headings, lists and links are each wrapped in labels called tags. For a recruiter's search page, the result is a list of perhaps twenty adverts. The computer waits about a second between requests and keeps a saved copy of every page, so it never asks twice for the same thing. Going slowly is what stops a site from blocking us.</li>
+
+<li><strong>Find the adverts in the code</strong>
+On any one site, every advert in a list is built the same way. Open the page's code and you can see the pattern: a box, a title inside it, a company name, a town, a link. For each site we write a short recipe saying where those pieces sit. Programmers call that recipe a selector. Here is a made-up example of what the code for one advert might look like.
+<div class="cmd code">&lt;div class="job-card"&gt;
+  &lt;h3&gt;&lt;a href="/jobs/4471"&gt;Junior Data Analyst&lt;/a&gt;&lt;/h3&gt;
+  &lt;span class="company"&gt;Example Recruitment&lt;/span&gt;
+  &lt;span class="town"&gt;Coventry&lt;/span&gt;
+  &lt;span class="pay"&gt;£26,000 - £30,000&lt;/span&gt;
+&lt;/div&gt;</div>
+The recipe for this site would say: the title is the link inside the <code>h3</code>, the town is the <code>span</code> marked <code>town</code>, and so on. Every site needs its own recipe. That is the main cost of this approach.</li>
+
+<li><strong>Put every advert into the same shape</strong>
+Sites name things differently. One says "Location", another says "Where", another puts the town in the title. So each advert is rewritten into one fixed set of fields, whichever site it came from. That is what lets the filters and the matcher treat a Reed advert and a small agency's advert in exactly the same way.
+<table>
+<thead><tr><th>Field</th><th>What it holds</th></tr></thead>
+<tbody>
+<tr><td>Title</td><td>The job title, as the site wrote it.</td></tr>
+<tr><td>Employer</td><td>The company hiring, or the agency if the real employer isn't named.</td></tr>
+<tr><td>Town and postcode</td><td>Used to work out the distance from the graduate's home.</td></tr>
+<tr><td>Salary</td><td>Exactly as stated, and left blank if hidden. Never estimated.</td></tr>
+<tr><td>Working pattern</td><td>Office, hybrid or remote, and the number of office days if given.</td></tr>
+<tr><td>Closing date</td><td>So expired adverts can be dropped.</td></tr>
+<tr><td>Requirements</td><td>The essential and desirable points, each with the sentence it came from.</td></tr>
+<tr><td>Link</td><td>The address of the original advert.</td></tr>
+<tr><td>Source and date seen</td><td>Which site it came from, and when we looked.</td></tr>
+</tbody>
+</table></li>
+
+<li><strong>Save a snapshot</strong>
+The computer saves everything it found, stamped with the date and time. That saved set is the snapshot. Adverts disappear from recruiters' sites without warning, so the snapshot is the only record of what was live on a given day. The design rebuilds it every night and drops adverts that have passed their closing date.</li>
+
+<li><strong>Filter for the people using the app</strong>
+This is where most of the work happens. SkillMatch's users are Code Institute graduates, mostly with no data experience but years in other careers, from project management to running a company. An advert has to pass every test below to reach them. Adverts that fail are kept and counted rather than deleted, so the app can say how many it hid and why.
+<table>
+<thead><tr><th>Test</th><th>What it drops</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Area</td><td>Jobs outside the West Midlands, unless they are fully remote within the UK.</td><td><span class="pill built">Built</span></td></tr>
+<tr><td>Role</td><td>Jobs that aren't data or analyst roles.</td><td><span class="pill built">Built</span></td></tr>
+<tr><td>Level</td><td>Titles containing senior, lead, head of, director, manager, chief, principal or architect. "Junior Data Analyst" gets a boost instead.</td><td><span class="pill built">Built</span></td></tr>
+<tr><td>Training courses</td><td>Adverts that are really selling a course.</td><td><span class="pill built">Built</span></td></tr>
+<tr><td>Duplicates</td><td>The same job on several sites is grouped into one.</td><td><span class="pill built">Built</span></td></tr>
+<tr><td>Professional qualifications</td><td>Roles that need a qualification such as ACCA, which a bootcamp graduate won't have.</td><td><span class="pill todo">Decided, not built</span></td></tr>
+<tr><td>Fake adverts</td><td>Recruiters collecting CVs for jobs that may not exist, and adverts with no named employer.</td><td><span class="pill todo">Planned, as a daily check</span></td></tr>
+</tbody>
+</table></li>
+
+<li><strong>Read the requirements</strong>
+A parser reads the requirement sentences in each advert that survives. A parser is a program that turns ordinary text into labelled pieces. This one separates essential from desirable, tags each sentence with a skill (SQL, Excel, Power BI) or a competency (stakeholder management, problem solving), and notes whether the advert asks for data experience. It keeps the original sentence next to each tag, so the graduate can see the evidence for themselves.</li>
+
+<li><strong>Match, show and link back</strong>
+The matcher compares each advert with the graduate's own profile, requirement by requirement, and marks each one met, partly met or a gap. Adverts are sorted into Strong, Good, Stretch and Not yet, with a plain-English reason for each. The results card shows the title, employer, distance, the fit, and where the advert came from ("Job via Reed"). The click goes to the original advert, which is where the graduate applies. SkillMatch never handles the application.</li>
+</ol>
+
+<p class="callout">In data terms this is an ETL pipeline: Extract, Transform, Load. Steps 1 to 3 are Extract. Steps 4, 6 and 7 are Transform. Step 5 is Load, and step 8 is where the results reach the user. From the first live run, each run will also record how many adverts passed or failed each stage, so we can analyse what the pipeline did.</p>
+
+<h2>Four ways to get adverts</h2>
+<p>Not every site hands its adverts over the same way. SkillMatch uses four routes, and the list further down says which route each site gets.</p>
+<table>
+<thead><tr><th>Route</th><th>How it works</th><th>Good for</th><th>Limit</th></tr></thead>
+<tbody>
+<tr><td><strong>Official feed</strong></td><td>The site offers a side door for programs, called an API. A program asks a question and gets tidy data back instead of a web page.</td><td>Clean, reliable data. Used now for Reed, the four employer boards, We Work Remotely and Remote OK.</td><td>Only a few sites offer one. CV-Library's feed has been requested, with no reply yet.</td></tr>
+<tr><td><strong>Reading the page</strong></td><td>Fetch the page, then use the site's recipe to pull out each advert. Also called scraping.</td><td>Works on almost any site, so it can cover the recruitment agencies.</td><td>One recipe per site. A redesign breaks the recipe.</td></tr>
+<tr><td><strong>Links only</strong></td><td>No data is collected. The app builds a search link pre-filled with the graduate's town and sends them to the site.</td><td>No upkeep, and it never goes stale. The prototype has 87 of these today.</td><td>No filtering and no matching, because there is nothing to match.</td></tr>
+<tr><td><strong>Typed in by hand</strong></td><td>A teammate finds an advert, checks it, and types the fields into a spreadsheet.</td><td>Sites where nothing else works.</td><td>Slow. The file <code>data/curated/adverts.csv</code> exists but is empty.</td></tr>
+</tbody>
+</table>
+
+<h2>What the filters do to real numbers</h2>
+<p>The Reed snapshot taken on 21 October shows the scale. The app pulled 2,565 West Midlands adverts from Reed. Of those, 64 reached the results page. Across every source, 77 did. That is about 2.5% of what was collected.</p>
+<table>
+<thead><tr><th>Main reason an advert was dropped</th><th>Reed adverts</th></tr></thead>
+<tbody>
+<tr><td>Not a data or analyst role</td><td>1,044</td></tr>
+<tr><td>Outside the West Midlands</td><td>739</td></tr>
+<tr><td>Too senior, by its title</td><td>643</td></tr>
+<tr><td>A training course</td><td>64</td></tr>
+</tbody>
+</table>
+<p class="aside">The counts come from the build report and are not a strict sequence, so don't add them up. They show where the weight sits. Collecting adverts is the easy part. Choosing the few worth showing is the job.</p>
+
+<h2>What goes wrong</h2>
+<ul>
+<li><strong>A site changes its layout.</strong> The recipe stops finding adverts. Each site needs a check that fails loudly when it suddenly returns nothing.</li>
+<li><strong>The page arrives empty.</strong> Many agency sites and company career pages build their list with JavaScript after the page loads, so the plain HTML has no adverts in it. Those need a tool that behaves like a real browser, which is slower and more fiddly.</li>
+<li><strong>Some sites fight back.</strong> Indeed and LinkedIn actively block automated visitors. Skipping them and offering a search link is the sensible choice.</li>
+<li><strong>The same job appears everywhere.</strong> One vacancy can be posted by the employer and by three agencies. Grouping by title, employer and town stops the graduate seeing it four times.</li>
+<li><strong>Some adverts aren't real jobs.</strong> Agencies sometimes advertise a role to collect CVs. The planned daily check looks for adverts with no named employer and the same wording posted again and again.</li>
+<li><strong>Adverts are badly written.</strong> About 17% of requirement sentences can't yet be tied to a skill. Another 15% are guesses, because the advert has no clear headings. The app shows them but never counts them against the graduate.</li>
+</ul>
+
+<h2>The full list, 96 websites</h2>
+<p>Every site in the source register, grouped by type. The links go to the page the register records for each one, which is usually a search page for data roles in the West Midlands. The first three groups are open because they matter most for graduates looking for entry-level roles.</p>
+<ul class="tally"><li><span class="pill built">Built: 7</span></li><li><span class="pill wait">Feed requested: 1</span></li><li><span class="pill todo">To be read: 84</span></li><li><span class="pill skip">Hard to read, suggest skipping: 2</span></li><li><span class="pill skip">Not used: 2</span></li></ul>
+<p class="aside">Status key. <strong>Built</strong> means SkillMatch already collects from it. <strong>Feed requested</strong> means we have asked for a proper feed and are waiting. <strong>To be read</strong> means it needs a recipe and a fetch, which is the next piece of work. Reed is built through its official feed, and its pages can be read as well. The two sites marked for skipping are suggestions that Phil can overrule.</p>
+<details class="group" open><summary>Recruitment agencies<span class="ct">21</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.robertwalters.co.uk/expertise/technology/data-analysis-and-business-intelligence-jobs.html">Robert Walters</a></td><td>West Midlands, Wider region, UK remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.amtis.co.uk/jobs/">Amtis</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.unitingpeople.co.uk/jobs">Uniting People</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.nigelfrank.com/microsoft-jobs">Nigel Frank / Tenth Revolution</a></td><td>West Midlands, Wider region, UK remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.hendersonscott.co.uk/jobs/">Henderson Scott</a></td><td>West Midlands, Hybrid</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.workwithglee.com/candidates/job-search/">Gleeson Recruitment Group</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.networkitr.co.uk/jobs/">Network IT</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.sfpartners.com/">SF Partners / SF Recruitment</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.harnham.com/job-search/?_keyword=Birmingham">Harnham</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://viqu.co.uk/jobs/?results=1">VIQU</a></td><td>UK remote, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://crimson.co.uk/">Crimson</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.rebelrecruiters.co.uk/">Rebel Recruiters</a></td><td>Wider region, Hybrid</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.kdrtalentsolutions.com/en/job-results">KDR Talent Solutions</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.experis.co.uk/">Experis</a></td><td>Wider region, UK remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.oscar-recruit.com/">Oscar</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobs.ashdowngroup.com/jobs.aspx">Ashdown Group</a></td><td>Remote, West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.michaelpage.co.uk/jobs/data-analysis/west-midlands-west-midlands">Michael Page</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.roberthalf.com/gb/en">Robert Half</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.hays.co.uk/job-search/data-analyst-jobs-in-birmingham-uk">Hays</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.pertemps.co.uk/jobs/data-analyst-jobs">Pertemps</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.adecco.com/en-gb">Adecco</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group" open><summary>Specialist job boards<span class="ct">8</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.cwjobs.co.uk/jobs/data-quality/in-west-midlands">CWJobs</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.itjobswatch.co.uk/find/Data-Engineer-jobs-in-West-Midlands">IT Jobs Watch</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.technojobs.co.uk/data-analyst-jobs/birmingham">Technojobs</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://devitjobs.uk/jobs/Data/all">DevITjobs</a></td><td>UK-wide, Remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://dataanalystjobs.io/jobs">DataAnalystJobs.io</a></td><td>UK-wide, Remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.dataanalystjobs.co.uk/">DataAnalystJobs.co.uk</a></td><td>UK-wide, Remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.welcometothejungle.com/en/pages/jobs-data-analyst-uk">Welcome to the Jungle / Otta</a></td><td>UK-wide, Remote</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://wellfound.com/jobs">Wellfound</a></td><td>UK remote</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group" open><summary>General job boards<span class="ct">7</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.reed.co.uk/jobs/junior-data-analyst-sql-power-bi-jobs-in-birmingham">Reed</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://www.cv-library.co.uk/data-analyst-jobs-in-west-midlands">CV-Library</a></td><td>West Midlands, Wider region, UK remote</td><td><span class="pill wait">Feed requested</span></td></tr><tr><td><a href="https://www.totaljobs.com/jobs/data-analyst/in-west-midlands">Totaljobs</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.jobsite.co.uk/jobs/data-analyst/in-west-midlands">Jobsite</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobserve.com/gb/en/Job-Search/">JobServe</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://uk.indeed.com/q-data-analyst-l-west-midlands-jobs.html">Indeed</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill skip">Hard to read, suggest skipping</span></td></tr><tr><td><a href="https://www.linkedin.com/jobs/">LinkedIn Jobs</a></td><td>West Midlands, Wider region, UK-wide, Remote, check UK eligibility</td><td><span class="pill skip">Hard to read, suggest skipping</span></td></tr></tbody></table></details><details class="group"><summary>Graduate boards<span class="ct">4</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.gradcracker.com/search/computing-technology/data-science-graduate-jobs">Gradcracker</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.brightnetwork.co.uk/graduate-jobs/technology/in-birmingham/">Bright Network</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.prospects.ac.uk/browse-graduate-jobs/all-sectors/west-midlands-59">Prospects</a></td><td>Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://targetjobs.co.uk/jobs">targetjobs</a></td><td>UK-wide</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Sector boards<span class="ct">2</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.jobs.ac.uk/categories/data-analyst-jobs?sort-order=closing-date">jobs.ac.uk</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.charityjob.co.uk/data-jobs-in-birmingham_west-midlands">CharityJob</a></td><td>West Midlands, UK remote</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Remote job boards<span class="ct">3</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://weworkremotely.com/remote-job-rss-feed">We Work Remotely</a></td><td>Remote, check UK eligibility</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://remoteok.com/">Remote OK</a></td><td>Remote, check UK eligibility</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://www.workingnomads.com/jobs">Working Nomads</a></td><td>Remote, check UK eligibility</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Aggregators<span class="ct">2</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://developer.adzuna.com/overview">Adzuna</a></td><td>UK-wide, Remote</td><td><span class="pill skip">Not used</span></td></tr><tr><td><a href="https://uk.jooble.org/api/about">Jooble</a></td><td>UK-wide, Remote</td><td><span class="pill skip">Not used</span></td></tr></tbody></table></details><details class="group"><summary>Public job portals<span class="ct">4</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.jobs.nhs.uk/candidate/search/results?keyword=data+analyst&amp;language=en">NHS Jobs</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.wmjobs.co.uk/">WMJobs</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.civilservicejobs.service.gov.uk/csr/index.cgi">Civil Service Jobs</a></td><td>West Midlands, Wider region, UK-wide, Hybrid</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://findajob.dwp.gov.uk/search?lang_code=en&amp;loc=83620&amp;q=data">Find a job / DWP Work Hub</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Employers with their own job pages<span class="ct">17</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://careers.jlr.com/early-careers/graduates/graduate-data-analytics-cross-functional">JLR</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.nfumutual.co.uk/what-you-could-be-doing/analytics">NFU Mutual</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.pageuppeople.com/806/cw/en/search/?search-keyword=data">Halfords</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.mandmdirect.com/">MandM</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.bet365careers.com/all-jobs">bet365</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobsearch.tarmac.com/">Tarmac / CRH</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.capgemini.com/gb-en/careers/join-us/">Capgemini</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.serco.com/gb/en">Serco</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.dudleybuildingsociety.co.uk/about-us/careers/current-roles/">Dudley Building Society</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.hsbc.com/careers/students-and-graduates/find-a-programme?area-of-interest=data-analytics&amp;page=1&amp;take=40">HSBC</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://lbg.wd3.myworkdayjobs.com/LBG_Careers">Lloyds Banking Group</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.careers.severntrent.com/go/CORPORATE-FUNCTIONS-JOBS/8578002/">Severn Trent</a></td><td>West Midlands, Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobs.nationalgrid.com/uk/jobs?countries=United+Kingdom&amp;page=1&amp;pagesize=10">National Grid</a></td><td>Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://apply.workable.com/biffa/">Biffa</a></td><td>West Midlands, UK-wide</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://careers.isio.com/jobs">Isio</a></td><td>West Midlands, UK-wide</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://job-boards.greenhouse.io/gymshark">Gymshark</a></td><td>West Midlands</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://careers.globaldata.com/">GlobalData</a></td><td>UK-wide, Remote</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Remote-first employers<span class="ct">4</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://jobs.lever.co/kpler/?location=United+Kingdom">Kpler</a></td><td>Hybrid</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://job-boards.greenhouse.io/monzo">Monzo</a></td><td>UK remote</td><td><span class="pill built">Built</span></td></tr><tr><td><a href="https://automattic.com/work-with-us/">Automattic</a></td><td>Remote, check UK eligibility</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://about.gitlab.com/jobs/">GitLab</a></td><td>UK remote</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Public bodies, NHS and universities<span class="ct">9</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://careers.wmca.org.uk/jobs/search">West Midlands Combined Authority</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.coventry.gov.uk/jobs/search">Coventry City Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.staffordshire.gov.uk/jobs/search">Staffordshire County Council</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.birmingham.ac.uk/Jobs">University of Birmingham</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://workwithus.warwick.ac.uk/?locale=en_GB">University of Warwick</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobs.aston.ac.uk/Vacancies.aspx">Aston University</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.bsmhft.nhs.uk/join-us/">Birmingham and Solihull Mental Health NHS Foundation Trust</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://jobs.uhb.nhs.uk/">University Hospitals Birmingham</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.westmidlands.police.uk/police-forces/west-midlands-police/areas/careers/wmp-jobs/">West Midlands Police</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Councils<span class="ct">10</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.dudley.gov.uk/jobs-and-careers">Dudley Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://go.walsall.gov.uk/jobs-and-careers-/job-vacancies">Walsall Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.sandwell.gov.uk/jobs/vacancies">Sandwell Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.wolverhampton.gov.uk/jobs-and-careers/job-vacancies">City of Wolverhampton Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.birmingham.gov.uk/jobs">Birmingham City Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.solihull.gov.uk/jobs-and-training">Solihull Council</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.herefordshire.gov.uk/jobs-skills-and-opportunities/">Herefordshire Council</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.shropshire.gov.uk/home.html">Shropshire Council</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://careers.worcestershire.gov.uk/jobs/search">Worcestershire County Council</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.warwickshire.gov.uk/jobs">Warwickshire County Council</a></td><td>Wider region</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Housing associations<span class="ct">3</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://jobs.midlandheartgroup.org.uk/jobs/home/">Midland Heart</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://www.platformhg.com/apprenticeships">Platform Housing Group</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr><tr><td><a href="https://greensquareaccord.co.uk/about/work-with-us/careers">GreenSquareAccord</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Charities<span class="ct">1</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://www.faresharemidlands.org.uk/job-vacancies/junior-data-analyst">FareShare Midlands</a></td><td>West Midlands</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details><details class="group"><summary>Application-system directories<span class="ct">1</span></summary><table><thead><tr><th>Website</th><th>Area it covers</th><th>Status</th></tr></thead><tbody><tr><td><a href="https://apps.trac.jobs/">Trac</a></td><td>West Midlands, Wider region, UK-wide</td><td><span class="pill todo">To be read</span></td></tr></tbody></table></details>
+
+<h2>Words used on this page</h2>
+<dl class="gloss">
+<dt>API</dt><dd>A side door a website provides for programs. You send a request and get structured data back instead of a web page.</dd>
+<dt>Duplicate</dt><dd>The same vacancy advertised on more than one site, or more than once on the same site.</dd>
+<dt>ETL</dt><dd>Extract, Transform, Load. Fetch the raw data, clean and reshape it, then store it where the analysis can use it.</dd>
+<dt>HTML</dt><dd>The code a web page is written in. Text is wrapped in tags such as <code>h3</code> for a heading or <code>a</code> for a link.</dd>
+<dt>JSON</dt><dd>A plain-text way of storing structured lists. The source register is a JSON file.</dd>
+<dt>Parser</dt><dd>A program that reads text and turns it into labelled pieces, such as splitting an advert into essential and desirable requirements.</dd>
+<dt>Register</dt><dd>The master list of websites SkillMatch reads, with notes on each one.</dd>
+<dt>Scraping</dt><dd>Fetching a web page with a program and pulling the information out of its code.</dd>
+<dt>Selector</dt><dd>The recipe that says where on a page a piece of information sits, such as "the town is the span marked town".</dd>
+<dt>Snapshot</dt><dd>What the sites were advertising at one moment, saved with the date and time.</dd>
+<dt>URL</dt><dd>A web address, such as the text you type into a browser's address bar.</dd>
+</dl>
+
+<p class="done-when"><strong>Done when:</strong> you can explain, in your own words, what happens between a recruiter's website and a card on the results page, and name three reasons an advert would be dropped on the way.</p>
+
+<nav class="pager" aria-label="Steps"><a class="prev" href="c2-real-jobs-with-your-own-reed-key.html"><small>Previous</small><strong>C2. See real jobs with your own Reed key</strong></a><a class="next" href="../index.html"><small>Next</small><strong>Back to the team hub</strong></a></nav>
+
+</article>
+</main>
+</div>
+<script src="../assets/guides.js"></script>
+
+</body>
+</html>

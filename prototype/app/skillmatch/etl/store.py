@@ -58,7 +58,8 @@ CREATE TABLE vacancies (
     is_primary INTEGER DEFAULT 1,
     attribution TEXT,
     fetched_at TEXT,
-    extra TEXT
+    extra TEXT,
+    description_coverage TEXT
 );
 CREATE INDEX vacancies_excluded ON vacancies (excluded_reason);
 CREATE INDEX vacancies_group ON vacancies (duplicate_group);
@@ -114,6 +115,11 @@ CREATE TABLE duplicates (
     reason TEXT NOT NULL
 );
 
+CREATE TABLE observations (
+    run_id TEXT NOT NULL, observation_id TEXT PRIMARY KEY, vacancy_id TEXT NOT NULL,
+    source TEXT NOT NULL, outcome TEXT NOT NULL, note TEXT, duplicate_of TEXT, duplicate_source TEXT
+);
+
 CREATE TABLE places (
     key TEXT PRIMARY KEY,
     lat REAL,
@@ -128,6 +134,8 @@ CREATE TABLE places (
 
 def write_database(path: Path, tables: dict[str, list[dict]], meta: dict[str, str]) -> None:
     """Write a fresh database to a temporary file, then move it into place atomically."""
+    if path.exists():
+        raise FileExistsError(f"Database already exists: {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(f".{path.stem}-{os.getpid()}-{time.time_ns()}.db.tmp")
     conn = sqlite3.connect(tmp)
@@ -143,7 +151,9 @@ def write_database(path: Path, tables: dict[str, list[dict]], meta: dict[str, st
         conn.commit()
     finally:
         conn.close()
-    tmp.replace(path)
+    # A hard link publishes the completed file atomically and refuses any existing path.
+    # Retain the temporary build as well; no earlier artefact is removed.
+    os.link(tmp, path)
 
 
 def connect_readonly(path: Path | str) -> sqlite3.Connection:

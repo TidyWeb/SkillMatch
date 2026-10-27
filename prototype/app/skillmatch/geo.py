@@ -19,6 +19,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 
 from skillmatch import config
+from skillmatch.text import clean_text
 
 log = logging.getLogger(__name__)
 
@@ -88,7 +89,7 @@ SUFFIXES = re.compile(r",?\s*\b(West Midlands|England|United Kingdom|UK|GB)\s*$"
 
 def _clean_place_name(text: str) -> str:
     """'Solihull, England, United Kingdom' -> 'Solihull'; 'Birmingham (Hybrid)' -> 'Birmingham'."""
-    t = re.sub(r"\s+", " ", text).strip()
+    t = clean_text(text, collapse=True)
     t = re.sub(r"\s*\((hybrid|remote|on-?site|office based)\)\s*$", "", t, flags=re.I)
     while True:
         shorter = SUFFIXES.sub("", t).strip(" ,")

@@ -12,9 +12,9 @@ hold **Ctrl** (Windows or Linux) or **Cmd** (Mac) and **click that address**. Sk
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/TidyWeb/SkillMatch)
 
-Click the button, then **Create codespace**. Step-by-step help: [Guide B1, Try the prototype](https://tidyweb.github.io/SkillMatch/team-guides/b1-try-the-prototype.html).
+Click the button, then **Create codespace**. Step-by-step help: [Guide C1, Try the prototype](https://tidyweb.github.io/SkillMatch/team-guides/c1-try-the-prototype.html).
 
-**The adverts are made up.** It runs on 119 synthetic adverts from fictional employers, because we don't yet have Reed's permission to share real adverts. To see real West Midlands jobs, use your own free Reed key: [Guide B2](https://tidyweb.github.io/SkillMatch/team-guides/b2-real-jobs-with-your-own-reed-key.html).
+**The adverts are made up.** It runs on 119 synthetic adverts from fictional employers, because we don't yet have Reed's permission to share real adverts. To see real West Midlands jobs, use your own free Reed key: [Guide C2](https://tidyweb.github.io/SkillMatch/team-guides/c2-real-jobs-with-your-own-reed-key.html).
 
 ## What's in here
 

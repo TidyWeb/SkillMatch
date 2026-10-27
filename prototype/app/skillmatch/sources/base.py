@@ -6,6 +6,8 @@ from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
 from typing import Protocol
 
+from skillmatch.text import clean_text, normalize_record
+
 
 @dataclass
 class Vacancy:
@@ -18,6 +20,7 @@ class Vacancy:
     location_text: str | None = None
     description_html: str | None = None
     description_text: str | None = None
+    description_coverage: str = "full"  # full | search excerpt only | unavailable
     salary_min: float | None = None
     salary_max: float | None = None
     salary_period: str | None = None  # annum | day | hour | week | month
@@ -35,12 +38,16 @@ class Vacancy:
     fetched_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat(timespec="seconds"))
     extra: dict = field(default_factory=dict)
 
+    def __post_init__(self) -> None:
+        if not (clean_text(self.description_html) or clean_text(self.description_text)):
+            self.description_coverage = "unavailable"
+
     @property
     def vacancy_id(self) -> str:
         return f"{self.source}:{self.source_id}"
 
     def to_dict(self) -> dict:
-        d = asdict(self)
+        d = normalize_record(asdict(self))
         d["vacancy_id"] = self.vacancy_id
         return d
 

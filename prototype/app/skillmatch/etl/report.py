@@ -53,6 +53,8 @@ def write_report(
         f"Mode: **{mode}**. Snapshot date: {meta['snapshot_date']}. Built at {meta['built_at']}. "
         f"HTTP requests made: {meta['requests_made']}.",
         "",
+        meta.get("request_context", "Collection network attempts, including retries."),
+        "",
         "## Rows per stage",
         "",
         _table(list(stages.items()), ("stage", "rows")),
@@ -163,5 +165,10 @@ def write_report(
     ]
     sig = Counter(s for js in shown["entry_signals"] for s in json.loads(js or "[]"))
     lines += [_table(sig.most_common(), ("signal", "adverts")) if sig else "None.", ""]
-    path.write_text("\n".join(lines))
+    if path.exists():
+        from datetime import UTC, datetime
+
+        path = path.with_name(path.stem + "_" + datetime.now(UTC).strftime("%H%M%S%f") + ".md")
+    with path.open("x") as output:
+        output.write("\n".join(lines))
     return path

@@ -1,0 +1,193 @@
+name: Daily SkillMatch collection
+
+on:
+  schedule:
+    - cron: "23 10 * * *"
+      timezone: "Europe/London"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skillmatch-daily-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment: reed
+    permissions:
+      contents: write
+    steps:
+      - name: Print schedule and current time
+        run: |
+          echo "Schedule: daily at 10:23 Europe/London"
+          echo "Event: ${{ github.event_name }}"
+          echo "UTC: $(date -u '+%Y-%m-%d %H:%M:%S %Z')"
+          echo "UK:  $(TZ=Europe/London date '+%Y-%m-%d %H:%M:%S %Z')"
+
+      - name: Check out the app
+        uses: actions/checkout@v4
+
+      - name: Check out the live-data branch
+        uses: actions/checkout@v4
+        with:
+          ref: data-snapshots
+          path: snapshot-export
+          fetch-depth: 0
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.12.3"
+
+      - name: Install app dependencies
+        working-directory: prototype/app
+        run: uv sync --frozen
+
+      - name: Restore prior snapshots and history
+        working-directory: prototype/app
+        run: |
+          mkdir -p data/snapshots data/history
+          for snapshot in "$GITHUB_WORKSPACE"/snapshot-export/data/live_snapshots/20*; do
+            if [ -d "$snapshot" ]; then
+              cp -a "$snapshot" data/snapshots/
+            fi
+          done
+          for name in adverts_history.csv daily_changes.csv; do
+            source="$GITHUB_WORKSPACE/snapshot-export/data/live_snapshots/history/$name"
+            if [ -f "$source" ]; then
+              cp -a "$source" data/history/
+            fi
+          done
+
+      - name: Check the Reed environment secret
+        env:
+          REED_API_KEY: ${{ secrets.REED_API_KEY }}
+        run: test -n "$REED_API_KEY" || { echo "::error::Add REED_API_KEY to the reed environment"; exit 1; }
+
+      - name: Record existing snapshot folders
+        run: find prototype/app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$RUNNER_TEMP/snapshots-before.txt"
+
+      - name: Collect live vacancies
+        working-directory: prototype/app
+        env:
+          REED_API_KEY: ${{ secrets.REED_API_KEY }}
+        run: uv run python -m skillmatch.etl --mode live
+
+      - name: Run tests
+        working-directory: prototype/app
+        run: uv run pytest
+
+      - name: Find the new snapshot
+        id: snapshot
+        run: |
+          name="$(find prototype/app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | comm -13 "$RUNNER_TEMP/snapshots-before.txt" - | head -n 1)"
+          snapshot="prototype/app/data/snapshots/$name"
+          test -n "$name" || { echo "::error::No snapshot folder was written"; exit 1; }
+          echo "path=$snapshot" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the snapshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: skillmatch-snapshot-${{ github.run_id }}
+          path: ${{ steps.snapshot.outputs.path }}
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Export snapshots and growing history
+        working-directory: prototype/app
+        run: make export-snapshot TARGET="$GITHUB_WORKSPACE/snapshot-export/data/live_snapshots"
+
+      - name: Commit and push data-snapshots only
+        working-directory: snapshot-export
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/live_snapshots
+          if git diff --cached --quiet; then
+            echo "No exported data changes to publish."
+          else
+            git commit -m "Add daily SkillMatch vacancy snapshot"
+            git push origin HEAD:data-snapshots
+          fi
+
+      - name: Save the database for an enabled deployment
+        if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+        working-directory: prototype/app
+        run: |
+          mkdir -p "$RUNNER_TEMP/skillmatch-database"
+          database="$(find data/processed -maxdepth 1 -type f -name 'skillmatch_live_*.db' -printf '%f\n' | sort | tail -n 1)"
+          test -n "$database" || { echo "::error::No live database was written"; exit 1; }
+          cp "data/processed/$database" "$RUNNER_TEMP/skillmatch-database/"
+
+      - name: Upload the database for deployment
+        if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: skillmatch-live-database-${{ github.run_id }}
+          path: ${{ runner.temp }}/skillmatch-database/*.db
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    if: ${{ vars.DEPLOY_ENABLED == 'true' }}
+    needs: collect
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      REGION: europe-west2
+      SERVICE: skillmatch
+      REPOSITORY: skillmatch
+    steps:
+      - name: Check out the app
+        uses: actions/checkout@v4
+
+      - name: Download the database from collection
+        uses: actions/download-artifact@v4
+        with:
+          name: skillmatch-live-database-${{ github.run_id }}
+          path: prototype/app/data/processed
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build and push the image
+        working-directory: prototype/app
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+        run: |
+          database="$(find data/processed -maxdepth 1 -type f -name 'skillmatch_live_*.db' -printf '%f\n' | sort | tail -n 1)"
+          test -n "$database" || { echo "::error::No live database is available"; exit 1; }
+          image="${REGION}-docker.pkg.dev/${GCP_PROJECT_ID}/${REPOSITORY}/${SERVICE}:${GITHUB_SHA::12}-${GITHUB_RUN_ID}"
+          gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
+          docker build -f Dockerfile --build-arg SKILLMATCH_DATABASE="data/processed/$database" -t "$image" .
+          docker push "$image"
+          echo "IMAGE=$image" >> "$GITHUB_ENV"
+
+      - name: Deploy to Cloud Run
+        working-directory: prototype/app
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+        run: |
+          gcloud run deploy "$SERVICE" \
+            --project "$GCP_PROJECT_ID" \
+            --region "$REGION" \
+            --image "$IMAGE" \
+            --port 8080 \
+            --min-instances 0 \
+            --max-instances 1 \
+            --memory 512Mi \
+            --cpu 1 \
+            --allow-unauthenticated \
+            --quiet
