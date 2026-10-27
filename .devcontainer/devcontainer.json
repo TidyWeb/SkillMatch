@@ -1,10 +1,10 @@
 {
   // SkillMatch prototype in GitHub Codespaces.
-  // Opens with the app installed and built from the 120 synthetic adverts (no API keys, no real advert data),
-  // then starts it and opens it in a browser tab.
+  // Installs the app and downloads the latest live vacancies, falling back to sample adverts if unavailable.
+  // No Reed key is needed in Codespaces; it then starts the app and opens it in a browser tab.
   "name": "SkillMatch prototype",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "pip install uv && cd prototype/app && uv sync && uv run python -m skillmatch.etl --mode fixtures",
+  "postCreateCommand": "pip install uv && cd prototype/app && uv sync && (mkdir -p data/processed && (curl -fsSL -o data/processed/skillmatch_live_latest.db.download https://github.com/TidyWeb/SkillMatch/releases/download/live-data/skillmatch_live_latest.db && mv data/processed/skillmatch_live_latest.db.download data/processed/skillmatch_live_latest.db || uv run python -m skillmatch.etl --mode fixtures))",
   "postAttachCommand": {
     "skillmatch": "cd prototype/app && uv run flask --app skillmatch.web:create_app run --host 0.0.0.0 --port 5000"
   },
