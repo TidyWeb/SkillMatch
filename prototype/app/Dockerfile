@@ -1,6 +1,6 @@
 # SkillMatch: small image, fast cold start on Cloud Run.
-# The SQLite database is built before `docker build` (make docker-build does this) and baked in
-# read-only. No database server, no user storage.
+# The current live SQLite database is selected explicitly at build time and baked in read-only.
+# No database server, no user storage.
 
 # ---- build stage: resolve and install dependencies with uv from the lock file ----
 FROM python:3.12-slim AS build
@@ -26,7 +26,8 @@ COPY wsgi.py ./
 COPY data/taxonomy ./data/taxonomy
 COPY data/personas.yaml data/town_coords.csv data/outcode_coords.csv data/discovery_links.csv \
      data/title_rules.csv data/search_terms.csv data/employer_boards.csv ./data/
-COPY data/processed/skillmatch.db ./data/processed/skillmatch.db
+ARG SKILLMATCH_DATABASE
+COPY ${SKILLMATCH_DATABASE} ./data/processed/
 USER app
 EXPOSE 8080
 # One worker with threads keeps memory low and cold starts quick; --preload loads the taxonomy once.

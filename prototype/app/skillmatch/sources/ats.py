@@ -21,7 +21,7 @@ from datetime import UTC, datetime
 
 from skillmatch import config
 from skillmatch.sources.base import Vacancy
-from skillmatch.sources.common import UK_HINT, pick_location
+from skillmatch.sources.common import pick_location
 from skillmatch.sources.http import PoliteClient
 
 log = logging.getLogger(__name__)
@@ -53,6 +53,7 @@ class ATSAdapter:
         self.client = client or PoliteClient()
         self.boards = boards if boards is not None else load_boards()
         self.stats: dict[str, int] = {}
+        self.source_log: list[dict] = []
 
     def fetch(self) -> list[Vacancy]:
         out: list[Vacancy] = []
@@ -60,7 +61,16 @@ class ATSAdapter:
             try:
                 fetched = getattr(self, f"_{b['platform']}")(b)
             except Exception as exc:
-                log.warning("%s board %s failed: %s", b["platform"], b["slug"], exc)
+                status = getattr(getattr(exc, "response", None), "status_code", None)
+                entry = {
+                    "source": b["platform"],
+                    "board": b["slug"],
+                    "error_type": type(exc).__name__,
+                }
+                if status is not None:
+                    entry["status"] = status
+                self.source_log.append(entry)
+                log.warning("%s board %s failed (%s)", b["platform"], b["slug"], type(exc).__name__)
                 self.stats[f"{b['slug']}_error"] = 1
                 continue
             self.stats[b["slug"]] = len(fetched)
@@ -76,8 +86,7 @@ class ATSAdapter:
             locs = [x.strip() for x in (j.get("location") or {}).get("name", "").split(";")]
             locs += [o.get("location") or "" for o in j.get("offices") or []]
             loc = pick_location(locs, _is_wm)
-            if not loc or not (UK_HINT.search(" ".join(locs)) or _remote_text(" ".join(locs))):
-                continue
+            loc = loc or "; ".join(x for x in locs if x) or None
             out.append(
                 Vacancy(
                     source="greenhouse",
@@ -107,10 +116,6 @@ class ATSAdapter:
             locs = cats.get("allLocations") or [cats.get("location") or ""]
             country = j.get("country")
             workplace = j.get("workplaceType")
-            if country and country != "GB":
-                continue
-            if not country and not UK_HINT.search(" ".join(locs)):
-                continue
             parts = [j.get("description") or ""]
             for lst in j.get("lists") or []:
                 parts.append(
@@ -118,8 +123,8 @@ class ATSAdapter:
                 )
             parts.append(j.get("additional") or "")
             created = j.get("createdAt")
-            loc = pick_location(locs, _is_wm)
-            if workplace == "remote":
+            loc = pick_location(locs, _is_wm) or "; ".join(x for x in locs if x) or country
+            if workplace == "remote" and country == "GB":
                 loc = "UK-remote"
             out.append(
                 Vacancy(
@@ -148,9 +153,12 @@ class ATSAdapter:
         )
         out = []
         for j in body.get("jobs", []):
-            if (j.get("country") or "") not in ("United Kingdom", "UK", "GB"):
-                continue
-            loc = "UK-remote" if j.get("telecommuting") else (j.get("city") or j.get("state"))
+            country = j.get("country")
+            loc = (
+                "UK-remote"
+                if j.get("telecommuting") and country in ("United Kingdom", "UK", "GB")
+                else "; ".join(x for x in (j.get("city"), j.get("state"), country) if x)
+            )
             out.append(
                 Vacancy(
                     source="workable",
@@ -162,9 +170,9 @@ class ATSAdapter:
                     location_text=loc,
                     description_html=j.get("description") or "",
                     posted_date=j.get("published_on") or j.get("created_at"),
-                    remote_hint="remote" if j.get("telecommuting") else None,
+                    remote_hint=("remote" if j.get("telecommuting") else None),
                     attribution=f"Posted on {b['employer']}'s Workable careers page",
-                    extra={"board": b["slug"], "platform": "workable"},
+                    extra={"board": b["slug"], "platform": "workable", "country": country},
                 )
             )
         return out

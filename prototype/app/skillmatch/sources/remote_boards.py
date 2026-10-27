@@ -18,20 +18,23 @@ from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 
 from skillmatch.sources.base import Vacancy
-from skillmatch.sources.common import DATA_TITLE_HINT
 from skillmatch.sources.http import PoliteClient
 
 log = logging.getLogger(__name__)
 
 WORLDWIDE = re.compile(r"\b(anywhere|worldwide|global|any country)\b", re.I)
 UK = re.compile(r"\b(united kingdom|uk|great britain|england)\b", re.I)
+OVERSEAS = re.compile(
+    r"\b(us|usa|u\.s\.a\.|united states|canada|australia|new zealand|india|singapore|ireland|germany|france|netherlands|spain|poland|brazil|mexico|south africa|outside (?:the )?uk)\b",
+    re.I,
+)
 
 
 def uk_eligibility(*texts: str | None) -> str:
     joined = " ".join(t for t in texts if t)
     if UK.search(joined) or WORLDWIDE.search(joined):
         return "yes"
-    return "unclear"
+    return "no" if OVERSEAS.search(joined) else "unclear"
 
 
 class WeWorkRemotelyAdapter:
@@ -43,6 +46,7 @@ class WeWorkRemotelyAdapter:
     def __init__(self, client: PoliteClient | None = None):
         self.client = client or PoliteClient()
         self.stats: dict[str, int] = {}
+        self.source_log: list[dict] = []
 
     def fetch(self) -> list[Vacancy]:
         xml = self.client.get(self.FEED, as_json=False)
@@ -53,8 +57,6 @@ class WeWorkRemotelyAdapter:
             raw_title = (it.findtext("title") or "").strip()
             company, _, title = raw_title.partition(": ")
             title = title or raw_title
-            if not DATA_TITLE_HINT.search(title):
-                continue
             link = (it.findtext("link") or it.findtext("guid") or "").strip()
             region = it.findtext("region") or ""
             country = it.findtext("country") or ""
@@ -71,7 +73,9 @@ class WeWorkRemotelyAdapter:
                     title=title,
                     url=link,
                     employer=company if title != raw_title else None,
-                    location_text="UK-remote",
+                    location_text="UK-remote"
+                    if uk_eligibility(region, country) == "yes"
+                    else (f"Remote: {region}; {country}".strip("; ") or "Remote"),
                     description_html=it.findtext("description") or "",
                     posted_date=posted,
                     remote_hint=f"region: {region}; countries: {country}".strip(),
@@ -92,6 +96,7 @@ class RemoteOKAdapter:
     def __init__(self, client: PoliteClient | None = None):
         self.client = client or PoliteClient()
         self.stats: dict[str, int] = {}
+        self.source_log: list[dict] = []
 
     def fetch(self) -> list[Vacancy]:
         body = self.client.get(self.API)
@@ -100,8 +105,6 @@ class RemoteOKAdapter:
         for j in jobs:
             title = (j.get("position") or "").strip()
             tags = " ".join(j.get("tags") or [])
-            if not DATA_TITLE_HINT.search(title):
-                continue
             location = j.get("location") or ""
             epoch = j.get("epoch")
             out.append(
@@ -112,7 +115,9 @@ class RemoteOKAdapter:
                     title=title,
                     url=j.get("url") or f"https://remoteok.com/remote-jobs/{j['id']}",
                     employer=j.get("company"),
-                    location_text="UK-remote",
+                    location_text="UK-remote"
+                    if uk_eligibility(location) == "yes"
+                    else (f"Remote: {location}" if location else "Remote"),
                     description_html=j.get("description") or "",
                     # Remote OK salary fields may be platform estimates, so we never show them.
                     posted_date=datetime.fromtimestamp(epoch, UTC).date().isoformat()

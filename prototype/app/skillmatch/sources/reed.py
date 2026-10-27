@@ -59,7 +59,9 @@ class ReedAdapter:
         towns: Iterable[str] = (),
         terms: Iterable[str] = (),
         distance_miles: int = 15,
-        pages_per_search: int = 1,
+        pages_per_search: int = 3,
+        birmingham_pages: int | None = None,
+        detail_reserve: int = 0,
         keep: Callable[[dict], bool] | None = None,
         max_details: int | None = None,
         today: date | None = None,
@@ -70,11 +72,16 @@ class ReedAdapter:
         self.terms = list(terms)
         self.distance = distance_miles
         self.pages = pages_per_search
+        self.birmingham_pages = birmingham_pages
+        self.detail_reserve = max(0, int(detail_reserve))
         self.keep = keep or (lambda _r: True)
         self.max_details = max_details
         self.today = today or date.today()
         self.stats: dict[str, int] = {}
         self.search_results: dict[int, dict] = {}
+        self.search_observations: list[dict] = []
+        self.search_events: list[dict] = []
+        self.source_log: list[dict] = []
 
     @property
     def enabled(self) -> bool:
@@ -86,10 +93,47 @@ class ReedAdapter:
     def search(self) -> dict[int, dict]:
         """Run every term in every town. Returns search results keyed by Reed job id."""
         seen: dict[int, dict] = {}
+        self.search_results = seen
+        self.search_observations = []
+        self.search_events = []
+        self.stats = {}
         calls = 0
+        capped = False
+        started_queries: set[tuple[str, str]] = set()
+        total_queries = len(self.towns) * len(self.terms)
+        truncated_searches = []
         for town in self.towns:
+            if capped:
+                break
             for term in self.terms:
-                for page in range(self.pages):
+                if capped:
+                    break
+                query_pages = (
+                    self.birmingham_pages
+                    if town.strip().casefold() == "birmingham" and self.birmingham_pages is not None
+                    else self.pages
+                )
+                for page in range(query_pages):
+                    requests_made = getattr(self.client, "requests_made", None)
+                    max_requests = getattr(self.client, "max_requests", None)
+                    if (
+                        isinstance(requests_made, int)
+                        and isinstance(max_requests, int)
+                        and requests_made >= max(0, max_requests - self.detail_reserve)
+                    ):
+                        self.stats["stopped_at_cap"] = 1
+                        self.stats["search_reserve_reached"] = 1
+                        self.search_events.append(
+                            {
+                                "term": term,
+                                "location": town,
+                                "page": page + 1,
+                                "status": "detail reserve reached",
+                            }
+                        )
+                        capped = True
+                        break
+                    started_queries.add((town, term))
                     params = {
                         "keywords": term,
                         "locationName": town,
@@ -97,19 +141,61 @@ class ReedAdapter:
                         "resultsToTake": 100,
                         "resultsToSkip": page * 100,
                     }
-                    body = self._get(f"{API}/search", params)
+                    try:
+                        body = self._get(f"{API}/search", params)
+                    except RequestCapReached:
+                        self.stats["stopped_at_cap"] = 1
+                        self.search_events.append(
+                            {
+                                "term": term,
+                                "location": town,
+                                "page": page + 1,
+                                "status": "request cap reached",
+                            }
+                        )
+                        capped = True
+                        break
                     calls += 1
                     results = body.get("results", []) if isinstance(body, dict) else []
+                    self.search_events.append(
+                        {
+                            "term": term,
+                            "location": town,
+                            "page": page + 1,
+                            "status": "ok",
+                            "result_count": len(results),
+                        }
+                    )
                     for r in results:
                         r.setdefault("_matched_terms", [])
                         prev = seen.setdefault(r["jobId"], r)
                         if term not in prev["_matched_terms"]:
                             prev["_matched_terms"].append(term)
+                        self.search_observations.append(
+                            {
+                                "job_id": r["jobId"],
+                                "matched_term": term,
+                                "location": town,
+                                "page": page + 1,
+                            }
+                        )
+                    self.search_results = seen
                     if len(results) < 100:
                         break
+                    if page == query_pages - 1:
+                        truncated_searches.append(
+                            {
+                                "term": term,
+                                "location": town,
+                                "pages": query_pages,
+                                "result_count": len(results),
+                            }
+                        )
         self.stats["search_calls"] = calls
         self.stats["search_unique"] = len(seen)
-        self.search_results = seen
+        self.stats["unvisited_queries"] = total_queries - len(started_queries)
+        self.stats["truncated_searches"] = truncated_searches
+        self.stats["search_events"] = self.search_events.copy()
         return seen
 
     def detail(self, job_id: int | str) -> dict | None:
@@ -130,6 +216,9 @@ class ReedAdapter:
             employer=html.unescape(row.get("employerName") or "") or None,
             location_text=row.get("locationName"),
             description_html=html.escape(row.get("jobDescription") or ""),
+            description_coverage="search excerpt only"
+            if row.get("jobDescription")
+            else "unavailable",
             salary_min=float(lo) if lo else None,
             salary_max=float(hi) if hi else None,
             currency=row.get("currency") if (lo or hi) else None,

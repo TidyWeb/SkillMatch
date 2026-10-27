@@ -50,7 +50,10 @@ _cache: dict[str, Snapshot] = {}
 
 def load(path: Path | str | None = None) -> Snapshot | None:
     """The database as plain dictionaries. Reloaded only when the file changes."""
-    path = Path(path or config.DB_PATH)
+    if path is None:
+        candidates = sorted(config.PROCESSED_DIR.glob("skillmatch_live_*.db"))
+        path = candidates[-1] if candidates else config.DB_PATH
+    path = Path(path)
     if not path.exists():
         return None
     mtime = os.path.getmtime(path)
