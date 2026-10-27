@@ -16,6 +16,7 @@ from functools import lru_cache
 
 from skillmatch import config
 from skillmatch.taxonomy import Taxonomy, get_taxonomy
+from skillmatch.text import clean_text
 
 NOT_A_DATA_ROLE = "not a data role"
 TRAINING_COURSE = "training course, not a job"
@@ -61,6 +62,40 @@ TRAINING_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+# Treat qualification names as entities, then look for a mandatory requirement in the same
+# sentence. Acronyms alone are not enough: adverts commonly mention these in desirable lists.
+PROFESSIONAL_QUALIFICATION = re.compile(
+    r"\b(?:ACCA|CIMA|CIPD|ACA|ICAS|ICAEW|AAT|CFA|CII|CIPFA|CTA|ATT|CIIA|CIPHE)\b",
+    re.IGNORECASE,
+)
+QUALIFICATION_REQUIRED = re.compile(
+    r"\b(?:required|essential|must\s+(?:have|hold|be)|need(?:ed)?\s+to\s+have|"
+    r"(?:fully\s+)?qualified\s+(?:by|with|as)|qualification\s+is\s+(?:required|essential)|"
+    r"qualified)\b",
+    re.IGNORECASE,
+)
+QUALIFICATION_EXEMPT = re.compile(
+    r"\b(?:desirable|preferred|preferably|ideally|advantageous|a\s+plus|"
+    r"studying\s+towards|working\s+towards|part[- ]qualified|student\s+member|"
+    r"or\s+studying|study(?:ing)?\s+for)\b",
+    re.IGNORECASE,
+)
+QUALIFICATION_NEGATED = re.compile(
+    r"\b(?:not\s+(?:required|essential|a\s+requirement|needed)|no\s+(?:qualification\s+)?need|"
+    r"does\s+not\s+need|isn't\s+required|is\s+not\s+necessary)\b",
+    re.IGNORECASE,
+)
+QUALIFICATION_REQUIRED_HEADING = re.compile(
+    r"\b(?:essential|required|mandatory|minimum)\b.*\bqualifications?\b|"
+    r"\bqualifications?\b.*\b(?:essential|required|mandatory|minimum)\b",
+    re.IGNORECASE,
+)
+QUALIFICATION_DESIRABLE_HEADING = re.compile(
+    r"\b(?:desirable|preferred|nice\s+to\s+have|advantageous)\b.*\bqualifications?\b|"
+    r"\bqualifications?\b.*\b(?:desirable|preferred|nice\s+to\s+have|advantageous)\b",
+    re.IGNORECASE,
+)
+
 
 @dataclass(frozen=True)
 class TitleRule:
@@ -85,6 +120,7 @@ class TitleVerdict:
 
 
 def check_title(title: str) -> TitleVerdict:
+    title = clean_text(title)
     v = TitleVerdict()
     for rule in title_rules():
         if rule.pattern.search(title or ""):
@@ -96,11 +132,13 @@ def check_title(title: str) -> TitleVerdict:
 
 
 def is_data_title(title: str) -> bool:
+    title = clean_text(title)
     return bool(DATA_TITLE.search(title or ""))
 
 
 def technical_signals(text: str, tax: Taxonomy | None = None) -> list[str]:
     """Distinct non-generic technical skills a description mentions."""
+    text = clean_text(text)
     tax = tax or get_taxonomy()
     found = []
     for s in tax.skills.values():
@@ -121,6 +159,7 @@ def is_data_role(title: str, description_text: str, tax: Taxonomy | None = None)
     3. Otherwise yes only if the advert asks for at least two non-generic technical data skills
        and the title isn't an engineering, developer or similar job family.
     """
+    title, description_text = clean_text(title), clean_text(description_text)
     title = title or ""
     if NOT_DATA_TITLE.search(title):
         return False
@@ -134,5 +173,84 @@ def is_data_role(title: str, description_text: str, tax: Taxonomy | None = None)
 
 
 def is_training_course(title: str, description_text: str) -> bool:
+    # A named placement programme is usually a training product when the advert also uses
+    # the course-sales language below. Paid employment apprenticeships remain eligible.
+    title, description_text = clean_text(title), clean_text(description_text)
     hits = set(m.group(0).lower() for m in TRAINING_PATTERNS.finditer(description_text or ""))
-    return len(hits) >= 2 or ("no experience" in (title or "").lower() and bool(hits))
+    placement = bool(
+        re.search(r"\bplacement\s+programme\b", f"{title or ''} {description_text or ''}", re.I)
+    )
+    return (
+        len(hits) >= 2
+        or ("no experience" in (title or "").lower() and bool(hits))
+        or (placement and len(hits) >= 1)
+    )
+
+
+def required_professional_qualification(title: str, text: str) -> str | None:
+    """Return evidence when an advert makes a professional qualification mandatory.
+
+    Desired qualifications and studying-towards routes are deliberately retained. The check
+    is sentence-based so a nearby mandatory phrase cannot turn a separate desirable mention
+    into an exclusion.
+    """
+    title, text = clean_text(title), clean_text(text)
+    combined = f"{title or ''}.\n{text or ''}"
+    required_heading = False
+    desirable_heading = False
+    sentences = []
+    for line in combined.splitlines():
+        line = line.strip().lstrip("-•* ").strip()
+        if not line:
+            continue
+        # Section headings carry their strength to the following lines until another
+        # qualifications heading changes it. A heading itself is not qualification evidence.
+        if QUALIFICATION_REQUIRED_HEADING.search(line) and len(line) < 100:
+            required_heading, desirable_heading = True, False
+            continue
+        if QUALIFICATION_DESIRABLE_HEADING.search(line) and len(line) < 100:
+            required_heading, desirable_heading = False, True
+            continue
+        for sentence in re.split(r"(?<=[.!?])\s+|[;•]+", line):
+            if sentence.strip():
+                sentences.append((sentence.strip(), required_heading, desirable_heading))
+    for sentence, required_heading, desirable_heading in sentences:
+        quals = list(PROFESSIONAL_QUALIFICATION.finditer(sentence))
+        if not quals or desirable_heading:
+            continue
+        # Headings and explicit qualifying phrases both establish a requirement. A simple
+        # "ACCA qualified" statement also counts, but negation and preference win.
+        required = required_heading or bool(QUALIFICATION_REQUIRED.search(sentence))
+        if not required:
+            continue
+        shared_study_route = len(quals) > 1 and bool(
+            re.search(
+                r"\b(?:or|alternatively)\s+(?:currently\s+)?(?:studying|working)\s+towards\s+(?:either|any|one|the\s+qualification|it)\b",
+                sentence,
+                re.IGNORECASE,
+            )
+        )
+        # If the sentence qualifies the same qualification as desirable/studying, skip it.
+        for index, match in enumerate(quals):
+            # Qualification strength belongs to the local credential clause. Bound the
+            # context by neighbouring qualification names so "CIMA desirable" cannot
+            # soften a separate "ACCA required" clause earlier in the same sentence.
+            left = quals[index - 1].end() if index else 0
+            right = quals[index + 1].start() if index + 1 < len(quals) else len(sentence)
+            context = sentence[left:right]
+            if (
+                shared_study_route
+                or QUALIFICATION_EXEMPT.search(context)
+                or QUALIFICATION_NEGATED.search(context)
+            ):
+                continue
+            # A comma-separated continuation such as "ACCA required, or studying towards"
+            # still states a permitted studying route for the preceding credential.
+            if index + 1 == len(quals):
+                trailing = sentence[match.end() :]
+                if re.search(
+                    r",\s*or\s+(?:currently\s+)?(?:studying|working)\s+towards\b", trailing, re.I
+                ):
+                    continue
+            return f"Required professional qualification: {match.group(0).upper()} ({sentence.strip()})"
+    return None

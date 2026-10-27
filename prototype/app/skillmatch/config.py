@@ -30,27 +30,15 @@ RELEVANCE_MIN_SKILLS = 2
 # ----- ETL -----
 NEAR_DUPLICATE_CHARS = 600  # compare the first N characters of descriptions
 NEAR_DUPLICATE_RATIO = 90  # rapidfuzz token_set_ratio threshold for near-duplicates
-REED_DISTANCE_MILES = 15
+REED_DISTANCE_MILES = 27
 REED_MAX_REQUESTS = 1500
 # Grid of towns searched on Reed at REED_DISTANCE_MILES so the circles cover the region.
-REED_GRID = [
-    "Birmingham",
-    "Wolverhampton",
-    "Coventry",
-    "Worcester",
-    "Hereford",
-    "Shrewsbury",
-    "Telford",
-    "Stafford",
-    "Stoke-on-Trent",
-    "Tamworth",
-    "Warwick",
-    "Stratford-upon-Avon",
-    "Kidderminster",
-    "Redditch",
-    "Ludlow",
-    "Burton upon Trent",
-]
+REED_GRID = ["Birmingham", "Shrewsbury", "Stoke-on-Trent", "Worcester", "Warwick"]
+REED_BIRMINGHAM_PAGES = 5
+REED_DETAIL_RESERVE = 500
+# No numeric rate limit is published on Reed's Jobseeker API reference (checked 27 Oct 2026).
+# Use at most one request per second and honour 429 retry/backoff responses.
+REED_MIN_INTERVAL = 1.0
 EVIDENCE_MAX_CHARS = 400  # longest advert sentence we store as evidence
 REED_PAGES = 3  # follow up to this many pages of 100 when a search fills a page
 

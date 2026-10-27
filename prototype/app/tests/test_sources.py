@@ -18,7 +18,7 @@ class Canned:
         raise AssertionError(url)
 
 
-def test_greenhouse_keeps_uk_and_prefers_west_midlands():
+def test_greenhouse_retains_overseas_and_prefers_west_midlands():
     body = {
         "jobs": [
             {
@@ -45,7 +45,10 @@ def test_greenhouse_keeps_uk_and_prefers_west_midlands():
         boards=[{"platform": "greenhouse", "slug": "x", "employer": "X Ltd"}],
     )
     out = a.fetch()
-    assert [v.location_text for v in out] == ["Solihull, England, United Kingdom"]
+    assert [v.location_text for v in out] == [
+        "Solihull, England, United Kingdom",
+        "New York, United States",
+    ]
     assert out[0].description_html == "<p>Hello</p>"
     assert out[0].posted_date == "2026-10-01"
 
@@ -84,15 +87,20 @@ def test_lever_and_workable():
             {"platform": "workable", "slug": "w", "employer": "W"},
         ],
     )
-    out = {v.source: v for v in a.fetch()}
-    assert (
-        out["lever"].location_text == "Birmingham"
-        and "<h3>Requirements</h3>" in out["lever"].description_html
-    )
-    assert out["workable"].location_text == "Walsall"
+    out = a.fetch()
+    lever_rows = [v for v in out if v.source == "lever"]
+    workable_rows = [v for v in out if v.source == "workable"]
+    assert len(lever_rows) == 2
+    uk_lever = next(v for v in lever_rows if v.source_id == "k-a")
+    us_lever = next(v for v in lever_rows if v.source_id == "k-b")
+    assert uk_lever.location_text == "Birmingham"
+    assert "<h3>Requirements</h3>" in uk_lever.description_html
+    assert "Detroit" in us_lever.location_text
+    assert us_lever.extra["country"] == "US"
+    assert workable_rows[0].location_text == "Walsall; United Kingdom"
 
 
-def test_remote_boards_keep_data_roles_only():
+def test_remote_boards_retain_all_titles_and_preserve_eligibility():
     rss = """<rss><channel>
       <item><title>Acme: Data Analyst</title><link>https://weworkremotely.com/remote-jobs/acme-data-analyst</link>
         <region>Anywhere in the World</region><country></country><description>&lt;p&gt;SQL&lt;/p&gt;</description>
@@ -100,7 +108,7 @@ def test_remote_boards_keep_data_roles_only():
       <item><title>Acme: Sales Lead</title><link>https://weworkremotely.com/remote-jobs/acme-sales</link></item>
     </channel></rss>"""
     wwr = WeWorkRemotelyAdapter(client=Canned({"weworkremotely": rss})).fetch()
-    assert [v.title for v in wwr] == ["Data Analyst"]
+    assert [v.title for v in wwr] == ["Data Analyst", "Sales Lead"]
     assert wwr[0].employer == "Acme" and wwr[0].extra["uk_eligibility"] == "yes"
     rok = [
         {"legal": "notice"},
@@ -122,7 +130,9 @@ def test_remote_boards_keep_data_roles_only():
 
 def test_uk_eligibility():
     assert uk_eligibility("UK only") == "yes"
-    assert uk_eligibility("USA") == "unclear"
+    assert uk_eligibility("USA") == "no"
+    assert uk_eligibility("Europe") == "unclear"
+    assert uk_eligibility("EMEA") == "unclear"
 
 
 def test_cvlibrary_disabled_without_feed():
