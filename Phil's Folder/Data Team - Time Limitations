@@ -1,0 +1,36 @@
+# Note for John and the DA Team - Limitation: looking back in time
+
+SkillMatch can only collect the vacancies that are live on the day it runs. It cannot see last week's jobs, or the week before's.
+
+## The shop window
+
+A job board is a shop window, not a warehouse.
+
+- Each run takes a photo of the window.
+- Every item in the photo carries the date it went in, so today's photo includes adverts posted up to six or seven weeks ago.
+- But it only shows what is still in the window. Anything already filled or withdrawn has gone.
+
+So older weeks always look quieter than they really were. The adverts that disappeared are missing from the photo, not missing from the market.
+
+## Why archives don't fix this
+
+Web archives such as the Wayback Machine (Internet Archive) are someone else taking occasional photos of some windows. They are not daily, they mostly capture front pages or search pages rather than individual adverts, and coverage of any one job board is patchy. They give scattered glimpses, not counts we could trust.
+
+## Why running it more often doesn't help
+
+Running the app ten times in one day gives ten copies of the same window. The jobs on offer only change as new adverts go up and old ones come down.
+
+## What we do instead
+
+The only reliable way to build history is to take the photo every day from now on and keep every snapshot. Comparing one day's snapshot with the next shows:
+
+- **new** adverts (in today's photo, not yesterday's)
+- **gone** adverts (in yesterday's photo, not today's)
+- **still live** adverts
+- **how long each advert stayed up** before it disappeared, a rough "time to fill"
+
+## What this means for analysis
+
+- Treat "adverts per posting week" from a single snapshot as an undercount for older weeks.
+- Trends over time are only reliable from the date daily snapshots began.
+- The 21 October 2026 collection is a genuine earlier snapshot, but it was reprocessed later through updated filters, and most of its Reed adverts carry only a search excerpt rather than the full description.
