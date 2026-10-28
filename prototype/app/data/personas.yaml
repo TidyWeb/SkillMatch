@@ -86,7 +86,6 @@ personas:
         jupyter: course
         matplotlib_seaborn: course
         plotly: course
-        sql: course
         excel: confident
         power_bi: project
         tableau: course
@@ -207,7 +206,6 @@ personas:
         jupyter: course
         matplotlib_seaborn: course
         plotly: course
-        sql: course
         excel: project
         power_bi: project
         tableau: course
@@ -323,7 +321,6 @@ personas:
         jupyter: project
         matplotlib_seaborn: project
         plotly: course
-        sql: course
         excel: confident
         power_bi: course
         tableau: project

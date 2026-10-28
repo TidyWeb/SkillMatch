@@ -65,7 +65,7 @@ skills:
   - id: sql
     label: SQL
     category: database
-    course_covered: true
+    course_covered: false
     variants: [structured query language, SQL queries, SQL skills]
     regex: ['(?<![-\w])SQL\b']
     portfolio_idea: Load a public dataset into SQLite and answer five business questions with SQL joins and aggregations; include the queries in a README.
@@ -141,7 +141,7 @@ skills:
   - id: excel
     label: Excel
     category: spreadsheet
-    course_covered: true
+    course_covered: false
     variants: [spreadsheets, spreadsheet, pivot tables, pivot table, VLOOKUP, XLOOKUP, lookups, Power Pivot]
     variants_cs: [Excel, MS Excel, Microsoft Excel, EXCEL]
     portfolio_idea: Build an Excel workbook with pivot tables, XLOOKUP and a summary sheet that reconciles two data sources; document the checks.
