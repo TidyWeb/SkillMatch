@@ -64,8 +64,20 @@ def test_profile_skills_visualization(client, monkeypatch):
         "vacancy_skills",
         pd.DataFrame(
             [
-                {"skill": "python", "count": 12, "course_covered": True},
-                {"skill": "sql", "count": 7, "course_covered": False},
+                {
+                    "skill": "business_analysis",
+                    "count": 12,
+                    "strength": "essential",
+                    "confidence": "stated",
+                    "course_covered": True,
+                },
+                {
+                    "skill": "sql",
+                    "count": 7,
+                    "strength": "desirable",
+                    "confidence": "inferred",
+                    "course_covered": False,
+                },
             ]
         ),
     )
@@ -76,12 +88,14 @@ def test_profile_skills_visualization(client, monkeypatch):
     assert "Your skill summary" in html
     assert "Learned on the course" in html
     assert "Confident" in html
-    assert "Python" in html
+    assert (
+        "Business analysis and requirements is stated as an essential requirement in 12 vacancies."
+        in html
+    )
+    assert "SQL is inferred as an desirable requirement in 7 vacancies." in html
     assert "Skills requested in vacancies" in html
     assert "Course covered: Yes" in html
     assert "Course covered: No" in html
-    assert "12 vacancies" in html
-    assert "vacancies" in html
 
 
 def test_profile_skills_visualization_without_profile(client):
@@ -96,8 +110,20 @@ def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatc
         "vacancy_skills",
         pd.DataFrame(
             [
-                {"skill": "python", "count": 12, "course_covered": False},
-                {"skill": "sql", "count": 7, "course_covered": True},
+                {
+                    "skill": "python",
+                    "count": 12,
+                    "strength": "essential",
+                    "confidence": "stated",
+                    "course_covered": False,
+                },
+                {
+                    "skill": "sql",
+                    "count": 7,
+                    "strength": "desirable",
+                    "confidence": "inferred",
+                    "course_covered": True,
+                },
             ]
         ),
     )
@@ -110,6 +136,9 @@ def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatc
         {
             "skill": "Python",
             "count": 12,
+            "strength": "essential",
+            "confidence": "stated",
+            "sentence": "Python is stated as an essential requirement in 12 vacancies.",
             "course_covered": False,
             "profile_level": "Confident",
             "profile_has_skill": True,
@@ -117,6 +146,9 @@ def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatc
         {
             "skill": "SQL",
             "count": 7,
+            "strength": "desirable",
+            "confidence": "inferred",
+            "sentence": "SQL is inferred as an desirable requirement in 7 vacancies.",
             "course_covered": True,
             "profile_level": None,
             "profile_has_skill": False,

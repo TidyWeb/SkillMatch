@@ -16,11 +16,8 @@
   <div class="skill-comparison-chart">
     {% for row in comparison.skills %}
     <div class="skill-comparison-row">
-      <div class="skill-comparison-label">
-        <strong>{{ row.skill }}</strong>
-        <span>{{ row.count }} {{ "vacancy" if row.count == 1 else "vacancies" }}</span>
-      </div>
-      <progress value="{{ row.count }}" max="{{ comparison.max_count if comparison.max_count else 1 }}" aria-label="{{ row.skill }}: {{ row.count }} vacancies"></progress>
+      <p class="skill-comparison-sentence">{{ row.sentence }}</p>
+      <progress value="{{ row.count }}" max="{{ comparison.max_count if comparison.max_count else 1 }}" aria-label="{{ row.sentence }}"></progress>
       <div class="skill-comparison-status">
         <span class="skill-status {% if row.course_covered %}skill-status-yes{% elif row.course_covered is sameas false %}skill-status-no{% endif %}">
           Course covered: {% if row.course_covered is sameas true %}Yes{% elif row.course_covered is sameas false %}No{% else %}Unknown{% endif %}

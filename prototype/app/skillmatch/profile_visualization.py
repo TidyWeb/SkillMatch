@@ -41,7 +41,7 @@ def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
 def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dict:
     """Prepare vacancy skill counts with course coverage and profile status."""
     tax = tax or get_taxonomy()
-    required = {"skill", "count", "course_covered"}
+    required = {"skill", "count", "strength", "confidence", "course_covered"}
     missing = required - set(vacancy_skills.columns)
     if missing:
         raise ValueError(f"Vacancy skills data is missing columns: {', '.join(sorted(missing))}")
@@ -54,13 +54,22 @@ def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dic
         skill = tax.skills.get(skill_id)
         raw_count = row["count"]
         count = int(raw_count) if not pd.isna(raw_count) else 0
+        strength = str(row["strength"])
+        confidence = str(row["confidence"])
         covered = row["course_covered"]
         course_covered = None if pd.isna(covered) else bool(covered)
         profile_level = profile.skills.get(skill_id)
+        skill_name = skill.label if skill else skill_id
         rows.append(
             {
-                "skill": skill.label if skill else skill_id,
+                "skill": skill_name,
                 "count": count,
+                "strength": strength,
+                "confidence": confidence,
+                "sentence": (
+                    f"{skill_name} is {confidence} as an {strength} requirement "
+                    f"in {count} vacancies."
+                ),
                 "course_covered": course_covered,
                 "profile_level": LEVEL_LABELS.get(profile_level),
                 "profile_has_skill": profile_level is not None,
