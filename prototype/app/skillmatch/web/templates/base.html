@@ -33,7 +33,7 @@
     <div class="wrap colophon-inner">
       <p>
         {% if data_mode == 'live' %}
-          <span class="badge badge-live">Live snapshot · {{ snapshot_date }}</span>
+          <span class="badge badge-live">Live snapshot · {{ snapshot_date }} · <a href="{{ url_for('web.sources') }}">data sources</a></span>
         {% elif data_mode == 'fixtures' %}
           <span class="badge badge-fixtures">Fixtures · synthetic adverts</span>
         {% else %}
