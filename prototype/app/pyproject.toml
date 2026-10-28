@@ -9,6 +9,7 @@ authors = [{ name = "Tidy Web" }]
 # What the web app needs at runtime (and all the container installs).
 dependencies = [
     "flask>=3.0",
+    "pandas>=2.2",
     "pyyaml>=6.0",
     "rapidfuzz>=3.9",
     "gunicorn>=22.0",

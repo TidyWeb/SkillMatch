@@ -249,6 +249,17 @@
     window.location.href = "/results";
   });
 
+  document.getElementById("view-skills").addEventListener("click", function () {
+    var profile = collect();
+    if (!window.SkillMatch.setProfile(profile)) {
+      $("#form-status").textContent = "Your browser blocked session storage, so we can't keep your profile for the skill summary.";
+      return;
+    }
+    var viewForm = document.getElementById("profile-view-form");
+    viewForm.elements.profile.value = window.SkillMatch.getProfile();
+    viewForm.submit();
+  });
+
   document.getElementById("clear-profile").addEventListener("click", function () {
     window.SkillMatch.clearProfile();
     form.reset();

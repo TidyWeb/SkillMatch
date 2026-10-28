@@ -1502,6 +1502,7 @@ source = { editable = "." }
 dependencies = [
     { name = "flask" },
     { name = "gunicorn" },
+    { name = "pandas" },
     { name = "pyyaml" },
     { name = "rapidfuzz" },
 ]
@@ -1529,6 +1530,7 @@ notebook = [
 requires-dist = [
     { name = "flask", specifier = ">=3.0" },
     { name = "gunicorn", specifier = ">=22.0" },
+    { name = "pandas", specifier = ">=2.2" },
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "rapidfuzz", specifier = ">=3.9" },
 ]

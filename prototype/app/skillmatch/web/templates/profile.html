@@ -129,9 +129,13 @@
 
   <div class="actions">
     <button type="submit" class="button-primary">See my matches</button>
+    <button type="button" class="button-secondary" id="view-skills">View my skill summary</button>
     <button type="button" class="button-quiet" id="clear-profile">Clear my profile</button>
   </div>
   <p class="status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+<form id="profile-view-form" method="post" action="{{ url_for('web.profile_skills') }}" hidden>
+  <input type="hidden" name="profile">
 </form>
 
 <template id="role-template">

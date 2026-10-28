@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Your skill summary{% endblock %}
+{% block content %}
+<header class="page-head">
+  <h1>Your skill summary</h1>
+  <p class="lede">A visual summary of the skills in your profile and how you describe your experience with them.</p>
+  <p class="note">This summary was generated for this request. Your profile is not saved on the server.</p>
+</header>
+
+<figure class="figure">
+  <figcaption>
+    <h2>Comparing your skills with the vacancy skill list</h2>
+    <p class="hint">The bars compare exact skill names after ignoring capitalization and punctuation. This is a static list, not live vacancy counts; similar but differently named skills are not assumed to match.</p>
+  </figcaption>
+  {% set max_count = comparison.chart | map(attribute="count") | max %}
+  <div class="skill-comparison-chart">
+    {% for row in comparison.chart %}
+    <div class="skill-comparison-row">
+      <div class="skill-comparison-label"><span>{{ row["label"] }}</span><strong>{{ row["count"] }}</strong></div>
+      <progress value="{{ row["count"] }}" max="{{ max_count if max_count else 1 }}" aria-label="{{ row["label"] }}: {{ row["count"] }}"></progress>
+    </div>
+    {% endfor %}
+  </div>
+  <details class="table-twin">
+    <summary>Show the compared skill names</summary>
+    <div class="skill-comparison-details">
+      {% for row in comparison.chart %}
+      <section>
+        <h3>{{ row["label"] }} ({{ row["count"] }})</h3>
+        {% if row["items"] %}
+        <ul>{% for skill in row["items"] %}<li>{{ skill }}</li>{% endfor %}</ul>
+        {% else %}
+        <p class="hint">None.</p>
+        {% endif %}
+      </section>
+      {% endfor %}
+    </div>
+  </details>
+</figure>
+
+{% set skill_count = groups | map(attribute="skills") | map("length") | sum %}
+{% if skill_count %}
+<div class="skill-summary">
+  {% for group in groups %}
+  <section class="skill-summary-group panel" aria-labelledby="skills-{{ group.level }}">
+    <h2 id="skills-{{ group.level }}">{{ group.label }} <span class="count">{{ group.skills | length }}</span></h2>
+    {% if group.skills %}
+    <ul class="skill-summary-list">
+      {% for skill in group.skills %}<li>{{ skill }}</li>{% endfor %}
+    </ul>
+    {% else %}
+    <p class="hint">No skills in this group.</p>
+    {% endif %}
+  </section>
+  {% endfor %}
+</div>
+{% else %}
+<section class="panel">
+  <h2>No skills selected yet</h2>
+  <p>Add skills to your profile to see them summarized here.</p>
+</section>
+{% endif %}
+
+<p><a class="button-secondary" href="{{ url_for('web.profile') }}">Back to your profile</a></p>
+{% endblock %}

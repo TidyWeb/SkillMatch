@@ -21,6 +21,7 @@ from skillmatch.profile import (
     personas,
     profile_from_json,
 )
+from skillmatch.profile_visualization import compare_vacancy_skills, skill_groups
 from skillmatch.results import (
     HIDDEN_LABELS,
     SOURCE_TIERS,
@@ -103,6 +104,18 @@ def archetype_match():
 @bp.get("/results")
 def results():
     return render_template("results.html", tiers=TIER_ORDER, source_tiers=SOURCE_TIERS)
+
+
+@bp.post("/profile/skills")
+def profile_skills():
+    prof = posted_profile()
+    if prof is None:
+        return render_template("partials/no_profile.html", missing_data=False)
+    return render_template(
+        "profile_skills.html",
+        groups=skill_groups(prof),
+        comparison=compare_vacancy_skills(prof),
+    )
 
 
 def _filters_from_form() -> Filters:

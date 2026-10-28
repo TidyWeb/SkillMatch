@@ -8,7 +8,8 @@ import pytest
 
 from skillmatch import config
 from skillmatch.etl.pipeline import run
-from skillmatch.profile import personas
+from skillmatch.profile import Profile, personas
+from skillmatch.profile_visualization import compare_vacancy_skills
 from skillmatch.web import create_app
 
 
@@ -55,6 +56,33 @@ def test_results_for_every_persona(client):
 def test_results_without_profile(client):
     r = client.post("/results", data={})
     assert r.status_code == 200 and b"Start with your profile" in r.data
+
+
+def test_profile_skills_visualization(client):
+    profile = personas()["chef_wolverhampton"]
+    response = client.post("/profile/skills", data={"profile": json.dumps(profile)})
+    html = response.data.decode()
+    assert response.status_code == 200
+    assert "Your skill summary" in html
+    assert "Learned on the course" in html
+    assert "Confident" in html
+    assert "Python" in html
+    assert "Comparing your skills with the vacancy skill list" in html
+    assert "Profile skills found in vacancy list" in html
+    assert "Vacancy-list skills not in profile" in html
+
+
+def test_profile_skills_visualization_without_profile(client):
+    response = client.post("/profile/skills", data={})
+    assert response.status_code == 200
+    assert b"Start with your profile" in response.data
+
+
+def test_vacancy_skill_comparison_matches_profile_labels():
+    comparison = compare_vacancy_skills(Profile(skills={"python": "confident", "pandas": "course"}))
+    assert comparison["matched"] == ["pandas", "Python"]
+    assert comparison["profile_only"] == []
+    assert comparison["vacancy_only"]
 
 
 def test_reveal_senior_roles(client):
