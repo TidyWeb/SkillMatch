@@ -20,8 +20,30 @@
   // Send the profile with every HTMX request that asks for it.
   document.addEventListener("htmx:configRequest", function (evt) {
     if (evt.detail.elt.closest("[data-send-profile]")) {
+      evt.detail.headers["X-SkillMatch-Profile"] = getProfile();
       evt.detail.parameters.profile = getProfile();
     }
+  });
+
+  // Reveal or copy a job brief when the Tailor my CV page is unavailable.
+  document.addEventListener("click", function (evt) {
+    var toggle = evt.target.closest("[data-brief-toggle]");
+    if (toggle) {
+      var panel = document.getElementById(toggle.dataset.briefToggle);
+      if (panel) {
+        panel.hidden = !panel.hidden;
+        toggle.textContent = panel.hidden ? "Tailor my CV" : "Hide job brief";
+      }
+      return;
+    }
+    var button = evt.target.closest("[data-copy-brief]");
+    if (!button) return;
+    var field = document.getElementById(button.dataset.copyBrief);
+    if (!field) return;
+    field.focus(); field.select();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(field.value).then(function () { button.textContent = "Copied"; }).catch(function () { document.execCommand("copy"); });
+    } else { document.execCommand("copy"); }
   });
 
   // Show the profile-only parts of a page when a profile exists.

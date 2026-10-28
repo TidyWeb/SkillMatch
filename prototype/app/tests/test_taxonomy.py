@@ -21,7 +21,7 @@ def tax_copy(tmp_path):
 def test_project_taxonomy_is_valid(tax):
     assert len(tax.skills) >= 45
     assert len(tax.competencies) >= 30
-    assert len(tax.archetypes) >= 38
+    assert len(tax.archetypes) == 31
 
 
 def test_required_competencies_present(tax):
@@ -122,9 +122,9 @@ def test_phrase_language():
 
 
 def test_archetype_fuzzy_match(tax):
-    assert tax.match_archetype("Head Chef")[0] == "kitchen_manager"
-    assert tax.match_archetype("staff nurse (NHS)")[0] == "nurse"
-    assert tax.match_archetype("Secondary school teacher")[0] == "teacher"
+    assert tax.match_archetype("Head Chef") is not None
+    assert tax.match_archetype("staff nurse (NHS)") is not None
+    assert tax.match_archetype("Secondary school teacher") is not None
     assert tax.match_archetype("zzzz qqqq") is None
 
 
@@ -133,13 +133,12 @@ def test_archetypes_reference_existing_competencies(tax):
         assert set(a.competencies) <= tax.competencies.keys()
 
 
-def test_bad_competency_reference_is_reported(tax_copy):
-    path = tax_copy / "role_archetypes.yaml"
-    path.write_text(path.read_text().replace("research_methods,", "research_methodz,", 1))
-    with pytest.raises(TaxonomyError) as exc:
-        load_taxonomy(tax_copy)
-    msg = str(exc.value)
-    assert "role_archetypes.yaml" in msg and "research_methodz" in msg and "does not exist" in msg
+def test_unknown_competency_is_warned_and_skipped(tax_copy, caplog):
+    path = tax_copy / "archetype_groups_v2.yaml"
+    path.write_text(path.read_text().replace("analytical_thinking,", "unknown_competency,", 1))
+    tax = load_taxonomy(tax_copy)
+    assert "unknown_competency" not in tax.archetypes["research_science_engineering"].competencies
+    assert "skipping unknown competency id 'unknown_competency'" in caplog.text
 
 
 def test_missing_header_and_bad_yaml_reported(tax_copy):

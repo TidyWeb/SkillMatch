@@ -4,15 +4,16 @@
 (function () {
   "use strict";
   var css = getComputedStyle(document.documentElement);
-  var ACCENT = css.getPropertyValue("--accent").trim() || "#1f4e8c";
-  var INK = css.getPropertyValue("--ink").trim() || "#1e1d1a";
-  var INK_SOFT = css.getPropertyValue("--ink-soft").trim() || "#55524b";
-  var RULE = css.getPropertyValue("--rule").trim() || "#d8d2c4";
-  var SURFACE = css.getPropertyValue("--paper-raised").trim() || "#fffdf9";
-  // Ordinal ramp for fit, light -> dark; validated (one hue, monotone lightness, light end >= 2:1).
-  var TIER = { not_yet: "#94acd0", stretch: "#6a8dc0", good: "#4470ad", strong: "#1f4e8c" };
-  var TIER_LABEL = { strong: "Strong fit", good: "Good fit", stretch: "Stretch", not_yet: "Not yet" };
-  var TIER_RADIUS = { strong: 8, good: 7, stretch: 6, not_yet: 6 };
+  var ACCENT = css.getPropertyValue("--accent").trim();
+  var INK = css.getPropertyValue("--ink").trim();
+  var INK_SOFT = css.getPropertyValue("--ink-soft").trim();
+  var RULE = css.getPropertyValue("--rule").trim();
+  var SURFACE = css.getPropertyValue("--paper-raised").trim();
+  var TRANSPARENT = css.getPropertyValue("--transparent").trim();
+  // Ordinal ramp for match, light -> dark; validated (one hue, monotone lightness, light end >= 2:1).
+  var TIER = { not_yet: css.getPropertyValue("--tier-not-yet").trim(), stretch: css.getPropertyValue("--tier-stretch").trim(), good: css.getPropertyValue("--tier-good").trim(), strong: css.getPropertyValue("--tier-strong").trim() };
+  function numberToken(name) { return Number(css.getPropertyValue(name).trim()); }
+  var TIER_RADIUS = { strong: numberToken("--map-radius-strong"), good: numberToken("--map-radius-good"), stretch: numberToken("--map-radius-stretch"), not_yet: numberToken("--map-radius-not-yet") };
 
   function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   // Long category names wrap onto two lines instead of being clipped at the chart edge.
@@ -34,17 +35,17 @@
     Chart.defaults.color = INK_SOFT;
     var narrow = el.parentNode.clientWidth < 420;
     var labels = rows.map(function (r) { return horizontal ? wrap(r.label, narrow ? 17 : 24) : cap(r.label); });
+    el.parentNode.classList.remove("chart-box--small", "chart-box--medium", "chart-box--large");
     if (horizontal) {
-      // Give every row room for its longest wrapped label so labels never overlap.
-      var lines = labels.reduce(function (m, l) { return Math.max(m, Array.isArray(l) ? l.length : 1); }, 1);
-      var rowPx = Math.max(30, lines * 15 + 10);
-      el.parentNode.style.height = (48 + rows.length * rowPx) + "px";
+      Array.from(el.parentNode.classList).filter(function (name) { return name.indexOf("chart-rows-") === 0; }).forEach(function (name) { el.parentNode.classList.remove(name); });
+      var bucket = Math.min(60, Math.max(5, Math.ceil(rows.length / 5) * 5));
+      el.parentNode.classList.add("chart-rows-" + bucket);
     }
     new Chart(el, {
       type: "bar",
       data: {
         labels: labels,
-        datasets: [{ data: rows.map(function (r) { return r.n; }), backgroundColor: ACCENT, borderRadius: 4, borderSkipped: "start", maxBarThickness: 14 }]
+        datasets: [{ data: rows.map(function (r) { return r.n; }), backgroundColor: ACCENT, borderRadius: numberToken("--chart-radius"), borderSkipped: "start", maxBarThickness: 14 }]
       },
       options: {
         indexAxis: horizontal ? "y" : "x",
@@ -55,8 +56,8 @@
           tooltip: { callbacks: { label: function (c) { return " " + c.parsed[horizontal ? "x" : "y"] + " adverts"; } } }
         },
         scales: {
-          x: { grid: { color: horizontal ? RULE : "transparent" }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
-          y: { grid: { color: horizontal ? "transparent" : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
+          x: { grid: { color: horizontal ? RULE : TRANSPARENT }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
+          y: { grid: { color: horizontal ? TRANSPARENT : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
         }
       }
     });
@@ -88,12 +89,12 @@
 
   function plot(map, points, byTier) {
     var bounds = [];
-    // Draw weaker fits first so the strongest sit on top.
+    // Draw weaker matches first so the strongest sit on top.
     var order = ["not_yet", "stretch", "good", "strong"];
     points.slice().sort(function (a, b) { return order.indexOf(a.tier) - order.indexOf(b.tier); }).forEach(function (p) {
       var colour = byTier ? TIER[p.tier] : ACCENT;
       L.circleMarker([p.lat, p.lon], {
-        radius: byTier ? TIER_RADIUS[p.tier] : 6, color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
+        radius: byTier ? TIER_RADIUS[p.tier] : numberToken("--map-radius-default"), color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
       }).bindPopup(popup(p)).addTo(map);
       bounds.push([p.lat, p.lon]);
     });
@@ -128,7 +129,7 @@
     if (map) {
       plot(map, d.points, true);
       if (d.home) {
-        L.circleMarker(d.home, { radius: 9, color: INK, weight: 3, fillColor: SURFACE, fillOpacity: 1 })
+        L.circleMarker(d.home, { radius: numberToken("--map-radius-home"), color: INK, weight: 3, fillColor: SURFACE, fillOpacity: 1 })
           .bindPopup("Your area (" + (d.outcode || "") + ")").addTo(map);
       }
     }

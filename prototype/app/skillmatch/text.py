@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import math
+import re
 
 TEXT_FIELDS = (
     "source",
@@ -26,6 +27,33 @@ TEXT_FIELDS = (
     "description_coverage",
     "pre_excluded_reason",
 )
+
+_LATIN1_BYTE_RUN = re.compile(r"[\u0080-\u00ff]+")
+
+
+def repair_mojibake(value):
+    """Repair UTF-8 bytes that were decoded as Latin-1, without guessing other text.
+
+    Only contiguous Latin-1 byte runs that form valid UTF-8 are changed. Correct Unicode
+    characters such as a standalone `é` or a curly apostrophe are left alone.
+    """
+    if isinstance(value, str):
+        def decode_run(match: re.Match) -> str:
+            run = match.group(0)
+            try:
+                decoded = run.encode("latin-1").decode("utf-8")
+            except UnicodeError:
+                return run
+            # A one-character round-trip is generally an ordinary accented letter, not
+            # mojibake. UTF-8 sequences collapse multiple byte characters into text.
+            return decoded if len(decoded) < len(run) else run
+
+        return _LATIN1_BYTE_RUN.sub(decode_run, value)
+    if isinstance(value, list):
+        return [repair_mojibake(item) for item in value]
+    if isinstance(value, dict):
+        return {key: repair_mojibake(item) for key, item in value.items()}
+    return value
 
 
 def clean_text(value, *, collapse: bool = False) -> str:

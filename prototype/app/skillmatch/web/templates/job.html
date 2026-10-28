@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ v.title }}{% endblock %}
 {% block content %}
+{% from "partials/_controls.html" import action_link %}
 <p class="back"><a href="{{ url_for('web.results') }}">← Back to your matches</a></p>
 <header class="page-head job-head">
   <h1>{{ v.title }}</h1>
@@ -15,7 +16,7 @@
     <div><dt>Degree</dt><dd>{{ {'required': 'Required', 'or_equivalent': 'Degree or equivalent experience', 'desirable': 'Desirable, not required', 'not_mentioned': 'Not mentioned'}[v.degree or 'not_mentioned'] }}{% if v.degree_text %} <span class="quote">“{{ v.degree_text }}”</span>{% endif %}</dd></div>
     {% if v.entry_signals %}<div><dt>Open to newcomers</dt><dd><ul class="chips">{% for s in v.entry_signals %}<li>{{ s }}</li>{% endfor %}</ul></dd></div>{% endif %}
   </dl>
-  <p class="source-line"><a class="button-primary" href="{{ v.url }}" target="_blank" rel="noopener">Read the full advert and apply on {{ v.source_label }}</a></p>
+  <p class="source-line">{{ action_link("Read the full advert and apply on " ~ v.source_label, v.url, "button-primary", true) }}</p>
   <p class="attribution">{{ v.attribution }}{% if v.posted_date %} · Posted {{ v.posted_date }}{% endif %}{% if v.expiration_date %} · Closes {{ v.expiration_date }}{% endif %}{% if also %} · Also listed by {% for a in also %}<a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.source_label }}{% if a.employer and a.employer != v.employer %} ({{ a.employer }}){% elif a.source_label == v.source_label %} (another advert){% endif %}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
 </header>
 

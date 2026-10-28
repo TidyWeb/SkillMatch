@@ -1,0 +1,104 @@
+/* Shared visual primitives. Components use these values without adding treatments. */
+:root {
+  --chart-radius: 4;
+  --map-radius-strong: 8;
+  --map-radius-good: 7;
+  --map-radius-stretch: 6;
+  --map-radius-not-yet: 6;
+  --map-radius-default: 6;
+  --map-radius-home: 9;
+  --chart-row-height: 2.5rem;
+  --chart-header-height: 3rem;
+  --paper: #f8f6f1;
+  --paper-raised: #fffdf9;
+  --input-surface: #ffffff;
+  --ink: #1e1d1a;
+  --ink-soft: #55524b;
+  --rule: #d8d2c4;
+  --accent: #1f4e8c;
+  --accent-hover: #173d6f;
+  --accent-wash: #e6edf7;
+  --tier-strong: #1f4e8c;
+  --tier-good: #4470ad;
+  --tier-stretch: #6a8dc0;
+  --tier-not-yet: #94acd0;
+  --white: #ffffff;
+
+  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --line: 1.6;
+  --font-body: var(--font-size-body)/var(--line) var(--sans);
+  --leading-tight: 1.25;
+  --leading-control: 1.4;
+  --leading-display: 1.1;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --transparent: transparent;
+  --chart-small: 12rem;
+  --chart-medium: 22rem;
+  --chart-large: 36rem;
+  --tracking-tight: -0.01em;
+  --tracking-0-04: 0.04em;
+  --tracking-0-05: 0.05em;
+  --tracking-0-15: 0.15em;
+
+  /* Exact-size aliases used by the existing layout scale. */
+
+
+  --gap: 1.6rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+
+  --space-step-0-6e: 0.6em;
+  --font-size-page-title: 2.4rem;
+  --font-size-section: 1.5rem;
+  --font-size-subheading: 1.2rem;
+  --font-size-body: 1rem;
+  --space-step-0-4e: 0.4em;
+  --offset-step-0-15e: 0.15em;
+  --offset-step-2p: 2px;
+  --font-size-inline: 0.95em;
+  --space-step-0-25e: 0.25em;
+  --font-size-small: 0.9rem;
+  --space-step-0-6r: 0.6rem;
+  --space-step-0-1r: 0.1rem;
+  --space-step-0-7r: 0.7rem;
+  --font-size-label: 0.85rem;
+  --font-size-small-heading: 1.15rem;
+  --font-size-hint: 0.92rem;
+  --space-step-0-8r: 0.8rem;
+  --space-step-0-4r: 0.4rem;
+  --space-step-0-55r: 0.55rem;
+  --font-size-emphasis: 1.1rem;
+  --space-step-1-1r: 1.1rem;
+  --font-size-legend: 1.35rem;
+  --space-step-neg-0-5r: -0.5rem;
+  --leading-step-1-6e: 1.6em;
+  --space-step-0-3r: 0.3rem;
+  --space-step-0-45r: 0.45rem;
+  --space-step-0-9r: 0.9rem;
+  --space-step-0-2r: 0.2rem;
+  --space-step-3p: 3px;
+  --font-size-card-title: 1.3rem;
+  --font-size-caption: 0.82rem;
+  --space-step-0-15r: 0.15rem;
+  --space-step-0-35r: 0.35rem;
+  --font-size-attribution: 0.88rem;
+  --font-size-table: 0.93rem;
+  --font-size-page-title-mobile: 1.9rem;
+  --font-size-caption-small: 0.78rem;
+  --font-size-value: 2.6rem;
+  --radius-small: 2px;
+  --radius: 4px;
+  --radius-round: 999px;
+  --radius-circle: 50%;
+}

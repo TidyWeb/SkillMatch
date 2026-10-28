@@ -11,6 +11,8 @@ from pathlib import Path
 
 from skillmatch import config
 from skillmatch.etl.store import connect_readonly
+from skillmatch.taxonomy import get_taxonomy
+from skillmatch.text import repair_mojibake
 
 
 @dataclass
@@ -74,9 +76,17 @@ def _read(path: Path, mtime: float) -> Snapshot:
         vacancies = {}
         for row in conn.execute("select * from vacancies"):
             v = dict(row)
+            if v.get("source") == "remote_ok":
+                # Older live databases contain source strings misread as Latin-1.
+                # Repair only in this in-memory snapshot; the SQLite file stays read-only.
+                v = repair_mojibake(v)
             v["entry_signals"] = json.loads(v["entry_signals"] or "[]")
             v["title_boost"] = json.loads(v["title_boost"] or "[]")
             v["extra"] = json.loads(v["extra"]) if v["extra"] else {}
+            if v.get("source") == "remote_ok":
+                v["entry_signals"] = repair_mojibake(v["entry_signals"])
+                v["title_boost"] = repair_mojibake(v["title_boost"])
+                v["extra"] = repair_mojibake(v["extra"])
             vacancies[v["vacancy_id"]] = v
         tags: dict[str, list[tuple[str, str]]] = {}
         for req_id, tag_type, tag_id in conn.execute(
@@ -84,9 +94,34 @@ def _read(path: Path, mtime: float) -> Snapshot:
         ):
             tags.setdefault(req_id, []).append((tag_type, tag_id))
         requirements: dict[str, list[dict]] = {}
+        tax = get_taxonomy()
         for row in conn.execute("select * from requirements order by vacancy_id, n"):
             r = dict(row)
-            r["tags"] = tags.get(r["req_id"], [])
+            if (
+                r["vacancy_id"] in vacancies
+                and vacancies[r["vacancy_id"]].get("source") == "remote_ok"
+            ):
+                r = repair_mojibake(r)
+            # Reinterpret old technical tags in memory, including split or retired IDs.
+            # Keep the immutable source DB unchanged and give every reader current skill IDs.
+            sentence = r["evidence_sentence"]
+            current = [
+                (kind, ident)
+                for kind, ident in tags.get(r["req_id"], [])
+                if kind != "skill"
+                or (
+                    ident in tax.skills
+                    and any(pattern.search(sentence) for pattern in tax.skills[ident].patterns)
+                )
+            ]
+            for ident in ("databases", "data_modelling", "data_warehousing"):
+                skill = tax.skills[ident]
+                tag = ("skill", ident)
+                if tag not in current and any(
+                    pattern.search(sentence) for pattern in skill.patterns
+                ):
+                    current.append(tag)
+            r["tags"] = current
             requirements.setdefault(r["vacancy_id"], []).append(r)
         sources = [dict(r) for r in conn.execute("select * from sources")]
         runs = [dict(r) for r in conn.execute("select * from source_runs")]

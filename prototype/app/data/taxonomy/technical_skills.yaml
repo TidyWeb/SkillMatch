@@ -89,11 +89,22 @@ skills:
     category: database
     course_covered: false
     variants: [Oracle SQL, PL/SQL, Oracle database]
-  - id: databases_general
-    label: Databases and data modelling
+  - id: databases
+    label: Databases
+    category: database
+    course_covered: true
+    variants: [database, databases, relational database, relational databases, tables and keys]
+    portfolio_idea: Open a supplied relational database, inspect its tables and keys, and describe how the tables relate.
+  - id: data_modelling
+    label: Data modelling (schema design)
     category: database
     course_covered: false
-    variants: [relational database, relational databases, data warehousing, data warehouse, data modelling, data modeling, database design, data models, star schema, dimensional modelling]
+    variants: [data modelling, data modeling, dimensional modelling, star schema, schema design]
+  - id: data_warehousing
+    label: Data warehousing
+    category: database
+    course_covered: false
+    variants: [data warehouse, data warehouses, data warehousing, lakehouse, data lake]
 
   # ---------- BI and visualisation ----------
   - id: power_bi
@@ -216,7 +227,7 @@ skills:
     label: Microsoft Azure data tools
     category: platform
     course_covered: false
-    variants: [Azure, Azure Data Factory, Synapse, Microsoft Fabric, Azure SQL, Data Lake]
+    variants: [Azure, Azure Data Factory, Synapse, Synapse Analytics, Microsoft Fabric, Fabric, Azure SQL, Data Lake]
   - id: aws
     label: AWS
     category: platform
