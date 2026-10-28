@@ -110,7 +110,9 @@ class PoliteClient:
                     result_fields["status_code"] = status
                 self.journal.record("request_result", channel=self.channel, **result_fields)
             if resp is not None and resp.status_code < 400:
-                body = resp.json() if as_json else resp.text
+                # JSON is UTF-8 by standard. requests.Response.json() may trust a
+                # non-UTF-8 charset advertised by a server and corrupt Unicode text.
+                body = json.loads(resp.content.decode("utf-8")) if as_json else resp.text
                 # Expired responses are evidence of earlier collections; retain them.
                 destination = path
                 if destination.exists():

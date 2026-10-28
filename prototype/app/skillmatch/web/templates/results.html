@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Your matches{% endblock %}
 {% block content %}
+{% from "partials/_controls.html" import select_control, action_link %}
 <header class="page-head">
   <h1>Your matches</h1>
-  <p class="lede">Entry-level and early-career data roles in the West Midlands and UK-remote, grouped by how well your profile answers what each advert asks for. Within each group the nearest come first. Distances are straight-line, not travel time.</p>
+  <p class="lede">Entry-level and early-career data roles in the West Midlands and UK-remote, grouped by how well your skills and qualifications answer each advert. Within each group the nearest come first. Distances are straight-line, not travel time.</p>
 </header>
 
 <div data-if-no-profile hidden class="panel">
   <h2>Start with your profile</h2>
-  <p>We need to know your skills and previous roles before we can match you. It takes a few minutes, or you can <a href="{{ url_for('web.profile') }}">load a demo profile</a>.</p>
-  <p><a class="button-primary" href="{{ url_for('web.profile') }}">Build my profile</a></p>
+  <p>We need your skills and areas of expertise before we can match you.</p>
+  <p>{{ action_link("Edit my profile", url_for("web.profile"), "button-primary") }}</p>
 </div>
 
 <div data-send-profile data-if-profile hidden>
@@ -22,22 +23,16 @@
     <fieldset class="filter filter-tiers">
       <legend class="label">Show</legend>
       {% for t in tiers %}
-      <label class="choice"><input type="checkbox" name="tier" value="{{ t }}" checked> {{ {'strong': 'Strong fit', 'good': 'Good fit', 'stretch': 'Stretch', 'not_yet': 'Not yet'}[t] }}</label>
+      <label class="choice"><input type="checkbox" name="tier" value="{{ t }}" checked> {{ {'strong': 'Strong match', 'good': 'Good match', 'stretch': 'Stretch', 'not_yet': 'Not yet'}[t] }}</label>
       {% endfor %}
     </fieldset>
-    <div class="filter">
-      <label for="f-arr">Arrangement</label>
-      <select id="f-arr" name="arrangement">
+    {% call select_control("f-arr", "Arrangement", "arrangement", "filter") %}
         <option value="any">Any</option><option value="onsite">On site</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option>
-      </select>
-    </div>
-    <div class="filter">
-      <label for="f-src">Source</label>
-      <select id="f-src" name="source_tier">
+      {% endcall %}
+    {% call select_control("f-src", "Source", "source_tier", "filter") %}
         <option value="any">All sources</option>
         {% for k, label in source_tiers.items() %}<option value="{{ k }}">{{ label }}</option>{% endfor %}
-      </select>
-    </div>
+      {% endcall %}
     <div class="filter filter-check">
       <label class="choice"><input type="checkbox" name="salary_stated"> Salary stated only</label>
     </div>

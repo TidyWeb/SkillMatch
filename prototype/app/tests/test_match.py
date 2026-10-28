@@ -1,233 +1,288 @@
 import pytest
-from match_cases import ADVERTS, EXPECTED, EXPECTED_ANSWERS, PERSONAS
 
-from skillmatch.match import GAP, MET, PARTLY, UNCLASSIFIED, data_gate, match_vacancy
-from skillmatch.parse import parse_advert
-from skillmatch.profile import Profile, personas, profile_from_dict
-
-
-@pytest.fixture(scope="module")
-def profiles():
-    return {k: profile_from_dict(v) for k, v in personas().items()}
+from skillmatch.match import GAP, MET, PARTLY, evaluate_requirement, match_vacancy
+from skillmatch.phrasing import Phraser
+from skillmatch.profile import MAX_AREAS, QUALIFICATIONS, Profile, profile_from_dict
+from skillmatch.taxonomy import get_taxonomy
 
 
-def build(title, html):
-    p = parse_advert(html, title)
-    vac = {
-        "vacancy_id": title,
-        "title": title,
-        "data_years": p.data_years,
-        "entry_signals": p.entry_signals,
-        "degree": p.degree,
+def req(sentence, tag_type, tag_id):
+    return {
+        "req_id": "r1",
+        "n": 1,
+        "strength": "essential",
+        "confidence": "stated",
+        "evidence_sentence": sentence,
+        "tags": [(tag_type, tag_id)],
     }
-    reqs = [
-        {
-            "req_id": f"r{r.n}",
-            "n": r.n,
-            "strength": r.strength,
-            "confidence": r.confidence,
-            "evidence_sentence": r.text,
-            "tags": r.tags,
-        }
-        for r in p.requirements
-    ]
-    return vac, reqs
 
 
-CASES = [(a, pid, EXPECTED[a][i]) for a in ADVERTS for i, pid in enumerate(PERSONAS)]
+def test_course_skills_are_default_and_user_skills_are_met():
+    tax = get_taxonomy()
+    p = profile_from_dict({"skills": ["sql", "not-a-skill"]}, tax)
+    assert "python" in p.skills and "sql" in p.skills and "not-a-skill" not in p.skills
+    c = evaluate_requirement(req("Experience with SQL", "skill", "sql"), p, tax, Phraser(tax))
+    assert c.status == MET
 
 
-@pytest.mark.parametrize("advert, persona, tier", CASES)
-def test_persona_tiers(profiles, advert, persona, tier):
-    vac, reqs = build(*ADVERTS[advert])
-    result = match_vacancy(profiles[persona], vac, reqs)
-    assert result.tier == tier, result.reasons
-
-
-@pytest.mark.parametrize("key, lines", list(EXPECTED_ANSWERS.items()))
-def test_answers_this_lines(profiles, key, lines):
-    advert, persona = key
-    vac, reqs = build(*ADVERTS[advert])
-    result = match_vacancy(profiles[persona], vac, reqs)
-    answers = [a for c in result.coverage for a in c.answers]
-    for line in lines:
-        assert line in answers
-
-
-def test_six_personas_present(profiles):
-    assert set(profiles) == set(PERSONAS)
-    for p in profiles.values():
-        assert p.outcode and p.travel and p.roles and p.skills
-
-
-def test_no_percentages_in_reasons(profiles):
-    # Users' own evidence may contain "15%"; the app's own wording never shows a percentage.
-    for advert in ADVERTS.values():
-        vac, reqs = build(*advert)
-        for p in profiles.values():
-            r = match_vacancy(p, vac, reqs)
-            assert not any("%" in x for x in r.reasons)
-
-
-def test_met_partly_gap_rules():
-    tax_profile = profile_from_dict(
-        {
-            "skills": {"power_bi": "project", "tableau": "course", "python": "course"},
-            "roles": [
-                {
-                    "archetype": "retail_store_manager",
-                    "seniority": "individual",
-                    "competencies": {
-                        "kpi_monitoring": "Tracked weekly sales KPIs",
-                        "customer_insight": "",
-                    },
-                }
-            ],
-        }
-    )
-    vac, reqs = build(
-        "Analyst",
-        """<p><strong>Essential</strong></p><ul>
-        <li>Power BI.</li><li>Tableau.</li><li>Looker Studio.</li><li>Qlik.</li><li>KPI monitoring.</li>
-        <li>Customer insight.</li><li>Negotiation skills.</li><li>A full UK driving licence.</li></ul>""",
-    )
-    r = match_vacancy(tax_profile, vac, reqs)
-    status = {c.sentence: c.status for c in r.coverage}
-    assert status["Power BI."] == MET  # used in a project
-    assert status["Tableau."] == PARTLY  # learned on the course
-    assert status["Looker Studio."] == PARTLY  # related skill in the same family
-    assert status["KPI monitoring."] == MET  # competency with evidence
-    assert status["Customer insight."] == PARTLY  # ticked without evidence
-    assert status["Negotiation skills."] == GAP
-    assert status["A full UK driving licence."] == UNCLASSIFIED
-
-
-def test_unclassified_and_inferred_do_not_sink():
-    p = Profile()
-    vac = {"vacancy_id": "x", "data_years": None, "entry_signals": []}
-    reqs = [
-        {
-            "req_id": "1",
-            "n": 1,
-            "strength": "essential",
-            "confidence": "stated",
-            "evidence_sentence": "A UK driving licence.",
-            "tags": [],
-        },
-        {
-            "req_id": "2",
-            "n": 2,
-            "strength": "essential",
-            "confidence": "inferred",
-            "evidence_sentence": "Experience with SQL.",
-            "tags": [("skill", "sql")],
-        },
-        {
-            "req_id": "3",
-            "n": 3,
-            "strength": "essential",
-            "confidence": "stated",
-            "evidence_sentence": "Accuracy.",
-            "tags": [("competency", "attention_to_detail")],
-        },
-        {
-            "req_id": "4",
-            "n": 4,
-            "strength": "essential",
-            "confidence": "stated",
-            "evidence_sentence": "Excel.",
-            "tags": [("skill", "excel")],
-        },
-    ]
-    nurse = {
-        "skills": {"excel": "project"},
-        "roles": [
-            {"archetype": "nurse", "competencies": {"attention_to_detail": "Audited charts"}}
-        ],
-    }
-    r = match_vacancy(profile_from_dict(nurse), vac, reqs)
-    assert r.tier == "strong"  # the unclassified licence and the inferred SQL gap don't sink it
-    r2 = match_vacancy(p, vac, reqs)
-    assert r2.tier == "stretch"  # two stated gaps; the inferred SQL gap doesn't make it three
-
-
-def test_strong_needs_two_clear_essentials():
-    vac = {"vacancy_id": "x", "data_years": None, "entry_signals": []}
-    reqs = [
-        {
-            "req_id": "1",
-            "n": 1,
-            "strength": "essential",
-            "confidence": "stated",
-            "evidence_sentence": "Excel.",
-            "tags": [("skill", "excel")],
-        }
-    ]
-    r = match_vacancy(profile_from_dict({"skills": {"excel": "confident"}}), vac, reqs)
-    assert r.tier == "good" and any("only find 1" in x for x in r.reasons)
-
-
-def test_leadership_rule_needs_manager_level():
-    req = [
-        {
-            "req_id": "1",
-            "n": 1,
-            "strength": "essential",
-            "confidence": "stated",
-            "evidence_sentence": "Confidence presenting to senior stakeholders.",
-            "tags": [("competency", "reporting_to_leadership")],
-        }
-    ]
-    vac = {"vacancy_id": "x", "data_years": None, "entry_signals": []}
-    manager = profile_from_dict(
-        {
-            "roles": [
-                {
-                    "archetype": "kitchen_manager",
-                    "seniority": "manager",
-                    "competencies": {"stock_inventory_supply": "Ran stock"},
-                }
-            ]
-        }
-    )
-    assistant = profile_from_dict(
-        {
-            "roles": [
-                {
-                    "archetype": "retail_assistant",
-                    "seniority": "individual",
-                    "competencies": {"customer_service": "Served customers"},
-                }
-            ]
-        }
-    )
-    assert match_vacancy(manager, vac, req).coverage[0].status == MET
-    assert match_vacancy(assistant, vac, req).coverage[0].status == GAP
+def test_missing_requested_skill_is_gap_even_if_related_skill_selected():
+    tax = get_taxonomy()
+    p = profile_from_dict({"skills": ["python"]}, tax)
+    c = evaluate_requirement(req("SQL", "skill", "sql"), p, tax, Phraser(tax))
+    assert c.status == GAP
 
 
 @pytest.mark.parametrize(
-    "demand, user, signals, gate",
+    "sentence, expected",
     [
-        (None, 0, [], "ok"),
-        (1, 0, ["junior"], "waived"),
-        (1, 0, [], "small"),
-        (2, 0, ["junior"], "stretch"),
-        (3, 0, ["junior"], "not_yet"),
-        (3, 2, [], "small"),
-        (2, 3, [], "ok"),
+        ("Commercial experience with SQL is required", PARTLY),
+        ("2+ years of industry experience in SQL", PARTLY),
+        ("2+ years in industry using SQL", PARTLY),
+        ("Commercial experience with structured query language", PARTLY),
+        ("Commercial experience with SQL Server (T-SQL)", PARTLY),
+        ("Experience with SQL", MET),
+        ("Knowledge of SQL", MET),
+        ("Proven SQL skills", MET),
+        ("Practical Python experience; commercial SQL experience", MET),
+        ("Commercial SQL experience and knowledge of Python", MET),
+        ("Professional communication and knowledge of SQL", MET),
+        ("No commercial experience required with SQL", MET),
     ],
 )
-def test_data_experience_gate(demand, user, signals, gate):
-    p = Profile(data_years=user)
-    assert data_gate({"data_years": demand, "entry_signals": signals}, p)[0] == gate
+def test_only_explicit_skill_specific_professional_experience_is_partly(sentence, expected):
+    tax = get_taxonomy()
+    p = profile_from_dict({"skills": ["sql", "python"]}, tax)
+    skill = "python" if "Python" in sentence else "sql"
+    coverage = evaluate_requirement(req(sentence, "skill", skill), p, tax, Phraser(tax))
+    assert next(tag for tag in coverage.tags if tag.tag_id == skill).status == expected
 
 
-def test_degree_warning(profiles):
-    vac, reqs = build(
-        "Analyst",
-        "<p><strong>Essential</strong></p><ul><li>A degree in mathematics is essential.</li><li>Excel.</li></ul>",
+def test_commercial_experience_reason_names_skill():
+    tax = get_taxonomy()
+    p = profile_from_dict({"skills": ["sql"]}, tax)
+    result = evaluate_requirement(
+        req("Commercial experience with SQL", "skill", "sql"), p, tax, Phraser(tax)
     )
-    chef = match_vacancy(profiles["chef_wolverhampton"], {**vac}, reqs)
-    assert any("degree" in r for r in chef.reasons)
-    phd = match_vacancy(profiles["phd_coventry"], {**vac}, reqs)
-    assert not any("degree" in r for r in phd.reasons)
+    assert "commercial experience" in result.tags[0].answer
+
+
+def test_areas_defaults_explicit_empty_and_validation():
+    tax = get_taxonomy()
+    aid = next(iter(tax.archetypes))
+    comps = list(tax.archetypes[aid].competencies)
+    p = profile_from_dict(
+        {"areas": [{"id": aid}, {"id": aid, "skills": []}, {"id": "unknown"}]}, tax
+    )
+    assert set(p.areas[0].skills) == set(comps)
+    p = profile_from_dict({"areas": [{"id": aid, "skills": []}]}, tax)
+    assert p.areas[0].skills == []
+
+
+def test_area_limit_and_unique_ids():
+    tax = get_taxonomy()
+    ids = list(tax.archetypes)[:6]
+    p = profile_from_dict({"areas": [{"id": x} for x in ids]}, tax)
+    assert MAX_AREAS == 5 and len(p.areas) == 5 and len({a.id for a in p.areas}) == 5
+
+
+def test_ticked_area_competency_is_met_and_unticked_is_gap():
+    tax = get_taxonomy()
+    area = next(a for a in tax.archetypes.values() if a.competencies)
+    comp = area.competencies[0]
+    p = profile_from_dict({"areas": [{"id": area.id, "skills": [comp]}]}, tax)
+    assert (
+        evaluate_requirement(req("Experience", "competency", comp), p, tax, Phraser(tax)).status
+        == MET
+    )
+    empty = profile_from_dict({"areas": [{"id": area.id, "skills": []}]}, tax)
+    assert (
+        evaluate_requirement(req("Experience", "competency", comp), empty, tax, Phraser(tax)).status
+        == GAP
+    )
+
+
+def test_invalid_untrusted_shapes_and_nonfinite_values_are_ignored():
+    p = profile_from_dict(
+        {
+            "travel": [],
+            "areas": [{"id": []}],
+            "max_miles": float("inf"),
+            "max_office_days": float("nan"),
+            "highest_qualification": 7.9,
+        }
+    )
+    assert p.travel is None and p.areas == [] and p.max_miles is None
+    assert p.max_office_days == 5 and p.highest_qualification == 0
+
+
+def test_qualification_levels_and_invalid_input():
+    assert set(QUALIFICATIONS) == {0, 2, 3, 5, 6, 7, 8}
+    assert "python" in Profile().skills
+    assert [
+        profile_from_dict({"highest_qualification": v}).highest_qualification
+        for v in [6, 7, 8, 4, "bad"]
+    ] == [6, 7, 8, 0, 0]
+    assert Profile(highest_qualification=6).has_degree
+    assert not Profile(highest_qualification=5).has_degree
+
+
+@pytest.mark.parametrize(
+    "sentence, level",
+    [
+        ("GCSE Level 2 qualification", 2),
+        ("A level qualification", 3),
+        ("HNC Level 5 qualification", 5),
+        ("Foundation degree", 5),
+        ("Level 6", 6),
+        ("Level 7", 7),
+        ("Level 8", 8),
+        ("Degree or equivalent", 6),
+        ("Master's degree", 7),
+        ("PhD or doctorate", 8),
+    ],
+)
+def test_qualification_requirement_compares_level_without_subject_match(sentence, level):
+    tax = get_taxonomy()
+    p = profile_from_dict({"highest_qualification": level})
+    coverage = evaluate_requirement(
+        {**req(sentence, "competency", "attention_to_detail"), "tags": []}, p, tax, Phraser(tax)
+    )
+    assert coverage.status == MET
+    lower = profile_from_dict(
+        {"highest_qualification": max((q for q in QUALIFICATIONS if q < level), default=0)}
+    )
+    missing = evaluate_requirement(
+        {**req(sentence, "competency", "attention_to_detail"), "tags": []}, lower, tax, Phraser(tax)
+    )
+    assert missing.status == GAP
+
+
+def test_six_persona_tier_matrix():
+    from match_cases import ADVERTS, EXPECTED, PERSONAS
+
+    from skillmatch.parse import parse_advert
+    from skillmatch.profile import personas
+
+    profiles = {key: profile_from_dict(value) for key, value in personas().items()}
+    assert set(PERSONAS) <= set(profiles)
+    for advert_id, (title, html) in ADVERTS.items():
+        parsed = parse_advert(html, title)
+        vacancy = {
+            "vacancy_id": title,
+            "title": title,
+            "data_years": parsed.data_years,
+            "entry_signals": parsed.entry_signals,
+            "degree": parsed.degree,
+        }
+        requirements = [
+            {
+                "req_id": f"r{item.n}",
+                "n": item.n,
+                "strength": item.strength,
+                "confidence": item.confidence,
+                "evidence_sentence": item.text,
+                "tags": item.tags,
+            }
+            for item in parsed.requirements
+        ]
+        actual = [match_vacancy(profiles[key], vacancy, requirements).tier for key in PERSONAS]
+        assert actual == EXPECTED[advert_id]
+
+
+def test_unclassified_requirements_do_not_count_and_inferred_met_can_support_strong():
+    tax = get_taxonomy()
+    area = next(
+        area for area in tax.archetypes.values() if "attention_to_detail" in area.competencies
+    )
+    profile = profile_from_dict(
+        {
+            "skills": ["python"],
+            "areas": [{"id": area.id, "skills": ["attention_to_detail"]}],
+        },
+        tax,
+    )
+    vacancy = {"vacancy_id": "x", "entry_signals": []}
+    requirements = [
+        {
+            "req_id": "u",
+            "n": 1,
+            "strength": "essential",
+            "confidence": "stated",
+            "evidence_sentence": "A full UK driving licence.",
+            "tags": [],
+        },
+        {
+            "req_id": "i",
+            "n": 2,
+            "strength": "essential",
+            "confidence": "inferred",
+            "evidence_sentence": "Python.",
+            "tags": [("skill", "python")],
+        },
+        {
+            "req_id": "s",
+            "n": 3,
+            "strength": "essential",
+            "confidence": "stated",
+            "evidence_sentence": "Attention to detail.",
+            "tags": [("competency", "attention_to_detail")],
+        },
+    ]
+    result = match_vacancy(profile, vacancy, requirements, tax=tax)
+    assert result.tier == "strong"
+    assert result.coverage[0].status == "unclassified"
+
+
+def test_one_clear_essential_cannot_be_strong():
+    tax = get_taxonomy()
+    result = match_vacancy(
+        profile_from_dict({"skills": ["python"]}, tax),
+        {"vacancy_id": "x", "entry_signals": []},
+        [
+            {
+                "req_id": "1",
+                "n": 1,
+                "strength": "essential",
+                "confidence": "stated",
+                "evidence_sentence": "Python.",
+                "tags": [("skill", "python")],
+            }
+        ],
+        tax=tax,
+    )
+    assert result.tier == "good"
+
+
+def test_data_role_years_sentence_is_removed_from_coverage():
+    tax = get_taxonomy()
+    result = match_vacancy(
+        profile_from_dict({"skills": ["python"]}, tax),
+        {"vacancy_id": "x", "entry_signals": [], "data_years": 25},
+        [
+            {
+                "req_id": "1",
+                "n": 1,
+                "strength": "essential",
+                "confidence": "stated",
+                "evidence_sentence": "2+ years experience in a data analyst role.",
+                "tags": [],
+            },
+            {
+                "req_id": "2",
+                "n": 2,
+                "strength": "essential",
+                "confidence": "stated",
+                "evidence_sentence": "Python.",
+                "tags": [("skill", "python")],
+            },
+        ],
+        tax=tax,
+    )
+    assert [coverage.sentence for coverage in result.coverage] == ["Python."]
+
+
+@pytest.mark.parametrize("sentence", ["No degree is required", "Degree not required"])
+def test_nonrequired_degree_does_not_create_a_requirement(sentence):
+    from skillmatch.match import qualification_level
+
+    assert qualification_level(sentence) is None

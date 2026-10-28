@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Sources{% endblock %}
 {% block content %}
+{% from "partials/_controls.html" import action_link %}
 <header class="page-head">
   <h1>Where the jobs come from</h1>
   <p class="lede">SkillMatch only uses official APIs and documented feeds, never scraping. Where a site has no feed, a team member can record an advert by hand in our own words, or we link you to the site's own search.</p>
@@ -21,7 +22,7 @@
   <div class="panel">
     <h3>CV-Library</h3>
     <p>We're waiting for CV-Library's partner team to send the affiliate feed address, so CV-Library jobs aren't included yet. When they are, CV-Library's own title, salary, company and location will be shown unchanged, and every click will go to the job on cv-library.co.uk.</p>
-    <p><a class="button-secondary" href="{{ register_url }}" rel="noopener">Register with CV-Library</a></p>
+    <p>{{ action_link("Register with CV-Library", register_url) }}</p>
   </div>
 </section>
 

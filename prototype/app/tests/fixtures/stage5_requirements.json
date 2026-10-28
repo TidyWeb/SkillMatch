@@ -1,0 +1,38 @@
+[
+  {
+    "req_id": "reed:57479756#22",
+    "n": 22,
+    "strength": "essential",
+    "confidence": "stated",
+    "evidence_sentence": "Proven experience in pricing, data science and/or statistical modelling within a corporate environment.",
+    "tags": [["skill", "statistics"], ["competency", "commercial_awareness"]],
+    "trigger": "corporate/proven experience"
+  },
+  {
+    "req_id": "reed:57382099#10",
+    "n": 10,
+    "strength": "essential",
+    "confidence": "stated",
+    "evidence_sentence": "Strong experience as a Data Analyst working with large and complex datasets.",
+    "tags": [["skill", "data_analysis"]],
+    "trigger": "experience as a role"
+  },
+  {
+    "req_id": "reed:57486191#23",
+    "n": 23,
+    "strength": "essential",
+    "confidence": "stated",
+    "evidence_sentence": "Significant experience as a Scrum Master, Agile Coach or similar team enablement role within complex product and technology environments.",
+    "tags": [["skill", "agile_methods"], ["competency", "training_others"]],
+    "trigger": "significant experience as a role"
+  },
+  {
+    "req_id": "reed:57416368#8",
+    "n": 8,
+    "strength": "essential",
+    "confidence": "stated",
+    "evidence_sentence": "Strong experience working as a Data Analyst, Data Product Analyst or Data Quality Analyst",
+    "tags": [["skill", "data_cleaning"]],
+    "trigger": "experience as a role"
+  }
+]

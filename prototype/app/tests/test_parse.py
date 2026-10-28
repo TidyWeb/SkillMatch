@@ -342,4 +342,4 @@ def test_35_data_warehousing_is_not_warehouse_work():
         "<p><strong>Requirements</strong></p><ul><li>Strong SQL and data warehousing skills.</li></ul>"
     )
     assert ("competency", "sector_manufacturing_logistics") not in r.tags
-    assert ("skill", "databases_general") in r.tags
+    assert ("skill", "data_warehousing") in r.tags

@@ -1,4 +1,4 @@
-{% from "partials/_card.html" import card with context %}
+{% from "partials/_match_card.html" import match_card %}
 {% from "partials/_tier.html" import meter with context %}
 <section class="summary" aria-label="Summary">
   <p class="summary-line">
@@ -35,29 +35,11 @@
   {% endif %}
 </section>
 
-{% if sl.revealed %}
-<section class="tier-group revealed" aria-labelledby="revealed-h">
-  <h2 id="revealed-h">Shown because you asked <span class="count">{{ sl.revealed|length }}</span></h2>
-  <p class="hint">These are normally hidden. Each card says why.</p>
-  {% for m in sl.revealed %}{{ card(m, sl, show_tier=True) }}{% endfor %}
-</section>
-{% endif %}
-
-{% for t in ['strong', 'good', 'stretch', 'not_yet'] if sl.by_tier[t] %}
-{% set folded = t in ['stretch', 'not_yet'] %}
-<section class="tier-group" aria-labelledby="tier-{{ t }}">
-  {% if folded %}<details class="tier-fold"><summary id="tier-{{ t }}">{{ meter(t, tier_labels[t]) }} <span class="count">{{ sl.by_tier[t]|length }}</span> <span class="fold-hint">show</span></summary>
-  {% else %}<h2 id="tier-{{ t }}">{{ meter(t, tier_labels[t]) }} <span class="count">{{ sl.by_tier[t]|length }}</span></h2>{% endif %}
-  <p class="hint">{{ {'strong': 'Your profile answers every essential requirement we could read, with at most one only partly met.',
-        'good': 'At most one essential requirement is not yet in your profile.',
-        'stretch': 'Two essential gaps, or about two years more data experience than you have.',
-        'not_yet': 'Three or more essential gaps, or a lot more data experience than you have. Worth knowing about, not chasing yet.'}[t] }}</p>
-  {% for m in sl.by_tier[t] %}{{ card(m, sl) }}{% endfor %}
-  {% if folded %}</details>{% endif %}
-</section>
+{% if cards %}
+  {% for m in cards %}{{ match_card(m, loop.index) }}{% endfor %}
 {% else %}
-<div class="panel"><p>No matches with these filters. Try a wider distance or tick more groups.</p></div>
-{% endfor %}
+  <p>No matches with these filters. Try a wider distance or update your profile.</p>
+{% endif %}
 
 <section class="discovery" aria-labelledby="disc-h">
   <h2 id="disc-h">Also search these sources near you</h2>

@@ -49,3 +49,8 @@ Ideas (thinking out loud, not decided):
 - Most of the cohort use laptops. Replace the very long profile page with a single page in tabs or steps (where you live, skills, past roles, check and go), so nothing needs endless scrolling.
 - Skills as clickable chips with a tap to change level, instead of 17 identical dropdowns.
 - Results: fit badge, matched/missing skill chips, pay and distance up front; optional map.
+
+## First real use (21 Oct)
+
+Phil filled in his own profile and found jobs he'd apply for: a data protection officer role, "Insight Operations Assistant" (£30,000, AI and notes), and a monitoring and data analyst role in renewable energy (Excel-heavy). Worth telling as the opening story in the presentation.
+Lesson: people over-rate themselves (Phil rated Excel "confident" and isn't). Consider a plain-English description of each level, e.g. "Confident: could do this in an interview task without looking anything up".
