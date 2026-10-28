@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-import re
-
 import pandas as pd
 
 from skillmatch.profile import SKILL_LEVELS, Profile
+from skillmatch.retreve_vacancies_skillset import get_data_skills
 from skillmatch.taxonomy import Taxonomy, get_taxonomy
 
 LEVEL_LABELS = {
@@ -16,43 +15,7 @@ LEVEL_LABELS = {
 }
 
 
-vacancy_skills = pd.DataFrame(
-    {
-        "skill_name": [
-            "Oracle (SQL)",
-            "Overfitting management",
-            "Pandas",
-            "Pearson correlation",
-            "Percentages",
-            "Pivot tables",
-            "Plotly",
-            "Portfolio development",
-            "PostgreSQL",
-            "Power BI",
-            "Power BI proficiency",
-            "Presentation Skills",
-            "Presentation Software",
-            "Price Analysis",
-            "Pricing Analysis",
-            "Probability",
-            "Problem Solving",
-            "Problem Solving Skills",
-            "Problem-solving",
-            "Prophet forecasting",
-            "P-value",
-            "Python",
-            "Python Development",
-            "Python programming",
-            "PyTorch",
-            "Quantitative Analysis",
-            "Quantitative and qualitative research methods",
-        ]
-    }
-)
-
-
-def _normalize_skill_name(name: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", name.casefold())
+vacancy_skills = get_data_skills()
 
 
 def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
@@ -76,49 +39,36 @@ def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
 
 
 def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dict:
-    """Compare selected profile skill labels with the curated vacancy skill list."""
+    """Prepare vacancy skill counts with course coverage and profile status."""
     tax = tax or get_taxonomy()
-    profile_labels = sorted(
-        (tax.skills[skill_id].label for skill_id in profile.skills),
-        key=str.casefold,
-    )
-    vacancy_labels = vacancy_skills["skill_name"].dropna().astype(str).tolist()
+    required = {"skill", "count", "course_covered"}
+    missing = required - set(vacancy_skills.columns)
+    if missing:
+        raise ValueError(f"Vacancy skills data is missing columns: {', '.join(sorted(missing))}")
 
-    profile_by_key = {_normalize_skill_name(label): label for label in profile_labels}
-    vacancy_by_key = {
-        _normalize_skill_name(label): label
-        for label in vacancy_labels
-        if _normalize_skill_name(label)
-    }
+    rows = []
+    for row in vacancy_skills.to_dict("records"):
+        skill_id = str(row["skill"]).strip()
+        if not skill_id or skill_id.casefold() == "nan":
+            continue
+        skill = tax.skills.get(skill_id)
+        raw_count = row["count"]
+        count = int(raw_count) if not pd.isna(raw_count) else 0
+        covered = row["course_covered"]
+        course_covered = None if pd.isna(covered) else bool(covered)
+        profile_level = profile.skills.get(skill_id)
+        rows.append(
+            {
+                "skill": skill.label if skill else skill_id,
+                "count": count,
+                "course_covered": course_covered,
+                "profile_level": LEVEL_LABELS.get(profile_level),
+                "profile_has_skill": profile_level is not None,
+            }
+        )
 
-    matched = sorted(
-        (profile_by_key[key] for key in profile_by_key.keys() & vacancy_by_key.keys()),
-        key=str.casefold,
-    )
-    profile_only = sorted(
-        (profile_by_key[key] for key in profile_by_key.keys() - vacancy_by_key.keys()),
-        key=str.casefold,
-    )
-    vacancy_only = sorted(
-        (vacancy_by_key[key] for key in vacancy_by_key.keys() - profile_by_key.keys()),
-        key=str.casefold,
-    )
-    chart = [
-        {"label": "Profile skills found in vacancy list", "count": len(matched), "items": matched},
-        {
-            "label": "Profile skills not in vacancy list",
-            "count": len(profile_only),
-            "items": profile_only,
-        },
-        {
-            "label": "Vacancy-list skills not in profile",
-            "count": len(vacancy_only),
-            "items": vacancy_only,
-        },
-    ]
+    rows.sort(key=lambda row: (-row["count"], row["skill"].casefold()))
     return {
-        "chart": chart,
-        "matched": matched,
-        "profile_only": profile_only,
-        "vacancy_only": vacancy_only,
+        "skills": rows,
+        "max_count": max((row["count"] for row in rows), default=0),
     }

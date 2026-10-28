@@ -4,12 +4,12 @@ import tempfile
 import time
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
-from skillmatch import config
+from skillmatch import config, profile_visualization
 from skillmatch.etl.pipeline import run
 from skillmatch.profile import Profile, personas
-from skillmatch.profile_visualization import compare_vacancy_skills
 from skillmatch.web import create_app
 
 
@@ -58,7 +58,17 @@ def test_results_without_profile(client):
     assert r.status_code == 200 and b"Start with your profile" in r.data
 
 
-def test_profile_skills_visualization(client):
+def test_profile_skills_visualization(client, monkeypatch):
+    monkeypatch.setattr(
+        profile_visualization,
+        "vacancy_skills",
+        pd.DataFrame(
+            [
+                {"skill": "python", "count": 12, "course_covered": True},
+                {"skill": "sql", "count": 7, "course_covered": False},
+            ]
+        ),
+    )
     profile = personas()["chef_wolverhampton"]
     response = client.post("/profile/skills", data={"profile": json.dumps(profile)})
     html = response.data.decode()
@@ -67,9 +77,11 @@ def test_profile_skills_visualization(client):
     assert "Learned on the course" in html
     assert "Confident" in html
     assert "Python" in html
-    assert "Comparing your skills with the vacancy skill list" in html
-    assert "Profile skills found in vacancy list" in html
-    assert "Vacancy-list skills not in profile" in html
+    assert "Skills requested in vacancies" in html
+    assert "Course covered: Yes" in html
+    assert "Course covered: No" in html
+    assert "12 vacancies" in html
+    assert "vacancies" in html
 
 
 def test_profile_skills_visualization_without_profile(client):
@@ -78,11 +90,38 @@ def test_profile_skills_visualization_without_profile(client):
     assert b"Start with your profile" in response.data
 
 
-def test_vacancy_skill_comparison_matches_profile_labels():
-    comparison = compare_vacancy_skills(Profile(skills={"python": "confident", "pandas": "course"}))
-    assert comparison["matched"] == ["pandas", "Python"]
-    assert comparison["profile_only"] == []
-    assert comparison["vacancy_only"]
+def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatch):
+    monkeypatch.setattr(
+        profile_visualization,
+        "vacancy_skills",
+        pd.DataFrame(
+            [
+                {"skill": "python", "count": 12, "course_covered": False},
+                {"skill": "sql", "count": 7, "course_covered": True},
+            ]
+        ),
+    )
+    comparison = profile_visualization.compare_vacancy_skills(
+        Profile(skills={"python": "confident"})
+    )
+
+    assert comparison["max_count"] == 12
+    assert comparison["skills"] == [
+        {
+            "skill": "Python",
+            "count": 12,
+            "course_covered": False,
+            "profile_level": "Confident",
+            "profile_has_skill": True,
+        },
+        {
+            "skill": "SQL",
+            "count": 7,
+            "course_covered": True,
+            "profile_level": None,
+            "profile_has_skill": False,
+        },
+    ]
 
 
 def test_reveal_senior_roles(client):
