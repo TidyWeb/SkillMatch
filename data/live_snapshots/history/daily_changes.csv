@@ -43,3 +43,12 @@ run_id,run_date,source,new,gone,still_live,completeness,comparable,days_listed_g
 20261028T084526571837Z,2026-10-28,remote_ok,1,1,98,complete,true,1.0,1
 20261028T084526571837Z,2026-10-28,we_work_remotely,16,15,79,complete,true,1.4,1;1;1;1;1;7;1;1;1;1;1;1;1;1;1
 20261028T084526571837Z,2026-10-28,workable,0,3,122,complete,true,7.0,7;7;7
+20261028T164152804200Z,2026-10-28,ats,0,0,0,complete,true,0,
+20261028T164152804200Z,2026-10-28,curated,0,0,0,complete,true,0,
+20261028T164152804200Z,2026-10-28,cv_library,0,,0,incomplete,true,,
+20261028T164152804200Z,2026-10-28,greenhouse,4,4,78,complete,true,2.5,1;7;1;1
+20261028T164152804200Z,2026-10-28,lever,1,0,101,complete,true,0,
+20261028T164152804200Z,2026-10-28,reed,3419,,1603,incomplete,true,,
+20261028T164152804200Z,2026-10-28,remote_ok,0,0,99,complete,true,0,
+20261028T164152804200Z,2026-10-28,we_work_remotely,2,1,94,complete,true,1.0,1
+20261028T164152804200Z,2026-10-28,workable,10,10,112,complete,true,6.4,7;7;7;7;7;7;7;1;7;7
