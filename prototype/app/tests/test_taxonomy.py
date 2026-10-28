@@ -56,9 +56,10 @@ def test_required_competencies_present(tax):
 
 def test_course_covered_skills(tax):
     covered = {s.id for s in tax.skills.values() if s.course_covered}
-    for sid in ["python", "pandas", "sql", "power_bi", "excel", "statistics", "git", "etl"]:
+    for sid in ["python", "pandas", "power_bi", "statistics", "git", "etl"]:
         assert sid in covered
-    assert not tax.skills["r_language"].course_covered
+    for sid in ["sql", "excel", "google_sheets", "r_language"]:
+        assert not tax.skills[sid].course_covered
 
 
 def test_families_are_symmetric(tax):
