@@ -2,8 +2,7 @@
 
 ## Just opened this in Codespaces?
 
-You don't need to do anything here. Wait for the terminal at the bottom to finish setting up (a few minutes the first time). When it says:
-
+You don't need to do anything here. Wait for the terminal at the bottom to finish setting up (a few minutes the first time). When it s
     Running on http://127.0.0.1:5000
 
 hold **Ctrl** (Windows or Linux) or **Cmd** (Mac) and **click that address**. SkillMatch opens in a new tab. Ignore the other addresses it lists.
