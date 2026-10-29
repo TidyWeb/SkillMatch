@@ -89,6 +89,7 @@ def build_insights(snap: Snapshot) -> dict:
 
     comp_counts: Counter = Counter()
     skill_counts: Counter = Counter()
+    essential_skill_counts: Counter = Counter()
     for v in entry:
         seen = set()
         for r in snap.requirements.get(v["vacancy_id"], []):
@@ -98,6 +99,37 @@ def build_insights(snap: Snapshot) -> dict:
                 seen.add((t, i))
         for t, i in seen:
             (comp_counts if t == "competency" else skill_counts)[i] += 1
+
+    for v in shown:
+        essential_skills = {
+            tag_id
+            for requirement in snap.requirements.get(v["vacancy_id"], [])
+            if requirement["strength"] == "essential"
+            for tag_type, tag_id in requirement["tags"]
+            if tag_type == "skill" and tag_id in tax.skills
+        }
+        essential_skill_counts.update(essential_skills)
+
+    essential_skill_total = sum(essential_skill_counts.values())
+    top_essential_skills = sorted(
+        essential_skill_counts.items(),
+        key=lambda item: (-item[1], tax.skills[item[0]].label.casefold()),
+    )[:20]
+    essential_skill_chart = [
+        {
+            "id": skill_id,
+            "label": tax.skills[skill_id].label,
+            "n": count,
+            "share": round(100 * count / essential_skill_total, 2),
+            "course_covered": tax.skills[skill_id].course_covered,
+            "course_share": (
+                round(100 * count / essential_skill_total, 2)
+                if tax.skills[skill_id].course_covered
+                else 0
+            ),
+        }
+        for skill_id, count in top_essential_skills
+    ]
 
     juniors = [v for v in shown if JUNIOR_TITLE.search(v["title"])]
     juniors_2plus = [v for v in juniors if (v.get("data_years") or 0) >= 2]
@@ -137,6 +169,8 @@ def build_insights(snap: Snapshot) -> dict:
         "skills": [
             {"id": i, "label": tax.skills[i].label, "n": n} for i, n in skill_counts.most_common(15)
         ],
+        "essential_skill_chart": essential_skill_chart,
+        "essential_skill_total": essential_skill_total,
         "junior": {
             "n": len(juniors),
             "two_plus": len(juniors_2plus),

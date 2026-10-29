@@ -42,6 +42,14 @@ def test_footer_shows_data_mode(client):
     assert b"Fixtures" in client.get("/").data
 
 
+def test_insights_includes_essential_skills_chart(client):
+    response = client.get("/insights")
+    assert response.status_code == 200
+    assert b"Course coverage of essential skill demand" in response.data
+    assert b'id="chart-essential-skills"' in response.data
+    assert b"Covered demand share" in response.data
+
+
 def test_results_for_every_persona(client):
     seen = set()
     for pid in personas():

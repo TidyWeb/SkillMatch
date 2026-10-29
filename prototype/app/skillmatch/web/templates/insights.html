@@ -101,6 +101,40 @@
   <ul>{% for e in data.junior.examples %}<li><a href="{{ url_for('web.job', job_id=e.id) }}">{{ e.title }}</a>, {{ e.employer }}: <span class="quote">“{{ e.text }}”</span></li>{% endfor %}</ul>
 </section>
 {% endif %}
+
+<figure class="figure essential-skills-figure">
+  <figcaption>
+    <h2>Course coverage of essential skill demand</h2>
+    <p class="hint">The top 20 technical skills tagged as essential in shown vacancies. Job-market demand is each skill’s share of all essential skill mentions in this snapshot; course coverage shows the share also covered by the course. {{ mode_line(data.essential_skill_total, "essential skill mentions") }}</p>
+  </figcaption>
+  {% if data.essential_skill_chart %}
+  <div class="chart-box essential-skills-chart-box">
+    <canvas id="chart-essential-skills" aria-label="Radar chart comparing the demand share of the top 20 essential skills with the share covered by the course" role="img"></canvas>
+  </div>
+  <details class="table-twin">
+    <summary>Show as a table</summary>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">Skill</th><th scope="col">Essential vacancy mentions</th><th scope="col">Demand share</th><th scope="col">Course covered</th><th scope="col">Covered demand share</th></tr></thead>
+        <tbody>
+          {% for row in data.essential_skill_chart %}
+          <tr>
+            <td>{{ row.label }}</td>
+            <td>{{ row.n }}</td>
+            <td>{{ "%.2f"|format(row.share) }}%</td>
+            <td>{{ "Yes" if row.course_covered else "No" }}</td>
+            <td>{{ "%.2f"|format(row.course_share) }}%</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  {% else %}
+  <p>No essential technical skills are tagged in the current snapshot.</p>
+  {% endif %}
+</figure>
+
 <script type="application/json" id="insights-data">{{ data|tojson }}</script>
 {% endif %}
 {% endblock %}

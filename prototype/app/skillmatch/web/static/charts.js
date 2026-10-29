@@ -62,6 +62,62 @@
     });
   }
 
+  function essentialSkills(rows) {
+    var el = document.getElementById("chart-essential-skills");
+    if (!el || !window.Chart || !rows || !rows.length) return;
+    Chart.defaults.font.family = css.getPropertyValue("--sans");
+    Chart.defaults.color = INK_SOFT;
+    new Chart(el, {
+      type: "radar",
+      data: {
+        labels: rows.map(function (row) { return row.label; }),
+        datasets: [
+          {
+            label: "Essential skill demand share",
+            data: rows.map(function (row) { return row.share; }),
+            borderColor: "#D65A5A",
+            backgroundColor: "rgba(214, 90, 90, 0.18)",
+            pointBackgroundColor: "#D65A5A",
+            borderWidth: 2
+          },
+          {
+            label: "Course coverage overlap",
+            data: rows.map(function (row) { return row.course_share; }),
+            borderColor: "#168779",
+            backgroundColor: "rgba(22, 135, 121, 0.22)",
+            pointBackgroundColor: "#168779",
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        animation: false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return " " + context.dataset.label + ": " + context.parsed.r.toFixed(2) + "%";
+              }
+            }
+          }
+        },
+        scales: {
+          r: {
+            beginAtZero: true,
+            ticks: {
+              color: INK_SOFT,
+              callback: function (value) { return value + "%"; }
+            },
+            grid: { color: RULE },
+            angleLines: { color: RULE },
+            pointLabels: { color: INK, font: { size: 10 } }
+          }
+        }
+      }
+    });
+  }
+
   function baseMap(id) {
     var el = document.getElementById(id);
     if (!el || !window.L || el.dataset.ready) return null;
@@ -109,6 +165,7 @@
     bar("chart-salary", d.salary.bands, true);
     bar("chart-senior", d.senior_words, true);
     bar("chart-arr", d.arrangement, true);
+    essentialSkills(d.essential_skill_chart);
     var showAll = function () {
       var host = document.getElementById("map-all");
       if (!host || host.closest("[hidden]")) return;

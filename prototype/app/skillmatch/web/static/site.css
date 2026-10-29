@@ -295,6 +295,8 @@ input[type="checkbox"], input[type="radio"] { width: 1.15rem; height: 1.15rem; a
 .figure { margin: 0 0 var(--gap); background: var(--paper-raised); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
 .figure figcaption h3 { margin-bottom: 0.3rem; }
 .chart-box { position: relative; width: 100%; margin-bottom: 1rem; }
+.essential-skills-figure { margin-top: 2rem; }
+.essential-skills-chart-box { height: min(78vw, 38rem); min-height: 24rem; }
 .table-twin summary { cursor: pointer; color: var(--accent); font-size: 0.92rem; }
 .table-twin .table-wrap { margin: 0.75rem 0 0; }
 .data-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
