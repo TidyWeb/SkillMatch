@@ -13,16 +13,6 @@ LEVEL_LABELS = {
     "confident": "Confident",
 }
 LEVEL_SCORES = {"course": 2, "project": 3, "confident": 4}
-CHART_COLORS = {
-    (True, "confident"): "#0B4F6C",
-    (True, "project"): "#01BAEF",
-    (True, "course"): "#89CFF0",
-    (True, None): "#E0F2FE",
-    (False, "confident"): "#A63A50",
-    (False, "project"): "#D65A31",
-    (False, "course"): "#E8A87C",
-    (False, None): "#F4E0DB",
-}
 
 
 def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
@@ -95,10 +85,6 @@ def compare_vacancy_skills(
                     "course_covered": course_covered,
                     "profile_level": profile_label or "Not Ticked",
                     "score": LEVEL_SCORES.get(profile_level, 1),
-                    "bar_color": CHART_COLORS.get(
-                        (course_covered, profile_level),
-                        "#D8D2C4",
-                    ),
                 }
             )
 

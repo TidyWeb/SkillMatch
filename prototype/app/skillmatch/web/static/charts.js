@@ -1,16 +1,26 @@
-/* Insights charts (Chart.js) and maps (Leaflet + OpenStreetMap tiles).
-   One series per chart, so one colour: the site accent. Thin bars with rounded ends,
-   hairline grid, hover tooltips; every chart also has a table view in the page. */
+/* Insights charts and maps use the named design tokens; charts have table twins. */
 (function () {
   "use strict";
   var css = getComputedStyle(document.documentElement);
-  var ACCENT = css.getPropertyValue("--accent").trim() || "#1f4e8c";
-  var INK = css.getPropertyValue("--ink").trim() || "#1e1d1a";
-  var INK_SOFT = css.getPropertyValue("--ink-soft").trim() || "#55524b";
-  var RULE = css.getPropertyValue("--rule").trim() || "#d8d2c4";
-  var SURFACE = css.getPropertyValue("--paper-raised").trim() || "#fffdf9";
-  // Ordinal ramp for fit, light -> dark; validated (one hue, monotone lightness, light end >= 2:1).
-  var TIER = { not_yet: "#94acd0", stretch: "#6a8dc0", good: "#4470ad", strong: "#1f4e8c" };
+  function token(name) {
+    var value = css.getPropertyValue(name).trim();
+    if (!value) throw new Error("Missing required style token " + name);
+    return value;
+  }
+  var ACCENT = token("--accent");
+  var INK = token("--ink");
+  var INK_SOFT = token("--ink-soft");
+  var RULE = token("--rule");
+  var SURFACE = token("--paper-raised");
+  var TRANSPARENT = token("--transparent");
+  var ESSENTIAL_DEMAND = token("--chart-essential-demand");
+  var COURSE_COVERAGE = token("--chart-course-coverage");
+  var TIER = {
+    not_yet: token("--tier-not-yet"),
+    stretch: token("--tier-stretch"),
+    good: token("--tier-good"),
+    strong: token("--tier-strong")
+  };
   var TIER_LABEL = { strong: "Strong fit", good: "Good fit", stretch: "Stretch", not_yet: "Not yet" };
   var TIER_RADIUS = { strong: 8, good: 7, stretch: 6, not_yet: 6 };
 
@@ -55,8 +65,8 @@
           tooltip: { callbacks: { label: function (c) { return " " + c.parsed[horizontal ? "x" : "y"] + " adverts"; } } }
         },
         scales: {
-          x: { grid: { color: horizontal ? RULE : "transparent" }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
-          y: { grid: { color: horizontal ? "transparent" : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
+          x: { grid: { color: horizontal ? RULE : TRANSPARENT }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
+          y: { grid: { color: horizontal ? TRANSPARENT : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
         }
       }
     });
@@ -75,17 +85,17 @@
           {
             label: "Essential skill demand share",
             data: rows.map(function (row) { return row.share; }),
-            borderColor: "#D65A5A",
-            backgroundColor: "rgba(214, 90, 90, 0.18)",
-            pointBackgroundColor: "#D65A5A",
+            borderColor: ESSENTIAL_DEMAND,
+            backgroundColor: TRANSPARENT,
+            pointBackgroundColor: ESSENTIAL_DEMAND,
             borderWidth: 2
           },
           {
             label: "Course coverage overlap",
             data: rows.map(function (row) { return row.course_share; }),
-            borderColor: "#168779",
-            backgroundColor: "rgba(22, 135, 121, 0.22)",
-            pointBackgroundColor: "#168779",
+            borderColor: COURSE_COVERAGE,
+            backgroundColor: TRANSPARENT,
+            pointBackgroundColor: COURSE_COVERAGE,
             borderWidth: 2
           }
         ]
@@ -148,8 +158,9 @@
     var order = ["not_yet", "stretch", "good", "strong"];
     points.slice().sort(function (a, b) { return order.indexOf(a.tier) - order.indexOf(b.tier); }).forEach(function (p) {
       var colour = byTier ? TIER[p.tier] : ACCENT;
+      var markerOutline = byTier && (p.tier === "stretch" || p.tier === "not_yet") ? INK : SURFACE;
       L.circleMarker([p.lat, p.lon], {
-        radius: byTier ? TIER_RADIUS[p.tier] : 6, color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
+        radius: byTier ? TIER_RADIUS[p.tier] : 6, color: markerOutline, weight: 2, fillColor: colour, fillOpacity: 0.95
       }).bindPopup(popup(p)).addTo(map);
       bounds.push([p.lat, p.lon]);
     });

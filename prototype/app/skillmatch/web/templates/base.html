@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}SkillMatch{% endblock %} · SkillMatch</title>
   <meta name="description" content="Match the skills from your previous career to entry-level data jobs in the West Midlands.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%231f4e8c'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261028-stage3') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261029-skills') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261029-navy-a-4') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261029-navy-a-4') }}">
   {% block head %}{% endblock %}
   <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
   <script src="{{ url_for('static', filename='app.js', v='20261028-stage3') }}" defer></script>
@@ -16,11 +15,11 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead">
     <div class="wrap masthead-inner">
-      <a class="brand" href="{{ url_for('web.profile') }}">Skill<span>Match</span></a>
+      <a class="brand" href="{{ url_for('web.profile') }}"><span class="brand-mark" aria-hidden="true">S</span><span class="brand-name">Skill<span>Match</span></span></a>
       <nav aria-label="Main">
         {% set here = request.endpoint %}
         <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
-        <a href="{{ url_for('web.profile_skills') }}" {% if here == 'web.profile_skills' %}aria-current="page"{% endif %}>Your Skill</a>
+        <a href="{{ url_for('web.profile_skills') }}" {% if here == 'web.profile_skills' %}aria-current="page"{% endif %}>Your skills</a>
         <a href="{{ url_for('web.results') }}" {% if here == 'web.results' %}aria-current="page"{% endif %}>Your matches</a>
         <a href="{{ url_for('web.insights') }}" {% if here == 'web.insights' %}aria-current="page"{% endif %}>Insights</a>
         <a href="{{ url_for('web.sources') }}" {% if here == 'web.sources' %}aria-current="page"{% endif %}>Sources</a>

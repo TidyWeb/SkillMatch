@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}Your Skill{% endblock %}
+{% block title %}Your skills{% endblock %}
 {% block content %}
 <header class="page-head">
-  <h1>Your Skill</h1>
+  <h1>Your skills</h1>
   <p class="lede">See how your skill levels compare with essential requirements in the current vacancy snapshot.</p>
   <p class="note">This summary is generated for this request. Your profile stays in this browser tab and is not saved on the server.</p>
 </header>
@@ -23,7 +23,7 @@
 <div id="skill-page-results" hidden>
   <figure class="figure skill-level-figure">
     <figcaption>
-      <h2>Your skills and essential vacancy requirements</h2>
+      <h2>Your skills</h2>
       <p class="hint">Each bar shows your selected experience level. The dotted line compares the number of vacancies that list that skill as essential. Bar colour shows course coverage.</p>
       <ul class="skill-chart-legend" aria-label="Chart legend">
         <li><strong>Covered by the course:</strong>
@@ -61,5 +61,5 @@
 <noscript><p class="panel">JavaScript is required to load your private profile and draw this chart.</p></noscript>
 {% endblock %}
 {% block scripts %}
-<script src="{{ url_for('static', filename='profile_skills.js', v='20261029-skills') }}" defer></script>
+<script src="{{ url_for('static', filename='profile_skills.js', v='20261029-navy-a-3') }}" defer></script>
 {% endblock %}

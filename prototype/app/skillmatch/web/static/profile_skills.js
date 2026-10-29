@@ -76,7 +76,8 @@
       var courseStatus = row.course_covered === true
         ? "On course"
         : row.course_covered === false ? "Not on course" : "Course coverage unknown";
-      var barColor = /^#[0-9a-f]{6}$/i.test(row.bar_color) ? row.bar_color : "#D8D2C4";
+      var palette = row.course_covered === true ? "course" : "other";
+      var level = score === 4 ? "confident" : score === 3 ? "project" : score === 2 ? "learned" : "not-ticked";
 
       chart.appendChild(svgElement("text", {
         "class": "skill-chart-name", x: 12, y: y - 3
@@ -85,7 +86,8 @@
         "class": "skill-chart-detail", x: 12, y: y + 13
       }, row.profile_level + " · " + courseStatus + " · " + row.count + " essential vacancies"));
       chart.appendChild(svgElement("rect", {
-        "class": "skill-chart-bar", x: 365, y: y - 9, width: score * 145, height: 18, rx: 2, fill: barColor
+        "class": "skill-chart-bar skill-chart-bar-" + palette + "-" + level,
+        x: 365, y: y - 9, width: score * 145, height: 18, rx: 2
       }));
       points.push((365 + demand * 145) + "," + y);
     });

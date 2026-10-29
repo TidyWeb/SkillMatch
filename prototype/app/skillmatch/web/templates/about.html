@@ -7,6 +7,7 @@
   <p class="lede">SkillMatch is for people finishing Code Institute's Data Analytics with AI course in the West Midlands: teachers, nurses, researchers, managers, chefs and many more, who have new data skills and years of experience elsewhere. It matches people's skills, not job titles or sector history.</p>
 </header>
 
+<section class="content-block">
 <h2>Matching, step by step</h2>
 <ol>
   <li><strong>Collecting adverts.</strong> Each night we collect data adverts from official feeds (see <a href="{{ url_for('web.sources') }}">Sources</a>), keep those in the West Midlands or open to UK-remote workers, and remove duplicates while keeping every link.</li>
@@ -24,7 +25,9 @@
     There are no percentages: a score would suggest a precision the rules don't have.</li>
   <li><strong>Explaining it.</strong> Expanded match cards show which requirements your selected skills answer, which are partly met, and which are gaps. The job page shows the requirement sentence and explains how the matcher read it.</li>
 </ol>
+</section>
 
+<section class="content-block">
 <h2>Limitations</h2>
 <ul>
   <li><strong>Distances are straight lines</strong> from the centre of your postcode district, not travel times. Ten miles across a city can be an hour by bus. Travel-time estimates are planned.</li>
@@ -34,7 +37,9 @@
   <li><strong>Salaries are shown only as advertised.</strong> We never estimate missing pay.</li>
   <li><strong>The insights describe this snapshot</strong> of adverts, not the whole job market.</li>
 </ul>
+</section>
 
+<section class="content-block">
 <h2 id="privacy">Privacy</h2>
 <ul>
   <li>Your profile lives in your browser's session storage for this tab only. Closing the tab clears it, and there are no accounts.</li>
@@ -43,8 +48,11 @@
   <li>Your profile is sent with each search request and is not stored.</li>
   <li>Pages load a few open-source libraries (HTMX, Chart.js, Leaflet) from public code servers, and the map loads tiles from OpenStreetMap. Those servers see your IP address, as with any website.</li>
 </ul>
+</section>
 
+<section class="content-block">
 <h2>Who made it</h2>
 <p>SkillMatch was built by Tidy Web for a Code Institute hackathon. The code is MIT-licensed. Fixture adverts are invented.</p>
+</section>
 </article>
 {% endblock %}
