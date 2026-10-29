@@ -10,6 +10,8 @@ All notable changes. Dates are when the change was made.
 - Container: `python:3.12-slim`, gunicorn, web-only dependencies (~150 MB, ready in about 1 s).
 - GitHub Actions: nightly `refresh-and-deploy.yml` (live ETL, tests, build, Cloud Run via Workload Identity Federation) and `ci.yml`.
 - Self-check script; a Strong fit now needs at least two essentials we can check; "Experience required" headings recognised; tidier answers and duplicate links.
+- Ranking now prioritises match tier (Strong, Good, Stretch, Not yet), then distance, then title.
+- Added `tests/test_ranking.py` to cover tier-first ordering, distance and title tie-breakers, and missing distances.
 - Docs: README, architecture, deploy, taxonomy review guide, final report.
 
 ## v0.1: 21 October 2026

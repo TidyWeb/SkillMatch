@@ -124,3 +124,19 @@ The self-check (`scripts/self_check.py`) renders /results, /insights and three j
 - **The answers list** no longer repeats a competency met twice (normal and leadership wording). "Also listed by" names the other agency, or says "another advert" for a repost on the same source. "None stated" became "Not asked for".
 
 Final live tier spread (21 October snapshot, Strong / Good / Stretch / Not yet): PhD 15/35/10/16 · chef 8/42/14/13 · director 11/36/12/14 · nurse 11/37/15/14 · store manager 10/32/14/9 · teacher 11/33/19/14. Unclassified requirements: 17%; inferred: 15%.
+
+## Ranking (29 October 2026)
+
+### Prioritise match tier over distance
+
+**Status:** Accepted
+
+**Context:** The original shortlist ordering prioritised distance. That could place a nearby Good fit or Stretch role above a more relevant Strong fit role, despite matching skills to roles being the app's primary purpose.
+
+**Decision:** Sort vacancies by match tier first (Strong, Good, Stretch, Not yet), then by distance within each tier, and finally by title alphabetically. The rationale is documented in [CHANGE_Justification_Tier_First_Ranking.md](../../Oana's%20Folder/CHANGE_Justification_Tier_First_Ranking.md).
+
+**Consequences:**
+- Users see the most relevant matches first; distance remains useful for ordering roles within the same tier.
+- Roles with unknown distances are not disadvantaged against lower-tier roles, though known distances still rank first within a tier.
+- Users may need to scroll farther for a nearby role when higher-tier matches are farther away.
+- The change is limited to result presentation; match-tier calculation and thresholds are unchanged. `tests/test_ranking.py` covers the ordering contract and tie-breakers.
