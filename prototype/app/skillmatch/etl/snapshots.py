@@ -396,7 +396,9 @@ def _readme(metadata: dict | None = None, observations: list[dict] | None = None
         source_list = "not recorded"
 
     if metadata.get("reprocessed_from"):
-        one_line = "This is a reprocessed copy of the 21 October collection. It is not a new collection."
+        one_line = (
+            "This is a reprocessed copy of the 21 October collection. It is not a new collection."
+        )
         notes = (
             "- This is a reprocessed copy, not a new collection.\n"
             "- Some adverts were missing from the saved database.\n"
