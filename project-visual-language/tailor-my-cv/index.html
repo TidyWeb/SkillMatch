@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tailor my CV | SkillMatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="../navy-a/navy-a.css" rel="stylesheet"/>
+<style>
+.na-flow>.na-split,.na-flow>.na-how-tiles,.na-flow>.na-row2,.na-flow>.setup-steps{margin:0}
+.na-flow [hidden]{display:none!important}
+.na-hero.na-card--navy{background:var(--na-panel);color:var(--na-panel-ink)}
+.na-hero.na-card--navy h1,.na-hero.na-card--navy h2{color:var(--na-panel-ink)}
+.na-hero.na-card--navy p{color:var(--na-panel-muted)}
+.na-hero.na-card--navy .na-kicker{color:var(--na-panel-muted)}
+.na-how-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+.na-how-tile{justify-content:flex-start;min-height:150px}
+.na-how-tile .na-label{margin-bottom:14px}
+.na-how-tile p{margin:0}
+@media(min-width:851px){.privacy-grid{grid-auto-rows:1fr}}
+.privacy-card{display:flex;flex-direction:column;gap:10px}
+.privacy-card h3,.privacy-card p{margin:0}
+.setup-row{margin:0;overflow:hidden}
+.setup-row>summary{display:flex;align-items:center;gap:13px;list-style:none;padding:14px 18px}
+.setup-row>summary::-webkit-details-marker{display:none}
+.setup-row>summary::after{content:"+";margin-left:auto;color:var(--na-accent);font:600 22px/1 var(--na-sans)}
+.setup-row[open]>summary::after{content:"−"}
+.step-number{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border-radius:50%;background:var(--na-panel);color:var(--na-panel-ink);font:600 12px/1 var(--na-mono)}
+.step-title{min-width:0;font-size:16px}
+.setup-row>.step-body{padding:4px 24px 22px 65px}
+.step-body>:first-child{margin-top:0}
+.step-body>:last-child{margin-bottom:0}
+.step-body p{max-width:76ch}
+.step-body .na-note{max-width:none}
+.copy-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.85fr);gap:var(--na-gap-tiles);align-items:stretch}
+.copy-layout--no-brief{grid-template-columns:minmax(0,1fr)}
+.copy-layout--no-brief>.na-note{max-width:none;width:100%;margin:0}
+.copy-controls{display:flex;flex-wrap:wrap;align-content:start;align-items:center;gap:10px}
+.copy-controls .na-muted{width:100%;margin:0;font-size:13px}
+.brief-status{min-height:1.5em;margin:10px 0 0;color:var(--na-muted);font-size:14px}
+.no-brief-box{margin:0}
+.download-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.download-row p{margin:0}
+.help-copy{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.help-copy h3{margin:0}
+.help-prompt{margin-top:12px}
+.safety-line{margin-bottom:0;font-weight:600}
+.step-checklist{display:grid;gap:8px;list-style:none;margin:12px 0;padding:0}
+.step-checklist>li{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:1px solid var(--na-line);border-radius:var(--na-pill);background:var(--na-surface)}
+.step-checklist>li::before{content:"✓";color:var(--na-panel);font-weight:800;flex:none}
+.step-checklist .na-brief{margin:8px 0 0}
+.path-commands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.path-command{min-width:0}
+.path-command .na-brief{margin:8px 0 0}
+@media(max-width:1100px){.na-how-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.copy-layout{grid-template-columns:1fr}.setup-row>.step-body{padding-left:22px}.na-contents ol{flex-wrap:wrap;overflow:visible;scrollbar-width:none;padding-bottom:0}.na-contents ol li{flex:0 1 auto;min-width:0}.na-contents li a{white-space:normal}}
+@media(max-width:560px){.na-how-tiles{grid-template-columns:minmax(0,1fr)}.na-how-tile{min-height:0}.setup-row>summary{align-items:flex-start}.step-title{padding-top:6px}.help-copy{align-items:flex-start}.path-commands{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<a class="na-skip" href="#main">Skip to content</a>
+<header class="na-top na-top--document">
+  <a class="na-mark" href="../../"><i aria-hidden="true">S</i>SkillMatch</a>
+  <nav class="na-nav" aria-label="Main">
+    <a href="../../">Home</a>
+    <a href="../../">Find jobs</a>
+    <a href="#">Guides</a>
+    <a href="#" aria-current="page">Tailor my CV</a>
+  </nav>
+</header>
+
+<div class="na-page na-page--document">
+  <div class="na-layout">
+    <aside class="na-contents" aria-label="Contents">
+      <h2>Tailor my CV</h2>
+      <p>Set up once, then bring each job here.</p>
+      <span class="na-label">On this page</span>
+      <ol>
+        <li><a href="#your-job" aria-current="true"><b>00</b>Your job</a></li>
+        <li><a href="#how-it-works"><b>01</b>How it works</a></li>
+        <li><a href="#privacy"><b>02</b>Your privacy</a></li>
+        <li><a href="#setup"><b>03</b>Set up once</a></li>
+        <li><a href="#tailor"><b>04</b>Tailor for a job</a></li>
+        <li><a href="#stuck"><b>05</b>Stuck? Ask Claude</a></li>
+      </ol>
+    </aside>
+
+    <main class="na-flow" id="main">
+      <section class="na-panel na-hero na-card--navy" id="your-job" aria-labelledby="hero-heading">
+        <span class="na-kicker">SKILLMATCH · TAILOR MY CV</span>
+        <h1 id="hero-heading">Tailor your CV to a job</h1>
+        <p id="hero-intro">Open a job in the SkillMatch App and press <strong>Tailor my CV</strong>. It brings the job here.</p>
+        <div id="hero-job-details" hidden>
+          <h2 id="hero-job-title"></h2>
+          <p id="hero-employer" class="na-muted"></p>
+          <button class="na-btn" type="button" data-copy-job>Copy for Claude</button>
+          <p class="na-muted" style="margin:12px 0 0">First time? Do the set-up below first. It takes about 15 minutes, once.</p>
+        </div>
+        <a class="na-pill-link" id="setup-link" href="#setup"><span>First time here? <b>Set up once</b></span></a>
+      </section>
+
+      <section class="na-panel na-phase" id="how-it-works">
+        <div class="na-phase-head"><span class="na-label">01</span><h2>How it works</h2></div>
+        <p class="na-muted">The SkillMatch App finds a job. The Claude desktop app helps tailor your CV.</p>
+      </section>
+      <div class="na-tiles na-how-tiles" aria-label="How tailoring works">
+        <article class="na-tile na-how-tile"><span class="na-label">01 · Find</span><p>Find a job in the SkillMatch App.</p></article>
+        <article class="na-tile na-how-tile"><span class="na-label">02 · Copy</span><p>Copy the job brief to this page.</p></article>
+        <article class="na-tile na-how-tile"><span class="na-label">03 · Paste</span><p>Paste it into the Claude desktop app.</p></article>
+        <article class="na-tile na-how-tile"><span class="na-label">04 · Save</span><p>Your tailored CV is saved in your SkillMatch Folder.</p></article>
+      </div>
+      <p class="na-panel na-panel--quiet">Claude does the writing. It uses your CV and your biography, and never invents experience.</p>
+
+      <section class="na-panel na-phase" id="privacy">
+        <div class="na-phase-head"><span class="na-label">02</span><h2>Your privacy</h2></div>
+        <p class="na-muted">Know what the SkillMatch App uses and which files stay in your SkillMatch Folder.</p>
+      </section>
+      <div class="na-split privacy-grid">
+        <article class="na-panel privacy-card">
+          <span class="na-dot na-dot--privacy">SkillMatch App</span>
+          <h3>No account is needed.</h3>
+          <p>Your job-search profile stays in this browser tab. The SkillMatch App sends it with each search, then the server forgets it. It is not stored on the server.</p>
+          <p>The job brief contains public advert details and may include match hints based on your profile. The SkillMatch App does not read your CV or biography from your SkillMatch Folder.</p>
+        </article>
+        <article class="na-panel privacy-card">
+          <span class="na-dot na-dot--good">Your SkillMatch Folder</span>
+          <h3>Your files stay in your folder.</h3>
+          <p>Your CV and biography live in the SkillMatch Folder on your computer. The SkillMatch App cannot open that folder.</p>
+          <p>The Claude desktop app reads those files when you ask it to. This page does not save your job brief; it only copies it or opens a new chat when you choose.</p>
+        </article>
+      </div>
+      <p class="na-note"><strong>Claude privacy:</strong> Claude reads your files when you ask it to. Free, Pro and Max users can choose in privacy settings whether chats help improve Claude. Check <a href="https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations">Claude’s current privacy guidance</a> before sharing sensitive details.</p>
+
+      <section class="na-panel na-phase" id="setup">
+        <div class="na-phase-head"><span class="na-label">03</span><h2>Set up once</h2></div>
+        <p class="na-muted">Do these six steps in order. You only need to set up the Claude desktop app and the SkillMatch Skill once.</p>
+      </section>
+      <ol class="na-steps na-steps--long setup-steps" aria-label="Six setup steps">
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">01</span><span class="step-title"><strong>Install the Claude desktop app</strong></span></summary>
+            <div class="step-body">
+              <p>Install the app, not the website. The website opens in a browser with tabs and an address bar. The Claude desktop app opens in its own window and has Settings.</p>
+              <p>Download it from <a href="https://claude.ai/download">claude.ai/download</a>. It needs Windows 10 or later, macOS 13 or later, or Ubuntu 22.04 LTS or later / Debian 12 or later on x64 or arm64. Sign in; a free account is fine.</p>
+              <p>On Windows, closing the window hides the app in the system tray by the clock. Right-click its taskbar icon and choose <strong>Pin to taskbar</strong>. If you lose it, press Start and type <strong>Anthropic</strong>.</p>
+              <p><strong>Ubuntu or Debian:</strong> open a terminal and run Anthropic’s apt commands below. Then open the Claude desktop app and sign in. <a href="https://support.claude.com/en/articles/10065433-install-claude-desktop">See Anthropic’s install instructions</a>.</p>
+              <pre class="na-brief"><code>sudo curl -fsSLo /usr/share/keyrings/claude-desktop-archive-keyring.asc https://downloads.claude.ai/claude-desktop/key.asc
+echo "deb [signed-by=/usr/share/keyrings/claude-desktop-archive-keyring.asc] https://downloads.claude.ai/claude-desktop/apt/stable stable main" | sudo tee /etc/apt/sources.list.d/claude-desktop.list
+sudo apt update &amp;&amp; sudo apt install claude-desktop</code></pre>
+              <p>If you use another Linux system, ask Claude in your browser how to install the Claude desktop app on it.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">02</span><span class="step-title"><strong>Make your SkillMatch Folder and add one CV</strong></span></summary>
+            <div class="step-body">
+              <p>On Windows, make <code>C:\SkillMatch</code>. On Mac or Linux, make a folder called <code>SkillMatch</code> in your home folder.</p>
+              <p>Do not put it on the Desktop. On many Windows computers, the Desktop syncs with OneDrive and makes the folder path harder to find.</p>
+              <p>Put <strong>one</strong> CV in the folder, as a Word or PDF file. To update it later, save over that same file. Keep one CV in the folder.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">03</span><span class="step-title"><strong>Add the Desktop Commander extension</strong></span></summary>
+            <div class="step-body">
+              <p>Desktop Commander lets the Claude desktop app open and save files in your SkillMatch Folder, including Word and PDF.</p>
+              <p>In the Claude desktop app, open <strong>Settings &gt; Extensions</strong>. In newer versions, use <strong>Settings &gt; Desktop app &gt; Manage</strong> beside Extensions. Find Desktop Commander and install it.</p>
+              <div class="na-note"><strong>Windows: this often fails the first time.</strong> Desktop Commander may look added when it is not installed on this computer. If it appears under <strong>Yours</strong>, that only links it to your account. Choose the other Desktop Commander entry to install it here. If install does nothing, try installing it again.</div>
+              <h3>Check it really worked</h3>
+              <ul class="step-checklist">
+                <li>Settings &gt; Extensions lists Desktop Commander as installed.</li>
+                <li>It is switched on.</li>
+                <li><div>After quitting Claude fully and reopening it, a new chat answers this:
+                  <pre class="na-brief"><code>List the files in my SkillMatch folder.</code></pre>
+                </div></li>
+              </ul>
+              <p>If Claude says it has no tool for your files, Desktop Commander isn't installed yet. Go back and install it again.</p>
+              <p>Limit file access to your SkillMatch Folder. Start a new chat and type:</p>
+              <div class="path-commands">
+                <div class="path-command"><span class="na-label">Windows</span><pre class="na-brief"><code>Set Desktop Commander's allowed folders to C:\SkillMatch only.</code></pre></div>
+                <div class="path-command"><span class="na-label">Mac or Linux</span><pre class="na-brief"><code>Set Desktop Commander's allowed folders to the SkillMatch folder in my home folder only.</code></pre></div>
+              </div>
+              <p class="na-panel na-panel--quiet">On Pro and Max plans, chats may run in the cloud and may not use local extensions. Free accounts work with local extensions.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">04</span><span class="step-title"><strong>Switch on code execution</strong></span></summary>
+            <div class="step-body">
+              <p>In the Claude desktop app, open <strong>Settings &gt; Capabilities</strong>. Switch on <strong>Code execution and file creation</strong>.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">05</span><span class="step-title"><strong>Add the SkillMatch Skill</strong></span></summary>
+            <div class="step-body">
+              <div class="download-row">
+                <a class="na-btn" href="skillmatch_skill.zip" download="skillmatch_skill.zip">Download the SkillMatch Skill package</a>
+                <p class="na-muted">File: <code>skillmatch_skill.zip</code></p>
+              </div>
+              <p><strong>Do not open or unzip it.</strong> Upload the zip as it is. In the Claude desktop app, choose <strong>Customize &gt; Skills &gt; +</strong> (or <strong>Create skill</strong>) &gt; <strong>Upload a skill</strong>, then choose the zip. Dragging it into a chat only attaches it to that chat.</p>
+              <p>If you added an earlier SkillMatch Skill, remove it in <strong>Customize &gt; Skills</strong> before uploading this one.</p>
+            </div>
+          </details>
+        </li>
+        <li>
+          <details class="na-details setup-row">
+            <summary><span class="step-number">06</span><span class="step-title"><strong>Build your biography</strong></span></summary>
+            <div class="step-body">
+              <p>Start a new chat in the Claude desktop app and type:</p>
+              <pre class="na-brief"><code>run SkillMatch</code></pre>
+              <p>Or say <code>let's do my biography</code>. The SkillMatch Skill asks about real stories from your jobs, one question at a time. A session is about 20 to 30 minutes or two to three jobs. It saves your biography at the end of a session.</p>
+              <p>Next time, say <code>carry on with my biography</code>. Remember something later? Say <code>add to my biography: ...</code>.</p>
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <section class="na-panel na-phase" id="tailor">
+        <div class="na-phase-head"><span class="na-label">04</span><h2>Tailor for a job</h2></div>
+        <p class="na-muted">Bring a job brief from the SkillMatch App, then choose how much help you want.</p>
+      </section>
+      <div class="na-panel">
+        <span class="na-label">Your job brief</span>
+        <div id="brief-empty" class="na-panel na-panel--quiet no-brief-box">
+          <p>Open a job in the SkillMatch App and choose <strong>Tailor my CV</strong>. Or paste a job advert into the Claude desktop app with this first line:</p>
+          <pre class="na-brief"><code>Tailor my CV for this job using my SkillMatch folder.</code></pre>
+        </div>
+        <pre id="job-brief" class="na-brief" aria-label="Read-only job brief" hidden></pre>
+      </div>
+      <div class="copy-layout copy-layout--no-brief" id="copy-layout">
+        <div class="na-panel" id="copy-card" hidden>
+          <div class="copy-controls">
+            <button class="na-btn" id="copy-job-button" type="button" data-copy-job hidden>Copy for Claude</button>
+            <a class="na-btn na-btn--ghost" id="open-claude" href="https://claude.ai/new" hidden>Open in Claude desktop</a>
+            <p class="na-muted" id="copy-help" hidden>Your job details, ready to paste into the Claude desktop app.</p>
+          </div>
+          <p class="brief-status" id="copy-status" aria-live="polite"></p>
+          <p class="na-muted" id="clipboard-fallback" hidden>If the clipboard is blocked, select the text in the box and press Ctrl+C (Mac: Cmd+C).</p>
+        </div>
+        <div class="na-note"><strong>Free plan:</strong> usage limits reset every five hours. A rough guide is two to four tailored CVs per window. Long chats or a biography session can use most of one. Start a new chat for each job.</div>
+      </div>
+      <div class="na-panel">
+        <h3>Then, in Claude</h3>
+        <p>Send the brief. The SkillMatch Skill checks whether the job looks worth applying for, shows what matches and what is missing, then asks if you want suggestions or a full rewrite.</p>
+        <p>Files go in <code>Tailored CVs/&lt;Employer&gt;_&lt;Job&gt;/</code> in your SkillMatch Folder:</p>
+        <ul>
+          <li>Suggestions: <code>suggestions.md</code>.</li>
+          <li>Full CV: <code>CV.docx</code>, <code>CV.pdf</code> and <code>what_changed.md</code>.</li>
+        </ul>
+        <p class="na-muted">Gaps are listed honestly. They are never filled in on your CV.</p>
+      </div>
+
+      <section class="na-panel na-phase" id="stuck">
+        <div class="na-phase-head"><span class="na-label">05</span><h2>Stuck? Ask Claude</h2></div>
+        <p class="na-muted">Every computer is different. If something here does not match what you see, ask Claude. Using AI to solve problems is the skill this course is about.</p>
+      </section>
+      <div class="na-panel">
+        <p>If the Claude desktop app will not install or open, use Claude in your web browser at <a href="https://claude.ai">claude.ai</a>.</p>
+        <div class="help-copy">
+          <h3>Copy this help prompt</h3>
+          <button class="na-btn na-btn--ghost" type="button" data-copy-help>Copy prompt</button>
+        </div>
+        <pre class="na-brief help-prompt" id="help-prompt"><code>I'm setting up [what you're trying to do].
+I clicked [what you clicked].
+What happened: [what you saw, including any error message word for word].
+My computer: [Windows 11 / Mac / Linux, and version if you know it].
+Ask me questions one at a time if anything isn't clear. Give me one step at a time and wait for me to say it's done.</code></pre>
+        <p>You can paste a screenshot too.</p>
+        <p class="safety-line">Never paste passwords, bank details or your full CV into a help chat.</p>
+        <p class="brief-status" id="help-status" aria-live="polite"></p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const instruction = "Tailor my CV for this job using my SkillMatch folder.\nUse the SkillMatch skill.";
+  const marker = "SKILLMATCH JOB BRIEF";
+  const briefBox = document.getElementById("job-brief");
+  const emptyBox = document.getElementById("brief-empty");
+  const heroHeading = document.getElementById("hero-heading");
+  const heroIntro = document.getElementById("hero-intro");
+  const heroDetails = document.getElementById("hero-job-details");
+  const setupLink = document.getElementById("setup-link");
+  const copyButtons = document.querySelectorAll("[data-copy-job]");
+  const copyLayout = document.getElementById("copy-layout");
+  const copyCard = document.getElementById("copy-card");
+  const openClaude = document.getElementById("open-claude");
+  const copyHelp = document.getElementById("copy-help");
+  const clipboardFallback = document.getElementById("clipboard-fallback");
+  let finalPrompt = "";
+
+  function readBrief() {
+    try {
+      const encoded = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : window.location.hash;
+      const decoded = decodeURIComponent(encoded);
+      const start = decoded.indexOf(marker);
+      return start < 0 ? "" : decoded.slice(start).trim().replace(/\n*END OF JOB BRIEF\s*$/, "");
+    } catch (_error) {
+      return "";
+    }
+  }
+
+  function getField(text, label, fallback) {
+    const expression = new RegExp("^" + label + ":\\s*(.*)$", "m");
+    const match = text.match(expression);
+    return match && match[1].trim() ? match[1].trim() : fallback;
+  }
+
+  function selectBoxText(element) {
+    const selection = window.getSelection();
+    if (!selection) return;
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  async function copyText(text, source, status, button) {
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(text);
+      status.textContent = "Copied.";
+      if (button) button.textContent = "Copied";
+      if (source === briefBox) clipboardFallback.hidden = true;
+    } catch (_error) {
+      selectBoxText(source);
+      status.textContent = "Clipboard blocked. The text is selected; press Ctrl+C (Mac: Cmd+C).";
+      if (source === briefBox) clipboardFallback.hidden = false;
+      if (button) button.textContent = source === briefBox ? "Copy for Claude" : "Copy prompt";
+    }
+  }
+
+  const brief = readBrief();
+  if (brief) {
+    finalPrompt = instruction + "\n\n" + brief + "\n\nEND OF JOB BRIEF";
+    copyCard.hidden = false;
+    copyLayout.classList.remove("copy-layout--no-brief");
+    briefBox.textContent = finalPrompt;
+    briefBox.hidden = false;
+    emptyBox.hidden = true;
+    heroHeading.textContent = "Your job is ready";
+    heroIntro.hidden = true;
+    document.getElementById("hero-job-title").textContent = getField(brief, "Job", "Job title not stated");
+    document.getElementById("hero-employer").textContent = "Employer: " + getField(brief, "Employer", "not named");
+    heroDetails.hidden = false;
+    setupLink.hidden = true;
+    copyButtons.forEach((button) => { button.hidden = false; });
+    openClaude.href = "claude://claude.ai/new?q=" + encodeURIComponent(finalPrompt);
+    openClaude.hidden = false;
+    copyHelp.hidden = false;
+    document.getElementById("copy-job-button").addEventListener("click", (event) => {
+      copyText(finalPrompt, briefBox, document.getElementById("copy-status"), event.currentTarget);
+    });
+    document.querySelector("#hero-job-details [data-copy-job]").addEventListener("click", (event) => {
+      copyText(finalPrompt, briefBox, document.getElementById("copy-status"), event.currentTarget);
+    });
+  }
+
+  document.querySelector("[data-copy-help]").addEventListener("click", (event) => {
+    const helpBox = document.getElementById("help-prompt");
+    copyText(helpBox.textContent, helpBox, document.getElementById("help-status"), event.currentTarget);
+  });
+
+  document.querySelectorAll(".na-contents a[href^='#']").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".na-contents a[aria-current]").forEach((current) => current.removeAttribute("aria-current"));
+      link.setAttribute("aria-current", "true");
+    });
+  });
+})();
+</script>
+</body>
+</html>
