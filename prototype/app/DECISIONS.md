@@ -124,3 +124,14 @@ The self-check (`scripts/self_check.py`) renders /results, /insights and three j
 - **The answers list** no longer repeats a competency met twice (normal and leadership wording). "Also listed by" names the other agency, or says "another advert" for a repost on the same source. "None stated" became "Not asked for".
 
 Final live tier spread (21 October snapshot, Strong / Good / Stretch / Not yet): PhD 15/35/10/16 · chef 8/42/14/13 · director 11/36/12/14 · nurse 11/37/15/14 · store manager 10/32/14/9 · teacher 11/33/19/14. Unclassified requirements: 17%; inferred: 15%.
+
+## Relevance judged on the title only (29 October 2026)
+
+This replaces the relevance rule above (2+ non-generic skills in the description).
+
+- **Why:** a Video Editor advert at PlanetScale showed as a match for a chef. PlanetScale sells databases, so its company blurb mentions MySQL and PostgreSQL, and the old rule counted those as the job's skills.
+- **Evidence:** on the 27 October live run, the skills-in-description route let in 98 adverts under 59 titles. None was an entry-level data job: Scrum Master (32), account executives, product managers, risk managers, customer support, a full-stack developer advertised in Spanish, the Video Editor. Every real data job in the run already passed on its title.
+- **New rule:** a data word in the title, or "<qualifier> Analyst", with the same non-data exceptions as before. Anything else is "not a data role".
+- **Old databases:** the app rechecks relevance on the title when it reads a database, so snapshots built before this change (including the Codespaces live-data release) drop the same adverts. The SQLite files are unchanged.
+- **Effect:** the three test profiles go from 86 shown jobs to 77; only those nine go.
+- **Risk:** a real data job with an unusual title and no data word in it would now be hidden. It stays countable as "not a data role". If one turns up, add its title word to `DATA_TITLE` rather than bringing the description route back.

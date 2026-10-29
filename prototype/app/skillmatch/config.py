@@ -26,7 +26,7 @@ def load_env() -> None:
 # ----- Filters -----
 # Minimum distinct non-generic technical skills that make an advert a data role when its
 # title doesn't say so (relevance filter). Tuned during calibration; see DECISIONS.md.
-RELEVANCE_MIN_SKILLS = 2
+# RELEVANCE_MIN_SKILLS retired 29 Oct 2026: relevance is now judged on the title only (filters.is_data_role).
 
 # ----- ETL -----
 NEAR_DUPLICATE_CHARS = 600  # compare the first N characters of descriptions
