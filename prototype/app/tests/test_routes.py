@@ -28,11 +28,20 @@ def profile_json(pid="chef_wolverhampton", **extra):
     return json.dumps({**personas()[pid], **extra})
 
 
-@pytest.mark.parametrize("path", ["/", "/results", "/insights", "/sources", "/about", "/healthz"])
+@pytest.mark.parametrize(
+    "path", ["/", "/results", "/insights", "/sources", "/about", "/health", "/healthz"]
+)
 def test_get_pages(client, path):
     r = client.get(path)
     assert r.status_code == 200
-    assert b"SkillMatch" in r.data or path == "/healthz"
+    assert b"SkillMatch" in r.data or path in {"/health", "/healthz"}
+
+
+@pytest.mark.parametrize("path", ["/health", "/healthz"])
+def test_health_endpoints_return_identical_json(client, path):
+    r = client.get(path)
+    assert r.status_code == 200
+    assert r.get_json() == {"ok": True, "mode": "fixtures"}
 
 
 def test_footer_shows_data_mode(client):
