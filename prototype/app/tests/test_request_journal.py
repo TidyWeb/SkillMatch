@@ -13,6 +13,7 @@ class Response:
         self._body = body
         self.headers = headers or {}
         self.text = str(body)
+        self.content = json.dumps(body).encode("utf-8")
 
     def json(self):
         return self._body

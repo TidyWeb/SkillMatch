@@ -11,24 +11,18 @@
 <ol>
   <li><strong>Collecting adverts.</strong> Each night we collect data adverts from official feeds (see <a href="{{ url_for('web.sources') }}">Sources</a>), keep those in the West Midlands or open to UK-remote workers, and remove duplicates while keeping every link.</li>
   <li><strong>Hiding what isn't for you yet.</strong> Titles with senior words (senior, lead, manager, head of, director and similar) are hidden, as are non-data jobs and paid training courses advertised as jobs. Nothing is deleted: your results say how many were hidden and let you show them. "Senior stakeholders" in a description never hides a job; only the title counts.</li>
-  <li><strong>Reading each advert.</strong> Rules split the advert into statements and sort each into essential, desirable or "describes the job", using headings ("Essential", "Nice to have") and wording ("must", "ideally", "would be advantageous"). Each statement is linked to the technical skills and transferable competencies it signals, using a reviewable vocabulary. We keep the advert's own sentence as evidence.</li>
-  <li><strong>Comparing with your profile.</strong> For each requirement:
-    <ul>
-      <li><strong>Met</strong> when you've used the skill in a project or are confident in it, or you've ticked the competency and given a line of evidence.</li>
-      <li><strong>Partly met</strong> when you learned the skill on the course only, know a closely related tool (Tableau for Power BI, say), or ticked the competency without evidence.</li>
-      <li><strong>Not yet</strong> when nothing in your profile answers it.</li>
-    </ul>
-    A competency you showed at manager level or above answers requirements about leadership, senior stakeholders or reporting to leadership.</li>
-  <li><strong>Experience in data.</strong> Only an advert's explicit demand for experience in a data role ("2+ years as a data analyst", "3 years' SQL") is compared with your years in a data job. Up to a year's gap doesn't count against you when the advert welcomes newcomers or accepts equivalent experience.</li>
+  <li><strong>Reading each advert.</strong> Rules split the advert into statements and sort each into essential, desirable or "describes the job", using headings ("Essential", "Nice to have") and wording ("must", "ideally", "would be advantageous"). Each statement is linked to the technical skills and transferable competencies it signals, using a reviewable vocabulary. The original advert sentence stays visible in the job details.</li>
+  <li><strong>Comparing with your profile.</strong> Course skills are included automatically. You can add other technical skills and choose up to five areas of expertise, then untick any suggested competencies that do not apply. The matcher compares these choices with each advert. It does not ask for skill levels or evidence.</li>
+  <li><strong>Qualifications.</strong> You choose your highest qualification using the UK level shown beside each option. The matcher compares that level with the qualification asked for in the advert.</li>
   <li><strong>Grouping.</strong>
     <ul>
-      <li><strong>Strong fit:</strong> every essential requirement met, at most one only partly, and no data-experience gap.</li>
-      <li><strong>Good fit:</strong> at most one essential requirement not yet in your profile.</li>
-      <li><strong>Stretch:</strong> two essential gaps, or about two years' data experience short.</li>
-      <li><strong>Not yet:</strong> three or more gaps, or a bigger experience gap.</li>
+      <li><strong>Strong match:</strong> no essential gaps and at most one partly met essential.</li>
+      <li><strong>Good match:</strong> one essential gap, too few essential requirements to confirm a strong match, or more than one partly met essential.</li>
+      <li><strong>Stretch:</strong> two essential gaps.</li>
+      <li><strong>Not yet:</strong> three or more essential gaps.</li>
     </ul>
     There are no percentages: a score would suggest a precision the rules don't have.</li>
-  <li><strong>Explaining it.</strong> For each requirement you meet, SkillMatch writes a sentence from your own evidence line, such as "Requirement: reporting to senior leadership. Your evidence: as a kitchen manager, you ran weekly stock and margin reports for the owners." No AI writes these, and nothing calls an AI service: they are fixed templates filled from your profile.</li>
+  <li><strong>Explaining it.</strong> Expanded match cards show which requirements your selected skills answer, which are partly met, and which are gaps. The job page shows the requirement sentence and explains how the matcher read it.</li>
 </ol>
 
 <h2>Limitations</h2>
@@ -46,11 +40,11 @@
   <li>Your profile lives in your browser's session storage for this tab only. Closing the tab clears it, and there are no accounts.</li>
   <li>When you look at results, your browser sends the profile with that one request. The server uses it to build the page and then forgets it. It isn't written to disk, logged, put in a cookie or sent to any analytics.</li>
   <li><strong>Only the first part of your postcode is used</strong> (for example B91 from B91 3QS). Your browser removes the second part before anything is sent, and SkillMatch looks up only that first part, either in its own table or with postcodes.io. It places you to within a few miles, which is enough for straight-line distances.</li>
-  <li>Job titles you type are matched to a kind of role on our server; they aren't stored either.</li>
+  <li>Your profile is sent with each search request and is not stored.</li>
   <li>Pages load a few open-source libraries (HTMX, Chart.js, Leaflet) from public code servers, and the map loads tiles from OpenStreetMap. Those servers see your IP address, as with any website.</li>
 </ul>
 
 <h2>Who made it</h2>
-<p>SkillMatch was built by Tidy Web for a Code Institute hackathon. The code is MIT-licensed. The demo profiles are fictional people, and the fixture adverts are invented.</p>
+<p>SkillMatch was built by Tidy Web for a Code Institute hackathon. The code is MIT-licensed. Fixture adverts are invented.</p>
 </article>
 {% endblock %}

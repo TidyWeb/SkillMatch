@@ -360,7 +360,11 @@ def _copy_history(data_history: Path, target_history: Path) -> dict:
 
 
 def _plain_date(metadata: dict) -> str:
-    value = metadata.get("original_collection_at") or metadata.get("snapshot_date") or metadata.get("started_at")
+    value = (
+        metadata.get("original_collection_at")
+        or metadata.get("snapshot_date")
+        or metadata.get("started_at")
+    )
     if not value:
         return "date unavailable"
     try:
@@ -372,7 +376,9 @@ def _plain_date(metadata: dict) -> str:
 
 def _snapshot_summary(folder: Path) -> dict:
     metadata_path = folder / "run.json"
-    metadata = json.loads(metadata_path.read_text(encoding="utf-8")) if metadata_path.is_file() else {}
+    metadata = (
+        json.loads(metadata_path.read_text(encoding="utf-8")) if metadata_path.is_file() else {}
+    )
     all_ids: set[str] = set()
     shown_ids: set[str] = set()
     sources: set[str] = set()

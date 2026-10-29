@@ -13,7 +13,7 @@ An early-career job-matching project for Code Institute Data Analytics with AI g
 
 ## Status
 
-A working prototype exists: a Flask web app that pulls live West Midlands vacancies and explains how a graduate's skills match each one. Its code is in [`prototype/app/`](prototype/app/). **[Try it in your browser](https://codespaces.new/TidyWeb/SkillMatch)** with GitHub Codespaces: nothing to install. It runs on 119 made-up adverts, because we don't yet have Reed's permission to share real ones; to see real jobs, [use your own free Reed key](https://tidyweb.github.io/SkillMatch/team-guides/c2-real-jobs-with-your-own-reed-key.html). We are now designing the interface; the prototype designs will appear on the [team hub](https://tidyweb.github.io/SkillMatch/) as they are ready. Salary policy and the travel-routing provider remain open team decisions. Keep missing pay unknown and do not estimate it.
+A working prototype exists: a Flask web app that compares a graduate's skills with West Midlands vacancies. Its code is in [`prototype/app/`](prototype/app/). **[Try it in your browser](https://codespaces.new/TidyWeb/SkillMatch)** with GitHub Codespaces: nothing to install. The prototype will eventually show live jobs. For now, Codespaces runs a saved copy of a live collection; if that copy is unavailable, it uses sample adverts. We are now designing the interface; the prototype designs will appear on the [team hub](https://tidyweb.github.io/SkillMatch/) as they are ready. Salary policy and the travel-routing provider remain open team decisions. Keep missing pay unknown and do not estimate it.
 
 ## Project documents
 

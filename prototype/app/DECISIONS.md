@@ -133,10 +133,21 @@ Final live tier spread (21 October snapshot, Strong / Good / Stretch / Not yet):
 
 **Context:** The original shortlist ordering prioritised distance. That could place a nearby Good fit or Stretch role above a more relevant Strong fit role, despite matching skills to roles being the app's primary purpose.
 
-**Decision:** Sort vacancies by match tier first (Strong, Good, Stretch, Not yet), then by distance within each tier, and finally by title alphabetically. The rationale is documented in [CHANGE_Justification_Tier_First_Ranking.md](../../Oana's%20Folder/CHANGE_Justification_Tier_First_Ranking.md).
+**Decision:** Sort vacancies by match tier first (Strong, Good, Stretch, Not yet), then by distance within each tier, and finally by title alphabetically. The rationale is documented in [CHANGE_Justification_Tier_First_Ranking.md](docs/CHANGE_Justification_Tier_First_Ranking.md).
 
 **Consequences:**
 - Users see the most relevant matches first; distance remains useful for ordering roles within the same tier.
 - Roles with unknown distances are not disadvantaged against lower-tier roles, though known distances still rank first within a tier.
 - Users may need to scroll farther for a nearby role when higher-tier matches are farther away.
 - The change is limited to result presentation; match-tier calculation and thresholds are unchanged. `tests/test_ranking.py` covers the ordering contract and tie-breakers.
+
+## Relevance judged on the title only (29 October 2026)
+
+This replaces the relevance rule above (2+ non-generic skills in the description).
+
+- **Why:** a Video Editor advert at PlanetScale showed as a match for a chef. PlanetScale sells databases, so its company blurb mentions MySQL and PostgreSQL, and the old rule counted those as the job's skills.
+- **Evidence:** on the 27 October live run, the skills-in-description route let in 98 adverts under 59 titles. None was an entry-level data job: Scrum Master (32), account executives, product managers, risk managers, customer support, a full-stack developer advertised in Spanish, the Video Editor. Every real data job in the run already passed on its title.
+- **New rule:** a data word in the title, or "<qualifier> Analyst", with the same non-data exceptions as before. Anything else is "not a data role".
+- **Old databases:** the app rechecks relevance on the title when it reads a database, so snapshots built before this change (including the Codespaces live-data release) drop the same adverts. The SQLite files are unchanged.
+- **Effect:** the three test profiles go from 86 shown jobs to 77; only those nine go.
+- **Risk:** a real data job with an unusual title and no data word in it would now be hidden. It stays countable as "not a data role". If one turns up, add its title word to `DATA_TITLE` rather than bringing the description route back.

@@ -10,15 +10,13 @@ import json
 from flask import Blueprint, abort, current_app, jsonify, render_template, request
 
 from skillmatch import repository
+from skillmatch.guards import apply_tier_guard
 from skillmatch.insights import build_insights, personal_insights
 from skillmatch.match import TIER_ORDER, match_vacancy
 from skillmatch.phrasing import Phraser
 from skillmatch.profile import (
-    DEGREES,
-    SKILL_LEVELS,
+    QUALIFICATIONS,
     TRAVEL,
-    persona_cards,
-    personas,
     profile_from_json,
 )
 from skillmatch.results import (
@@ -30,9 +28,11 @@ from skillmatch.results import (
     home_place,
 )
 from skillmatch.sources.cvlibrary import REGISTER_URL
-from skillmatch.taxonomy import SENIORITY, get_taxonomy
+from skillmatch.taxonomy import get_taxonomy
+from skillmatch.web.cards import build_cards
 
 bp = Blueprint("web", __name__)
+MAX_PROFILE_HEADER_CHARS = 8192
 
 TIER_DOTS = {"strong": 3, "good": 2, "stretch": 1, "not_yet": 0}
 
@@ -66,26 +66,23 @@ def profile():
             c.id: {"label": c.label, "description": c.description, "category": c.category}
             for c in sorted(tax.competencies.values(), key=lambda c: c.label)
         },
-        "archetypes": {
-            a.id: {
+        "areas": [
+            {
+                "id": a.id,
                 "label": a.label,
                 "competencies": list(a.competencies),
-                "example": a.example_evidence,
+                "aliases": list(a.aliases),
             }
             for a in sorted(tax.archetypes.values(), key=lambda a: a.label)
-        },
+        ],
     }
     return render_template(
         "profile.html",
         course_skills=[s for s in skills if s.course_covered],
         other_skills=[s for s in skills if not s.course_covered],
-        archetypes=sorted(tax.archetypes.values(), key=lambda a: a.label),
-        seniority=SENIORITY,
+        areas=sorted(tax.archetypes.values(), key=lambda a: a.label),
         travel=TRAVEL,
-        degrees=DEGREES,
-        skill_levels=SKILL_LEVELS,
-        persona_cards=persona_cards(),
-        personas_json=personas(),
+        qualifications=QUALIFICATIONS,
         taxonomy_json=taxonomy_json,
     )
 
@@ -133,6 +130,7 @@ def results_list():
     filters = _filters_from_form()
     shortlist = build_shortlist(prof, snap, filters)
     links = build_discovery_links(shortlist.town, filters.max_miles or prof.max_miles)
+    cards = build_cards([*shortlist.results, *shortlist.revealed], prof, snap.requirements)
     return render_template(
         "partials/results_list.html",
         sl=shortlist,
@@ -141,7 +139,36 @@ def results_list():
         hidden_labels=HIDDEN_LABELS,
         tier_labels=Phraser().t["tiers"],
         links=links,
+        cards=cards,
+        total=shortlist.count,
     )
+
+
+@bp.get("/api/matches")
+def api_matches():
+    """Return request-scoped matches from a profile passed in a header."""
+    snap = snapshot()
+    if snap is None:
+        return jsonify({"error": "job data is not available"}), 503
+    raw_profile = request.headers.get("X-SkillMatch-Profile", "")
+    if len(raw_profile) > MAX_PROFILE_HEADER_CHARS:
+        return jsonify({"error": "profile is too large"}), 400
+    prof = profile_from_json(raw_profile)
+    if prof is None:
+        return jsonify({"error": "a valid profile is required"}), 400
+    shortlist = build_shortlist(prof, snap)
+    cards = build_cards([*shortlist.results, *shortlist.revealed], prof, snap.requirements)
+    response = jsonify(
+        {
+            "cards": cards,
+            "counts": {tier: len(shortlist.by_tier[tier]) for tier in TIER_ORDER},
+            "hidden": dict(shortlist.hidden),
+            "total": shortlist.count,
+        }
+    )
+    response.headers["Cache-Control"] = "no-store"
+    response.vary.add("X-SkillMatch-Profile")
+    return response
 
 
 def _vacancy_or_404(job_id: str):
@@ -173,6 +200,7 @@ def job_coverage(job_id: str):
     place = home_place(prof)
     home = (place.lat, place.lon) if place else None
     m = match_vacancy(prof, v, snap.requirements.get(job_id, []), home)
+    m = apply_tier_guard(m, prof)
     return render_template("partials/coverage.html", m=m, v=v, profile=prof)
 
 
@@ -211,6 +239,7 @@ def about():
     return render_template("about.html")
 
 
+@bp.get("/health")
 @bp.get("/healthz")
 def healthz():
     snap = snapshot()

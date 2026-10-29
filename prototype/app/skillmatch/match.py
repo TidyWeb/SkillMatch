@@ -2,31 +2,27 @@
 
 Rules (thresholds live in skillmatch/config.py):
 
-- Met: a skill rated "used in a project" or "confident", or a competency ticked with evidence.
-- Partly met: a skill "learned on the course" only; a related skill in the same family; or a
-  competency ticked without evidence.
-- Gap: nothing in the profile answers it.
-- A competency evidenced at manager level or above meets requirements about leadership, senior
-  stakeholders or reporting to leadership.
+- Course skills, added technical skills and selected area competencies are met.
+- A selected technical skill is partly met for explicit role, corporate, commercial, industry,
+  professional, proven, significant, extensive or years-based experience requirements.
+- Plain familiarity and desirable experience do not downgrade selected technical skills.
+- A requested skill or competency absent from the profile is a gap.
 - Unclassified requirements (no tags) are shown but don't count. Inferred requirements can raise
   a match but never sink one.
-- Data-experience gate: only the advert's explicit data-experience demand is compared with the
-  user's years in a data job.
-- Tiers: Strong fit, Good fit, Stretch, Not yet. No percentages anywhere.
+- Tiers: Strong match, Good match, Stretch, Not yet. No percentages anywhere.
 """
 
 from __future__ import annotations
 
 import json
-import math
 import re
 from dataclasses import dataclass, field
 
 from skillmatch import config
 from skillmatch.geo import haversine_miles
-from skillmatch.phrasing import Phraser, join_items, years_text
-from skillmatch.profile import Profile, Role
-from skillmatch.taxonomy import SENIORITY, Taxonomy, get_taxonomy
+from skillmatch.phrasing import Phraser, join_items
+from skillmatch.profile import QUALIFICATIONS, Profile
+from skillmatch.taxonomy import Taxonomy, get_taxonomy
 
 MET, PARTLY, GAP, UNCLASSIFIED = "met", "partly", "gap", "unclassified"
 STRONG, GOOD, STRETCH, NOT_YET = "strong", "good", "stretch", "not_yet"
@@ -42,17 +38,91 @@ LEADERSHIP_REQ = re.compile(
 LEADERSHIP_COMPETENCIES = {"team_leadership", "reporting_to_leadership", "stakeholder_management"}
 DISJUNCTIVE = re.compile(r"\b(or|either|such as|e\.g\.|for example|similar)\b", re.IGNORECASE)
 # Statements that ask for work experience, not just familiarity: a course project is partly.
-HANDS_ON = re.compile(
-    r"\b(proven|practical|hands-on|hands on|demonstrable|demonstrated|significant|extensive|"
-    r"professional|commercial|track record|\d+\+?\s*years?|several years)\b[^.]{0,40}\bexperience\b|"
-    r"\bexperience (managing|delivering|leading|running)\b",
-    re.IGNORECASE,
+PROFESSIONAL_WORDS = re.compile(r"\b(commercial|professional|industry|corporate)\b", re.I)
+YEARS_WORDS = re.compile(r"\b\d+\+?\s*years?\b", re.I)
+NEGATED_EXPERIENCE = re.compile(r"\b(no|not|without|never)\b[^.!?]{0,35}\bexperience\b", re.I)
+OPTIONAL_EXPERIENCE = re.compile(
+    r"\b(not required|not essential|not needed|optional|would be (?:a )?plus|"
+    r"is a plus|a plus|is helpful|is beneficial|would be advantageous|preferable|desirable)\b",
+    re.I,
 )
+QUALIFIED_EXPERIENCE = re.compile(r"\b(proven|significant|extensive)\s+experience\b", re.I)
+ROLE_EXPERIENCE = re.compile(
+    r"\bexperience\s+(?:working\s+)?as\s+(?:an?\s+)?"
+    r"[a-z][\w/&-]*(?:\s+[\w/&-]+){0,5}|"
+    r"\bexperience\s+in\s+(?:an?\s+)?"
+    r"[a-z][\w/&-]*(?:\s+[\w/&-]+){0,4}\s+role\b",
+    re.I,
+)
+
+
+def _professional_experience_for_skill(sentence: str, skill, tax: Taxonomy) -> bool:
+    """Recognise work-based experience asks while keeping them tied to the named skill."""
+    boundaries = (
+        r"[;.!?]|(?:,\s*|\s+(?:and|or|but|while)\s+)"
+        r"(?=(?:knowledge|understanding|familiarity|familiar|experience|commercial|"
+        r"professional|practical|proven|demonstrable|ability|confiden\w*)\b)"
+    )
+    for clause in re.split(boundaries, sentence, flags=re.I):
+        if not any(pattern.search(clause) for pattern in skill.patterns):
+            continue
+        if NEGATED_EXPERIENCE.search(clause) or OPTIONAL_EXPERIENCE.search(clause):
+            continue
+        experience = re.search(r"\bexperience\b", clause, re.I)
+        is_role_experience = ROLE_EXPERIENCE.search(clause)
+        is_qualified_experience = QUALIFIED_EXPERIENCE.search(clause)
+        years_experience = YEARS_WORDS.search(clause)
+        professional_context = PROFESSIONAL_WORDS.search(clause)
+        if (
+            is_role_experience
+            or is_qualified_experience
+            or (years_experience and experience)
+            or (experience and professional_context)
+        ):
+            return True
+        # Some adverts say "2+ years in industry using SQL" without the word experience.
+        if years_experience and re.search(r"\b(in|within)\s+(?:the\s+)?industry\b", clause, re.I):
+            return True
+    return False
+
+
+def _experience_reason(sentence: str, skill_label: str) -> str:
+    """Explain the actual experience signal that made a selected skill only partly met."""
+    if re.search(r"\bcorporate\b", sentence, re.I):
+        signal = "experience in a corporate environment"
+    elif re.search(r"\bcommercial\b", sentence, re.I):
+        signal = "commercial experience"
+    elif re.search(r"\bindustry\b", sentence, re.I):
+        signal = "industry experience"
+    elif re.search(r"\bprofessional\b", sentence, re.I):
+        signal = "professional experience"
+    else:
+        role = re.search(
+            r"\bexperience\b[^.!?]{0,45}?\b(?:as|in)\s+((?:an?\s+)?"
+            r"(?:data|bi|business intelligence|reporting|quality|scrum|agile|product|"
+            r"research|pricing|statistical|analytics|analyst|engineer|developer|coach)"
+            r"[^,;.!?]{0,32})",
+            sentence,
+            re.I,
+        )
+        if role:
+            signal = f"experience as {role.group(1).strip()}"
+        elif QUALIFIED_EXPERIENCE.search(sentence):
+            signal = QUALIFIED_EXPERIENCE.search(sentence).group(1).lower() + " experience"
+        elif YEARS_WORDS.search(sentence):
+            signal = YEARS_WORDS.search(sentence).group(0) + " of experience"
+        else:
+            signal = "professional experience"
+    return (
+        f"Advert asks for {signal} related to {skill_label}. Partly met: {skill_label} is in "
+        f"your profile, but this work experience is not recorded."
+    )
+
+
 INTEREST_ONLY = re.compile(r"\binterest in\b", re.IGNORECASE)
 EXPERIENCE_WORDS = re.compile(
     r"\b(experience|knowledge|background|understanding|worked|working in)\b", re.IGNORECASE
 )
-MANAGER_RANK = SENIORITY.index("manager")
 
 
 @dataclass
@@ -63,7 +133,7 @@ class TagResult:
     status: str
     answer: str | None = None  # phrasing line when met or partly met
     gap: str | None = None  # advice when a gap
-    evidence_role: str | None = None  # which previous role answered it
+    evidence_role: str | None = None
 
 
 @dataclass
@@ -98,7 +168,6 @@ class MatchResult:
     reasons: list[str]
     coverage: list[Coverage]
     distance_miles: float | None
-    data_gate: str  # ok | waived | small | stretch | not_yet
     top_answers: list[str]
     essential_gaps: list[str]
     gap_advice: list[str]
@@ -126,32 +195,38 @@ def sentence_label(label: str) -> str:
     return label
 
 
-def _best_role(profile: Profile, competency: str) -> tuple[Role | None, str]:
-    """The role that best evidences a competency: with evidence first, then most senior."""
-    best, best_ev = None, ""
-    for role in profile.roles:
-        if competency not in role.competencies:
-            continue
-        ev = role.competencies[competency] or ""
-        key = (bool(ev.strip()), role.rank, role.years)
-        if best is None or key > (bool(best_ev.strip()), best.rank, best.years):
-            best, best_ev = role, ev
-    return best, best_ev
-
-
-def _senior_role(profile: Profile) -> Role | None:
-    roles = [r for r in profile.roles if r.rank >= MANAGER_RANK and r.competencies]
-    return max(roles, key=lambda r: (r.rank, r.years)) if roles else None
+def _area_for(profile: Profile, competency: str, tax: Taxonomy):
+    for area in profile.areas:
+        if competency in area.skills:
+            return area, tax.archetypes[area.id].label
+    return None, None
 
 
 def evaluate_tag(
-    tag_type: str, tag_id: str, sentence: str, profile: Profile, tax: Taxonomy, phraser: Phraser
+    tag_type: str,
+    tag_id: str,
+    sentence: str,
+    profile: Profile,
+    tax: Taxonomy,
+    phraser: Phraser,
+    experience_counts: bool = True,
 ) -> TagResult:
     if tag_type == "skill":
         skill = tax.skills[tag_id]
         label = sentence_label(skill.label)
-        level = profile.skills.get(tag_id)
-        if level == "confident":
+        if (
+            experience_counts
+            and tag_id in profile.skills
+            and _professional_experience_for_skill(sentence, skill, tax)
+        ):
+            return TagResult(
+                tag_type,
+                tag_id,
+                label,
+                PARTLY,
+                _experience_reason(sentence, label),
+            )
+        if tag_id in profile.skills:
             return TagResult(
                 tag_type,
                 tag_id,
@@ -159,98 +234,37 @@ def evaluate_tag(
                 MET,
                 phraser.fill("answers", "skill_confident", skill=label),
             )
-        if level == "project":
-            if HANDS_ON.search(sentence):
-                return TagResult(
-                    tag_type,
-                    tag_id,
-                    label,
-                    PARTLY,
-                    phraser.fill("answers", "skill_project_needs_experience", skill=label),
-                )
-            return TagResult(
-                tag_type, tag_id, label, MET, phraser.fill("answers", "skill_project", skill=label)
-            )
-        if level == "course":
-            return TagResult(
-                tag_type,
-                tag_id,
-                label,
-                PARTLY,
-                phraser.fill("answers", "skill_course_only", skill=label),
-            )
-        related = [r for r in tax.related_skills(tag_id) if r in profile.skills]
-        if related:
-            best = max(
-                related, key=lambda r: ("course", "project", "confident").index(profile.skills[r])
-            )
-            return TagResult(
-                tag_type,
-                tag_id,
-                label,
-                PARTLY,
-                phraser.fill(
-                    "answers", "skill_related", skill=label, related=tax.skills[best].label
-                ),
-            )
-        if skill.course_covered and skill.portfolio_idea:
-            gap = phraser.fill(
-                "gaps", "course_skill_not_ticked", skill=label, idea=skill.portfolio_idea
-            )
-        else:
-            gap = phraser.fill("gaps", "skill", skill=label)
+        gap = phraser.fill("gaps", "skill", skill=label)
+        if tag_id == "azure" and re.search(r"\bfabric\b", sentence, re.I):
+            gap += " This includes Microsoft Fabric."
         return TagResult(tag_type, tag_id, label, GAP, gap=gap)
 
     comp = tax.competencies[tag_id]
     label = comp.label
-    senior = _senior_role(profile)
-    if tag_id in LEADERSHIP_COMPETENCIES and senior and LEADERSHIP_REQ.search(sentence):
-        _, ev = _best_role(profile, tag_id)
-        own_ev = senior.competencies.get(tag_id) or ev or ""
+    area, area_label = _area_for(profile, tag_id, tax)
+    if area:
         return TagResult(
             tag_type,
             tag_id,
             label,
             MET,
-            phraser.leadership(label, senior.title, senior.seniority, own_ev),
-            evidence_role=senior.title,
-        )
-    role, ev = _best_role(profile, tag_id)
-    if role and ev.strip():
-        return TagResult(
-            tag_type,
-            tag_id,
-            label,
-            MET,
-            phraser.competency(label, role.title, ev),
-            evidence_role=role.title,
-        )
-    if role:
-        return TagResult(
-            tag_type,
-            tag_id,
-            label,
-            PARTLY,
-            phraser.fill(
-                "answers",
-                "competency_without_evidence",
-                requirement=label,
-                role=_role_with_article(role),
-            ),
-            evidence_role=role.title,
+            f"Requirement: {label}. Your selected area of expertise is {area_label}.",
+            evidence_role=area_label,
         )
     key = "sector" if comp.category == "sector" else "competency"
     return TagResult(tag_type, tag_id, label, GAP, gap=phraser.fill("gaps", key, requirement=label))
 
 
-def _role_with_article(role: Role) -> str:
-    from skillmatch.phrasing import role_phrase
-
-    return role_phrase(role.title)
-
-
 def _combine(sentence: str, results: list[TagResult]) -> str:
     statuses = [t.status for t in results]
+    skill_partly = any(t.tag_type == "skill" and t.status == PARTLY for t in results)
+    skill_gap = any(t.tag_type == "skill" and t.status == GAP for t in results)
+    # A missing technical skill caps a mixed requirement at partly met, even when the sentence
+    # uses OR or examples. It must never disappear behind a met alternative.
+    if skill_partly:
+        return PARTLY
+    if skill_gap:
+        return PARTLY if any(s == MET for s in statuses) else GAP
     if DISJUNCTIVE.search(sentence):
         return max(statuses, key=lambda s: RANK[s])
     if all(s == MET for s in statuses):
@@ -260,9 +274,55 @@ def _combine(sentence: str, results: list[TagResult]) -> str:
     return PARTLY
 
 
+QUALIFICATION_LEVELS = (
+    (8, re.compile(r"\b(phd|doctorate|level 8)\b", re.I)),
+    (7, re.compile(r"\b(master'?s|postgraduate|level 7)\b", re.I)),
+    (5, re.compile(r"\b(hnd|hnc|foundation degree|level 5)\b", re.I)),
+    (6, re.compile(r"\b(bachelor'?s|degree|graduate qualification|level 6)\b", re.I)),
+    (3, re.compile(r"\b(a[- ]levels?|level 3)\b", re.I)),
+    (2, re.compile(r"\b(gcse|o[- ]levels?|level 2)\b", re.I)),
+)
+DEGREE_NOT_REQUIRED = re.compile(
+    r"\b(degree|qualification)\b[^.!?]{0,25}\b(not required|not essential|unnecessary|not needed)\b|\b(no degree|degree not required)\b",
+    re.I,
+)
+
+
+def qualification_level(sentence: str) -> int | None:
+    """Qualification level explicitly requested in an advert requirement."""
+    if DEGREE_NOT_REQUIRED.search(sentence):
+        return None
+    return next(
+        (level for level, pattern in QUALIFICATION_LEVELS if pattern.search(sentence)), None
+    )
+
+
+DATA_ROLE_YEARS = re.compile(
+    r"\b\d+\+?\s*years?\b[^.!?]{0,80}\b(data|bi|business intelligence|reporting|analyst)\s+(?:role|job|position|experience)?\b|"
+    r"\b(?:data|bi|business intelligence|reporting)\s+(?:role|job|position)\b[^.!?]{0,80}\b\d+\+?\s*years?\b",
+    re.I,
+)
+
+
 def evaluate_requirement(req: dict, profile: Profile, tax: Taxonomy, phraser: Phraser) -> Coverage:
     sentence = req["evidence_sentence"]
     tags = list(dict.fromkeys(tuple(t) for t in req.get("tags", [])))
+    # Stored tags may come from a snapshot built with an older taxonomy. Keep technical tags only
+    # when their current patterns still match the evidence sentence; this drops retired IDs and
+    # stale false positives without changing the stored snapshot.
+    tags = [
+        (tag_type, tag_id)
+        for tag_type, tag_id in tags
+        if tag_type != "skill"
+        or (
+            tag_id in tax.skills
+            and any(pattern.search(sentence) for pattern in tax.skills[tag_id].patterns)
+        )
+    ]
+    # Recheck the sentence so newly known skill spellings are visible in old snapshots.
+    for tag_type, tag_id in tax.tag(sentence):
+        if tag_type == "skill" and (tag_type, tag_id) not in tags:
+            tags.append((tag_type, tag_id))
     if INTEREST_ONLY.search(sentence) and not EXPERIENCE_WORDS.search(sentence):
         # "An interest in the automotive industry" is an attitude, not sector experience.
         tags = [
@@ -273,29 +333,56 @@ def evaluate_requirement(req: dict, profile: Profile, tax: Taxonomy, phraser: Ph
     cov = Coverage(
         req["req_id"], req["n"], req["strength"], req["confidence"], sentence, UNCLASSIFIED
     )
-    if not tags:
+    cov.tags = [
+        evaluate_tag(
+            t,
+            i,
+            sentence,
+            profile,
+            tax,
+            phraser,
+            experience_counts=req["strength"] != "desirable",
+        )
+        for t, i in tags
+    ]
+    level = qualification_level(sentence)
+    if level is not None:
+        # Only the qualification level is recorded; subject words must not become extra skill
+        # demands or let "degree in data analysis or equivalent" bypass the level check.
+        cov.tags = []
+        labels = {
+            2: "Level 2 qualification",
+            3: "Level 3 qualification",
+            5: "Level 5 qualification",
+            6: "degree or equivalent (Level 6)",
+            7: "Master's degree (Level 7)",
+            8: "PhD or doctorate (Level 8)",
+        }
+        label = labels[level]
+        if profile.highest_qualification >= level:
+            cov.tags.append(
+                TagResult(
+                    "qualification",
+                    f"level_{level}",
+                    label,
+                    MET,
+                    f"Requirement: {label}. Your highest qualification is {QUALIFICATIONS[profile.highest_qualification]}.",
+                )
+            )
+        else:
+            cov.tags.append(
+                TagResult(
+                    "qualification",
+                    f"level_{level}",
+                    label,
+                    GAP,
+                    gap=f"This advert asks for {label}; your highest qualification is {QUALIFICATIONS[profile.highest_qualification]}.",
+                )
+            )
+    if not cov.tags:
         return cov
-    cov.tags = [evaluate_tag(t, i, sentence, profile, tax, phraser) for t, i in tags]
     cov.status = _combine(sentence, cov.tags)
     return cov
-
-
-def data_gate(vacancy: dict, profile: Profile) -> tuple[str, float]:
-    """(gate, gap in years). Gate: ok | waived | small | stretch | not_yet."""
-    demand = vacancy.get("data_years")
-    if demand is None or (isinstance(demand, float) and math.isnan(demand)):
-        return "ok", 0.0
-    gap = float(demand) - float(profile.data_years or 0)
-    if gap <= 0:
-        return "ok", 0.0
-    years = math.ceil(gap - 1e-9)
-    if years <= config.DATA_GAP_SMALL:
-        signals = vacancy.get("entry_signals") or []
-        welcoming = bool(signals) or vacancy.get("degree") == "or_equivalent"
-        return ("waived" if welcoming else "small"), gap
-    if years <= config.DATA_GAP_STRETCH:
-        return "stretch", gap
-    return "not_yet", gap
 
 
 def _signals(vacancy: dict) -> list[str]:
@@ -323,30 +410,33 @@ def match_vacancy(
         evaluate_requirement(r, profile, tax, phraser)
         for r in sorted(requirements, key=lambda r: r["n"])
         if r["strength"] in ("essential", "desirable")
+        and not (
+            DATA_ROLE_YEARS.search(r["evidence_sentence"])
+            and not any(t == "skill" for t, _ in r.get("tags", []))
+        )
     ]
     essentials = [c for c in coverage if c.strength == "essential" and c.counts]
     e_gaps = [c for c in essentials if c.status == GAP]
     e_partly = [c for c in essentials if c.status == PARTLY]
     desirable_met = sum(1 for c in coverage if c.strength == "desirable" and c.status == MET)
     # Inferred requirements can raise a match (never sink one): fully met ones count towards
-    # the minimum number of essentials a Strong fit needs.
+    # the minimum number of essentials a Strong match needs.
     inferred_met = sum(
         1
         for c in coverage
         if c.strength == "essential" and c.confidence == "inferred" and c.status == MET
     )
 
-    gate, gap_years = data_gate(vacancy, profile)
-    n_gaps = len(e_gaps) + (1 if gate == "small" else 0)
+    n_gaps = len(e_gaps)
 
-    if gate == "not_yet" or n_gaps >= config.NOT_YET_MIN_GAPS:
+    if n_gaps >= config.NOT_YET_MIN_GAPS:
         tier = NOT_YET
-    elif gate == "stretch" or n_gaps >= config.STRETCH_MIN_GAPS:
+    elif n_gaps >= config.STRETCH_MIN_GAPS:
         tier = STRETCH
     elif n_gaps >= 1:
         tier = GOOD
     elif len(essentials) + inferred_met < config.STRONG_MIN_ESSENTIALS:
-        tier = GOOD  # too little to check: never call it a strong fit
+        tier = GOOD  # too little to check: never call it a strong match
     elif len(e_partly) <= config.STRONG_MAX_PARTLY:
         tier = STRONG
     else:
@@ -375,23 +465,6 @@ def match_vacancy(
                 "reasons", "essential_partly", n=len(e_partly), items=join_items(partly_labels)
             )
         )
-    if gate != "ok":
-        key = {
-            "waived": "data_years_waived",
-            "small": "data_years_small_gap",
-            "stretch": "data_years_stretch",
-            "not_yet": "data_years_not_yet",
-        }[gate]
-        reasons.append(
-            phraser.fill(
-                "reasons",
-                key,
-                years=years_text(vacancy.get("data_years")),
-                user_years=years_text(profile.data_years),
-            )
-        )
-    if vacancy.get("degree") == "required" and not profile.has_degree:
-        reasons.append(phraser.fill("reasons", "degree_warning"))
     signals = vacancy["entry_signals"]
     if signals:
         reasons.append(
@@ -411,7 +484,6 @@ def match_vacancy(
         reasons=reasons,
         coverage=coverage,
         distance_miles=distance,
-        data_gate=gate,
         top_answers=top_answers(coverage),
         essential_gaps=list(dict.fromkeys(gap_labels)),
         gap_advice=list(

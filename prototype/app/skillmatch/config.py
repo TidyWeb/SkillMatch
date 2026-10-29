@@ -13,6 +13,7 @@ FIXTURES_PATH = DATA_DIR / "fixtures" / "vacancies.json"
 TAXONOMY_DIR = DATA_DIR / "taxonomy"
 REPORTS_DIR = ROOT / "reports"
 CACHE_DIR = DATA_DIR / "cache"
+TAILOR_PAGE_URL = os.environ.get("TAILOR_PAGE_URL", "").strip()
 
 
 def load_env() -> None:
@@ -25,7 +26,7 @@ def load_env() -> None:
 # ----- Filters -----
 # Minimum distinct non-generic technical skills that make an advert a data role when its
 # title doesn't say so (relevance filter). Tuned during calibration; see DECISIONS.md.
-RELEVANCE_MIN_SKILLS = 2
+# RELEVANCE_MIN_SKILLS retired 29 Oct 2026: relevance is now judged on the title only (filters.is_data_role).
 
 # ----- ETL -----
 NEAR_DUPLICATE_CHARS = 600  # compare the first N characters of descriptions
@@ -43,8 +44,8 @@ EVIDENCE_MAX_CHARS = 400  # longest advert sentence we store as evidence
 REED_PAGES = 3  # follow up to this many pages of 100 when a search fills a page
 
 # ----- Matching (see skillmatch/match.py) -----
-STRONG_MAX_PARTLY = 1  # Strong fit allows at most this many partly-met essentials
-STRONG_MIN_ESSENTIALS = 2  # fewer clearly essential requirements than this: Good fit at most
+STRONG_MAX_PARTLY = 1  # Strong match allows at most this many partly-met essentials
+STRONG_MIN_ESSENTIALS = 2  # fewer clearly essential requirements than this: Good match at most
 STRETCH_MIN_GAPS = 2  # essential gaps that make an advert a Stretch
 NOT_YET_MIN_GAPS = 3  # essential gaps that make an advert Not yet
 DATA_GAP_SMALL = 1  # data-years gap waived when the advert welcomes newcomers

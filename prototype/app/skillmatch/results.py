@@ -12,6 +12,7 @@ from functools import lru_cache
 from urllib.parse import quote, quote_plus
 
 from skillmatch.geo import Geocoder, town_table
+from skillmatch.guards import apply_tier_guard
 from skillmatch.match import TIER_ORDER, MatchResult, match_vacancy
 from skillmatch.phrasing import Phraser
 from skillmatch.profile import Profile
@@ -30,7 +31,6 @@ HIDDEN_LABELS = {
     "too far": "beyond your maximum distance",
     "remote": "UK-remote roles hidden (you chose not to include them)",
     "office days": "need more office days than you want",
-    "salary": "pay below your minimum salary",
 }
 
 
@@ -135,6 +135,7 @@ def build_shortlist(
         m = match_vacancy(
             profile, v, snap.requirements.get(v["vacancy_id"], []), home, tax, phraser
         )
+        m = apply_tier_guard(m, profile, tax)
         if v["is_remote"] and not profile.include_remote:
             hidden["remote"] += 1
             continue
@@ -147,10 +148,6 @@ def build_shortlist(
             and v["office_days_min"] > profile.max_office_days
         ):
             hidden["office days"] += 1
-            continue
-        annual = _salary_annual_max(v)
-        if profile.min_salary and annual is not None and annual < profile.min_salary:
-            hidden["salary"] += 1
             continue
         if filters.arrangement != "any" and v["arrangement"] != filters.arrangement:
             continue

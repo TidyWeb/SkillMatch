@@ -1,45 +1,49 @@
-"""The candidate profile: validated from the JSON the browser sends with each request.
-
-The profile lives in the browser's sessionStorage. The server builds this object for one request
-and forgets it. Nothing here is written to disk, logged or sent to analytics. The postcode is
-reduced to its outward code ("B91") on arrival.
-"""
+"""Request-scoped, validated candidate profile."""
 
 from __future__ import annotations
 
 import json
+import logging
+import math
+import re
 from dataclasses import dataclass, field
 from functools import lru_cache
+from itertools import combinations
 
 import yaml
 
 from skillmatch import config
 from skillmatch.geo import outward_code
-from skillmatch.taxonomy import SENIORITY, Taxonomy, get_taxonomy
+from skillmatch.taxonomy import Taxonomy, get_taxonomy
 
-SKILL_LEVELS = ("course", "project", "confident")
 TRAVEL = {
     "car": "Car",
     "motorbike": "Motorbike",
     "public_transport": "Public transport",
     "bike_walk": "Bike or walk",
 }
-DEGREES = {"none": "No degree", "bachelors": "Bachelor's", "masters": "Master's", "phd": "PhD"}
+QUALIFICATIONS = {
+    0: "No formal qualifications",
+    2: "GCSE or O level – Level 2",
+    3: "A level – Level 3",
+    5: "HNC, HND or foundation degree – Level 4–5",
+    6: "Bachelor's degree – Level 6",
+    7: "Master's degree – Level 7",
+    8: "PhD or doctorate – Level 8",
+}
+MAX_AREAS = 5
 MAX_TEXT = 200
-MAX_ROLES = 4
+LOG = logging.getLogger(__name__)
+
+
+def _course_skills():
+    return [s.id for s in get_taxonomy().skills.values() if s.course_covered]
 
 
 @dataclass
-class Role:
-    archetype: str | None
-    title: str
-    seniority: str = "individual"
-    years: float = 0
-    competencies: dict[str, str] = field(default_factory=dict)  # id -> evidence ("" = none)
-
-    @property
-    def rank(self) -> int:
-        return SENIORITY.index(self.seniority)
+class Area:
+    id: str
+    skills: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -49,83 +53,86 @@ class Profile:
     max_miles: float | None = None
     include_remote: bool = True
     max_office_days: float = 5
-    skills: dict[str, str] = field(default_factory=dict)  # id -> course | project | confident
-    roles: list[Role] = field(default_factory=list)
-    ci_diploma: bool = True
-    degree: str = "none"
-    other_qualifications: str = ""
-    data_years: float = 0
-    min_salary: float | None = None
-    name: str | None = None  # demo personas only
+    skills: list[str] = field(default_factory=_course_skills)
+    areas: list[Area] = field(default_factory=list)
+    highest_qualification: int = 0
 
     @property
     def has_degree(self) -> bool:
-        return self.degree in ("bachelors", "masters", "phd")
+        return self.highest_qualification >= 6
 
 
-def _text(value, limit: int = MAX_TEXT) -> str:
+def _text(value, limit=MAX_TEXT):
     return " ".join(str(value or "").split())[:limit]
 
 
-def _number(value, lo: float, hi: float) -> float | None:
+def _number(value, lo, hi):
     try:
         n = float(value)
     except (TypeError, ValueError):
+        return None
+    if not math.isfinite(n):
         return None
     return min(max(n, lo), hi)
 
 
 def profile_from_dict(data: dict | None, tax: Taxonomy | None = None) -> Profile:
-    """Build a Profile from untrusted input, keeping only known keys and values."""
     tax = tax or get_taxonomy()
     data = data if isinstance(data, dict) else {}
     p = Profile()
     p.outcode = outward_code(_text(data.get("postcode") or data.get("outcode"), 10))
-    p.travel = data.get("travel") if data.get("travel") in TRAVEL else None
+    travel = data.get("travel")
+    p.travel = travel if isinstance(travel, str) and travel in TRAVEL else None
     p.max_miles = (
         _number(data.get("max_miles"), 1, 200) if data.get("max_miles") not in (None, "") else None
     )
     p.include_remote = data.get("include_remote") not in (False, "false", "no", "0", 0)
     days = _number(data.get("max_office_days"), 0, 5)
     p.max_office_days = 5 if days is None else days
-    skills = data.get("skills") if isinstance(data.get("skills"), dict) else {}
-    p.skills = {k: v for k, v in skills.items() if k in tax.skills and v in SKILL_LEVELS}
-    roles = data.get("roles") if isinstance(data.get("roles"), list) else []
-    for r in roles[:MAX_ROLES]:
-        if not isinstance(r, dict):
+    raw_skills = data.get("skills")
+    course = [s.id for s in tax.skills.values() if s.course_covered]
+    added = (
+        [
+            s
+            for s in raw_skills
+            if isinstance(s, str) and s in tax.skills and not tax.skills[s].course_covered
+        ]
+        if isinstance(raw_skills, list)
+        else []
+    )
+    p.skills = list(dict.fromkeys(course + added))
+    raw_areas = data.get("areas") if isinstance(data.get("areas"), list) else []
+    seen = set()
+    for raw in raw_areas:
+        if not isinstance(raw, dict):
             continue
-        arch = r.get("archetype") if r.get("archetype") in tax.archetypes else None
-        title = _text(r.get("title"), 80)
-        if not arch and title:
-            hit = tax.match_archetype(title)
-            arch = hit[0] if hit else None
-        if not arch and not title:
+        area_id = raw.get("id")
+        if not isinstance(area_id, str) or area_id not in tax.archetypes or area_id in seen:
             continue
-        comps = r.get("competencies") if isinstance(r.get("competencies"), dict) else {}
-        p.roles.append(
-            Role(
-                archetype=arch,
-                title=title or tax.archetypes[arch].label,
-                seniority=r.get("seniority") if r.get("seniority") in SENIORITY else "individual",
-                years=_number(r.get("years"), 0, 60) or 0,
-                competencies={
-                    c: _text(ev)
-                    for c, ev in comps.items()
-                    if c in tax.competencies and isinstance(ev, str | type(None))
-                },
+        seen.add(area_id)
+        valid = set(tax.archetypes[area_id].competencies)
+        # Missing skills means preselect all area skills. An explicit [] means none.
+        selected = raw.get("skills", list(valid))
+        if not isinstance(selected, list):
+            selected = []
+        p.areas.append(
+            Area(
+                area_id,
+                list(dict.fromkeys(s for s in selected if isinstance(s, str) and s in valid)),
             )
         )
-    quals = data.get("qualifications") if isinstance(data.get("qualifications"), dict) else {}
-    p.ci_diploma = quals.get("ci_diploma", True) not in (False, "false", "no", 0)
-    p.degree = quals.get("degree") if quals.get("degree") in DEGREES else "none"
-    p.other_qualifications = _text(quals.get("other"))
-    p.data_years = _number(data.get("data_years"), 0, 40) or 0
-    p.min_salary = (
-        _number(data.get("min_salary"), 0, 500000)
-        if data.get("min_salary") not in (None, "")
-        else None
-    )
-    p.name = _text(data.get("name"), 60) or None
+        if len(p.areas) >= MAX_AREAS:
+            break
+    q = data.get("highest_qualification", 0)
+    if isinstance(q, bool):
+        q = 0
+    elif isinstance(q, int):
+        pass
+    elif isinstance(q, str) and re.fullmatch(r"(?:0|2|3|5|6|7|8)", q.strip()):
+        q = int(q.strip())
+    else:
+        q = 0
+    p.highest_qualification = q if q in QUALIFICATIONS else 0
     return p
 
 
@@ -139,11 +146,92 @@ def profile_from_json(text: str | None, tax: Taxonomy | None = None) -> Profile 
     return profile_from_dict(data, tax) if isinstance(data, dict) else None
 
 
+def areas_for_competencies(competencies, tax: Taxonomy) -> tuple[list[dict], list[str]]:
+    """Represent legacy ticks with at most five areas, preserving every possible tick.
+
+    Greedy overlap can fill all five slots while missing a skill another combination covers.
+    This bounded set-cover search is only used by fixture/report conversion, not web requests.
+    """
+    wanted = set(competencies) & tax.competencies.keys()
+    ids = sorted(wanted)
+    bits = {cid: 1 << i for i, cid in enumerate(ids)}
+    candidates = [
+        (a, sum(bits[c] for c in set(a.competencies) & wanted))
+        for a in tax.archetypes.values()
+        if set(a.competencies) & wanted
+    ]
+    candidates.sort(key=lambda item: (-item[1].bit_count(), item[0].id))
+    full = (1 << len(ids)) - 1
+    best, best_mask = (), 0
+    for count in range(1, min(MAX_AREAS, len(candidates)) + 1):
+        for chosen in combinations(candidates, count):
+            mask = 0
+            for _, value in chosen:
+                mask |= value
+            if mask.bit_count() > best_mask.bit_count():
+                best, best_mask = chosen, mask
+            if mask == full:
+                best = chosen
+                return (
+                    [
+                        {"id": a.id, "skills": [c for c in a.competencies if c in wanted]}
+                        for a, _ in best
+                    ],
+                    [],
+                )
+    return (
+        [{"id": a.id, "skills": [c for c in a.competencies if c in wanted]} for a, _ in best],
+        [cid for cid in ids if not best_mask & bits[cid]],
+    )
+
+
 @lru_cache(maxsize=1)
 def personas() -> dict[str, dict]:
-    """Demo personas from data/personas.yaml, keyed by id, as profile dictionaries."""
+    """Legacy fixtures converted in memory; public profile validation ignores roles."""
     data = yaml.safe_load((config.DATA_DIR / "personas.yaml").read_text())
-    return {p["id"]: p["profile"] for p in data["personas"]}
+    tax = get_taxonomy()
+    out = {}
+    for item in data["personas"]:
+        old = item["profile"]
+        skills = [
+            k
+            for k, v in old.get("skills", {}).items()
+            if k in tax.skills and v in ("course", "project", "confident")
+        ]
+        comps = {
+            c
+            for role in old.get("roles", [])
+            for c in role.get("competencies", {})
+            if c in tax.competencies
+        }
+        areas, remaining = areas_for_competencies(comps, tax)
+        if remaining:
+            LOG.warning(
+                "Legacy persona %s has competencies that have no v2 area mapping: %s",
+                item["id"],
+                sorted(remaining),
+            )
+        degree = {"none": 0, "bachelors": 6, "masters": 7, "phd": 8}.get(
+            old.get("qualifications", {}).get("degree"), 0
+        )
+        out[item["id"]] = {
+            **{
+                k: old[k]
+                for k in (
+                    "postcode",
+                    "outcode",
+                    "travel",
+                    "max_miles",
+                    "include_remote",
+                    "max_office_days",
+                )
+                if k in old
+            },
+            "skills": skills,
+            "areas": areas,
+            "highest_qualification": degree,
+        }
+    return out
 
 
 @lru_cache(maxsize=1)

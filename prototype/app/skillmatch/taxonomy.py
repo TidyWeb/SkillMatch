@@ -8,6 +8,7 @@ entry, so a non-technical reviewer can fix a YAML edit from the error message al
 
 from __future__ import annotations
 
+import logging
 import re
 import string
 import sys
@@ -21,6 +22,7 @@ from rapidfuzz import fuzz, process
 from skillmatch import config
 
 HEADER = "# DRAFT: for team review"
+LOG = logging.getLogger(__name__)
 ID_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 SKILL_CATEGORIES = {
     "programming",
@@ -46,6 +48,7 @@ PLACEHOLDERS = {
     "related",
     "idea",
     "years",
+    "level",
     "user_years",
     "n",
     "items",
@@ -53,29 +56,17 @@ PLACEHOLDERS = {
 }
 REQUIRED_PHRASING = {
     "answers": {
-        "competency_with_evidence",
-        "competency_with_quote",
-        "leadership_with_evidence",
-        "leadership_without_evidence",
         "skill_confident",
         "skill_project",
-        "skill_project_needs_experience",
-        "skill_course_only",
-        "skill_related",
-        "competency_without_evidence",
+        "skill_commercial_experience",
     },
-    "gaps": {"course_skill_not_ticked", "skill", "competency", "sector"},
+    "gaps": {"skill", "competency", "sector"},
     "reasons": {
         "all_essentials_answered",
         "essential_gaps",
         "essential_partly",
         "no_essentials_found",
         "few_essentials_found",
-        "data_years_waived",
-        "data_years_small_gap",
-        "data_years_stretch",
-        "data_years_not_yet",
-        "degree_warning",
         "entry_signals",
         "desirable_answered",
     },
@@ -200,7 +191,7 @@ def _read(path: Path, errors: list[str]) -> dict:
         errors.append(f"{path.name}: file is missing")
         return {}
     text = path.read_text(encoding="utf-8")
-    if not text.startswith(HEADER):
+    if path.name != "archetype_groups_v2.yaml" and not text.startswith(HEADER):
         errors.append(f'{path.name}: the first line must be "{HEADER}"')
     try:
         data = yaml.safe_load(text) or {}
@@ -352,30 +343,34 @@ def _load_competencies(data: dict, errors: list[str]) -> dict:
 
 
 def _load_archetypes(data: dict, competencies: dict, errors: list[str]) -> dict:
-    fname = "role_archetypes.yaml"
+    fname = "archetype_groups_v2.yaml"
     out: dict[str, Archetype] = {}
     for item in _entries(
         data,
-        "archetypes",
+        "groups",
         fname,
         errors,
         {"id", "label", "competencies", "example_evidence"},
-        {"aliases"},
+        {"aliases", "lens_hints"},
     ):
         where = f"{fname}, entry '{item['id']}'"
         comps = _str_list(item["competencies"], where, "competencies", errors)
-        if not comps:
-            errors.append(f"{where}: list at least one competency")
+        known = []
         for c in comps:
             if c not in competencies:
-                errors.append(f"{where}: competency '{c}' does not exist in competencies.yaml")
-        if len(set(comps)) != len(comps):
-            errors.append(f"{where}: a competency is listed twice")
+                LOG.warning("%s: skipping unknown competency id '%s'", where, c)
+            elif c not in known:
+                known.append(c)
+        if not known:
+            errors.append(f"{where}: no known competencies")
+        hints = item.get("lens_hints", {})
+        if hints is not None and not isinstance(hints, dict):
+            errors.append(f"{where}: 'lens_hints' must be a mapping")
         out[item["id"]] = Archetype(
             id=item["id"],
             label=str(item["label"]),
             aliases=tuple(_str_list(item.get("aliases"), where, "aliases", errors)),
-            competencies=tuple(comps),
+            competencies=tuple(known),
             example_evidence=str(item["example_evidence"]),
         )
     return out
@@ -411,7 +406,7 @@ def load_taxonomy(directory: Path | str | None = None) -> Taxonomy:
     errors: list[str] = []
     skill_data = _read(directory / "technical_skills.yaml", errors)
     comp_data = _read(directory / "competencies.yaml", errors)
-    arch_data = _read(directory / "role_archetypes.yaml", errors)
+    arch_data = _read(directory / "archetype_groups_v2.yaml", errors)
     phrasing_data = _read(directory / "phrasing.yaml", errors)
     skills, families = _load_skills(skill_data, errors) if skill_data else ({}, {})
     competencies = _load_competencies(comp_data, errors) if comp_data else {}
@@ -445,7 +440,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     print(
         f"OK: {len(tax.skills)} skills in {len(tax.families)} families, "
-        f"{len(tax.competencies)} competencies, {len(tax.archetypes)} role archetypes."
+        f"{len(tax.competencies)} competencies, {len(tax.archetypes)} areas."
     )
     return 0
 

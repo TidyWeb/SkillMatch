@@ -19,6 +19,7 @@ from email.utils import parsedate_to_datetime
 
 from skillmatch.sources.base import Vacancy
 from skillmatch.sources.http import PoliteClient
+from skillmatch.text import repair_mojibake
 
 log = logging.getLogger(__name__)
 
@@ -100,6 +101,8 @@ class RemoteOKAdapter:
 
     def fetch(self) -> list[Vacancy]:
         body = self.client.get(self.API)
+        # Also repairs old cache entries, which may already contain Latin-1-decoded UTF-8.
+        body = repair_mojibake(body)
         jobs = [j for j in body if isinstance(j, dict) and j.get("id")]
         out = []
         for j in jobs:

@@ -2,7 +2,7 @@
 
 **Match the skills from your previous career to entry-level data jobs in the West Midlands.**
 
-SkillMatch is for people finishing Code Institute's *Data Analytics with AI* course in the West Midlands. Most have a fresh qualification in Python, pandas, SQL, statistics and Power BI or Tableau, but no time yet in a data job. Most also have substantial careers behind them: PhD researchers, teachers, nurses, senior managers, plc directors, kitchen managers, retail and warehouse supervisors, people in the trades.
+SkillMatch is for people finishing Code Institute's *Data Analytics with AI* course in the West Midlands. Most have a fresh qualification in Python, pandas, statistics and Power BI or Tableau, but no time yet in a data job. Most also have substantial careers behind them: PhD researchers, teachers, nurses, senior managers, plc directors, kitchen managers, retail and warehouse supervisors, people in the trades.
 
 SkillMatch matches **people's skills, not job titles or sector history**. It turns someone's previous working life into the competencies recruiters' adverts actually ask for, adds the technical skills from the course, and finds entry-level and early-career data roles nearby. For every requirement, it shows how the person's own background answers it:
 

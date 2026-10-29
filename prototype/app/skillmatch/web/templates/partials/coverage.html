@@ -1,6 +1,7 @@
 {% from "partials/_tier.html" import meter with context %}
 <section class="coverage" aria-labelledby="cov-h">
   <h2 id="cov-h">{{ meter(m.tier, m.tier_label) }}{% if m.distance_miles is not none %} <span class="hint">· {{ m|distance }} from {{ profile.outcode }}</span>{% endif %}</h2>
+  {% if m.guard_reason %}<p>{{ m.guard_reason }}</p>{% endif %}
   <ul class="reasons">{% for r in m.reasons %}<li>{{ r }}</li>{% endfor %}</ul>
 
   {% set answers = [] %}{% set seen = [] %}{% for c in m.coverage %}{% for t in c.tags if t.status == 'met' and t.answer %}{% if t.tag_id not in seen %}{% set _ = seen.append(t.tag_id) %}{% set _ = answers.append(t.answer) %}{% endif %}{% endfor %}{% endfor %}
