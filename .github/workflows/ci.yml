@@ -1,13 +1,18 @@
-# On every push and pull request: lint, build the fixtures database and run the tests.
+# On every push to main and every pull request: lint, build the fixtures database and run the tests.
 # Needs no keys and no network access to job sources.
 name: ci
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    working-directory: prototype/app
 
 jobs:
   test:
@@ -17,6 +22,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.2
         with:
           version: "0.12.3"
+          cache-dependency-glob: prototype/app/uv.lock
       - run: uv sync --frozen
       - run: uv run ruff check . && uv run ruff format --check .
       - run: uv run python -m skillmatch.etl --mode fixtures

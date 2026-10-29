@@ -38,6 +38,7 @@ def repair_mojibake(value):
     characters such as a standalone `é` or a curly apostrophe are left alone.
     """
     if isinstance(value, str):
+
         def decode_run(match: re.Match) -> str:
             run = match.group(0)
             try:

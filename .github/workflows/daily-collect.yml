@@ -2,7 +2,9 @@ name: Daily SkillMatch collection
 
 on:
   schedule:
-    - cron: "23 10 * * *"
+    - cron: "23 6 * * *"
+      timezone: "Europe/London"
+    - cron: "23 12 * * *"
       timezone: "Europe/London"
   workflow_dispatch:
 
@@ -14,7 +16,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+    outputs:
+      run: ${{ steps.gate.outputs.run }}
+    steps:
+      - name: Decide whether to collect
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          today="$(date -u +%F)"
+          if gh run list --workflow daily-collect.yml --status success --limit 20 --json createdAt \
+            | jq -e --arg today "$today" 'any(.[]; .createdAt | startswith($today))' >/dev/null; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Today's collection already succeeded; skipping this scheduled run." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
   collect:
+    needs: check
+    if: needs.check.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     environment: reed
@@ -23,7 +55,7 @@ jobs:
     steps:
       - name: Print schedule and current time
         run: |
-          echo "Schedule: daily at 10:23 Europe/London"
+          echo "Schedule: daily at 06:23, backup 12:23 Europe/London"
           echo "Event: ${{ github.event_name }}"
           echo "UTC: $(date -u '+%Y-%m-%d %H:%M:%S %Z')"
           echo "UK:  $(TZ=Europe/London date '+%Y-%m-%d %H:%M:%S %Z')"
@@ -156,6 +188,7 @@ jobs:
     if: ${{ vars.DEPLOY_ENABLED == 'true' }}
     needs: collect
     runs-on: ubuntu-latest
+    environment: reed
     timeout-minutes: 30
     permissions:
       contents: read
@@ -204,6 +237,7 @@ jobs:
             --project "$GCP_PROJECT_ID" \
             --region "$REGION" \
             --image "$IMAGE" \
+            --service-account skillmatch-runtime@skillmatch-tidyweb.iam.gserviceaccount.com \
             --port 8080 \
             --min-instances 0 \
             --max-instances 1 \

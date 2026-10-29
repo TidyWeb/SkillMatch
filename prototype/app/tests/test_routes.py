@@ -107,15 +107,21 @@ def test_insights_personal(client):
 
 
 def test_archetype_api(client):
-    assert client.get("/api/archetype?title=Head+Chef").get_json()["id"] == "kitchen_food_production"
+    assert (
+        client.get("/api/archetype?title=Head+Chef").get_json()["id"] == "kitchen_food_production"
+    )
     assert client.get("/api/archetype?title=zzzz").get_json() == {}
 
 
 def test_matches_api_requires_profile_header(client):
     assert client.get("/api/matches").status_code == 400
-    assert client.get("/api/matches", headers={"X-SkillMatch-Profile": "not-json"}).status_code == 400
+    assert (
+        client.get("/api/matches", headers={"X-SkillMatch-Profile": "not-json"}).status_code == 400
+    )
     too_large = " " * 8193
-    assert client.get("/api/matches", headers={"X-SkillMatch-Profile": too_large}).status_code == 400
+    assert (
+        client.get("/api/matches", headers={"X-SkillMatch-Profile": too_large}).status_code == 400
+    )
 
 
 def test_matches_api_returns_ordered_card_feed(client):
@@ -131,8 +137,19 @@ def test_matches_api_returns_ordered_card_feed(client):
     assert ranks == sorted(ranks)
     card = data["cards"][0]
     assert {
-        "id", "title", "company", "location", "salary_text", "match_level", "match_tier",
-        "remote", "advert_url", "detail", "reasons", "job_brief", "tailor_url",
+        "id",
+        "title",
+        "company",
+        "location",
+        "salary_text",
+        "match_level",
+        "match_tier",
+        "remote",
+        "advert_url",
+        "detail",
+        "reasons",
+        "job_brief",
+        "tailor_url",
     } <= card.keys()
     assert {"requirements_met", "partly_met", "gaps", "duties"} <= card["detail"].keys()
 

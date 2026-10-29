@@ -1,120 +1,149 @@
 # Deploying SkillMatch to Google Cloud Run
 
-SkillMatch runs as a single container on Cloud Run. Each night a GitHub Actions workflow (`.github/workflows/refresh-and-deploy.yml`) does the following:
+The repository root workflow `.github/workflows/daily-collect.yml` collects vacancies, builds the image on GitHub's runner and deploys it to Cloud Run. The image is pushed to `europe-west2-docker.pkg.dev/dummy-project-id/skillmatch/skillmatch`. The workflow does not use Cloud Build.
 
-1. Rebuilds the vacancy database from the live sources.
-2. Runs the tests.
-3. Bakes the fresh SQLite file into a new image.
-4. Deploys the image.
+## 1. Schedule and deploy gate
 
-There is no database server and no user storage, and vacancy data is never committed to git. GitHub authenticates to Google with **Workload Identity Federation**, so no long-lived Google key is stored anywhere.
+The `deploy` job runs only when the repository variable `DEPLOY_ENABLED` is `true`.
 
-> Nothing here has been run yet. These are the one-time steps for whoever owns the Google Cloud project. They create billable resources (Cloud Run scales to zero, so an idle service costs close to nothing, but Artifact Registry storage and egress are charged).
+- The main collection runs daily at 06:23 Europe/London.
+- A backup run starts at 12:23 Europe/London. It skips collection if a successful run was created today (UTC).
+- **Run workflow** starts collection every time, including when an earlier run succeeded.
 
-## Before you start
+The deploy job uses the `reed` environment. The Reed API key is available to collection through that environment.
 
-- A Google Cloud project with billing enabled, and the `gcloud` CLI signed in as a project owner.
-- The GitHub repository that holds this code. The team's convention is to stage it from `/home/Phil/C_C/Git/skillmatch-app`.
-- A Reed Jobseeker API key.
+## 2. One-time Google Cloud setup
 
-Set these once in your terminal. Replace each `dummy…` value with your own.
+The project has billing enabled. Replace the example values below with your project ID and number when checking or recreating the setup.
+
+1. Enable these APIs: Cloud Run, Artifact Registry, IAM Credentials, Security Token Service, IAM, and Cloud Resource Manager (`run.googleapis.com`, `artifactregistry.googleapis.com`, `iamcredentials.googleapis.com`, `sts.googleapis.com`, `iam.googleapis.com`, `cloudresourcemanager.googleapis.com`).
+2. Create the Docker repository `skillmatch` in `europe-west2`. Its cleanup rules keep the latest two images and delete the rest.
+3. Create two service accounts:
+   - `skillmatch-deployer` has `roles/run.admin` on the project, `roles/artifactregistry.writer` on the `skillmatch` repository only, and `roles/iam.serviceAccountUser` on `skillmatch-runtime` only.
+   - `skillmatch-runtime` has no IAM roles. Cloud Run runs the app as this account.
+4. Create the Workload Identity pool `github` and OIDC provider `skillmatch-repo`. Map `google.subject=assertion.sub`, `attribute.repository=assertion.repository`, `attribute.ref=assertion.ref`, and `attribute.environment=assertion.environment`. The provider condition is `assertion.repository == 'TidyWeb/SkillMatch' && assertion.ref == 'refs/heads/main' && assertion.environment == 'reed'`.
+5. Grant `roles/iam.workloadIdentityUser` on `skillmatch-deployer` to `principalSet://iam.googleapis.com/projects/000000000000/locations/global/workloadIdentityPools/github/attribute.repository/TidyWeb/SkillMatch`. This lets the approved GitHub workflow act as the deployer without a stored Google key.
+
+The setup uses the project number and ID only in these resource names. Example placeholders:
 
 ```bash
-PROJECT_ID="dummy1dummy1"            # your Google Cloud project id
-GITHUB_REPO="dummy2dummy2/skillmatch" # owner/name of the GitHub repository
-REGION="europe-west2"                 # London
+PROJECT_ID="dummy-project-id"
+PROJECT_NUMBER="000000000000"
+REGION="europe-west2"
+GITHUB_REPO="TidyWeb/SkillMatch"
 POOL="github"
 PROVIDER="skillmatch-repo"
-SA_NAME="skillmatch-deployer"
-SA="${SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com"
-PROJECT_NUMBER="$(gcloud projects describe "$PROJECT_ID" --format='value(projectNumber)')"
+DEPLOYER="skillmatch-deployer@${PROJECT_ID}.iam.gserviceaccount.com"
+RUNTIME="skillmatch-runtime@${PROJECT_ID}.iam.gserviceaccount.com"
 ```
 
-## 1. Turn on the services
+Run these commands in a shell with `gcloud` configured for the project:
 
-```bash
-gcloud services enable run.googleapis.com artifactregistry.googleapis.com \
-  iamcredentials.googleapis.com sts.googleapis.com --project "$PROJECT_ID"
-```
+1. Enable the APIs:
 
-## 2. Create the image repository
+   ```bash
+   gcloud services enable run.googleapis.com artifactregistry.googleapis.com iamcredentials.googleapis.com sts.googleapis.com iam.googleapis.com cloudresourcemanager.googleapis.com --project "$PROJECT_ID"
+   ```
 
-```bash
-gcloud artifacts repositories create skillmatch \
-  --repository-format=docker --location="$REGION" --project "$PROJECT_ID" \
-  --description="SkillMatch images"
-```
+2. Create the image repository and its cleanup policies:
 
-Optional: add a cleanup policy in the console so old nightly images are removed after, say, 14 days.
+   ```bash
+   gcloud artifacts repositories create skillmatch --repository-format=docker --location="$REGION" --project "$PROJECT_ID" --description="SkillMatch app images"
+   ```
 
-## 3. Create the deploying service account and its roles
+   Save the following as `cleanup.json`:
 
-```bash
-gcloud iam service-accounts create "$SA_NAME" --project "$PROJECT_ID" \
-  --display-name="SkillMatch GitHub deployer"
+   ```json
+   [
+     {
+       "name": "keep-latest-2",
+       "action": {"type": "Keep"},
+       "mostRecentVersions": {"keepCount": 2}
+     },
+     {
+       "name": "delete-rest",
+       "action": {"type": "Delete"},
+       "condition": {"tagState": "ANY"}
+     }
+   ]
+   ```
 
-for ROLE in roles/run.admin roles/artifactregistry.writer roles/iam.serviceAccountUser; do
-  gcloud projects add-iam-policy-binding "$PROJECT_ID" \
-    --member="serviceAccount:${SA}" --role="$ROLE"
-done
-```
+   Apply the policies:
 
-`iam.serviceAccountUser` lets the deployer run the service as Cloud Run's default runtime identity. The app itself needs no Google permissions.
+   ```bash
+   gcloud artifacts repositories set-cleanup-policies skillmatch --location="$REGION" --project "$PROJECT_ID" --policy=cleanup.json --no-dry-run
+   ```
 
-## 4. Let GitHub Actions act as that service account (Workload Identity Federation)
+3. Create the two service accounts:
 
-```bash
-gcloud iam workload-identity-pools create "$POOL" --project "$PROJECT_ID" \
-  --location="global" --display-name="GitHub Actions"
+   ```bash
+   gcloud iam service-accounts create skillmatch-deployer --project "$PROJECT_ID" --display-name="SkillMatch GitHub deployer"
+   gcloud iam service-accounts create skillmatch-runtime --project "$PROJECT_ID" --display-name="SkillMatch app runtime (no permissions)"
+   ```
 
-gcloud iam workload-identity-pools providers create-oidc "$PROVIDER" --project "$PROJECT_ID" \
-  --location="global" --workload-identity-pool="$POOL" \
-  --display-name="SkillMatch repository" \
-  --issuer-uri="https://token.actions.githubusercontent.com" \
-  --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository" \
-  --attribute-condition="assertion.repository=='${GITHUB_REPO}'"
+4. Grant the deployer only its required roles:
 
-gcloud iam service-accounts add-iam-policy-binding "$SA" --project "$PROJECT_ID" \
-  --role="roles/iam.workloadIdentityUser" \
-  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${POOL}/attribute.repository/${GITHUB_REPO}"
+   ```bash
+   gcloud projects add-iam-policy-binding "$PROJECT_ID" --member="serviceAccount:${DEPLOYER}" --role="roles/run.admin" --condition=None
+   gcloud artifacts repositories add-iam-policy-binding skillmatch --location="$REGION" --project "$PROJECT_ID" --member="serviceAccount:${DEPLOYER}" --role="roles/artifactregistry.writer"
+   gcloud iam service-accounts add-iam-policy-binding "$RUNTIME" --project "$PROJECT_ID" --member="serviceAccount:${DEPLOYER}" --role="roles/iam.serviceAccountUser"
+   ```
 
-echo "GCP_WIF_PROVIDER=projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${POOL}/providers/${PROVIDER}"
-echo "GCP_SERVICE_ACCOUNT=${SA}"
-```
+   The runtime account receives no roles.
 
-The attribute condition means only workflows from this one repository can use the identity.
+5. Create the Workload Identity pool and provider:
 
-## 5. Add the GitHub settings
+   ```bash
+   gcloud iam workload-identity-pools create "$POOL" --project "$PROJECT_ID" --location="global" --display-name="GitHub Actions"
 
-In the repository, open **Settings → Secrets and variables → Actions**.
+   gcloud iam workload-identity-pools providers create-oidc "$PROVIDER" \
+     --project "$PROJECT_ID" --location="global" --workload-identity-pool="$POOL" \
+     --display-name="SkillMatch repository" \
+     --issuer-uri="https://token.actions.githubusercontent.com" \
+     --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository,attribute.ref=assertion.ref,attribute.environment=assertion.environment" \
+     --attribute-condition="assertion.repository=='${GITHUB_REPO}' && assertion.ref=='refs/heads/main' && assertion.environment=='reed'"
+   ```
 
-| Kind | Name | Value |
-|---|---|---|
-| Variable | `GCP_PROJECT_ID` | your project id |
-| Variable | `GCP_WIF_PROVIDER` | printed by step 4 |
-| Variable | `GCP_SERVICE_ACCOUNT` | printed by step 4 |
-| Secret | `REED_API_KEY` | your Reed key |
-| Secret | `CVLIBRARY_FEED_URL` | leave unset until CV-Library sends it |
+6. Allow that provider to act as the deployer:
 
-## 6. First deploy
+   ```bash
+   gcloud iam service-accounts add-iam-policy-binding "$DEPLOYER" --project "$PROJECT_ID" \
+     --role="roles/iam.workloadIdentityUser" \
+     --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${POOL}/attribute.repository/${GITHUB_REPO}"
+   ```
 
-Under **Actions**, open **refresh-and-deploy** and choose **Run workflow**. The run takes about 25–40 minutes, mostly Reed's one-request-a-second limit. After that it runs every night at 02:30 UTC. The service URL is printed at the end of the deploy step and shown in the Cloud Run console.
+## 3. GitHub settings
 
-Cloud Run settings, as set in the workflow:
+Add these repository **variables** under **Settings → Secrets and variables → Actions**:
 
-- region `europe-west2`;
-- minimum instances 0, so the service scales to zero when idle;
-- maximum instances 1;
-- 512 MiB memory and 1 CPU;
-- open to the public (`--allow-unauthenticated`).
+| Variable | Value |
+|---|---|
+| `GCP_PROJECT_ID` | Google Cloud project ID |
+| `GCP_WIF_PROVIDER` | Full Workload Identity provider resource name |
+| `GCP_SERVICE_ACCOUNT` | `skillmatch-deployer` service account email |
+| `DEPLOY_ENABLED` | `true` to allow the deploy job to run |
+
+Add `REED_API_KEY` as a **secret** in the `reed` environment. Keep it out of repository secrets. Restrict that environment to the `main` branch. The workflow's identity condition also requires `main` and the `reed` environment.
+
+The publication staging clone is `/home/Phil/C_C/Git/SkillMatch`.
+
+## 4. Cost controls
+
+- Cloud Run has minimum instances 0 and maximum instances 1.
+- A £2/month Cloud Run spend cap is configured for this project.
+- A £2/month billing budget alert covers all projects and services, with alerts at 50%, 75% and 95%.
+- Artifact Registry deletes images beyond the latest two.
+- There is no load balancer and no Cloud Build setup.
 
 ## Checking a deploy
 
-- `https://<service-url>/healthz` returns `{"mode": "live", "ok": true}`.
-- The footer badge shows "Live snapshot · <date>".
-- Each run's data-quality report is kept as a workflow artifact (`quality-report`) for 30 days.
+- Open the `daily-collect.yml` run under **Actions** and check the `deploy` job.
+- The service health endpoint is `https://<service-url>/healthz`; it should return `{"mode":"live","ok":true}`.
+- The footer badge shows the live snapshot date.
 
 ## Running the container yourself
+
+From `prototype/app` in the repository:
 
 ```bash
 make docker-build   # builds the database first if it's missing (fixtures if there's no Reed key)
@@ -129,5 +158,5 @@ Cloud Run keeps earlier revisions. In the console, open the service, then **Revi
 
 ```bash
 gcloud run services update-traffic skillmatch --region "$REGION" --project "$PROJECT_ID" \
-  --to-revisions=dummy3dummy3=100    # the revision name from the console
+  --to-revisions=dummy-revision-name=100    # use the revision name from the console
 ```

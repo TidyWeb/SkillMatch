@@ -16,7 +16,11 @@ def test_job_brief_uses_source_wording_and_optional_profile_hints():
         "data_years_text": "At least one year of experience is preferred.",
     }
     requirements = [
-        {"n": 1, "strength": "essential", "evidence_sentence": "Advanced Excel skills are essential."},
+        {
+            "n": 1,
+            "strength": "essential",
+            "evidence_sentence": "Advanced Excel skills are essential.",
+        },
         {"n": 2, "strength": "desirable", "evidence_sentence": "Power BI experience is desirable."},
         {"n": 3, "strength": "duty", "evidence_sentence": "Prepare monthly reports."},
     ]
@@ -75,7 +79,11 @@ def test_card_template_escapes_advert_text(client):
         "company": "Example",
         "salary_text": "Not stated",
         "match_level": "Good match",
-        "detail": {"requirements_met": [{"sentence": "<img src=x onerror=1>", "answers": [], "reasons": []}]},
+        "detail": {
+            "requirements_met": [
+                {"sentence": "<img src=x onerror=1>", "answers": [], "reasons": []}
+            ]
+        },
         "advert_url": "https://example.test/job",
         "tailor_url": None,
         "job_brief": "brief",

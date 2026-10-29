@@ -85,15 +85,19 @@ def test_repository_repairs_remoteok_snapshot_without_writing_database(tmp_path)
         "evidence_sentence": "Youâ\x80\x99ve used SQL; café",
     }
     write_database(path, {"vacancies": [vacancy], "requirements": [requirement]}, {})
-    before = sqlite3.connect(f"file:{path}?mode=ro", uri=True).execute(
-        "select title from vacancies where vacancy_id = ?", ("remote_ok:7",)
-    ).fetchone()[0]
+    before = (
+        sqlite3.connect(f"file:{path}?mode=ro", uri=True)
+        .execute("select title from vacancies where vacancy_id = ?", ("remote_ok:7",))
+        .fetchone()[0]
+    )
 
     snapshot = _read(path, path.stat().st_mtime)
 
     assert snapshot.vacancies["remote_ok:7"]["title"] == "Senior Analyst — Café"
     assert snapshot.requirements["remote_ok:7"][0]["evidence_sentence"] == "You’ve used SQL; café"
-    after = sqlite3.connect(f"file:{path}?mode=ro", uri=True).execute(
-        "select title from vacancies where vacancy_id = ?", ("remote_ok:7",)
-    ).fetchone()[0]
+    after = (
+        sqlite3.connect(f"file:{path}?mode=ro", uri=True)
+        .execute("select title from vacancies where vacancy_id = ?", ("remote_ok:7",))
+        .fetchone()[0]
+    )
     assert after == before

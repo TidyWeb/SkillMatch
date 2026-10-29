@@ -35,7 +35,9 @@ def build_job_brief(vacancy: dict, requirements: list[dict], match=None) -> str:
         ]
     )
     if match is not None:
-        lines.extend(["", "SKILLMATCH HINTS (check these against my biography; don't treat them as facts)"])
+        lines.extend(
+            ["", "SKILLMATCH HINTS (check these against my biography; don't treat them as facts)"]
+        )
         for cov in match.coverage:
             if cov.strength not in ("essential", "desirable"):
                 continue
