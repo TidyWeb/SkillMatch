@@ -4,16 +4,15 @@
 (function () {
   "use strict";
   var css = getComputedStyle(document.documentElement);
-  var ACCENT = css.getPropertyValue("--accent").trim();
-  var INK = css.getPropertyValue("--ink").trim();
-  var INK_SOFT = css.getPropertyValue("--ink-soft").trim();
-  var RULE = css.getPropertyValue("--rule").trim();
-  var SURFACE = css.getPropertyValue("--paper-raised").trim();
-  var TRANSPARENT = css.getPropertyValue("--transparent").trim();
-  // Ordinal ramp for match, light -> dark; validated (one hue, monotone lightness, light end >= 2:1).
-  var TIER = { not_yet: css.getPropertyValue("--tier-not-yet").trim(), stretch: css.getPropertyValue("--tier-stretch").trim(), good: css.getPropertyValue("--tier-good").trim(), strong: css.getPropertyValue("--tier-strong").trim() };
-  function numberToken(name) { return Number(css.getPropertyValue(name).trim()); }
-  var TIER_RADIUS = { strong: numberToken("--map-radius-strong"), good: numberToken("--map-radius-good"), stretch: numberToken("--map-radius-stretch"), not_yet: numberToken("--map-radius-not-yet") };
+  var ACCENT = css.getPropertyValue("--accent").trim() || "#1f4e8c";
+  var INK = css.getPropertyValue("--ink").trim() || "#1e1d1a";
+  var INK_SOFT = css.getPropertyValue("--ink-soft").trim() || "#55524b";
+  var RULE = css.getPropertyValue("--rule").trim() || "#d8d2c4";
+  var SURFACE = css.getPropertyValue("--paper-raised").trim() || "#fffdf9";
+  // Ordinal ramp for fit, light -> dark; validated (one hue, monotone lightness, light end >= 2:1).
+  var TIER = { not_yet: "#94acd0", stretch: "#6a8dc0", good: "#4470ad", strong: "#1f4e8c" };
+  var TIER_LABEL = { strong: "Strong fit", good: "Good fit", stretch: "Stretch", not_yet: "Not yet" };
+  var TIER_RADIUS = { strong: 8, good: 7, stretch: 6, not_yet: 6 };
 
   function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   // Long category names wrap onto two lines instead of being clipped at the chart edge.
@@ -35,17 +34,17 @@
     Chart.defaults.color = INK_SOFT;
     var narrow = el.parentNode.clientWidth < 420;
     var labels = rows.map(function (r) { return horizontal ? wrap(r.label, narrow ? 17 : 24) : cap(r.label); });
-    el.parentNode.classList.remove("chart-box--small", "chart-box--medium", "chart-box--large");
     if (horizontal) {
-      Array.from(el.parentNode.classList).filter(function (name) { return name.indexOf("chart-rows-") === 0; }).forEach(function (name) { el.parentNode.classList.remove(name); });
-      var bucket = Math.min(60, Math.max(5, Math.ceil(rows.length / 5) * 5));
-      el.parentNode.classList.add("chart-rows-" + bucket);
+      // Give every row room for its longest wrapped label so labels never overlap.
+      var lines = labels.reduce(function (m, l) { return Math.max(m, Array.isArray(l) ? l.length : 1); }, 1);
+      var rowPx = Math.max(30, lines * 15 + 10);
+      el.parentNode.style.height = (48 + rows.length * rowPx) + "px";
     }
     new Chart(el, {
       type: "bar",
       data: {
         labels: labels,
-        datasets: [{ data: rows.map(function (r) { return r.n; }), backgroundColor: ACCENT, borderRadius: numberToken("--chart-radius"), borderSkipped: "start", maxBarThickness: 14 }]
+        datasets: [{ data: rows.map(function (r) { return r.n; }), backgroundColor: ACCENT, borderRadius: 4, borderSkipped: "start", maxBarThickness: 14 }]
       },
       options: {
         indexAxis: horizontal ? "y" : "x",
@@ -56,8 +55,64 @@
           tooltip: { callbacks: { label: function (c) { return " " + c.parsed[horizontal ? "x" : "y"] + " adverts"; } } }
         },
         scales: {
-          x: { grid: { color: horizontal ? RULE : TRANSPARENT }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
-          y: { grid: { color: horizontal ? TRANSPARENT : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
+          x: { grid: { color: horizontal ? RULE : "transparent" }, border: { color: RULE }, ticks: { color: horizontal ? INK_SOFT : INK, precision: 0, autoSkip: horizontal }, beginAtZero: true },
+          y: { grid: { color: horizontal ? "transparent" : RULE }, border: { color: RULE }, ticks: { color: horizontal ? INK : INK_SOFT, precision: 0, autoSkip: !horizontal }, beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  function essentialSkills(rows) {
+    var el = document.getElementById("chart-essential-skills");
+    if (!el || !window.Chart || !rows || !rows.length) return;
+    Chart.defaults.font.family = css.getPropertyValue("--sans");
+    Chart.defaults.color = INK_SOFT;
+    new Chart(el, {
+      type: "radar",
+      data: {
+        labels: rows.map(function (row) { return row.label; }),
+        datasets: [
+          {
+            label: "Essential skill demand share",
+            data: rows.map(function (row) { return row.share; }),
+            borderColor: "#D65A5A",
+            backgroundColor: "rgba(214, 90, 90, 0.18)",
+            pointBackgroundColor: "#D65A5A",
+            borderWidth: 2
+          },
+          {
+            label: "Course coverage overlap",
+            data: rows.map(function (row) { return row.course_share; }),
+            borderColor: "#168779",
+            backgroundColor: "rgba(22, 135, 121, 0.22)",
+            pointBackgroundColor: "#168779",
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        animation: false,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return " " + context.dataset.label + ": " + context.parsed.r.toFixed(2) + "%";
+              }
+            }
+          }
+        },
+        scales: {
+          r: {
+            beginAtZero: true,
+            ticks: {
+              color: INK_SOFT,
+              callback: function (value) { return value + "%"; }
+            },
+            grid: { color: RULE },
+            angleLines: { color: RULE },
+            pointLabels: { color: INK, font: { size: 10 } }
+          }
         }
       }
     });
@@ -89,12 +144,12 @@
 
   function plot(map, points, byTier) {
     var bounds = [];
-    // Draw weaker matches first so the strongest sit on top.
+    // Draw weaker fits first so the strongest sit on top.
     var order = ["not_yet", "stretch", "good", "strong"];
     points.slice().sort(function (a, b) { return order.indexOf(a.tier) - order.indexOf(b.tier); }).forEach(function (p) {
       var colour = byTier ? TIER[p.tier] : ACCENT;
       L.circleMarker([p.lat, p.lon], {
-        radius: byTier ? TIER_RADIUS[p.tier] : numberToken("--map-radius-default"), color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
+        radius: byTier ? TIER_RADIUS[p.tier] : 6, color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
       }).bindPopup(popup(p)).addTo(map);
       bounds.push([p.lat, p.lon]);
     });
@@ -110,6 +165,7 @@
     bar("chart-salary", d.salary.bands, true);
     bar("chart-senior", d.senior_words, true);
     bar("chart-arr", d.arrangement, true);
+    essentialSkills(d.essential_skill_chart);
     var showAll = function () {
       var host = document.getElementById("map-all");
       if (!host || host.closest("[hidden]")) return;
@@ -129,7 +185,7 @@
     if (map) {
       plot(map, d.points, true);
       if (d.home) {
-        L.circleMarker(d.home, { radius: numberToken("--map-radius-home"), color: INK, weight: 3, fillColor: SURFACE, fillOpacity: 1 })
+        L.circleMarker(d.home, { radius: 9, color: INK, weight: 3, fillColor: SURFACE, fillOpacity: 1 })
           .bindPopup("Your area (" + (d.outcode || "") + ")").addTo(map);
       }
     }

@@ -1,0 +1,3 @@
+{"event":"run_started","channel":"system","at":"2026-10-29T16:47:12.878Z","run_id":"20261029T164712878202Z"}
+{"event":"milestone","channel":"system","milestone":"collection_started","at":"2026-10-29T16:47:13.206Z","run_id":"20261029T164712878202Z"}
+{"event":"run_failed","channel":"system","error_type":"unknown","at":"2026-10-29T16:47:13.206Z","run_id":"20261029T164712878202Z"}
