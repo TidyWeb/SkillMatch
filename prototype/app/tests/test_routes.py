@@ -29,7 +29,8 @@ def profile_json(pid="chef_wolverhampton", **extra):
 
 
 @pytest.mark.parametrize(
-    "path", ["/", "/results", "/insights", "/sources", "/about", "/health", "/healthz"]
+    "path",
+    ["/", "/profile/skills", "/results", "/insights", "/sources", "/about", "/health", "/healthz"],
 )
 def test_get_pages(client, path):
     r = client.get(path)
@@ -113,6 +114,30 @@ def test_job_pages(client, db):
 def test_insights_personal(client):
     r = client.post("/insights", data={"profile": profile_json("nurse_worcester")})
     assert r.status_code == 200
+
+
+def test_profile_skills_api_uses_selected_levels_and_essential_counts(client):
+    profile = json.loads(profile_json())
+    profile["skills"] = list(profile["skills"]) + ["sql"]
+    profile["skill_levels"] = {"sql": "project"}
+    response = client.post("/api/profile/skills", data={"profile": json.dumps(profile)})
+
+    assert response.status_code == 200
+    assert response.headers["Cache-Control"] == "no-store"
+    data = response.get_json()
+    assert any("SQL" in group["skills"] for group in data["groups"] if group["level"] == "project")
+    assert data["comparison"]["chart"]
+    assert all(row["count"] > 0 for row in data["comparison"]["chart"])
+    assert all(row["essential_count"] <= row["count"] for row in data["comparison"]["skills"])
+    sql_row = next(row for row in data["comparison"]["chart"] if row["skill"] == "SQL")
+    assert sql_row["profile_level"] == "Used in a project"
+
+
+def test_profile_skills_api_validates_profile(client):
+    assert client.post("/api/profile/skills", data={}).status_code == 400
+    assert (
+        client.post("/api/profile/skills", data={"profile": "not-json"}).status_code == 400
+    )
 
 
 def test_archetype_api(client):

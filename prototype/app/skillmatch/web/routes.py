@@ -19,6 +19,7 @@ from skillmatch.profile import (
     TRAVEL,
     profile_from_json,
 )
+from skillmatch.profile_visualization import compare_vacancy_skills, skill_groups
 from skillmatch.results import (
     HIDDEN_LABELS,
     SOURCE_TIERS,
@@ -100,6 +101,34 @@ def archetype_match():
 @bp.get("/results")
 def results():
     return render_template("results.html", tiers=TIER_ORDER, source_tiers=SOURCE_TIERS)
+
+
+@bp.get("/profile/skills")
+def profile_skills():
+    return render_template("profile_skills.html")
+
+
+@bp.post("/api/profile/skills")
+def profile_skills_data():
+    snap = snapshot()
+    if snap is None:
+        return jsonify({"error": "job data is not available"}), 503
+    raw_profile = request.form.get("profile", "")
+    if len(raw_profile) > MAX_PROFILE_HEADER_CHARS:
+        return jsonify({"error": "profile is too large"}), 400
+    prof = profile_from_json(raw_profile)
+    if prof is None:
+        return jsonify({"error": "a valid profile is required"}), 400
+    tax = get_taxonomy()
+    response = jsonify(
+        {
+            "groups": skill_groups(prof, tax),
+            "comparison": compare_vacancy_skills(prof, tax, snap=snap),
+        }
+    )
+    response.headers["Cache-Control"] = "no-store"
+    response.vary.add("X-SkillMatch-Profile")
+    return response
 
 
 def _filters_from_form() -> Filters:

@@ -8,7 +8,7 @@
 <button type="{{ type }}" class="{{ class_name }}"{% if id %} id="{{ id }}"{% endif %}{% if data_action %} data-{{ data_action }}="{{ target }}"{% endif %}>{{ label }}</button>
 {%- endmacro %}
 {% macro skill_chip_template() -%}
-<template id="selected-item-template"><div class="selected-item"><span data-item-label></span>{{ action_button("Remove", "button", "button-quiet", "", "remove-item") }}</div></template>
+<template id="selected-item-template"><div class="selected-item"><span data-item-label></span><select data-skill-level aria-label="Your experience level with this skill"><option value="">Not ticked</option><option value="course">Learned on the course</option><option value="project">Used in a project</option><option value="confident">Confident</option></select>{{ action_button("Remove", "button", "button-quiet", "", "remove-item") }}</div></template>
 {%- endmacro %}
 
 {% macro action_link(label, href, class_name="button-secondary", new_tab=false) -%}

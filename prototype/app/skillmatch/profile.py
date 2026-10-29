@@ -31,6 +31,7 @@ QUALIFICATIONS = {
     7: "Master's degree – Level 7",
     8: "PhD or doctorate – Level 8",
 }
+SKILL_LEVELS = ("course", "project", "confident")
 MAX_AREAS = 5
 MAX_TEXT = 200
 LOG = logging.getLogger(__name__)
@@ -54,6 +55,7 @@ class Profile:
     include_remote: bool = True
     max_office_days: float = 5
     skills: list[str] = field(default_factory=_course_skills)
+    skill_levels: dict[str, str] = field(default_factory=dict)
     areas: list[Area] = field(default_factory=list)
     highest_qualification: int = 0
 
@@ -101,6 +103,19 @@ def profile_from_dict(data: dict | None, tax: Taxonomy | None = None) -> Profile
         else []
     )
     p.skills = list(dict.fromkeys(course + added))
+    raw_levels = data.get("skill_levels")
+    if isinstance(raw_levels, dict):
+        p.skill_levels = {
+            skill_id: level
+            for skill_id in p.skills
+            if (level := raw_levels.get(skill_id)) in SKILL_LEVELS
+        }
+    else:
+        p.skill_levels = {
+            skill_id: "course"
+            for skill_id in p.skills
+            if tax.skills[skill_id].course_covered
+        }
     raw_areas = data.get("areas") if isinstance(data.get("areas"), list) else []
     seen = set()
     for raw in raw_areas:

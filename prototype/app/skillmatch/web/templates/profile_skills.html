@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Your Skill{% endblock %}
+{% block content %}
+<header class="page-head">
+  <h1>Your Skill</h1>
+  <p class="lede">See how your skill levels compare with essential requirements in the current vacancy snapshot.</p>
+  <p class="note">This summary is generated for this request. Your profile stays in this browser tab and is not saved on the server.</p>
+</header>
+
+<section id="skill-page-status" class="panel" role="status" aria-live="polite">
+  <p id="skill-page-loading">Loading your skill data…</p>
+  <div id="skill-page-no-profile" hidden>
+    <h2>Start with your profile</h2>
+    <p>Choose skills and describe your experience to see how they compare with current vacancies.</p>
+    <p><a class="button-primary" href="{{ url_for('web.profile') }}">Edit your profile</a></p>
+  </div>
+  <div id="skill-page-error" hidden>
+    <h2>Your skill data is unavailable</h2>
+    <p id="skill-page-error-message"></p>
+  </div>
+</section>
+
+<div id="skill-page-results" hidden>
+  <figure class="figure skill-level-figure">
+    <figcaption>
+      <h2>Your skills and essential vacancy requirements</h2>
+      <p class="hint">Each bar shows your selected experience level. The dotted line compares the number of vacancies that list that skill as essential. Bar colour shows course coverage.</p>
+      <ul class="skill-chart-legend" aria-label="Chart legend">
+        <li><strong>Covered by the course:</strong>
+          <span class="skill-chart-swatch skill-chart-swatch-course-confident">Confident</span>
+          <span class="skill-chart-swatch skill-chart-swatch-course-project">Project</span>
+          <span class="skill-chart-swatch skill-chart-swatch-course-learned">Learned</span>
+          <span class="skill-chart-swatch skill-chart-swatch-course-not-ticked">Not ticked</span>
+        </li>
+        <li><strong>Not covered by the course:</strong>
+          <span class="skill-chart-swatch skill-chart-swatch-other-confident">Confident</span>
+          <span class="skill-chart-swatch skill-chart-swatch-other-project">Project</span>
+          <span class="skill-chart-swatch skill-chart-swatch-other-learned">Learned</span>
+          <span class="skill-chart-swatch skill-chart-swatch-other-not-ticked">Not ticked</span>
+        </li>
+        <li><span class="skill-chart-line"></span>Essential vacancy count (relative)</li>
+      </ul>
+    </figcaption>
+    <div id="skill-level-chart-scroll" class="skill-level-chart-scroll"></div>
+    <p id="skill-chart-empty" hidden>No essential vacancy skill data is available for this chart.</p>
+  </figure>
+
+  <section aria-labelledby="skill-summary-heading">
+    <h2 id="skill-summary-heading">Your selected skill levels</h2>
+    <div id="skill-summary" class="skill-summary"></div>
+  </section>
+
+  <details class="figure skill-vacancy-details">
+    <summary>Skills requested in vacancies <span class="skill-vacancy-summary-hint">Show vacancy counts and your profile status</span></summary>
+    <div id="skill-vacancy-list"></div>
+    <p id="skill-vacancy-empty" hidden>No vacancy skill data is available.</p>
+  </details>
+
+  <p><a class="button-secondary" href="{{ url_for('web.profile') }}">Back to your profile</a></p>
+</div>
+<noscript><p class="panel">JavaScript is required to load your private profile and draw this chart.</p></noscript>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='profile_skills.js', v='20261029-skills') }}" defer></script>
+{% endblock %}

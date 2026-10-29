@@ -35,9 +35,20 @@
 
   <fieldset class="block">
     <legend>Technical skills</legend>
-    <p class="hint">Course skills are included automatically. Add other skills you have learned or used.</p>
+    <p class="hint">Course skills are included automatically. Add other skills you have learned or used, then choose the level that best describes your experience. Use “Not ticked” when you have not chosen a level.</p>
     <ul class="course-skill-list" aria-label="Skills from the course">
-      {% for s in course_skills %}<li>{{ s.label }}</li>{% endfor %}
+      {% for s in course_skills %}
+      <li class="course-skill-item">
+        <span>{{ s.label }}</span>
+        <label class="sr-only" for="level-{{ s.id }}">Your level in {{ s.label }}</label>
+        <select id="level-{{ s.id }}" data-skill-level="{{ s.id }}">
+          <option value="">Not ticked</option>
+          <option value="course" selected>Learned on the course</option>
+          <option value="project">Used in a project</option>
+          <option value="confident">Confident</option>
+        </select>
+      </li>
+      {% endfor %}
     </ul>
     <div class="add-row">
       {% call select_control("add-skill", "Add a skill") %}
@@ -74,4 +85,4 @@
 {{ skill_chip_template() }}
 <script type="application/json" id="taxonomy-data">{{ taxonomy_json|tojson }}</script>
 {% endblock %}
-{% block scripts %}<script src="{{ url_for('static', filename='profile.js', v='20261028-stage3') }}" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='profile.js', v='20261029-skills') }}" defer></script>{% endblock %}

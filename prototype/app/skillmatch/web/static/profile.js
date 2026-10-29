@@ -12,11 +12,15 @@
   var OUTWARD = /^([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})?$/;
   function outwardCode(text) { var m = OUTWARD.exec((text || "").trim().toUpperCase()); return m ? m[1] : ""; }
 
-  function skillChip(id) {
+  function skillChip(id, level) {
     if (!tax.skills[id] || $('[data-skill-chip="' + id + '"]', skillsBox)) return;
     var template = document.getElementById("selected-item-template");
     var chip = template.content.firstElementChild.cloneNode(true); chip.dataset.skillChip = id;
     chip.querySelector("[data-item-label]").textContent = tax.skills[id].label;
+    var levelSelect = chip.querySelector("[data-skill-level]");
+    levelSelect.dataset.skillLevel = id;
+    levelSelect.setAttribute("aria-label", "Your experience level with " + tax.skills[id].label);
+    levelSelect.value = level || "";
     var remove = chip.querySelector("[data-remove-item]");
     remove.setAttribute("aria-label", "Remove " + tax.skills[id].label);
     remove.addEventListener("click", function () { chip.remove(); refreshSkillOptions(); });
@@ -65,6 +69,10 @@
       max_miles: $("#max_miles").value, include_remote: $("#include_remote").checked,
       max_office_days: $("#max_office_days").value,
       skills: $all("[data-skill-chip]", skillsBox).map(function (el) { return el.dataset.skillChip; }),
+      skill_levels: $all("[data-skill-level]").reduce(function (levels, select) {
+        if (select.value) levels[select.dataset.skillLevel] = select.value;
+        return levels;
+      }, {}),
       areas: $all("[data-area]", areasBox).map(function (el) {
         return { id: el.dataset.area, skills: $all("input[type=checkbox]:checked", el).map(function (cb) { return cb.value; }) };
       }),
@@ -76,7 +84,19 @@
     $("#postcode").value = profile.postcode || ""; $("#travel").value = profile.travel || "";
     $("#max_miles").value = profile.max_miles || ""; $("#include_remote").checked = profile.include_remote !== false;
     $("#max_office_days").value = profile.max_office_days != null ? String(profile.max_office_days) : "5";
-    skillsBox.replaceChildren(); profile.skills.forEach(skillChip);
+    skillsBox.replaceChildren();
+    profile.skills.forEach(function (id) {
+      skillChip(id, profile.skill_levels && profile.skill_levels[id]);
+    });
+    $all("[data-skill-level]").forEach(function (select) {
+      if (profile.skill_levels && typeof profile.skill_levels === "object") {
+        select.value = Object.prototype.hasOwnProperty.call(profile.skill_levels, select.dataset.skillLevel)
+          ? profile.skill_levels[select.dataset.skillLevel]
+          : "";
+      } else if (tax.skills[select.dataset.skillLevel] && tax.skills[select.dataset.skillLevel].course) {
+        select.value = "course";
+      }
+    });
     areasBox.replaceChildren(); profile.areas.slice(0, 5).forEach(function (area) { if (area && area.id) makeArea(area.id, Array.isArray(area.skills) ? area.skills : []); });
     $("#highest_qualification").value = String(profile.highest_qualification);
     return true;
