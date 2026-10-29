@@ -65,7 +65,7 @@ def spread_points(points: list[dict]) -> list[dict]:
 def entry_plausible(v: dict) -> bool:
     """No data-experience demand, or at most a year with signs the advert welcomes newcomers."""
     years = v.get("data_years")
-    if years is None or years != years:  # None or NaN (from pandas): no demand
+    if years is None or years != years:  # None or NaN: no demand
         return True
     return years <= 1 and (bool(v.get("entry_signals")) or v.get("degree") == "or_equivalent")
 

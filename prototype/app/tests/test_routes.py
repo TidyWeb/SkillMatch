@@ -4,12 +4,13 @@ import tempfile
 import time
 from pathlib import Path
 
-import pandas as pd
 import pytest
 
-from skillmatch import config, profile_visualization
+from skillmatch import config, profile_visualization, repository
 from skillmatch.etl.pipeline import run
 from skillmatch.profile import Profile, personas
+from skillmatch.retreve_vacancies_skillset import get_data_skills
+from skillmatch.taxonomy import get_taxonomy
 from skillmatch.web import create_app
 
 
@@ -42,6 +43,26 @@ def test_footer_shows_data_mode(client):
     assert b"Fixtures" in client.get("/").data
 
 
+def test_vacancy_skill_data_comes_from_snapshot_and_taxonomy(db):
+    snap = repository.load(db)
+    skills = get_data_skills(snap)
+    assert skills
+
+    skill = next(row for row in skills if row["skill"] == "sql")
+    vacancy_ids = set()
+    essential_vacancy_ids = set()
+    for vacancy in snap.shown:
+        for requirement in snap.requirements.get(vacancy["vacancy_id"], []):
+            if ("skill", "sql") in requirement["tags"]:
+                vacancy_ids.add(vacancy["vacancy_id"])
+                if requirement["strength"] == "essential":
+                    essential_vacancy_ids.add(vacancy["vacancy_id"])
+
+    assert skill["count"] == len(vacancy_ids)
+    assert skill["essential_count"] == len(essential_vacancy_ids)
+    assert skill["course_covered"] == get_taxonomy().skills["sql"].course_covered
+
+
 def test_insights_includes_essential_skills_chart(client):
     response = client.get("/insights")
     assert response.status_code == 200
@@ -71,25 +92,25 @@ def test_results_without_profile(client):
 def test_profile_skills_visualization(client, monkeypatch):
     monkeypatch.setattr(
         profile_visualization,
-        "vacancy_skills",
-        pd.DataFrame(
-            [
-                {
-                    "skill": "business_analysis",
-                    "count": 12,
-                    "strength": "essential",
-                    "confidence": "stated",
-                    "course_covered": True,
-                },
-                {
-                    "skill": "sql",
-                    "count": 7,
-                    "strength": "desirable",
-                    "confidence": "inferred",
-                    "course_covered": False,
-                },
-            ]
-        ),
+        "get_data_skills",
+        lambda snap, tax: [
+            {
+                "skill": "business_analysis",
+                "count": 12,
+                "strength": "essential",
+                "confidence": "stated",
+                "course_covered": True,
+                "essential_count": 12,
+            },
+            {
+                "skill": "sql",
+                "count": 7,
+                "strength": "desirable",
+                "confidence": "inferred",
+                "course_covered": False,
+                "essential_count": 0,
+            },
+        ],
     )
     profile = personas()["chef_wolverhampton"]
     response = client.post("/profile/skills", data={"profile": json.dumps(profile)})
@@ -127,28 +148,28 @@ def test_profile_skills_visualization_without_profile(client):
 def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatch):
     monkeypatch.setattr(
         profile_visualization,
-        "vacancy_skills",
-        pd.DataFrame(
-            [
-                {
-                    "skill": "python",
-                    "count": 12,
-                    "strength": "essential",
-                    "confidence": "stated",
-                    "course_covered": False,
-                },
-                {
-                    "skill": "sql",
-                    "count": 7,
-                    "strength": "desirable",
-                    "confidence": "inferred",
-                    "course_covered": True,
-                },
-            ]
-        ),
+        "get_data_skills",
+        lambda snap, tax: [
+            {
+                "skill": "python",
+                "count": 12,
+                "strength": "essential",
+                "confidence": "stated",
+                "course_covered": False,
+                "essential_count": 12,
+            },
+            {
+                "skill": "sql",
+                "count": 7,
+                "strength": "desirable",
+                "confidence": "inferred",
+                "course_covered": True,
+                "essential_count": 0,
+            },
+        ],
     )
     comparison = profile_visualization.compare_vacancy_skills(
-        Profile(skills={"python": "confident"})
+        Profile(skills={"python": "confident"}), snap=None
     )
 
     assert comparison["max_count"] == 12

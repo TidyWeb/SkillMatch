@@ -2,9 +2,8 @@
 
 from __future__ import annotations
 
-import pandas as pd
-
 from skillmatch.profile import SKILL_LEVELS, Profile
+from skillmatch.repository import Snapshot
 from skillmatch.retreve_vacancies_skillset import get_data_skills
 from skillmatch.taxonomy import Taxonomy, get_taxonomy
 
@@ -24,9 +23,6 @@ CHART_COLORS = {
     (False, "course"): "#E8A87C",
     (False, None): "#F4E0DB",
 }
-
-
-vacancy_skills = get_data_skills()
 
 
 def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
@@ -49,28 +45,29 @@ def skill_groups(profile: Profile, tax: Taxonomy | None = None) -> list[dict]:
     ]
 
 
-def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dict:
+def compare_vacancy_skills(
+    profile: Profile, tax: Taxonomy | None = None, *, snap: Snapshot | None = None
+) -> dict:
     """Prepare vacancy skill counts with course coverage and profile status."""
     tax = tax or get_taxonomy()
-    required = {"skill", "count", "strength", "confidence", "course_covered"}
-    missing = required - set(vacancy_skills.columns)
-    if missing:
-        raise ValueError(
-            f"Vacancy skills data is missing columns: {', '.join(sorted(missing))}")
+    vacancy_skills = get_data_skills(snap, tax)
 
     rows = []
     chart_rows = []
-    for row in vacancy_skills.to_dict("records"):
+    for row in vacancy_skills:
         skill_id = str(row["skill"]).strip()
         if not skill_id or skill_id.casefold() == "nan":
             continue
         skill = tax.skills.get(skill_id)
-        raw_count = row["count"]
-        count = int(raw_count) if not pd.isna(raw_count) else 0
+        count = int(row["count"] or 0)
         strength = str(row["strength"])
+        raw_essential_count = row.get(
+            "essential_count", count if strength.casefold() == "essential" else 0
+        )
+        essential_count = int(raw_essential_count or 0)
         confidence = str(row["confidence"])
         covered = row["course_covered"]
-        course_covered = None if pd.isna(covered) else bool(covered)
+        course_covered = None if covered is None else bool(covered)
         profile_level = profile.skills.get(skill_id)
         skill_name = skill.label if skill else skill_id
         profile_label = LEVEL_LABELS.get(profile_level)
@@ -89,11 +86,11 @@ def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dic
                 "profile_has_skill": profile_level is not None,
             }
         )
-        if strength.casefold() == "essential":
+        if essential_count:
             chart_rows.append(
                 {
                     "skill": skill_name,
-                    "count": count,
+                    "count": essential_count,
                     "course_covered": course_covered,
                     "profile_level": profile_label or "Not selected",
                     "score": LEVEL_SCORES.get(profile_level, 1),

@@ -1,47 +1,71 @@
-import io
-import pandas as pd
-import requests
-import yaml
+"""Build a vacancy-skill summary from the local snapshot and taxonomy."""
 
-# URLs from the workbook
-csv_url = 'https://raw.githubusercontent.com/TidyWeb/SkillMatch/data-snapshots/data/live_snapshots/20261021_2033_reprocessed/skills.csv'
-yaml_url = 'https://raw.githubusercontent.com/TidyWeb/SkillMatch/main/John%27s%20Folder/SkillMatch_App_Data/data/taxonomy/technical_skills.yaml'
+from __future__ import annotations
+
+from collections import defaultdict
+
+from skillmatch.repository import Snapshot
+from skillmatch.taxonomy import Taxonomy, get_taxonomy
+
+STRENGTH_PRIORITY = {"essential": 3, "desirable": 2, "unclear": 1}
 
 
-def get_data_skills():
-    # 1. Fresh load of the skills DataFrame
-    response_csv = requests.get(csv_url)
-    skills_fresh = pd.read_csv(io.StringIO(response_csv.text))
+def get_data_skills(snap: Snapshot | None, tax: Taxonomy | None = None) -> list[dict]:
+    """Count distinct shown vacancies asking for each skill, enriched with taxonomy coverage."""
+    if snap is None:
+        return []
 
-    # 2. Get the top 25 skills by number of distinct vacancies
-    top_25_counts = (
-        skills_fresh
-        .groupby('skill')['vacancy_id']
-        .nunique()                      # distinct vacancies per skill
-        .sort_values(ascending=False)
-        .head(25)
-        .reset_index()
+    tax = tax or get_taxonomy()
+    skill_vacancies: dict[str, set[str]] = defaultdict(set)
+    essential_vacancies: dict[str, set[str]] = defaultdict(set)
+    strength_vacancies: dict[str, dict[str, set[str]]] = defaultdict(
+        lambda: defaultdict(set)
     )
-    top_25_counts.columns = ['skill', 'count']
+    confidence_vacancies: dict[str, dict[str, set[str]]] = defaultdict(
+        lambda: defaultdict(set)
+    )
 
-    # 2b. Merge in strength + confidence (assumed per skill)
-    meta_fields = skills_fresh[['skill', 'strength',
-                                'confidence']].drop_duplicates('skill')
-    top_25_counts = top_25_counts.merge(meta_fields, on='skill', how='left')
-
-    # 3. Fresh load of the taxonomy to get course coverage
-    response_yaml = requests.get(yaml_url)
-    taxonomy_data = yaml.safe_load(response_yaml.text)
+    for vacancy in snap.shown:
+        vacancy_id = vacancy["vacancy_id"]
+        for requirement in snap.requirements.get(vacancy_id, []):
+            skills = {tag_id for tag_type,
+                      tag_id in requirement["tags"] if tag_type == "skill"}
+            for skill_id in skills:
+                skill_vacancies[skill_id].add(vacancy_id)
+                strength = requirement["strength"]
+                strength_vacancies[skill_id][strength].add(vacancy_id)
+                confidence_vacancies[skill_id][requirement["confidence"]].add(
+                    vacancy_id)
+                if strength == "essential":
+                    essential_vacancies[skill_id].add(vacancy_id)
 
     rows = []
-    for item in taxonomy_data.get("skills", []):
-        rows.append({
-            "skill": item.get("id"),
-            "course_covered": item.get("course_covered", False)
-        })
-    taxonomy_df = pd.DataFrame(rows)
+    for skill_id, vacancy_ids in skill_vacancies.items():
+        strengths = strength_vacancies[skill_id]
+        confidence_levels = confidence_vacancies[skill_id]
+        strength = max(
+            strengths,
+            key=lambda value: (
+                len(strengths[value]),
+                STRENGTH_PRIORITY.get(value, 0),
+                value,
+            ),
+        )
+        confidence = max(
+            confidence_levels,
+            key=lambda value: (len(confidence_levels[value]), value),
+        )
+        skill = tax.skills.get(skill_id)
+        rows.append(
+            {
+                "skill": skill_id,
+                "count": len(vacancy_ids),
+                "strength": strength,
+                "confidence": confidence,
+                "course_covered": skill.course_covered if skill else None,
+                "essential_count": len(essential_vacancies[skill_id]),
+            }
+        )
 
-    # 4. Combine top 25 skills with course coverage
-    combined_df = pd.merge(top_25_counts, taxonomy_df, on='skill', how='left')
-
-    return combined_df
+    rows.sort(key=lambda row: (-row["count"], row["skill"]))
+    return rows[:25]

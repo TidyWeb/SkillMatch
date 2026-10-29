@@ -116,7 +116,7 @@ def profile_skills():
     return render_template(
         "profile_skills.html",
         groups=skill_groups(prof),
-        comparison=compare_vacancy_skills(prof),
+        comparison=compare_vacancy_skills(prof, snap=snapshot()),
     )
 
 
