@@ -149,27 +149,31 @@ def technical_signals(text: str, tax: Taxonomy | None = None) -> list[str]:
     return found
 
 
-def is_data_role(title: str, description_text: str, tax: Taxonomy | None = None) -> bool:
-    """Is this actually a data job? (Calibrated rule; see DECISIONS.md.)
+def is_data_role(
+    title: str, description_text: str | None = None, tax: Taxonomy | None = None
+) -> bool:
+    """Is this actually a data job? Judged on the TITLE only (see DECISIONS.md).
 
     1. A data word in the title (data, insight, BI, MI, reporting, research...) -> yes, unless
        the title also names a non-data field (security, accountant, sales...).
     2. "Analyst" in the title -> yes, unless qualified by a non-data field (finance, business,
        IT support...). Performance, commercial, pricing, planning and operations analysts stay.
-    3. Otherwise yes only if the advert asks for at least two non-generic technical data skills
-       and the title isn't an engineering, developer or similar job family.
+    3. Anything else -> no.
+
+    There used to be a third route: any title with 2+ technical skills in the description. On
+    the 27 Oct 2026 live run it let in 98 adverts under 59 titles and none was an entry-level
+    data job (Scrum Master, Video Editor, account executives). The skills it found were often
+    in the employer's blurb, not the job: a database company's Video Editor mentions MySQL.
+    `description_text` and `tax` are kept so existing callers don't change.
     """
-    title, description_text = clean_text(title), clean_text(description_text)
-    title = title or ""
+    title = clean_text(title) or ""
     if NOT_DATA_TITLE.search(title):
         return False
     if is_data_title(title):
         return True
     if ANALYST.search(title):
         return not NOT_DATA_ANALYST.search(title)
-    if ENGINEERING_TITLE.search(title):
-        return False
-    return len(technical_signals(description_text, tax)) >= config.RELEVANCE_MIN_SKILLS
+    return False
 
 
 def is_training_course(title: str, description_text: str) -> bool:

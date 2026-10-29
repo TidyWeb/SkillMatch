@@ -11,6 +11,7 @@ from pathlib import Path
 
 from skillmatch import config
 from skillmatch.etl.store import connect_readonly
+from skillmatch.filters import NOT_A_DATA_ROLE, is_data_role
 from skillmatch.taxonomy import get_taxonomy
 from skillmatch.text import repair_mojibake
 
@@ -87,6 +88,11 @@ def _read(path: Path, mtime: float) -> Snapshot:
                 v["entry_signals"] = repair_mojibake(v["entry_signals"])
                 v["title_boost"] = repair_mojibake(v["title_boost"])
                 v["extra"] = repair_mojibake(v["extra"])
+            # Recheck relevance in memory with the current title-only rule, so databases built
+            # before it (including the Codespaces live-data release) stop showing non-data jobs.
+            # The SQLite file stays unchanged.
+            if not v["excluded_reason"] and not is_data_role(v["title"]):
+                v["excluded_reason"] = NOT_A_DATA_ROLE
             vacancies[v["vacancy_id"]] = v
         tags: dict[str, list[tuple[str, str]]] = {}
         for req_id, tag_type, tag_id in conn.execute(

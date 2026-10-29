@@ -69,6 +69,37 @@ def test_relevance_filter():
     assert not is_data_role("HR Officer", "HR records in Excel and Microsoft Office.")
 
 
+@pytest.mark.parametrize(
+    "title, description",
+    [
+        # Real adverts from the 27 Oct 2026 live run that the old skills-in-description route let in.
+        ("Video Editor", "PlanetScale runs MySQL and PostgreSQL databases. Use AI tools to edit."),
+        ("Scrum Master", "Agile ceremonies; GDPR awareness; data-driven teams."),
+        ("Enterprise Account Executive", "Sell our ETL, dbt and database integration products."),
+        ("Technical Customer Support", "Use dashboards and Git to resolve tickets."),
+        ("DESARROLLADOR FULL STACK", "Python, SQL, GCP, Git and REST APIs."),
+    ],
+)
+def test_skills_in_description_never_make_a_data_role(title, description):
+    assert not is_data_role(title, description)
+
+
+@pytest.mark.parametrize(
+    "title",
+    [
+        "Junior Data Analyst",
+        "Insights Partner",
+        "Business Intelligence Engineer",
+        "Commercial Analyst",
+        "Supply Chain Analyst",
+        "Reporting Officer",
+        "Statistician",
+    ],
+)
+def test_data_titles_still_count_without_a_description(title):
+    assert is_data_role(title)
+
+
 def test_training_course_detection():
     text = "No experience needed! Job guarantee. Our money back guarantee refunds your study fees."
     assert is_training_course("Trainee Data Analyst", text)
