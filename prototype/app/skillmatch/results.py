@@ -19,6 +19,7 @@ from skillmatch.repository import Snapshot, discovery_links
 from skillmatch.taxonomy import get_taxonomy
 
 SOURCE_TIERS = {"A": "Automated feeds", "B": "Checked by hand", "fixture": "Synthetic fixtures"}
+TIER_RANK = {tier: rank for rank, tier in enumerate(TIER_ORDER)}
 HIDDEN_LABELS = {
     "senior role": "senior roles hidden",
     "not a data role": "non-data roles hidden",
@@ -94,6 +95,16 @@ def _salary_annual_max(v: dict) -> float | None:
     return v.get("salary_max") or v.get("salary_min")
 
 
+def _sort_key(m: MatchResult):
+    """Experimental ranking: match tier first, then distance, then title."""
+    return (
+        TIER_RANK[m.tier],
+        m.distance_miles is None,
+        m.distance_miles or 0,
+        m.vacancy["title"],
+    )
+
+
 def build_shortlist(
     profile: Profile,
     snap: Snapshot,
@@ -151,11 +162,8 @@ def build_shortlist(
             continue
         (revealed if reason else results).append(m)
 
-    def sort_key(m: MatchResult):
-        return (m.distance_miles is None, m.distance_miles or 0, m.vacancy["title"])
-
-    results.sort(key=sort_key)
-    revealed.sort(key=sort_key)
+    results.sort(key=_sort_key)
+    revealed.sort(key=_sort_key)
     by_tier = {t: [m for m in results if m.tier == t] for t in TIER_ORDER}
     return Shortlist(results, by_tier, hidden, revealed, home, town, considered)
 
