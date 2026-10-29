@@ -239,6 +239,7 @@ def about():
     return render_template("about.html")
 
 
+@bp.get("/health")
 @bp.get("/healthz")
 def healthz():
     snap = snapshot()

@@ -138,7 +138,7 @@ The publication staging clone is `/home/Phil/C_C/Git/SkillMatch`.
 ## Checking a deploy
 
 - Open the `daily-collect.yml` run under **Actions** and check the `deploy` job.
-- The service health endpoint is `https://<service-url>/healthz`; it should return `{"mode":"live","ok":true}`.
+- The service health endpoint is `https://<service-url>/health`; it should return `{"mode":"live","ok":true}` (on Cloud Run use `/health`; `/healthz` is reserved by Google).
 - The footer badge shows the live snapshot date.
 
 ## Running the container yourself
