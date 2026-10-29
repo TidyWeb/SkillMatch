@@ -19,6 +19,7 @@
       <nav aria-label="Main">
         {% set here = request.endpoint %}
         <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
+        <a href="{{ url_for('web.profile_skills') }}" data-profile-navigation {% if here == 'web.profile_skills' %}aria-current="page"{% endif %}>Your skills</a>
         <a href="{{ url_for('web.results') }}" {% if here == 'web.results' %}aria-current="page"{% endif %}>Your matches</a>
         <a href="{{ url_for('web.insights') }}" {% if here == 'web.insights' %}aria-current="page"{% endif %}>Insights</a>
         <a href="{{ url_for('web.sources') }}" {% if here == 'web.sources' %}aria-current="page"{% endif %}>Sources</a>
@@ -26,6 +27,9 @@
       </nav>
     </div>
   </header>
+  <form id="profile-skills-navigation" method="post" action="{{ url_for('web.profile_skills') }}" hidden>
+    <input type="hidden" name="profile">
+  </form>
   <main id="main" class="wrap">
     {% block content %}{% endblock %}
   </main>

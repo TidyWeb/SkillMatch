@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 
-from flask import Blueprint, abort, current_app, jsonify, render_template, request
+from flask import Blueprint, abort, current_app, jsonify, redirect, render_template, request
 
 from skillmatch import repository
 from skillmatch.insights import build_insights, personal_insights
@@ -106,8 +106,10 @@ def results():
     return render_template("results.html", tiers=TIER_ORDER, source_tiers=SOURCE_TIERS)
 
 
-@bp.post("/profile/skills")
+@bp.route("/profile/skills", methods=["GET", "POST"])
 def profile_skills():
+    if request.method == "GET":
+        return redirect("/")
     prof = posted_profile()
     if prof is None:
         return render_template("partials/no_profile.html", missing_data=False)

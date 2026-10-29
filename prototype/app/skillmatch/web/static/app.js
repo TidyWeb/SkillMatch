@@ -31,4 +31,15 @@
     document.querySelectorAll("[data-if-no-profile]").forEach(function (el) { el.hidden = has; });
     document.dispatchEvent(new CustomEvent("skillmatch:profile-checked", { detail: { hasProfile: has } }));
   });
+
+  document.addEventListener("click", function (evt) {
+    var link = evt.target.closest("a[data-profile-navigation]");
+    if (!link || evt.defaultPrevented || evt.button !== 0 || evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey) return;
+    if (!hasProfile()) return;
+
+    evt.preventDefault();
+    var form = document.getElementById("profile-skills-navigation");
+    form.elements.profile.value = getProfile();
+    form.submit();
+  });
 })();

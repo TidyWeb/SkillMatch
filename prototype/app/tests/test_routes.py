@@ -34,6 +34,8 @@ def test_get_pages(client, path):
     r = client.get(path)
     assert r.status_code == 200
     assert b"SkillMatch" in r.data or path == "/healthz"
+    if path != "/healthz":
+        assert b">Your skills</a>" in r.data
 
 
 def test_footer_shows_data_mode(client):
@@ -96,6 +98,13 @@ def test_profile_skills_visualization(client, monkeypatch):
     assert "Skills requested in vacancies" in html
     assert "Course covered: Yes" in html
     assert "Course covered: No" in html
+    assert 'href="/profile/skills" data-profile-navigation aria-current="page">Your skills</a>' in html
+
+
+def test_profile_skills_get_redirects_to_profile(client):
+    response = client.get("/profile/skills")
+    assert response.status_code == 302
+    assert response.headers["Location"] == "/"
 
 
 def test_profile_skills_visualization_without_profile(client):

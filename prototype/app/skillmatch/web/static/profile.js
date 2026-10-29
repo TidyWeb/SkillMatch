@@ -260,6 +260,15 @@
     viewForm.submit();
   });
 
+  document.addEventListener("click", function (evt) {
+    var link = evt.target.closest("a[data-profile-navigation]");
+    if (!link || evt.button !== 0 || evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey) return;
+    if (!window.SkillMatch.setProfile(collect())) {
+      evt.preventDefault();
+      $("#form-status").textContent = "Your browser blocked session storage, so we can't keep your profile for the skill summary.";
+    }
+  }, true);
+
   document.getElementById("clear-profile").addEventListener("click", function () {
     window.SkillMatch.clearProfile();
     form.reset();
