@@ -98,6 +98,9 @@ def test_profile_skills_visualization(client, monkeypatch):
     assert "Skills requested in vacancies" in html
     assert "Course covered: Yes" in html
     assert "Course covered: No" in html
+    assert "Your skills and essential vacancy requirements" in html
+    assert "Here’s how your skill selections relate to the essential requirements in current vacancies." in html
+    assert "Skills requested in vacancies" in html
     assert 'href="/profile/skills" data-profile-navigation aria-current="page">Your skills</a>' in html
 
 
@@ -161,6 +164,17 @@ def test_vacancy_skill_comparison_includes_count_coverage_and_profile(monkeypatc
             "course_covered": True,
             "profile_level": None,
             "profile_has_skill": False,
+        },
+    ]
+    assert comparison["chart"] == [
+        {
+            "skill": "Python",
+            "count": 12,
+            "course_covered": False,
+            "profile_level": "Confident",
+            "score": 4,
+            "bar_color": "#A63A50",
+            "demand_score": 4.0,
         },
     ]
 

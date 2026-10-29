@@ -7,30 +7,50 @@
   <p class="note">This summary was generated for this request. Your profile is not saved on the server.</p>
 </header>
 
-<figure class="figure">
+<figure class="figure skill-level-figure">
   <figcaption>
-    <h2>Skills requested in vacancies</h2>
-    <p class="hint">Each bar shows the number of vacancies listing that skill. The labels also show whether it is covered by the course and whether it is in your profile.</p>
+    <h2>Your skills and essential vacancy requirements</h2>
+    <p class="hint">Here’s how your skill selections relate to the essential requirements in current vacancies. Each bar shows your selected level; the dotted line compares how many vacancies list each skill as essential. Bar colour shows whether the course covers the skill.</p>
+    <ul class="skill-chart-legend" aria-label="Chart legend">
+      <li><span class="skill-chart-swatch skill-chart-swatch-course"></span>Covered by the course</li>
+      <li><span class="skill-chart-swatch skill-chart-swatch-other"></span>Not covered by the course</li>
+      <li><span class="skill-chart-line"></span>Vacancies listing skill as essential</li>
+    </ul>
   </figcaption>
-  {% if comparison.skills %}
-  <div class="skill-comparison-chart">
-    {% for row in comparison.skills %}
-    <div class="skill-comparison-row">
-      <p class="skill-comparison-sentence">{{ row.sentence }}</p>
-      <progress value="{{ row.count }}" max="{{ comparison.max_count if comparison.max_count else 1 }}" aria-label="{{ row.sentence }}"></progress>
-      <div class="skill-comparison-status">
-        <span class="skill-status {% if row.course_covered %}skill-status-yes{% elif row.course_covered is sameas false %}skill-status-no{% endif %}">
-          Course covered: {% if row.course_covered is sameas true %}Yes{% elif row.course_covered is sameas false %}No{% else %}Unknown{% endif %}
-        </span>
-        <span class="skill-status">
-          Profile: {{ row.profile_level if row.profile_has_skill else "Not selected" }}
-        </span>
-      </div>
-    </div>
-    {% endfor %}
+  {% if comparison.chart %}
+  {% set chart_height = 70 + comparison.chart | length * 38 %}
+  <div class="skill-level-chart-scroll">
+    <svg class="skill-level-chart" viewBox="0 0 1000 {{ chart_height }}" role="img" aria-labelledby="skill-chart-title skill-chart-description">
+      <title id="skill-chart-title">Your skills and essential vacancy requirements</title>
+      <desc id="skill-chart-description">Essential skills are ordered by the number of vacancies requiring them. Each bar uses a scale from one for not selected to four for confident. The dotted line maps each essential skill's vacancy count onto a relative scale from one to four.</desc>
+      {% set plot_bottom = 52 + comparison.chart | length * 38 %}
+      {% for tick in range(1, 5) %}
+      {% set x = 365 + tick * 145 %}
+      <line class="skill-chart-gridline" x1="{{ x }}" y1="50" x2="{{ x }}" y2="{{ plot_bottom }}" />
+      <text class="skill-chart-axis" x="{{ x }}" y="43" text-anchor="middle">{{ {1: "Not selected", 2: "Learned", 3: "Project", 4: "Confident"}[tick] }}</text>
+      {% endfor %}
+      <text class="skill-chart-axis-title" x="655" y="14" text-anchor="middle">Your skill level / essential vacancy demand</text>
+      {% for row in comparison.chart %}
+      {% set y = 70 + loop.index0 * 38 %}
+      <text class="skill-chart-name" x="12" y="{{ y - 3 }}">
+        <title>{{ loop.index }}. {{ row.skill }}</title>
+        {{ loop.index }}. {{ row.skill }}
+      </text>
+      <text class="skill-chart-detail" x="12" y="{{ y + 12 }}">
+        {{ row.profile_level }} · {% if row.course_covered is sameas true %}On course{% elif row.course_covered is sameas false %}Not on course{% else %}Course coverage unknown{% endif %} · {{ row.count }} vacancies
+      </text>
+      <rect class="skill-chart-bar" x="365" y="{{ y - 9 }}" width="{{ row.score * 145 }}" height="18" rx="2" fill="{{ row.bar_color }}" />
+      {% endfor %}
+      {% if comparison.chart | length > 1 %}
+      <polyline class="skill-chart-demand-line" points="{% for row in comparison.chart %}{{ 365 + row.demand_score * 145 }},{{ 70 + loop.index0 * 38 }}{% if not loop.last %} {% endif %}{% endfor %}" />
+      {% endif %}
+      {% for row in comparison.chart %}
+      <circle class="skill-chart-demand-point" cx="{{ 365 + row.demand_score * 145 }}" cy="{{ 70 + loop.index0 * 38 }}" r="4" />
+      {% endfor %}
+    </svg>
   </div>
   {% else %}
-  <p>No vacancy skill data is available.</p>
+  <p>No essential vacancy skill data is available for this chart.</p>
   {% endif %}
 </figure>
 
@@ -56,6 +76,28 @@
   <p>Add skills to your profile to see them summarized here.</p>
 </section>
 {% endif %}
+
+<details class="figure skill-vacancy-details">
+  <summary>Skills requested in vacancies <span class="skill-vacancy-summary-hint">Show vacancy counts and your profile status</span></summary>
+  {% if comparison.skills %}
+  <div class="skill-comparison-chart">
+    {% for row in comparison.skills %}
+    <div class="skill-comparison-row">
+      <p class="skill-comparison-sentence">{{ row.sentence }}</p>
+      <progress value="{{ row.count }}" max="{{ comparison.max_count if comparison.max_count else 1 }}" aria-label="{{ row.sentence }}"></progress>
+      <div class="skill-comparison-status">
+        <span class="skill-status {% if row.course_covered %}skill-status-yes{% elif row.course_covered is sameas false %}skill-status-no{% endif %}">
+          Course covered: {% if row.course_covered is sameas true %}Yes{% elif row.course_covered is sameas false %}No{% else %}Unknown{% endif %}
+        </span>
+        <span class="skill-status">Profile: {{ row.profile_level if row.profile_has_skill else "Not selected" }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No vacancy skill data is available.</p>
+  {% endif %}
+</details>
 
 <p><a class="button-secondary" href="{{ url_for('web.profile') }}">Back to your profile</a></p>
 {% endblock %}

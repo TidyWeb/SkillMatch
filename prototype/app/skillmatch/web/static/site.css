@@ -126,6 +126,28 @@ input[type="checkbox"], input[type="radio"] { width: 1.15rem; height: 1.15rem; a
 .skill-status { border: 1px solid var(--rule); border-radius: 999px; padding: 0.05rem 0.55rem; font-size: 0.82rem; }
 .skill-status-yes { border-color: var(--accent); color: var(--accent); }
 .skill-status-no { color: var(--ink-soft); }
+.skill-level-figure { margin-top: 1.5rem; }
+.skill-level-figure figcaption h2 { margin-bottom: 0.3rem; }
+.skill-chart-legend { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0 0 1rem; }
+.skill-chart-legend li { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; }
+.skill-chart-swatch { display: inline-block; width: 1rem; height: 0.75rem; border: 1px solid var(--ink-soft); border-radius: 2px; }
+.skill-chart-swatch-course { background: #89CFF0; }
+.skill-chart-swatch-other { background: #E8A87C; }
+.skill-chart-line { display: inline-block; width: 1.5rem; border-top: 2px dashed var(--ink); }
+.skill-level-chart-scroll { overflow-x: auto; }
+.skill-level-chart { display: block; width: 100%; min-width: 760px; height: auto; overflow: visible; }
+.skill-chart-gridline { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 4; }
+.skill-chart-axis, .skill-chart-axis-title { fill: var(--ink-soft); font: 12px var(--sans); }
+.skill-chart-axis-title { font-weight: 600; }
+.skill-chart-name { fill: var(--ink); font: 13px var(--sans); }
+.skill-chart-detail { fill: var(--ink-soft); font: 10px var(--sans); }
+.skill-chart-bar { stroke: var(--ink-soft); stroke-width: 0.5; }
+.skill-chart-demand-line { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-dasharray: 5 4; }
+.skill-chart-demand-point { fill: var(--paper-raised); stroke: var(--ink); stroke-width: 2; }
+.skill-vacancy-details { padding-block: 0.85rem; }
+.skill-vacancy-details summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.skill-vacancy-summary-hint { display: block; color: var(--ink-soft); font-size: 0.85rem; font-weight: normal; }
+.skill-vacancy-details[open] summary { margin-bottom: 1rem; }
 
 .role { border-top: 1px solid var(--rule); padding-top: 1.25rem; margin-bottom: 1.5rem; }
 .role-legend { font-family: var(--serif); font-size: 1.15rem; padding: 0; margin-bottom: 0.75rem; }

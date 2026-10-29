@@ -13,6 +13,17 @@ LEVEL_LABELS = {
     "project": "Used in a project",
     "confident": "Confident",
 }
+LEVEL_SCORES = {"course": 2, "project": 3, "confident": 4}
+CHART_COLORS = {
+    (True, "confident"): "#0B4F6C",
+    (True, "project"): "#01BAEF",
+    (True, "course"): "#89CFF0",
+    (True, None): "#E0F2FE",
+    (False, "confident"): "#A63A50",
+    (False, "project"): "#D65A31",
+    (False, "course"): "#E8A87C",
+    (False, None): "#F4E0DB",
+}
 
 
 vacancy_skills = get_data_skills()
@@ -44,9 +55,11 @@ def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dic
     required = {"skill", "count", "strength", "confidence", "course_covered"}
     missing = required - set(vacancy_skills.columns)
     if missing:
-        raise ValueError(f"Vacancy skills data is missing columns: {', '.join(sorted(missing))}")
+        raise ValueError(
+            f"Vacancy skills data is missing columns: {', '.join(sorted(missing))}")
 
     rows = []
+    chart_rows = []
     for row in vacancy_skills.to_dict("records"):
         skill_id = str(row["skill"]).strip()
         if not skill_id or skill_id.casefold() == "nan":
@@ -60,6 +73,7 @@ def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dic
         course_covered = None if pd.isna(covered) else bool(covered)
         profile_level = profile.skills.get(skill_id)
         skill_name = skill.label if skill else skill_id
+        profile_label = LEVEL_LABELS.get(profile_level)
         rows.append(
             {
                 "skill": skill_name,
@@ -71,13 +85,39 @@ def compare_vacancy_skills(profile: Profile, tax: Taxonomy | None = None) -> dic
                     f"in {count} vacancies."
                 ),
                 "course_covered": course_covered,
-                "profile_level": LEVEL_LABELS.get(profile_level),
+                "profile_level": profile_label,
                 "profile_has_skill": profile_level is not None,
             }
         )
+        if strength.casefold() == "essential":
+            chart_rows.append(
+                {
+                    "skill": skill_name,
+                    "count": count,
+                    "course_covered": course_covered,
+                    "profile_level": profile_label or "Not selected",
+                    "score": LEVEL_SCORES.get(profile_level, 1),
+                    "bar_color": CHART_COLORS.get(
+                        (course_covered, profile_level),
+                        "#D8D2C4",
+                    ),
+                }
+            )
 
     rows.sort(key=lambda row: (-row["count"], row["skill"].casefold()))
+    chart_rows.sort(key=lambda row: (-row["count"], row["skill"].casefold()))
+    counts = [row["count"] for row in chart_rows]
+    min_count = min(counts, default=0)
+    max_count = max(counts, default=0)
+    for row in chart_rows:
+        row["demand_score"] = (
+            1 + 3 * (row["count"] - min_count) / (max_count - min_count)
+            if max_count > min_count
+            else 4 if max_count else 1
+        )
+
     return {
         "skills": rows,
         "max_count": max((row["count"] for row in rows), default=0),
+        "chart": chart_rows,
     }
