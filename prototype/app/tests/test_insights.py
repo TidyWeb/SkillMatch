@@ -2,6 +2,7 @@ from skillmatch.etl.pipeline import run
 from skillmatch.insights import build_insights, entry_plausible, personal_insights
 from skillmatch.profile import personas, profile_from_dict
 from skillmatch.repository import load
+from skillmatch.taxonomy import get_taxonomy
 
 
 def test_entry_plausible():
@@ -22,6 +23,12 @@ def test_insight_figures_carry_n(tmp_path):
     assert d["junior"]["n"] >= d["junior"]["two_plus"] >= 1
     assert sum(b["n"] for b in d["salary"]["bands"]) == d["salary"]["n"]
     assert {w["label"] for w in d["senior_words"]} >= {"senior", "manager"}
-    mine = personal_insights(profile_from_dict(personas()["teacher_stoke"]), snap)
+    profile = profile_from_dict(personas()["teacher_stoke"])
+    mine = personal_insights(profile, snap)
     assert mine["points"] and mine["home"]
     assert sum(t["n"] for t in mine["tiers"]) == mine["n_results"]
+    assert {row["label"] for row in mine["my_competencies"]} == {
+        get_taxonomy().competencies[competency].label
+        for area in profile.areas
+        for competency in area.skills
+    }

@@ -237,7 +237,7 @@ def personal_insights(profile: Profile, snap: Snapshot) -> dict:
             if m.vacancy["lat"] is not None
         ]
     )
-    mine = {c for r in profile.roles for c in r.competencies}
+    mine = {competency for area in profile.areas for competency in area.skills}
     entry = [v for v in snap.shown if entry_plausible(v)]
     demand: Counter = Counter()
     for v in entry:
