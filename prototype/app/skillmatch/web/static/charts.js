@@ -93,8 +93,9 @@
     var order = ["not_yet", "stretch", "good", "strong"];
     points.slice().sort(function (a, b) { return order.indexOf(a.tier) - order.indexOf(b.tier); }).forEach(function (p) {
       var colour = byTier ? TIER[p.tier] : ACCENT;
+      var lightTier = byTier && (p.tier === "stretch" || p.tier === "not_yet");
       L.circleMarker([p.lat, p.lon], {
-        radius: byTier ? TIER_RADIUS[p.tier] : numberToken("--map-radius-default"), color: SURFACE, weight: 2, fillColor: colour, fillOpacity: 0.95
+        radius: byTier ? TIER_RADIUS[p.tier] : numberToken("--map-radius-default"), color: lightTier ? INK : SURFACE, weight: lightTier ? 2.5 : 2, fillColor: colour, fillOpacity: 0.95
       }).bindPopup(popup(p)).addTo(map);
       bounds.push([p.lat, p.lon]);
     });
