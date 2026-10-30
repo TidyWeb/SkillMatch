@@ -37,3 +37,11 @@ From the repository page, find **Project documents** in this README and select *
 If you open `Job_Search_App_Plan.html` from the repository's **Code** file list and see HTML tags, you are viewing the source file. Return to this README and use the webpage link to read the formatted plan.
 
 GitHub Pages displays these static pages; it does not run the Flask application itself.
+
+## Licence
+
+The code and written material in this repo are released under the MIT licence. See [LICENSE](LICENSE).
+
+- Anyone can use, copy and adapt it, as long as they keep the licence notice.
+- Work contributed by team members is released under the same licence.
+- The licence does not cover the job adverts collected on the `data-snapshots` branch. That content belongs to Reed and the employers who posted it.
