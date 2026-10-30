@@ -76,11 +76,11 @@ jobs:
           version: "0.12.3"
 
       - name: Install app dependencies
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         run: uv sync --frozen
 
       - name: Restore prior snapshots and history
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         run: |
           mkdir -p data/snapshots data/history
           for snapshot in "$GITHUB_WORKSPACE"/snapshot-export/data/live_snapshots/20*; do
@@ -101,10 +101,10 @@ jobs:
         run: test -n "$REED_API_KEY" || { echo "::error::Add REED_API_KEY to the reed environment"; exit 1; }
 
       - name: Record existing snapshot folders
-        run: find prototype/app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$RUNNER_TEMP/snapshots-before.txt"
+        run: find skillmatch-app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort > "$RUNNER_TEMP/snapshots-before.txt"
 
       - name: Collect live vacancies
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         env:
           REED_API_KEY: ${{ secrets.REED_API_KEY }}
         run: uv run python -m skillmatch.etl --mode live
@@ -112,7 +112,7 @@ jobs:
       - name: Publish the live database for Codespaces
         id: publish_live_database
         continue-on-error: true
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -123,14 +123,14 @@ jobs:
           gh release upload live-data skillmatch_live_latest.db --clobber
 
       - name: Run tests
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         run: uv run pytest
 
       - name: Find the new snapshot
         id: snapshot
         run: |
-          name="$(find prototype/app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | comm -13 "$RUNNER_TEMP/snapshots-before.txt" - | head -n 1)"
-          snapshot="prototype/app/data/snapshots/$name"
+          name="$(find skillmatch-app/data/snapshots -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | comm -13 "$RUNNER_TEMP/snapshots-before.txt" - | head -n 1)"
+          snapshot="skillmatch-app/data/snapshots/$name"
           test -n "$name" || { echo "::error::No snapshot folder was written"; exit 1; }
           echo "path=$snapshot" >> "$GITHUB_OUTPUT"
 
@@ -143,7 +143,7 @@ jobs:
           retention-days: 30
 
       - name: Export snapshots and growing history
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         run: make export-snapshot TARGET="$GITHUB_WORKSPACE/snapshot-export/data/live_snapshots"
 
       - name: Commit and push data-snapshots only
@@ -161,7 +161,7 @@ jobs:
 
       - name: Save the database for an enabled deployment
         if: ${{ vars.DEPLOY_ENABLED == 'true' }}
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         run: |
           mkdir -p "$RUNNER_TEMP/skillmatch-database"
           database="data/processed/skillmatch.db"
@@ -205,7 +205,7 @@ jobs:
         uses: actions/download-artifact@v8.0.2
         with:
           name: skillmatch-live-database-${{ github.run_id }}
-          path: prototype/app/data/processed
+          path: skillmatch-app/data/processed
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3.0.0
@@ -216,7 +216,7 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v3.0.1
 
       - name: Build and push the image
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         env:
           GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
         run: |
@@ -229,7 +229,7 @@ jobs:
           echo "IMAGE=$image" >> "$GITHUB_ENV"
 
       - name: Deploy to Cloud Run
-        working-directory: prototype/app
+        working-directory: skillmatch-app
         env:
           GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
         run: |

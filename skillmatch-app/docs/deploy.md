@@ -143,7 +143,7 @@ The publication staging clone is `/home/Phil/C_C/Git/SkillMatch`.
 
 ## Running the container yourself
 
-From `prototype/app` in the repository:
+From `skillmatch-app` in the repository:
 
 ```bash
 make docker-build   # builds the database first if it's missing (fixtures if there's no Reed key)

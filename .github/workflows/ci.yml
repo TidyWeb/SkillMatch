@@ -12,7 +12,7 @@ permissions:
 
 defaults:
   run:
-    working-directory: prototype/app
+    working-directory: skillmatch-app
 
 jobs:
   test:
@@ -22,7 +22,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.2
         with:
           version: "0.12.3"
-          cache-dependency-glob: prototype/app/uv.lock
+          cache-dependency-glob: skillmatch-app/uv.lock
       - run: uv sync --frozen
       - run: uv run ruff check . && uv run ruff format --check .
       - run: uv run python -m skillmatch.etl --mode fixtures

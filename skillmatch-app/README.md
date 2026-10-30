@@ -1,5 +1,13 @@
 # SkillMatch
 
+## Just opened this in Codespaces?
+
+You don't need to do anything here. Wait for the terminal at the bottom to finish setting up (a few minutes the first time). When it says:
+
+    Running on http://127.0.0.1:5000
+
+hold **Ctrl** (Windows or Linux) or **Cmd** (Mac) and **click that address**. SkillMatch opens in a new tab. Ignore the other addresses it lists.
+
 **Match the skills from your previous career to entry-level data jobs in the West Midlands.**
 
 SkillMatch is for people finishing Code Institute's *Data Analytics with AI* course in the West Midlands. Most have a fresh qualification in Python, pandas, statistics and Power BI or Tableau, but no time yet in a data job. Most also have substantial careers behind them: PhD researchers, teachers, nurses, senior managers, plc directors, kitchen managers, retail and warehouse supervisors, people in the trades.
