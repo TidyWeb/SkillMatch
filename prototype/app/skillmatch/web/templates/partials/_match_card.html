@@ -3,7 +3,7 @@
 <details class="match-card">
   <summary>
     <span class="match-card-title">{{ m.title }}</span>
-    <span class="match-card-meta">{{ m.company or "Employer not named" }} · {{ m.salary_text or "Salary not stated" }} · {{ m.match_level }}</span>
+    <span class="match-card-meta">{{ m.company or "Employer not named" }} · {{ m.salary_text or "Salary not stated" }} · <span class="tier tier-{{ m.match_tier }}">{{ m.match_level }}</span></span>
   </summary>
   <div class="match-detail">
     {% if m.guard_reason %}<p>{{ m.guard_reason }}</p>{% endif %}

@@ -9,23 +9,31 @@
   --map-radius-home: 9;
   --chart-row-height: 2.5rem;
   --chart-header-height: 3rem;
-  --paper: #f8f6f1;
-  --paper-raised: #fffdf9;
+  --paper: #e7e5df;
+  --paper-raised: #faf9f6;
   --input-surface: #ffffff;
-  --ink: #1e1d1a;
-  --ink-soft: #55524b;
-  --rule: #d8d2c4;
-  --accent: #1f4e8c;
-  --accent-hover: #173d6f;
-  --accent-wash: #e6edf7;
-  --tier-strong: #1f4e8c;
-  --tier-good: #4470ad;
-  --tier-stretch: #6a8dc0;
-  --tier-not-yet: #94acd0;
+  --ink: #161616;
+  --ink-soft: #68655f;
+  --rule: #e2ded5;
+  --accent: #3556a8;
+  --accent-hover: #1e3a8a;
+  --accent-wash: #dfe3ec;
+  --tier-strong: #1e3a8a;
+  --tier-good: #3556a8;
+  --tier-stretch: #a9b8de;
+  --tier-not-yet: #dfe3ec;
   --white: #ffffff;
 
-  --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Navy A app surfaces and semantic result states. */
+  --panel: #2b3a55;
+  --panel-muted: #c3cbdb;
+  --tier-ink: #1e2a4a;
+  --status-met: #1f7a4a;
+  --status-partly: #9a5b12;
+  --status-gap: #b83b3b;
+
+  --serif: "Inter", system-ui, sans-serif;
+  --sans: "Inter", system-ui, sans-serif;
   --line: 1.6;
   --font-body: var(--font-size-body)/var(--line) var(--sans);
   --leading-tight: 1.25;

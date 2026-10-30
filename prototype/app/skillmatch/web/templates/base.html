@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}SkillMatch{% endblock %} · SkillMatch</title>
   <meta name="description" content="Match the skills from your previous career to entry-level data jobs in the West Midlands.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%231f4e8c'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261028-stage3') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261028-stage3') }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%232b3a55'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261030-navy-a') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261030-navy-a') }}">
   {% block head %}{% endblock %}
   <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
   <script src="{{ url_for('static', filename='app.js', v='20261028-stage3') }}" defer></script>
@@ -16,7 +19,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="masthead">
     <div class="wrap masthead-inner">
-      <a class="brand" href="{{ url_for('web.profile') }}">Skill<span>Match</span></a>
+      <a class="brand" href="{{ url_for('web.profile') }}"><i aria-hidden="true">S</i><span>SkillMatch</span></a>
       <nav aria-label="Main">
         {% set here = request.endpoint %}
         <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
