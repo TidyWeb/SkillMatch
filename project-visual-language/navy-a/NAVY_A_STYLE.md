@@ -167,3 +167,7 @@ These came from Phil reviewing real pages. Each one is a rule now; the reason is
 | Colours have fixed meanings: navy carries weight, blue means a match or a link, category dots mean guide categories | If a colour is used for decoration it stops meaning anything. |
 
 When a new case comes up, ask: can the reader see the edges of each thing, and does each thing look like what it is? If not, it isn't Navy A yet.
+
+Balanced rows. In a two-column bento row, both columns must end level. If one side is shorter, add a related, useful visual panel under it (a real screenshot, chart or example), or stack the boxes full width. Never leave an empty hole. Every filler must teach something relevant to that section; no decoration.
+
+Fit the space that exists. Measure both columns before adding anything, and size the filler to the gap. A filler must not push other boxes or create a new gap; after any change, recheck every column in the row and the rows around it. Prefer making the shorter panel's content richer and evenly spaced over adding a new box. Fillers carry useful content for that section, never credits, decoration or empty padding.

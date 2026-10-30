@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Fictional UK Retail Sales Dashboard preview</title>
+  <desc id="desc">An illustrative dashboard thumbnail with sample bars comparing categories and regions. Every bar and value is invented for this teaching example.</desc>
+  <rect width="960" height="520" rx="24" fill="#f3f5f8"/>
+  <rect x="0" y="0" width="960" height="112" rx="24" fill="#243957"/>
+  <path d="M0 88h960v24H0z" fill="#243957"/>
+  <text x="40" y="50" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700">UK Retail Sales Dashboard</text>
+  <text x="40" y="82" fill="#d8e2f0" font-family="Inter,Arial,sans-serif" font-size="17">Illustrative project preview · fictional sample values</text>
+  <rect x="758" y="30" width="164" height="42" rx="21" fill="#dbeafe"/>
+  <text x="840" y="57" text-anchor="middle" fill="#243957" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700">TEACHING EXAMPLE</text>
+
+  <rect x="32" y="136" width="438" height="320" rx="18" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="58" y="177" fill="#1f2937" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">Monthly sales by category</text>
+  <text x="58" y="204" fill="#697586" font-family="Inter,Arial,sans-serif" font-size="14">Illustrative index · not real sales figures</text>
+  <path d="M92 378H432M92 244V378" fill="none" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M92 334H432M92 289H432M92 244H432" fill="none" stroke="#e5eaf0" stroke-width="1"/>
+  <rect x="136" y="293" width="62" height="85" rx="7" fill="#4e75b8"/>
+  <rect x="231" y="261" width="62" height="117" rx="7" fill="#6e9dce"/>
+  <rect x="326" y="318" width="62" height="60" rx="7" fill="#8cb6d5"/>
+  <text x="167" y="405" text-anchor="middle" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="14">Food</text>
+  <text x="262" y="405" text-anchor="middle" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="14">Clothing</text>
+  <text x="357" y="405" text-anchor="middle" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="14">Home</text>
+  <text x="58" y="438" fill="#697586" font-family="Inter,Arial,sans-serif" font-size="13">Bars are invented to demonstrate a project image.</text>
+
+  <rect x="490" y="136" width="438" height="320" rx="18" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="516" y="177" fill="#1f2937" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700">Compare regions</text>
+  <text x="516" y="204" fill="#697586" font-family="Inter,Arial,sans-serif" font-size="14">A static preview gives a quick visual summary</text>
+  <text x="516" y="260" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="15">West Midlands</text>
+  <rect x="650" y="240" width="190" height="28" rx="14" fill="#e8edf3"/>
+  <rect x="650" y="240" width="126" height="28" rx="14" fill="#4e75b8"/>
+  <text x="516" y="326" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="15">North West</text>
+  <rect x="650" y="306" width="190" height="28" rx="14" fill="#e8edf3"/>
+  <rect x="650" y="306" width="154" height="28" rx="14" fill="#6e9dce"/>
+  <text x="516" y="392" fill="#334155" font-family="Inter,Arial,sans-serif" font-size="15">South East</text>
+  <rect x="650" y="372" width="190" height="28" rx="14" fill="#e8edf3"/>
+  <rect x="650" y="372" width="102" height="28" rx="14" fill="#8cb6d5"/>
+  <text x="516" y="438" fill="#697586" font-family="Inter,Arial,sans-serif" font-size="13">Open the project link for the question, method and limits.</text>
+
+  <text x="480" y="493" text-anchor="middle" fill="#475569" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="600">Fictional preview only · do not present these bars as real project results</text>
+</svg>
