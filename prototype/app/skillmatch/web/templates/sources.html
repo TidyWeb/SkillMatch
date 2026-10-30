@@ -33,7 +33,7 @@
 
 <section class="source-tier" aria-labelledby="tier-c">
   <h2 id="tier-c">Tier C: links to search yourself</h2>
-  <p class="prose">For every other source in the team's register of {{ groups.values()|map('length')|sum }} sources, we build a link to its own search. Where we know how the site's search address works, it's pre-filled with your town and “data analyst”; otherwise it opens the site's search page and says so. We collect nothing from these sites.</p>
+  <p>For every other source in the team's register of {{ groups.values()|map('length')|sum }} sources, we build a link to its own search. Where we know how the site's search address works, it's pre-filled with your town and “data analyst”; otherwise it opens the site's search page and says so. We collect nothing from these sites.</p>
   {% for kind, rows in groups.items() %}
   <details class="disc-group">
     <summary>{{ kind }} <span class="count">{{ rows|length }}</span></summary>
