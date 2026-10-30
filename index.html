@@ -1,85 +1,282 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SkillMatch team hub</title>
-<meta name="description" content="Everything the SkillMatch hackathon team needs, in one place: guides, the project board, prototypes and plans.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/guides.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillMatch | Find data work that fits</title>
+  <meta name="description" content="SkillMatch helps Code Institute graduates changing career find entry-level data jobs in the West Midlands through transferable skills.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project-visual-language/navy-a/navy-a.css">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <style>
+    .na-top{padding-bottom:10px}
+    .na-page.overview{padding-top:24px;padding-bottom:20px}
+    .overview-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+    .overview-tile{min-width:0;border-radius:var(--na-r);background:var(--na-surface);padding:24px;color:var(--na-ink)}
+    .overview-hero{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;background:var(--na-panel);color:var(--na-panel-ink);min-height:218px;padding:22px 34px}
+    .overview-hero .na-kicker,.overview-hero .na-label{color:var(--na-panel-muted)}
+    .overview-hero h1{max-width:none;margin:8px 0 10px;color:var(--na-panel-ink);font-size:clamp(32px,3.6vw,46px)}
+    .hero-description{max-width:76ch;margin:0;color:var(--na-panel-ink);font-size:17px;line-height:1.5}
+    .hero-audience,.hero-privacy{margin:8px 0 0;color:var(--na-panel-muted);font-size:14px;line-height:1.45}
+    .hero-audience{margin-top:14px}
+    .overview-section{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:10px 0 0}
+    .overview-section h2{font-size:22px}
+    .overview-section p{margin:0;color:var(--na-muted);font-size:13px}
+    .tool-card{grid-column:span 3;display:flex;flex-direction:column;align-items:flex-start;min-height:150px;padding:20px;text-decoration:none;transition:background-color .15s ease,transform .15s ease}
+    .tool-card:hover{background:var(--na-surface-2);color:var(--na-ink);transform:translateY(-2px)}
+    .tool-card .na-label{color:var(--na-accent);font-size:11px}
+    .tool-card strong{display:block;margin:8px 0 4px;color:var(--na-ink);font-size:20px;line-height:1.2;letter-spacing:-.02em}
+    .tool-card .tool-description{display:block;color:var(--na-muted);font-size:14px;line-height:1.45}
+    .tool-go{display:inline-flex;align-items:center;margin-top:auto;padding:7px 13px;border-radius:var(--na-pill);background:var(--na-surface-2);color:var(--na-accent-deep);font-size:13px;font-weight:700}
+    .journey-card{grid-column:1/-1;padding:24px 26px 14px}
+    .journey-card h2{font-size:23px}
+    .journey-card .journey-intro{margin:5px 0 14px;color:var(--na-muted);font-size:14px}
+    .journey-svg{display:block;width:100%;height:auto;max-width:100%}
+    .journey-svg--phone{display:none}
+    .data-heading{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:8px 0 0}
+    .data-heading h2{font-size:22px}
+    .data-heading p{margin:0;color:var(--na-muted);font-size:13px}
+    .stat-card{grid-column:span 4;display:flex;flex-direction:column;justify-content:flex-start;min-height:138px;padding:20px 22px}
+    .stat-card .na-label{font-size:11px}
+    .stat-card .na-big{display:block;margin:8px 0 4px;color:var(--na-accent);font-size:clamp(40px,4vw,54px);text-align:center}
+    .stat-card .stat-caption{color:var(--na-muted);font-size:14px;line-height:1.4}
+    .snapshot-note{grid-column:1/-1;margin:-4px 0 0;color:var(--na-muted);font-size:12px;line-height:1.4}
+    .snapshot-note a{color:var(--na-accent-deep)}
+    .course-card{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:stretch;gap:18px;padding:20px 24px}
+    .course-copy{min-width:0}
+    .course-card h2{max-width:27ch;margin:6px 0;font-size:clamp(23px,2.6vw,30px)}
+    .course-card p{margin:4px 0;color:var(--na-muted);font-size:14px;line-height:1.48}
+    .course-card .course-meta{color:var(--na-ink);font-weight:600}
+    .course-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto repeat(3,minmax(34px,1fr));align-items:center;column-gap:10px;row-gap:8px;min-width:0;padding:14px 18px;border-radius:var(--na-r-sm);background:var(--na-surface-2)}
+    .course-topics .na-label{grid-column:1/-1;margin:0;font-size:11px}
+    .topic-chip{display:inline-flex;align-items:center;justify-content:center;justify-self:stretch;align-self:stretch;min-height:34px;padding:6px 10px;border-radius:var(--na-pill);background:var(--na-surface);color:var(--na-panel);font-size:12px;font-weight:600;line-height:1.3}
+    .topic-chip:last-child{grid-column:1/-1}
+    .course-link{align-self:flex-start;display:inline-flex;margin-top:4px;padding:7px 13px;border-radius:var(--na-pill);background:var(--na-panel);color:var(--na-panel-ink);font-size:13px;font-weight:600;text-decoration:none}
+    .course-link:hover{background:var(--na-accent-deep);color:var(--na-panel-ink)}
+    .overview-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;max-width:1360px;margin:0 auto;padding:0 40px 26px;color:var(--na-muted);font-size:13px}
+    .overview-footer p{margin:0}
+    .overview-footer a{color:var(--na-accent-deep);font-weight:600}
+    @media(max-width:900px){
+      .tool-card{grid-column:span 6}
+      .course-card{grid-template-columns:minmax(0,1fr)}
+      .course-topics{grid-template-columns:minmax(0,1fr);grid-template-rows:auto repeat(5,auto);gap:7px}
+      .topic-chip{min-height:0}
+    }
+    @media(max-width:850px){
+      .na-top{flex-wrap:wrap;gap:14px;padding:16px 16px 4px}
+      .na-top .na-nav{order:3;width:100%}
+      .na-page.overview{padding:22px 16px 28px}
+      .overview-footer{padding:0 16px 24px}
+    }
+    @media(max-width:560px){
+      .overview-grid{grid-template-columns:minmax(0,1fr)}
+      .overview-tile,.overview-hero,.tool-card,.journey-card,.data-heading,.stat-card,.snapshot-note,.course-card{grid-column:1}
+      .overview-hero{min-height:0;padding:24px 22px}
+      .overview-hero h1{font-size:34px;max-width:18ch}
+      .hero-description{font-size:16px}
+      .overview-section,.data-heading{align-items:flex-start;flex-direction:column;gap:4px}
+      .tool-card{min-height:142px;padding:20px}
+      .journey-card{padding:21px 16px}
+      .journey-svg--wide{display:none}
+      .journey-svg--phone{display:block}
+      .stat-card{min-height:118px}
+      .course-card{padding:20px;gap:14px}
+      .course-topics{padding:15px}
+      .overview-footer{align-items:flex-start;flex-direction:column;padding:0 16px 22px}
+    }
+    @media(prefers-reduced-motion:reduce){.tool-card{transition:none}.tool-card:hover{transform:none}}
+  </style>
 </head>
 <body>
-<main class="hub">
+  <a class="na-skip" href="#main">Skip to content</a>
+  <header class="na-top">
+    <a class="na-mark" href="./"><i aria-hidden="true">S</i>SkillMatch</a>
+    <nav class="na-nav" aria-label="Main">
+      <a href="./" aria-current="page">Home</a>
+      <a href="https://skillmatch-926015010605.europe-west2.run.app">Find jobs</a>
+      <a href="project-visual-language/github-profile-guide/">GitHub guide</a>
+      <a href="project-visual-language/linkedin-profile-guide/">LinkedIn guide</a>
+      <a href="project-visual-language/tailor-my-cv/">Tailor my CV</a>
+    </nav>
+  </header>
 
-<header class="hub-head">
-  <img src="assets/img/tidyweb-logo.png" width="88" height="88" alt="">
-  <div>
-    <h1>SkillMatch team hub</h1>
-    <p>Everything we're working on, in one place. Bookmark this page: every guide, prototype and plan is one click from here.</p>
-  </div>
-</header>
+  <main class="na-page overview" id="main">
+    <div class="overview-grid">
+      <section class="overview-tile overview-hero" aria-labelledby="overview-title">
+        <div>
+          <span class="na-kicker">A next step into data</span>
+          <h1 id="overview-title">Your working life already holds useful skills.</h1>
+          <p class="hero-description">SkillMatch connects Code Institute graduates changing career with entry-level data jobs in the West Midlands. It looks for transferable skills from your previous work, not just job titles.</p>
+          <p class="hero-audience">For Code Institute graduates moving into data from another field.</p>
+          <p class="hero-privacy">Free to use. No login. No personal data is stored.</p>
+        </div>
+      </section>
 
-<h2>Start here</h2>
-<p class="sub">New to the project? Start with the blue card.</p>
-<ul class="tiles">
-  <li><a class="tile start" href="team-guides/a1-get-skillmatch.html"><span class="kind">Guides A1–A4</span><strong>Get set up and add your folder</strong><span class="d">Four short steps: get SkillMatch on your machine, pick your AI assistant, add your folder, send it for review. About 25 minutes.</span><span class="go">Start with A1 →</span></a></li>
-  <li><a class="tile" href="https://github.com/users/TidyWeb/projects/3"><span class="kind">Project board</span><strong>Who's doing what, and when</strong><span class="d">Every task for the four days, by day and by person. Find your cards here.</span><span class="go">Open the board →</span></a></li>
-  <li><a class="tile" href="team-guides/help.html"><span class="kind">Help</span><strong>Stuck?</strong><span class="d">What to do when something goes wrong, and how to add your folder without an AI.</span><span class="go">Get help →</span></a></li>
-</ul>
+      <div class="overview-section"><h2>Choose a tool</h2><p>Four ways to find and prepare for your next step.</p></div>
 
-<h2>Working together</h2>
-<p class="sub">How every task gets from your computer into the shared version, and how it's checked on the way.</p>
-<ul class="tiles">
-  <li><a class="tile" href="team-guides/b1-the-big-picture.html"><span class="kind">Guides B1–B7 · everyone</span><strong>Understanding GitHub</strong><span class="d">Learn where your files live, how to share changes, how cards close, and who does what.</span><span class="go">Start with B1 →</span></a></li>
-  <li><a class="tile" href="team-guides/d1-start-from-the-latest.html"><span class="kind">Guides D1–D5 · everyone</span><strong>Working on a task</strong><span class="d">Start from the latest, make a branch for your card, save and upload, open a pull request, tidy up after it's merged.</span><span class="go">Start with D1 →</span></a></li>
-  <li><a class="tile" href="team-guides/e1-review-a-pull-request.html"><span class="kind">Guides E1–E4 · reviewers</span><strong>Reviewing and merging</strong><span class="d">Review a pull request, merge it, sort out a conflict, and how the shared version is protected.</span><span class="go">Start with E1 →</span></a></li>
-</ul>
-<p>We use Discord for messages to the whole team and to individuals. We meet on Google Meet after the daily stand-up. We set further meeting times in Discord when there is work to review. Every change goes through a pull request. Every pull request needs a review. Main is protected. Only Phil merges. For the steps, see <a href="team-guides/b1-the-big-picture.html">B1–B7</a>, <a href="team-guides/d1-start-from-the-latest.html">D1–D5</a> and <a href="team-guides/e1-review-a-pull-request.html">E1–E4</a>.</p>
+      <a class="overview-tile tool-card" href="https://skillmatch-926015010605.europe-west2.run.app">
+        <span class="na-label">01 · FIND</span><strong>Find jobs</strong>
+        <span class="tool-description">Browse live West Midlands jobs matched to your skills.</span>
+        <span class="tool-go">Go →</span>
+      </a>
+      <a class="overview-tile tool-card" href="project-visual-language/github-profile-guide/">
+        <span class="na-label">02 · SHOW YOUR WORK</span><strong>GitHub profile guide</strong>
+        <span class="tool-description">Build a profile that makes your projects easy to see.</span>
+        <span class="tool-go">Go →</span>
+      </a>
+      <a class="overview-tile tool-card" href="project-visual-language/linkedin-profile-guide/">
+        <span class="na-label">03 · TELL YOUR STORY</span><strong>LinkedIn profile guide</strong>
+        <span class="tool-description">Explain your move into data with clear examples.</span>
+        <span class="tool-go">Go →</span>
+      </a>
+      <a class="overview-tile tool-card" href="project-visual-language/tailor-my-cv/">
+        <span class="na-label">04 · PREPARE TO APPLY</span><strong>Tailor my CV</strong>
+        <span class="tool-description">Use a job advert to prepare a focused CV draft.</span>
+        <span class="tool-go">Go →</span>
+      </a>
 
-<h2>Prototypes</h2>
-<p class="sub">The interface comes last, after we prove navigation and data flow on every page.</p>
-<ul class="tiles">
-  <li><a class="tile" href="team-guides/c1-try-the-prototype.html"><span class="kind">Guide C1 · working prototype</span><strong>Try SkillMatch now</strong><span class="d">Runs in your browser, with nothing to install. Shows a saved copy of a live collection of West Midlands jobs. If that copy is unavailable, it uses sample adverts.</span><span class="go">Try the prototype →</span></a></li>
-  <li><a class="tile" href="team-guides/c2-real-jobs-with-your-own-reed-key.html"><span class="kind">Guide C2 · optional</span><strong>See real jobs</strong><span class="d">Get your own free Reed key and switch your copy to live West Midlands vacancies.</span><span class="go">Use your own Reed key →</span></a></li>
-  <li><a class="tile" href="team-guides/c3-how-skillmatch-finds-the-jobs.html"><span class="kind">Guide C3 · how it works</span><strong>How SkillMatch finds the jobs</strong><span class="d">From a list of recruiters' websites to a short list of adverts for graduates: fetch, pull out the details, filter, match. Includes the full list of sites.</span><span class="go">Read the guide →</span></a></li>
-  <li><div class="tile soon"><span class="kind">Prototype A · coming this weekend</span><strong>Editorial</strong><span class="d">Calm and reading-first. Puts the reasons you match front and centre.</span></div></li>
-  <li><div class="tile soon"><span class="kind">Prototype B · coming this weekend</span><strong>Workbench</strong><span class="d">List on the left, job on the right. Built for comparing lots of jobs quickly.</span></div></li>
-  <li><div class="tile soon"><span class="kind">Prototype C · coming this weekend</span><strong>Guided</strong><span class="d">One question at a time, then a short list of your best matches.</span></div></li>
-  <li><div class="tile soon"><span class="kind">Prototype D · coming this weekend</span><strong>Dashboard</strong><span class="d">Your job market at a glance: how many jobs fit, the skills asked for, your gaps.</span></div></li>
-</ul>
+      <section class="overview-tile journey-card" aria-labelledby="journey-title">
+        <h2 id="journey-title">From your profile to an application</h2>
+        <p class="journey-intro">Your profile finds a match. You decide what to do with the advert.</p>
+        <figure style="margin:0">
+          <svg class="journey-svg journey-svg--wide" viewBox="0 0 1280 261" role="img" aria-labelledby="journey-wide-title journey-wide-desc">
+            <title id="journey-wide-title">The SkillMatch journey: only the job brief crosses into Claude</title>
+            <desc id="journey-wide-desc">Five steps across the SkillMatch journey. Only the job brief crosses to Claude. The SkillMatch App cannot open your SkillMatch Folder, where your CV stays while Claude desktop reads it.</desc>
+            <defs><marker id="arrow-wide" markerWidth="12" markerHeight="12" refX="12" refY="6" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#3556a8"/></marker></defs>
+            <g font-family="Inter,system-ui,sans-serif">
+              <rect x="762" y="54" width="263" height="199" rx="25" fill="none" stroke="#3556a8" stroke-width="2" stroke-dasharray="7 6"/>
 
-<h2>Plans and background</h2>
-<p class="sub">Reading for when you want the bigger picture.</p>
-<ul class="tiles">
-  <li><a class="tile" href="Job_Search_App_Plan.html"><span class="kind">Plan</span><strong>The project plan</strong><span class="d">What SkillMatch is for, who it serves, and how matching works.</span><span class="go">Read the plan →</span></a></li>
-  <li><a class="tile" href="Research/Vacancy_Sources/Source_Library.html"><span class="kind">Research</span><strong>Vacancy source library</strong><span class="d">The 96 places job adverts could come from, and which ones we're allowed to use.</span><span class="go">Browse the sources →</span></a></li>
-  <li><a class="tile" href="Resources/Code_Institute_Resource_Index.html"><span class="kind">Course</span><strong>Code Institute resources</strong><span class="d">Links into the LMS for the hackathon. Needs your Code Institute sign-in.</span><span class="go">Open the index →</span></a></li>
-</ul>
+              <rect x="16" y="117" width="210" height="106" rx="22" fill="#efece5"/>
+              <text x="34" y="143" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 01</text>
+              <text x="34" y="170" font-size="20" font-weight="700" fill="#161616">Build profiles</text>
+              <text x="34" y="192" font-size="14" fill="#68655f">GitHub + LinkedIn</text>
 
-<h2>The week</h2>
-<table class="week">
-  <tbody>
-    <tr><td>Mon 26 Oct</td><td>Meet, get oriented, try the prototype, say what we like and don't, agree roles.</td></tr>
-    <tr><td>Tue 27 Oct</td><td>Rebuild the SkillMatch App on live data. Plan the guides and Tailor my CV.</td></tr>
-    <tr><td>Wed 28 Oct</td><td>Build Tailor my CV with SK. Test the app as a graduate. Finish the README. Plan the presentation.</td></tr>
-    <tr><td>Thu 29 Oct</td><td>Host the SkillMatch App on Google Cloud Run, with SK on Google Meet. Fix the last bugs.</td></tr>
-    <tr><td>Fri 30 Oct</td><td>Submit the project by midnight.</td></tr>
-    <tr><td>Mon 2 Nov</td><td>Present the project.</td></tr>
-  </tbody>
-</table>
-<p class="sub">Each day starts with a 9:00 stand-up. We meet again later in the day when there is work to review, at times agreed in Discord. The detail for each day is on the project board.</p>
+              <rect x="269.5" y="117" width="210" height="106" rx="22" fill="#efece5"/>
+              <text x="287.5" y="143" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 02</text>
+              <text x="287.5" y="170" font-size="20" font-weight="700" fill="#161616">Find matched jobs</text>
+              <text x="287.5" y="192" font-size="14" fill="#68655f">SkillMatch compares skills</text>
 
-<h2>The team</h2>
-<p>Phil leads the SkillMatch App and the repository. SK works with Phil on Tailor my CV and data analysis. John works on data analysis. Oana is project manager. Esmat works on the Chapter 1 guides for GitHub and LinkedIn, interface ideas, and data analysis.</p>
+              <rect x="523" y="117" width="210" height="106" rx="22" fill="#efece5"/>
+              <text x="541" y="143" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 03</text>
+              <text x="541" y="170" font-size="20" font-weight="700" fill="#161616">Open a job card</text>
+              <text x="541" y="192" font-size="14" fill="#68655f">Check the advert</text>
 
-<footer class="hub-foot">
-  <p>SkillMatch: matching Code Institute Data Analytics with AI graduates to entry-level data jobs in the West Midlands. Code Institute Unit 4 hackathon, October 2026.</p>
-</footer>
+              <text x="778" y="73" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" letter-spacing=".2" fill="#1e3a8a">YOUR SKILLMATCH FOLDER</text>
+              <text x="778" y="88" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" letter-spacing=".2" fill="#1e3a8a">THE APP CAN'T OPEN IT</text>
+              <rect x="776.5" y="106" width="234" height="128" rx="20" fill="#dfe3ec"/>
+              <text x="794.5" y="137" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#1e3a8a">STEP 04</text>
+              <text x="794.5" y="164" font-size="18" font-weight="700" fill="#161616">Tailor your CV</text>
+              <text x="794.5" y="185" font-size="14" fill="#1e2a4a">in Claude desktop</text>
+              <text x="794.5" y="200" font-size="12" font-weight="600" fill="#1e2a4a">CV stays in your</text>
+              <text x="794.5" y="213" font-size="12" font-weight="600" fill="#1e2a4a">SkillMatch Folder</text>
 
-</main>
+              <rect x="1054" y="117" width="210" height="106" rx="22" fill="#efece5"/>
+              <text x="1072" y="143" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 05</text>
+              <text x="1072" y="170" font-size="20" font-weight="700" fill="#161616">Apply</text>
+              <text x="1072" y="192" font-size="14" fill="#68655f">Use the employer's site</text>
+
+              <path d="M754.75 40V168" fill="none" stroke="#3556a8" stroke-width="3"/>
+              <rect x="648.75" y="8" width="212" height="32" rx="16" fill="#3556a8"/>
+              <text x="754.75" y="28" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" fill="#faf9f6">ONLY THE JOB BRIEF CROSSES</text>
+            </g>
+            <g id="wide-journey-arrows" fill="none" stroke="#3556a8" stroke-width="4" marker-end="url(#arrow-wide)">
+              <path id="wide-arrow-01-02" d="M226 170H269.5"/>
+              <path id="wide-arrow-02-03" d="M479.5 170H523"/>
+              <path id="wide-arrow-03-04" d="M733 170H776.5"/>
+              <path id="wide-arrow-04-05" d="M1028 170H1054"/>
+            </g>
+          </svg>
+          <svg class="journey-svg journey-svg--phone" viewBox="0 0 360 814" role="img" aria-labelledby="journey-phone-title journey-phone-desc">
+            <title id="journey-phone-title">The SkillMatch journey on a phone: only the job brief crosses into Claude</title>
+            <desc id="journey-phone-desc">Follow five steps on a phone. Only the job brief crosses from the SkillMatch App to Claude. The App cannot open your SkillMatch Folder, and your CV stays there while Claude desktop reads it.</desc>
+            <defs><marker id="arrow-phone" markerWidth="12" markerHeight="12" refX="12" refY="6" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#3556a8"/></marker></defs>
+            <g font-family="Inter,system-ui,sans-serif">
+              <rect x="32" y="10" width="296" height="102" rx="22" fill="#efece5"/>
+              <text x="52" y="38" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 01</text>
+              <text x="52" y="68" font-size="20" font-weight="700" fill="#161616">Build profiles</text>
+              <text x="52" y="91" font-size="14" fill="#68655f">GitHub + LinkedIn</text>
+
+              <rect x="32" y="150" width="296" height="102" rx="22" fill="#efece5"/>
+              <text x="52" y="178" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 02</text>
+              <text x="52" y="208" font-size="20" font-weight="700" fill="#161616">Find matched jobs</text>
+              <text x="52" y="231" font-size="14" fill="#68655f">SkillMatch compares skills</text>
+
+              <rect x="32" y="290" width="296" height="102" rx="22" fill="#efece5"/>
+              <text x="52" y="318" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 03</text>
+              <text x="52" y="348" font-size="20" font-weight="700" fill="#161616">Open a job card</text>
+              <text x="52" y="371" font-size="14" fill="#68655f">Check the advert</text>
+
+              <rect x="16" y="460" width="328" height="214" rx="25" fill="none" stroke="#3556a8" stroke-width="2" stroke-dasharray="7 6"/>
+              <rect x="50" y="410" width="260" height="32" rx="16" fill="#3556a8"/>
+              <text x="180" y="429" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" fill="#faf9f6">ONLY THE JOB BRIEF CROSSES</text>
+              <text x="34" y="480" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="700" letter-spacing=".2" fill="#1e3a8a">YOUR SKILLMATCH FOLDER</text>
+              <text x="34" y="495" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="700" letter-spacing=".2" fill="#1e3a8a">THE APP CAN'T OPEN IT</text>
+              <rect x="32" y="524" width="296" height="128" rx="20" fill="#dfe3ec"/>
+              <text x="52" y="556" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#1e3a8a">STEP 04</text>
+              <text x="52" y="585" font-size="20" font-weight="700" fill="#161616">Tailor your CV</text>
+              <text x="52" y="608" font-size="14" fill="#1e2a4a">in Claude desktop</text>
+              <text x="52" y="628" font-size="12" font-weight="600" fill="#1e2a4a">CV stays in your SkillMatch Folder</text>
+
+              <rect x="32" y="702" width="296" height="102" rx="22" fill="#efece5"/>
+              <text x="52" y="730" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 05</text>
+              <text x="52" y="760" font-size="20" font-weight="700" fill="#161616">Apply</text>
+              <text x="52" y="783" font-size="14" fill="#68655f">Use the employer's site</text>
+            </g>
+            <g id="phone-journey-arrows" fill="none" stroke="#3556a8" stroke-width="4" marker-end="url(#arrow-phone)">
+              <path id="phone-arrow-01-02" d="M180 112V150"/>
+              <path id="phone-arrow-02-03" d="M180 252V290"/>
+              <path id="phone-arrow-03-04-before-pill" d="M180 392V410" marker-end="none"/>
+              <path id="phone-arrow-03-04" d="M180 442V524"/>
+              <path id="phone-arrow-04-05" d="M180 678V702"/>
+            </g>
+          </svg>
+        </figure>
+      </section>
+
+      <div class="data-heading"><h2>The latest live collection</h2><p>Figures from 29 October 2026</p></div>
+      <article class="overview-tile stat-card">
+        <span class="na-label">ADVERTS COLLECTED</span><strong class="na-big">5,447</strong>
+        <span class="stat-caption">Collected in one run of all six sources.</span>
+      </article>
+      <article class="overview-tile stat-card">
+        <span class="na-label">PASSED THE GRADUATE FILTER</span><strong class="na-big">71</strong>
+        <span class="stat-caption">Adverts shown after the filters.</span>
+      </article>
+      <article class="overview-tile stat-card">
+        <span class="na-label">SOURCES CHECKED</span><strong class="na-big">6</strong>
+        <span class="stat-caption">Greenhouse, Lever, Reed, Remote OK, We Work Remotely and Workable.</span>
+      </article>
+      <p class="snapshot-note">Reed's results were partial and some searches reached their result limit. <a href="https://github.com/TidyWeb/SkillMatch/tree/data-snapshots/data/live_snapshots/20261029_1350">Read the live snapshot</a>.</p>
+
+      <section class="overview-tile course-card" aria-labelledby="course-title">
+        <div class="course-copy">
+          <span class="na-label">CODE INSTITUTE · DATA ANALYST WITH AI BOOTCAMP</span>
+          <h2 id="course-title">A Diploma in Data Analytics with Artificial Intelligence</h2>
+          <div class="course-description">
+            <p>This course is for people building a new career in data.</p>
+            <p>You don't need any data analytics experience to start.</p>
+          </div>
+          <p class="course-meta">16 weeks full-time · 37 weeks part-time</p>
+          <a class="course-link" href="https://codeinstitute.net/global/data-analytics-and-ai-bootcamp/">Check the course outline →</a>
+        </div>
+        <div class="course-topics">
+          <span class="na-label">THE OUTLINE INCLUDES</span>
+          <span class="topic-chip">Python and data libraries</span>
+          <span class="topic-chip">Collecting and cleaning data</span>
+          <span class="topic-chip">Charts and dashboards</span>
+          <span class="topic-chip">Machine learning</span>
+          <span class="topic-chip">Final project and presentations</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="overview-footer">
+    <p>Phil · Oana · John · Esmat · SK</p>
+    <p>Built by Tidy Web · 2026</p>
+    <p><a href="https://github.com/TidyWeb/SkillMatch">GitHub repository</a></p>
+  </footer>
 </body>
 </html>

@@ -2,9 +2,10 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>See real jobs with your own Reed key · SkillMatch team guides</title>
-<meta name="description" content="Swap the made-up adverts for live West Midlands jobs from Reed, using your own free key. About 45 minutes, most of it waiting.">
+<title>Save and upload · SkillMatch team guides</title>
+<meta name="description" content="Save your work as a checkpoint (a commit), then upload your branch to GitHub. Do it at least once a day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
@@ -16,12 +17,12 @@
 <a class="skip" href="#main">Skip to the text</a>
 <div class="shell">
 <header class="sidebar" id="top">
-  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
-  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <a class="sidebar-logo" href="index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="index.html">SkillMatch team guides<small>Back to the team hub</small></a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
   <nav class="nav" id="site-nav" aria-label="Guides">
     <div class="nav-group"><h2>Getting started</h2><ol>
-      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="index.html"><span class="n"></span><span>Team hub</span></a></li>
       <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
       <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Pick your AI assistant</span></a></li>
       <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
@@ -39,13 +40,12 @@
       </ol></div>
     <div class="nav-group"><h2>The prototype</h2><ol>
       <li><a href="c1-try-the-prototype.html"><span class="n">C1</span><span>Try the prototype</span></a></li>
-      <li><a href="c2-real-jobs-with-your-own-reed-key.html" aria-current="page"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
-      <li><a href="c3-how-skillmatch-finds-the-jobs.html"><span class="n">C3</span><span>How SkillMatch finds the jobs</span></a></li>
+      <li><a href="c2-real-jobs-with-your-own-reed-key.html"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
       </ol></div>
     <div class="nav-group"><h2>Working on a task</h2><ol>
       <li><a href="d1-start-from-the-latest.html"><span class="n">D1</span><span>Start from the latest</span></a></li>
       <li><a href="d2-make-a-branch.html"><span class="n">D2</span><span>Make a branch for your card</span></a></li>
-      <li><a href="d3-save-and-upload.html"><span class="n">D3</span><span>Save and upload</span></a></li>
+      <li><a href="d3-save-and-upload.html" aria-current="page"><span class="n">D3</span><span>Save and upload</span></a></li>
       <li><a href="d4-open-a-pull-request.html"><span class="n">D4</span><span>Open a pull request</span></a></li>
       <li><a href="d5-after-its-merged.html"><span class="n">D5</span><span>After it&#x27;s merged</span></a></li>
       </ol></div>
@@ -63,37 +63,27 @@
 </header>
 <main class="content" id="main">
 <article class="page">
-<ol class="strip" aria-label="Steps"><li><a href="c1-try-the-prototype.html"><b>C1</b>Try the prototype</a></li><li><span class="now" aria-current="step"><b>C2</b>See real jobs with your own Reed key</span></li><li><a href="c3-how-skillmatch-finds-the-jobs.html"><b>C3</b>How SkillMatch finds the jobs</a></li></ol>
+<ol class="strip" aria-label="Steps"><li><a href="d1-start-from-the-latest.html"><b>D1</b>Start from the latest</a></li><li><a href="d2-make-a-branch.html"><b>D2</b>Make a branch for your card</a></li><li><span class="now" aria-current="step"><b>D3</b>Save and upload</span></li><li><a href="d4-open-a-pull-request.html"><b>D4</b>Open a pull request</a></li><li><a href="d5-after-its-merged.html"><b>D5</b>After it&#x27;s merged</a></li></ol>
 <header class="chapter-head">
-  <p class="chapter-num">Step 2 of 3</p>
-  <h1>See real jobs with your own Reed key</h1>
-  <p class="standfirst">Swap the made-up adverts for live West Midlands jobs from Reed, using your own free key. About 45 minutes, most of it waiting.</p>
+  <p class="chapter-num">Step 3 of 5</p>
+  <h1>Save and upload</h1>
+  <p class="standfirst">Save your work as a checkpoint (a commit), then upload your branch to GitHub. Do it at least once a day.</p>
 </header>
 
 <ol class="do">
-<li><strong>Get a free Reed key</strong>
-Register at <a href="https://www.reed.co.uk/developers/jobseeker">reed.co.uk/developers</a>. Your key arrives by email. It's private: never paste it into a file, a chat or Discord.</li>
-
-<li><strong>Save it in GitHub</strong>
-Your picture → <strong>Settings → Codespaces → New secret</strong>. Name: <code>REED_API_KEY</code>. Value: your key. Under <strong>Repository access</strong>, choose <code>TidyWeb/SkillMatch</code>. Click <strong>Add secret</strong>.</li>
-
-<li><strong>Restart your codespace</strong>
-Secrets only load when a codespace starts. At <a href="https://github.com/codespaces">github.com/codespaces</a>, click <strong>…</strong> next to yours → <strong>Stop codespace</strong>, then open it again. (No codespace yet? Just do <a href="c1-try-the-prototype.html">C1</a> now.)</li>
-
-<li><strong>Fetch the real jobs</strong>
-In the terminal at the bottom, run:
-<div class="cmd">cd prototype/app &amp;&amp; uv run python -m skillmatch.etl --mode live</div>
-It takes 25–40 minutes. Leave the tab open. It's finished when it prints a <em>quality report</em> line.</li>
-
-<li><strong>Restart once more</strong>
-Stop and reopen the codespace as in step 3, so the app loads the new jobs.</li>
+<li><strong>Make your change and save the files</strong></li>
+<li><strong>Choose what goes in</strong>
+In Source Control, look at <strong>Changes</strong>. Click <strong>+</strong> beside only the files you meant to change.</li>
+<li><strong>Commit with a clear message</strong>
+Say what you did, in plain words, then click <strong>Commit</strong>:
+<div class="cmd">Add interface feedback for prototype B</div></li>
+<li><strong>Upload</strong>
+Click <strong>Publish Branch</strong> the first time, then <strong>Sync Changes</strong> after that.</li>
 </ol>
+<p class="aside"><strong>Prefer your AI assistant to do it?</strong> Paste this into whichever one you use:</p><div class="cmd">Show me what has changed. Stage only the files I confirm, commit them with a short plain-English message I approve, and push this branch. Never push to main or force-push.</div>
+<p class="done-when"><strong>Done when:</strong> Source Control shows no outstanding changes, and your branch appears on GitHub.</p>
 
-<p class="callout">Real adverts are for trying the app only. They stay inside your own codespace. Don't copy them into the repository, Discord or the presentation until Reed has said yes.</p>
-
-<p class="done-when"><strong>Done when:</strong> the footer says <strong>Live snapshot</strong> with today's date, and job links open on reed.co.uk.</p>
-
-<nav class="pager" aria-label="Steps"><a class="prev" href="c1-try-the-prototype.html"><small>Previous</small><strong>C1. Try the prototype</strong></a><a class="next" href="c3-how-skillmatch-finds-the-jobs.html"><small>Next</small><strong>C3. How SkillMatch finds the jobs</strong></a></nav>
+<nav class="pager" aria-label="Steps"><a class="prev" href="d2-make-a-branch.html"><small>Previous</small><strong>D2. Make a branch for your card</strong></a><a class="next" href="d4-open-a-pull-request.html"><small>Next</small><strong>D4. Open a pull request</strong></a></nav>
 </article>
 </main>
 </div>

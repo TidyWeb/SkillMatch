@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Team status, live project links and current SkillMatch team guides.">
+<title>SkillMatch team hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../project-visual-language/navy-a/navy-a.css">
+<style>
+.hub-brand{display:flex;align-items:center;gap:10px}
+.hub-team-label{font-size:11px;color:var(--na-muted)}
+.hub-nav{flex:0 1 auto}
+.hub-hero{min-height:176px;display:flex;flex-direction:column;justify-content:center}
+.hub-hero h1{color:var(--na-panel-ink);margin:10px 0 8px}
+.hub-hero p{max-width:90ch;line-height:1.55;margin:0}
+.hub-document .na-page{padding-bottom:24px}
+.hub-links{grid-template-columns:repeat(6,minmax(0,1fr));align-items:stretch}
+.hub-links>.hub-link:nth-child(-n+3){grid-column:span 2}
+.hub-links>.hub-link:nth-child(n+4){grid-column:span 3}
+.hub-link,.hub-guide{
+  min-width:0;min-height:0;justify-content:flex-start;align-items:flex-start;gap:7px;
+  padding:14px 16px;color:var(--na-ink);text-decoration:none;
+  transition:background-color .16s ease,transform .16s ease
+}
+.hub-link:hover,.hub-guide:hover{
+  background:var(--na-surface-2);color:var(--na-ink);transform:translateY(-1px)
+}
+.hub-link:focus-visible,.hub-guide:focus-visible{outline:3px solid var(--na-accent);outline-offset:3px}
+.hub-link h2{font-size:20px;margin:1px 0 0;color:var(--na-ink)}
+.hub-link p{max-width:36ch;color:var(--na-muted);font-size:14px;line-height:1.45;margin:0}
+.hub-go{
+  display:inline-flex;align-items:center;gap:7px;width:max-content;margin-top:5px;
+  padding:6px 12px;border:1px solid var(--na-muted);border-radius:var(--na-pill);
+  background:var(--na-surface-2);color:var(--na-ink);font-size:13px;font-weight:600;line-height:1.25
+}
+.hub-go b{color:inherit}
+.hub-link:hover .hub-go,.hub-guide:hover .hub-go,
+.hub-link:focus-visible .hub-go,.hub-guide:focus-visible .hub-go{
+  background:var(--na-panel);border-color:var(--na-panel);color:var(--na-panel-ink)
+}
+.hub-people-grid{grid-template-columns:repeat(6,minmax(0,1fr));align-items:stretch}
+.hub-person,.hub-person-lead{
+  min-width:0;min-height:0;justify-content:flex-start;align-items:flex-start;gap:7px;
+  padding:16px
+}
+.hub-person-lead h2{font-size:22px;color:var(--na-panel-ink)}
+.hub-person-lead p{margin:0;color:var(--na-panel-muted);font-size:14px;line-height:1.45}
+.hub-person-name{font-size:18px;line-height:1.2;color:var(--na-ink)}
+.hub-person-role{font:600 11px/1.35 var(--na-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--na-muted)}
+.hub-person p{margin:0;color:var(--na-muted);font-size:14px;line-height:1.45}
+.hub-info{padding:20px 24px}
+.hub-info h2{font-size:22px;margin:0}
+.hub-checklist{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;
+  list-style:none;padding:0;margin:14px 0 0
+}
+.hub-checklist li{
+  display:flex;align-items:center;gap:10px;min-width:0;padding:10px 13px;
+  border:1px solid var(--na-muted);border-radius:var(--na-pill);background:var(--na-surface-2);
+  color:var(--na-ink);font-size:14px;line-height:1.35
+}
+.hub-check{
+  width:24px;height:24px;flex:none;display:grid;place-items:center;border-radius:50%;
+  background:var(--na-panel);color:var(--na-panel-ink);font-weight:800
+}
+.hub-guide-section{min-width:0}
+.hub-section-head{
+  display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:0
+}
+.hub-section-head .na-label{margin:0}
+.hub-section-head h2{font-size:22px;margin:0}
+.hub-section-head p{margin:0;color:var(--na-muted);font-size:14px;line-height:1.45}
+.hub-guide-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.hub-guide h3{font-size:20px;margin:1px 0 0;color:var(--na-ink)}
+.hub-guide p{font-size:14px;line-height:1.45;color:var(--na-muted);margin:0}
+.hub-background-links{display:flex;flex-wrap:wrap;gap:10px}
+.hub-document .na-pill-link{
+  padding:8px 14px;background:var(--na-surface-2);border:1px solid var(--na-muted);
+  color:var(--na-ink);text-decoration:none
+}
+.hub-document .na-pill-link:hover{background:var(--na-surface);border-color:var(--na-accent);color:var(--na-ink)}
+.hub-footer{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  max-width:1360px;margin:0 auto;padding:0 40px 32px
+}
+.hub-footer p{margin:0}
+@media(max-width:1150px){
+  .hub-people-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hub-checklist{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hub-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hub-checklist li:last-child{grid-column:2;width:calc(100% - 5px);justify-self:center}
+}
+@media(max-width:1050px){
+  .hub-links{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .hub-links>.hub-link:nth-child(-n+4){grid-column:span 2}
+  .hub-links>.hub-link:nth-child(5){grid-column:span 4}
+}
+@media(max-width:850px){
+  .hub-nav{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;overflow:visible}
+  .hub-links{grid-template-columns:minmax(0,1fr)}
+  .hub-links>.hub-link:nth-child(n){grid-column:1}
+  .hub-people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hub-checklist{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hub-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hub-footer{padding:8px 16px 32px}
+}
+@media(max-width:560px){
+  .hub-hero{min-height:0}
+  .hub-link,.hub-guide{padding:15px 16px}
+  .hub-people-grid,.hub-checklist,.hub-guide-grid{grid-template-columns:minmax(0,1fr)}
+  .hub-checklist li:last-child{grid-column:auto;width:auto;justify-self:stretch}
+  .hub-section-head{gap:5px}
+  .hub-footer{padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hub-link,.hub-guide{transition:none}
+}
+</style>
+</head>
+<body class="hub-document">
+<a class="na-skip" href="#main">Skip to content</a>
+<header class="na-top">
+  <div class="hub-brand">
+    <a class="na-mark" href="index.html"><i aria-hidden="true">S</i>SkillMatch</a>
+    <span class="na-label hub-team-label">TEAM</span>
+  </div>
+  <nav class="na-nav hub-nav" aria-label="Main">
+    <a href="index.html" aria-current="page">Team hub</a>
+    <a href="../">Public site</a>
+    <a href="https://skillmatch-926015010605.europe-west2.run.app">Find jobs</a>
+    <a href="https://github.com/users/TidyWeb/projects/3">Project board</a>
+  </nav>
+</header>
+
+<main class="na-page na-flow hub-page" id="main">
+  <section class="na-card na-card--navy na-hero hub-hero" aria-labelledby="where-heading">
+    <span class="na-label">SKILLMATCH · TEAM</span>
+    <h1 id="where-heading">Where we are</h1>
+    <p class="na-muted">SkillMatch is live: the public site, Cloud Run app, GitHub and LinkedIn guides, and Tailor my CV. Our presentation is Monday 2 November. Everyone is ready to explain their own section and answer questions.</p>
+  </section>
+
+  <section class="na-tiles hub-links" aria-label="Live project links">
+    <a class="na-tile hub-link" href="../">
+      <span class="na-label">PUBLIC SITE</span><h2>Public site</h2>
+      <p>The overview of SkillMatch for graduates.</p>
+      <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="na-tile hub-link" href="https://skillmatch-926015010605.europe-west2.run.app">
+      <span class="na-label">LIVE APP</span><h2>Find jobs</h2>
+      <p>Open live job matches on Google Cloud Run.</p>
+      <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="na-tile hub-link" href="https://github.com/users/TidyWeb/projects/3">
+      <span class="na-label">TEAM WORK</span><h2>Project board</h2>
+      <p>See the cards, owners and current work.</p>
+      <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="na-tile hub-link" href="test-tailor-my-cv.html">
+      <span class="na-label">TEAM TEST</span><h2>Test Tailor my CV</h2>
+      <p>Check the setup, biography and tailoring flow.</p>
+      <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+    </a>
+    <a class="na-tile hub-link" href="https://github.com/TidyWeb/SkillMatch">
+      <span class="na-label">SOURCE REPO</span><h2>The repo</h2>
+      <p>Browse the code and project history.</p>
+      <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+    </a>
+  </section>
+
+  <section class="na-tiles hub-people-grid" aria-labelledby="roles-heading">
+    <article class="na-tile na-tile--navy hub-person-lead">
+      <span class="na-label">TEAM ROLES</span>
+      <h2 id="roles-heading">Who does what</h2>
+      <p>Five clear owners, one shared project.</p>
+    </article>
+    <article class="na-tile hub-person">
+      <strong class="hub-person-name">Phil</strong>
+      <span class="hub-person-role">App and repo</span>
+      <p>Leads the app and repo; merges pull requests.</p>
+    </article>
+    <article class="na-tile hub-person">
+      <strong class="hub-person-name">John</strong>
+      <span class="hub-person-role">Data analysis</span>
+      <p>Leads the data analysis.</p>
+    </article>
+    <article class="na-tile hub-person">
+      <strong class="hub-person-name">SK</strong>
+      <span class="hub-person-role">Tailor my CV and data</span>
+      <p>Works with Phil on Tailor my CV; helps with the analysis.</p>
+    </article>
+    <article class="na-tile hub-person">
+      <strong class="hub-person-name">Esmat</strong>
+      <span class="hub-person-role">Guides and data</span>
+      <p>Built the GitHub and LinkedIn guides and interface ideas; helps with the analysis.</p>
+    </article>
+    <article class="na-tile hub-person">
+      <strong class="hub-person-name">Oana</strong>
+      <span class="hub-person-role">Project manager</span>
+      <p>Runs the board; writing the presentation script.</p>
+    </article>
+  </section>
+
+  <section class="na-card hub-info" aria-labelledby="working-heading">
+    <h2 id="working-heading">How we work</h2>
+    <ul class="hub-checklist">
+      <li><span class="hub-check" aria-hidden="true">✓</span><span>Discord for messages.</span></li>
+      <li><span class="hub-check" aria-hidden="true">✓</span><span>Google Meet after the stand-up.</span></li>
+      <li><span class="hub-check" aria-hidden="true">✓</span><span>Every change goes through a pull request.</span></li>
+      <li><span class="hub-check" aria-hidden="true">✓</span><span>Every pull request gets a review.</span></li>
+      <li><span class="hub-check" aria-hidden="true">✓</span><span>Main is protected. Only Phil merges.</span></li>
+    </ul>
+  </section>
+
+  <section class="na-flow hub-guide-section" aria-labelledby="guides-heading">
+    <header class="hub-section-head">
+      <span class="na-label">TEAM GUIDES</span>
+      <h2 id="guides-heading">Team guides</h2>
+      <p>How we work in GitHub, step by step.</p>
+    </header>
+    <div class="na-tiles hub-guide-grid">
+      <a class="na-tile hub-guide" href="a1-get-skillmatch.html">
+        <span class="na-label">GET STARTED</span><h3>Get set up</h3>
+        <p>Clone SkillMatch, choose an assistant and send your folder for review.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+      <a class="na-tile hub-guide" href="b1-the-big-picture.html">
+        <span class="na-label">GITHUB BASICS</span><h3>Understand GitHub</h3>
+        <p>See how shared files, branches, commits and pull requests fit together.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+      <a class="na-tile hub-guide" href="d1-start-from-the-latest.html">
+        <span class="na-label">TASKS</span><h3>Working on a task</h3>
+        <p>Start from main, make a branch, upload your work and ask for review.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+      <a class="na-tile hub-guide" href="e1-review-a-pull-request.html">
+        <span class="na-label">REVIEWS</span><h3>Reviewing and merging</h3>
+        <p>Review changes, handle conflicts and protect main.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+      <a class="na-tile hub-guide" href="c3-how-skillmatch-finds-the-jobs.html">
+        <span class="na-label">VACANCY DATA</span><h3>How SkillMatch finds the jobs</h3>
+        <p>Follow a vacancy from its source to a match card.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+      <a class="na-tile hub-guide" href="help.html">
+        <span class="na-label">HELP</span><h3>Stuck?</h3>
+        <p>Troubleshoot common issues and find a manual route.</p>
+        <span class="hub-go">Go <b aria-hidden="true">→</b></span>
+      </a>
+    </div>
+  </section>
+
+  <nav class="hub-background-links" aria-label="Background">
+    <a class="na-pill-link" href="https://github.com/TidyWeb/SkillMatch/blob/main/Research/Vacancy_Sources/Source_Library.html">Vacancy source library <b aria-hidden="true">↗</b></a>
+    <a class="na-pill-link" href="https://github.com/TidyWeb/SkillMatch/blob/main/Resources/Code_Institute_Resource_Index.html">Code Institute resources <b aria-hidden="true">↗</b></a>
+  </nav>
+</main>
+
+<footer class="na-footer hub-footer">
+  <a class="na-pill-link" href="archive/2026-10-30_before_navy_a/README.md">Archive: how the project developed <b aria-hidden="true">→</b></a>
+  <p>Phil · John · SK · Esmat · Oana</p>
+</footer>
+</body>
+</html>

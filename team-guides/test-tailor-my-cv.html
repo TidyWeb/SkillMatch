@@ -3,21 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>Team test: Tailor my CV | SkillMatch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="../project-visual-language/navy-a/navy-a.css" rel="stylesheet">
+<style>
+.hub-brand{display:flex;align-items:center;gap:10px}
+.hub-team-label{font-size:11px;color:var(--na-muted)}
+.hub-nav{flex:0 1 auto}
+.hub-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:1360px;margin:0 auto;padding:0 40px 32px}
+.hub-footer p{margin:0}
+.hub-footer .na-pill-link{padding:8px 14px;background:var(--na-surface-2);border:1px solid var(--na-muted);color:var(--na-ink);text-decoration:none}
+.hub-footer .na-pill-link:hover{background:var(--na-surface);border-color:var(--na-accent);color:var(--na-ink)}
+@media(max-width:850px){
+  .hub-nav{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;overflow:visible}
+  .hub-footer{padding:8px 16px 32px}
+}
+</style>
 </head>
 <body>
 <a class="na-skip" href="#main">Skip to content</a>
-<header class="na-top na-top--document">
-  <a class="na-mark" href="../"><i aria-hidden="true">S</i>SkillMatch</a>
-  <nav class="na-nav" aria-label="Main">
-    <a href="../">Home</a>
-    <a href="../">Find jobs</a>
-    <a href="#" aria-current="page">Guides</a>
-    <a href="../project-visual-language/tailor-my-cv/">Tailor my CV</a>
+<header class="na-top">
+  <div class="hub-brand">
+    <a class="na-mark" href="index.html"><i aria-hidden="true">S</i>SkillMatch</a>
+    <span class="na-label hub-team-label">TEAM</span>
+  </div>
+  <nav class="na-nav hub-nav" aria-label="Main">
+    <a href="index.html">Team hub</a>
+    <a href="../">Public site</a>
+    <a href="https://skillmatch-926015010605.europe-west2.run.app">Find jobs</a>
+    <a href="https://github.com/users/TidyWeb/projects/3">Project board</a>
   </nav>
 </header>
 
@@ -40,7 +57,7 @@
       <li>Use a Windows, Mac or Linux computer, not a phone.</li>
       <li>A free Claude account is best.</li>
       <li>Use your own CV, or a made-up one if you’d rather.</li>
-      <li>The SkillMatch App link is in Discord. It isn’t public yet.</li>
+      <li>Use the Find jobs link on the public site.</li>
     </ul>
   </section>
 
@@ -93,6 +110,11 @@ Most confusing thing: &lt;one line&gt;</pre>
   <p class="na-panel na-panel--quiet"><strong>Deadline:</strong> Post your report in Discord by 5pm Friday.</p>
   <p class="na-panel na-panel--quiet">Stuck? Use the help prompt in <strong>Stuck? Ask Claude</strong> on the Tailor page first, then ask in Discord.</p>
 </main>
+
+<footer class="na-footer hub-footer">
+  <a class="na-pill-link" href="archive/2026-10-30_before_navy_a/README.md">Archive: how the project developed <b aria-hidden="true">→</b></a>
+  <p>Phil · John · SK · Esmat · Oana</p>
+</footer>
 
 <script>
 (() => {
