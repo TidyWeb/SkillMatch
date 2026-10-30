@@ -386,3 +386,86 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 .na-build-summary .na-zoom::after{display:none}
 @media(max-width:560px){.na-build-summary .na-zoom{width:74px;flex-basis:74px}}
 .na-github-username-highlight{color:#0969da;font-weight:700}
+
+
+/* LinkedIn guide components: reusable clarity and progress patterns. */
+.na-step-content{flex:1;min-width:0}
+.na-clarity{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--na-gap-tiles);align-items:stretch;margin:14px 0}
+.na-clarity__tile{min-width:0;display:flex;flex-direction:column;gap:10px;height:100%;padding:18px 20px;border-radius:var(--na-r);}
+.na-clarity__tile p{margin:0;overflow-wrap:anywhere}
+.na-clarity__tile--first{background:var(--na-surface-2);color:var(--na-ink)}
+.na-clarity__tile--why{background:var(--na-soft-blue);color:var(--na-soft-blue-ink)}
+.na-clarity__tile--strong{background:var(--na-panel);color:var(--na-panel-ink)}
+.na-clarity__label{font:600 11px/1.3 var(--na-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--na-muted)}
+.na-clarity__tile--why .na-clarity__label{color:var(--na-soft-blue-ink)}
+.na-clarity__tile--strong .na-clarity__label{color:var(--na-panel-muted)}
+.na-riya-example{background:var(--na-surface-2);border-radius:var(--na-r);padding:20px 24px;color:var(--na-ink)}
+.na-riya-example__label{display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--na-muted);font:600 11px/1.3 var(--na-mono);letter-spacing:.07em;text-transform:uppercase}
+.na-riya-example__label::before{content:"";width:9px;height:9px;flex:none;border-radius:50%;background:var(--na-cat-example)}
+.na-riya-example h3{margin:0 0 10px}
+.na-riya-example p:last-child{margin-bottom:0}
+.na-check{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--na-surface-2);border-radius:var(--na-r-sm)}
+.na-check__mark{display:grid;place-items:center;width:25px;height:25px;flex:none;border-radius:50%;background:var(--na-panel);color:var(--na-panel-ink);font-weight:800;line-height:1}
+.na-check p{margin:0}
+.na-progress{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 16px;background:var(--na-surface);border-radius:var(--na-r);}
+.na-progress__pill{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 14px;border-radius:var(--na-pill);background:var(--na-surface-2);color:var(--na-ink);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.na-progress__pill:hover{background:var(--na-soft-blue);color:var(--na-ink)}
+.na-progress__pill.is-current{background:var(--na-panel);color:var(--na-panel-ink)}
+.na-progress__pill.is-complete{background:var(--na-accent);color:var(--na-panel-ink)}
+.na-progress__pill.is-pending{color:var(--na-muted)}
+.na-progress__arrow{color:var(--na-muted);font-weight:700}
+.na-tiles--missing{grid-template-columns:1.15fr repeat(3,minmax(0,1fr));align-items:stretch}
+.na-tiles--missing .na-tile{justify-content:flex-start;min-height:120px}
+.na-tiles--missing .na-tile p{margin:0}
+.na-snapshot-changes{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:stretch}
+.na-snapshot-changes .na-tile{justify-content:flex-start;min-height:0}
+.na-snapshot-figure{width:100%}
+.linkedin-examples .na-example{display:flex;flex-direction:column;height:100%}
+.linkedin-examples .na-example>figcaption{display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.linkedin-examples .na-example .na-pill-link{margin-top:auto;padding:8px 14px;font-size:13px}
+.na-photo-banner>.na-panel{margin:0;min-width:0}
+@media(max-width:1100px){.na-tiles--missing{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.na-progress{gap:6px;padding:12px}.na-progress__pill{padding:7px 10px;font-size:13px}}
+@media(max-width:560px){
+  .na-clarity{grid-template-columns:minmax(0,1fr)}
+  .na-clarity__tile{height:auto}
+  .na-tiles--missing{grid-template-columns:minmax(0,1fr)}
+  .na-progress{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+  .na-snapshot-changes{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Inner tile strips need their own visible edge on cream panels and details rows. */
+.na-panel:not(.na-panel--quiet):not(.na-panel--navy) .na-tile:not(.na-tile--navy):not(.na-tile--hero),
+.na-details .na-tile:not(.na-tile--navy):not(.na-tile--hero),
+.na-card:not(.na-card--quiet):not(.na-card--navy) .na-tile:not(.na-tile--navy):not(.na-tile--hero),
+.na-box .na-tile:not(.na-tile--navy):not(.na-tile--hero){
+  background:var(--na-surface-2);
+  border-radius:var(--na-r);
+}
+
+/* Profile-capture cards need enough height to show the LinkedIn introduction. */
+.na-examples--linkedin-captures .na-example>button>img{
+  height:230px;
+  object-fit:cover;
+  object-position:top;
+}
+
+/* The guide's five-step progress row uses navy for reached stages and stone for later ones. */
+.na-progress__pill.is-complete{background:var(--na-panel);color:var(--na-panel-ink)}
+.na-progress__pill.is-pending{background:var(--na-surface-2);color:var(--na-muted)}
+.na-progress__pill.is-pending:hover{background:var(--na-surface-2);color:var(--na-ink)}
+.na-progress__pill.is-complete:hover,.na-progress__pill.is-current:hover{background:var(--na-panel);color:var(--na-panel-ink)}
+.na-progress-step,.na-progress-step>summary{scroll-margin-top:24px}
+
+.na-tiles--four{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch}
+@media(max-width:850px){.na-tiles--four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.na-tiles--four{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:850px){.na-progress-step,.na-progress-step>summary{scroll-margin-top:130px}}
+
+/* Panels and links inside cream disclosure rows need their own quiet surface. */
+.na-details .na-split{align-items:stretch}
+.na-details .na-split>.na-panel{align-self:stretch;background:var(--na-surface-2);border-radius:var(--na-r)}
+.na-details .na-pill-link{background:var(--na-surface-2)}
+
+/* Snapshot strips are lists visually, so remove the browser's list indentation. */
+.na-snapshot-changes{list-style:none;margin:0;padding:0}
