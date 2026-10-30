@@ -1,0 +1,49 @@
+# DRAFT: for team review
+#
+# The sentences SkillMatch writes. No AI writes these at runtime: each is a template filled from
+# the user's own profile and the advert's requirement.
+#
+# Placeholders (in braces) are filled by the app:
+#   {requirement}  the requirement in our words, e.g. "reporting to senior leadership"
+#   {role}         the user's previous role with "a/an", e.g. "a kitchen manager"
+#   {evidence}     the user's evidence line turned into "you ran weekly stock reports…"
+#   {quote}        the user's evidence line exactly as typed
+# #   {skill}        a technical skill, e.g. "Power BI"
+# # #   {years}        e.g. "2 years"
+#   {user_years}   e.g. "no years" or "1 year"
+#   {n}            a count
+#   {items}        a list, e.g. "SQL, stakeholder management"
+#   {signals}      a list of entry signals found in the advert
+#
+# Keep sentences short, plain and kind. Never use percentages.
+
+answers:
+  # Met
+  competency_with_evidence: "Requirement: {requirement}. Your evidence: as {role}, {evidence}."
+  competency_with_quote: "Requirement: {requirement}. Your evidence from your time as {role}: “{quote}”."
+  leadership_with_evidence: "Requirement: {requirement}. Your evidence: as {role} at {seniority} level, {evidence}."
+  leadership_without_evidence: "Requirement: {requirement}. Your evidence: you worked as {role} at {seniority} level."
+  skill_confident: "Requirement: {skill}. Your evidence: {skill} is included in your skills."
+  skill_project: "Requirement: {skill}. Your evidence: {skill} is included in your skills."
+  skill_commercial_experience: "Advert asks for relevant {skill} work experience. Partly met: {skill} is in your profile, but this experience is not recorded."
+  # Partly met
+
+gaps:
+  skill: "{skill}: not in your profile yet."
+  competency: "{requirement}: not selected in your areas of expertise."
+  sector: "{requirement}: the advert wants experience in this sector."
+
+reasons:
+  all_essentials_answered: "Your profile answers every essential requirement we could read in this advert."
+  essential_gaps: "Essential requirements not yet in your profile ({n}): {items}."
+  essential_partly: "Essential requirements only partly met ({n}): {items}."
+  no_essentials_found: "We couldn't find clearly essential requirements in this advert, so read it in full before applying."
+  few_essentials_found: "We could only find {n} clearly essential requirement in this advert, so we won't call it a strong match. Read it in full before applying."
+  entry_signals: "Signs it is open to newcomers: {signals}."
+  desirable_answered: "You also answer {n} of its desirable requirements."
+
+tiers:
+  strong: Strong match
+  good: Good match
+  stretch: Stretch
+  not_yet: Not yet

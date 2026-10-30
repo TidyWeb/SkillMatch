@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+raw/
+data/raw/
+data/processed/
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.pyc
+reports/
+data/cache/
+*.db

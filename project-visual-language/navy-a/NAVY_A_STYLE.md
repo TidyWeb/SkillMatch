@@ -111,7 +111,7 @@ When a page shows a mock-up of someone else's interface (a GitHub profile, a Lin
 
 ## 8. The app
 
-The app's `../../prototype/app/skillmatch/web/static/tokens.css` keeps its own token names. To bring it into Navy A, change the values only:
+The app's `../../skillmatch-app/skillmatch/web/static/tokens.css` keeps its own token names. To bring it into Navy A, change the values only:
 
 | App token | Navy A value |
 |---|---|
@@ -126,7 +126,7 @@ The app's `../../prototype/app/skillmatch/web/static/tokens.css` keeps its own t
 | `--tier-strong` / `-good` / `-stretch` / `-not-yet` | `#1e3a8a` / `#3556a8` / `#a9b8de` / `#dfe3ec` |
 | `--serif`, `--sans` | Inter (load it); serif headings are not Navy A |
 
-Then add the navy panel, radii and pills in `../../prototype/app/skillmatch/web/static/site.css`. Check the map: the two lighter tiers need a dark outline on map markers to stay visible.
+Then add the navy panel, radii and pills in `../../skillmatch-app/skillmatch/web/static/site.css`. Check the map: the two lighter tiers need a dark outline on map markers to stay visible.
 
 ## 9. How a page gets made
 

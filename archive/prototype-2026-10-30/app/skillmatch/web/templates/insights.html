@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Insights{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script src="{{ url_for('static', filename='charts.js', v='20261030-navy-a') }}" defer></script>
+{% endblock %}
+{% macro mode_line(n, what) -%}
+<span class="n">n = {{ n }} {{ what }}</span> · {{ "live snapshot " ~ data.snapshot_date if data.mode == "live" else "synthetic fixtures" }}
+{%- endmacro %}
+{% macro table_twin(rows, col1, col2) -%}
+<details class="table-twin"><summary>Show as a table</summary>
+  <div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">{{ col1 }}</th><th scope="col">{{ col2 }}</th></tr></thead>
+  <tbody>{% for r in rows %}<tr><td>{{ r.label|capfirst }}</td><td>{{ r.n }}</td></tr>{% endfor %}</tbody></table></div>
+</details>
+{%- endmacro %}
+{% block content %}
+<header class="page-head">
+  <h1>What the adverts ask for</h1>
+  <p class="lede">Patterns across the data adverts SkillMatch holds right now. They describe this snapshot only: a sample of what's advertised through the sources we can read, not the whole West Midlands job market.</p>
+</header>
+
+{% if not data %}
+<div class="panel"><p>No data built yet. Run <code>make fixtures</code> or <code>make etl-live</code>.</p></div>
+{% else %}
+<p class="data-line">{{ data.n_shown }} adverts shown by default, of which {{ data.n_entry }} are <strong>entry-plausible</strong>: they ask for no experience in a data role, or at most a year while welcoming newcomers. {{ data.n_total }} adverts are held in total, including duplicates and those our filters hide.</p>
+
+<section class="tiles" aria-label="Headline figures">
+  <div class="tile">
+    <p class="tile-label">“Junior” in the title, yet asking for 2+ years in a data role</p>
+    <p class="tile-value">{{ data.junior.two_plus }} <span class="tile-of">of {{ data.junior.n }}</span></p>
+    <p class="tile-note">Compared with {{ data.junior.others_two_plus }} of {{ data.junior.others_n }} other adverts. The title is not the requirement. {{ mode_line(data.junior.n, "junior-type titles") }}</p>
+  </div>
+  <div class="tile">
+    <p class="tile-label">Senior roles hidden by the title filter</p>
+    <p class="tile-value">{{ data.n_senior }}</p>
+    <p class="tile-note">Titles with senior, lead, manager, head of and similar. They stay in the data and can be revealed on your results. {{ mode_line(data.n_senior, "adverts") }}</p>
+  </div>
+  <div class="tile">
+    <p class="tile-label">Middle of the advertised yearly salaries</p>
+    <p class="tile-value">{% if data.salary.median %}£{{ "{:,.0f}".format(data.salary.median) }}{% else %}—{% endif %}</p>
+    <p class="tile-note">{% if data.salary.n %}Range £{{ "{:,.0f}".format(data.salary.min) }} to £{{ "{:,.0f}".format(data.salary.max) }} (midpoints of stated ranges). {{ data.salary.n_shown - data.salary.n }} adverts don't state a yearly salary and aren't included. {% endif %}{{ mode_line(data.salary.n, "adverts stating yearly pay") }}</p>
+  </div>
+</section>
+
+<section class="personal" data-send-profile aria-labelledby="you-h">
+  <h2 id="you-h">You and these adverts</h2>
+  <div data-if-profile hidden>
+    <div hx-post="{{ url_for('web.insights_personal') }}" hx-trigger="load" hx-swap="innerHTML">
+      <p class="loading">Placing your matches on the map…</p>
+    </div>
+  </div>
+  <div data-if-no-profile hidden>
+    <p><a href="{{ url_for('web.profile') }}">Build your profile</a>  to colour the map by how well each advert matches you, and to see which of your competencies are most in demand.</p>
+    <figure class="figure">
+      <figcaption><h3>Where the adverts are</h3><p class="hint">{{ mode_line(data.points|length, "adverts with a known location") }}. Not mapped: {{ data.n_remote }} UK-remote, {{ data.n_unclear }} with no clear location. Markers sharing a town centre are spread slightly so each can be clicked.</p></figcaption>
+      <div id="map-all" class="map" role="img" aria-label="Map of advert locations in the West Midlands"></div>
+    </figure>
+  </div>
+</section>
+
+<div class="chart-grid">
+  <figure class="figure">
+    <figcaption><h3>Competencies most asked for in entry-plausible adverts</h3><p class="hint">Adverts asking for each competency as an essential or desirable requirement. {{ mode_line(data.n_entry, "entry-plausible adverts") }}</p></figcaption>
+    <div class="chart-box"><canvas id="chart-comp" aria-label="Bar chart of competencies most asked for" role="img"></canvas></div>
+    {{ table_twin(data.competencies, "Competency", "Adverts") }}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>Technical skills most asked for in entry-plausible adverts</h3><p class="hint">Adverts asking for each skill as an essential or desirable requirement. {{ mode_line(data.n_entry, "entry-plausible adverts") }}</p></figcaption>
+    <div class="chart-box"><canvas id="chart-skills" aria-label="Bar chart of technical skills most asked for" role="img"></canvas></div>
+    {{ table_twin(data.skills, "Skill", "Adverts") }}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>Advertised yearly salaries</h3><p class="hint">Midpoint of each advert's stated range, in bands. Day rates and hourly pay are left out; we never estimate unstated pay. {{ mode_line(data.salary.n, "adverts") }}</p></figcaption>
+    <div class="chart-box"><canvas id="chart-salary" aria-label="Bar chart of salary bands" role="img"></canvas></div>
+    {{ table_twin(data.salary.bands, "Yearly salary", "Adverts") }}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>Senior roles hidden, by title word</h3><p class="hint">The first senior word found in each title. {{ mode_line(data.n_senior, "adverts") }}</p></figcaption>
+    {% if data.senior_words %}
+    <div class="chart-box"><canvas id="chart-senior" aria-label="Bar chart of senior title words" role="img"></canvas></div>
+    {{ table_twin(data.senior_words, "Title word", "Adverts") }}
+    {% else %}<p>None in this snapshot.</p>{% endif %}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>How the adverts say people work</h3><p class="hint">From the advert's own wording. {{ mode_line(data.n_shown, "adverts") }}</p></figcaption>
+    <div class="chart-box"><canvas id="chart-arr" aria-label="Bar chart of working arrangements" role="img"></canvas></div>
+    {{ table_twin(data.arrangement, "Arrangement", "Adverts") }}
+  </figure>
+  <figure class="figure">
+    <figcaption><h3>Everything the filters hide</h3><p class="hint">Kept in the data, hidden by default, revealable on your results. {{ mode_line(data.excluded|sum(attribute='n'), "adverts") }}</p></figcaption>
+    <div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">Reason</th><th scope="col">Adverts</th></tr></thead>
+    <tbody>{% for r in data.excluded %}<tr><td>{{ r.label|capfirst }}</td><td>{{ r.n }}</td></tr>{% endfor %}</tbody></table></div>
+  </figure>
+</div>
+
+{% if data.junior.examples %}
+<section class="examples" aria-labelledby="junior-h">
+  <h2 id="junior-h">“Junior” adverts asking for 2+ years</h2>
+  <ul>{% for e in data.junior.examples %}<li><a href="{{ url_for('web.job', job_id=e.id) }}">{{ e.title }}</a>, {{ e.employer }}: <span class="quote">“{{ e.text }}”</span></li>{% endfor %}</ul>
+</section>
+{% endif %}
+<script type="application/json" id="insights-data">{{ data|tojson }}</script>
+{% endif %}
+{% endblock %}

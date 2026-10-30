@@ -1,0 +1,35 @@
+{% from "partials/_tier.html" import meter with context %}
+{% macro card(m, sl, show_tier=False) -%}
+{% set v = m.vacancy %}
+<article class="card">
+  <header class="card-head">
+    {% if show_tier %}<p class="card-tier">{{ meter(m.tier, m.tier_label) }}</p>{% endif %}
+    <h3 class="card-title"><a href="{{ url_for('web.job', job_id=v.vacancy_id) }}">{{ v.title }}</a></h3>
+    <p class="card-meta">{{ v.employer or "Employer not named" }} · {{ v|place }} · <strong>{{ m|distance }}</strong></p>
+    {% if v.excluded_reason %}<p class="flag">Hidden by default: {{ v.excluded_reason }}{% if v.title_excluded_word %} (“{{ v.title_excluded_word }}” in the title){% endif %}.</p>{% endif %}
+  </header>
+  <dl class="facts">
+    <div><dt>Arrangement</dt><dd>{{ v|arrangement }}</dd></div>
+    <div><dt>Pay</dt><dd>{{ v|salary }}</dd></div>
+    {% if v.entry_signals %}<div><dt>Open to newcomers</dt><dd><ul class="chips">{% for s in v.entry_signals %}<li>{{ s }}</li>{% endfor %}</ul></dd></div>{% endif %}
+  </dl>
+  {% if m.top_answers %}
+  <section class="answers">
+    <h4>How your background answers this</h4>
+    <ul>{% for a in m.top_answers %}<li>{{ a }}</li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+  {% if m.essential_gaps %}
+  <section class="gaps">
+    <h4>Essential requirements not yet in your profile</h4>
+    <ul>{% for g in m.essential_gaps %}<li>{{ g|capfirst }}</li>{% endfor %}</ul>
+  </section>
+  {% elif not m.top_answers %}
+  <p class="why">{{ m.reasons[0] if m.reasons }}</p>
+  {% endif %}
+  <footer class="card-foot">
+    <p><a href="{{ url_for('web.job', job_id=v.vacancy_id) }}">Requirement by requirement</a> · <a href="{{ v.url }}" target="_blank" rel="noopener">View the advert on {{ v.source_label }}</a></p>
+    <p class="attribution">{{ v.attribution }}{% set also = sl and snap.also_listed(v) %}{% if also %} · Also listed by {% for a in also %}<a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.source_label }}{% if a.employer and a.employer != v.employer %} ({{ a.employer }}){% elif a.source_label == v.source_label %} (another advert){% endif %}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}</p>
+  </footer>
+</article>
+{%- endmacro %}

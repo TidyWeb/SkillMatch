@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<article class="prose">
+<header class="page-head">
+  <h1>How SkillMatch works</h1>
+  <p class="lede">SkillMatch is for people finishing Code Institute's Data Analytics with AI course in the West Midlands: teachers, nurses, researchers, managers, chefs and many more, who have new data skills and years of experience elsewhere. It matches people's skills, not job titles or sector history.</p>
+</header>
+
+<h2>Matching, step by step</h2>
+<ol>
+  <li><strong>Collecting adverts.</strong> Each night we collect data adverts from official feeds (see <a href="{{ url_for('web.sources') }}">Sources</a>), keep those in the West Midlands or open to UK-remote workers, and remove duplicates while keeping every link.</li>
+  <li><strong>Hiding what isn't for you yet.</strong> Titles with senior words (senior, lead, manager, head of, director and similar) are hidden, as are non-data jobs and paid training courses advertised as jobs. Nothing is deleted: your results say how many were hidden and let you show them. "Senior stakeholders" in a description never hides a job; only the title counts.</li>
+  <li><strong>Reading each advert.</strong> Rules split the advert into statements and sort each into essential, desirable or "describes the job", using headings ("Essential", "Nice to have") and wording ("must", "ideally", "would be advantageous"). Each statement is linked to the technical skills and transferable competencies it signals, using a reviewable vocabulary. The original advert sentence stays visible in the job details.</li>
+  <li><strong>Comparing with your profile.</strong> Course skills are included automatically. You can add other technical skills and choose up to five areas of expertise, then untick any suggested competencies that do not apply. The matcher compares these choices with each advert. It does not ask for skill levels or evidence.</li>
+  <li><strong>Qualifications.</strong> You choose your highest qualification using the UK level shown beside each option. The matcher compares that level with the qualification asked for in the advert.</li>
+  <li><strong>Grouping.</strong>
+    <ul>
+      <li><strong>Strong match:</strong> no essential gaps and at most one partly met essential.</li>
+      <li><strong>Good match:</strong> one essential gap, too few essential requirements to confirm a strong match, or more than one partly met essential.</li>
+      <li><strong>Stretch:</strong> two essential gaps.</li>
+      <li><strong>Not yet:</strong> three or more essential gaps.</li>
+    </ul>
+    There are no percentages: a score would suggest a precision the rules don't have.</li>
+  <li><strong>Explaining it.</strong> Expanded match cards show which requirements your selected skills answer, which are partly met, and which are gaps. The job page shows the requirement sentence and explains how the matcher read it.</li>
+</ol>
+
+<h2>Limitations</h2>
+<ul>
+  <li><strong>Distances are straight lines</strong> from the centre of your postcode district, not travel times. Ten miles across a city can be an hour by bus. Travel-time estimates are planned.</li>
+  <li><strong>Coverage is partial.</strong> We can only read sources with an official feed. Many good jobs are on council, NHS, charity and recruiter sites we can only link to. Use the "Also search these sources" links on your results.</li>
+  <li><strong>Reading adverts by rule is imperfect.</strong> Adverts are written in many styles. Some requirements are missed or misread, and some can't be linked to a skill ("a full driving licence"). Those are shown on the job page and don't count either way. Always read the full advert before applying.</li>
+  <li><strong>The vocabularies are drafts</strong> for the team to review. They decide which phrases count as which competency, so they shape every result.</li>
+  <li><strong>Salaries are shown only as advertised.</strong> We never estimate missing pay.</li>
+  <li><strong>The insights describe this snapshot</strong> of adverts, not the whole job market.</li>
+</ul>
+
+<h2 id="privacy">Privacy</h2>
+<ul>
+  <li>Your profile lives in your browser's session storage for this tab only. Closing the tab clears it, and there are no accounts.</li>
+  <li>When you look at results, your browser sends the profile with that one request. The server uses it to build the page and then forgets it. It isn't written to disk, logged, put in a cookie or sent to any analytics.</li>
+  <li><strong>Only the first part of your postcode is used</strong> (for example B91 from B91 3QS). Your browser removes the second part before anything is sent, and SkillMatch looks up only that first part, either in its own table or with postcodes.io. It places you to within a few miles, which is enough for straight-line distances.</li>
+  <li>Your profile is sent with each search request and is not stored.</li>
+  <li>Pages load a few open-source libraries (HTMX, Chart.js, Leaflet) from public code servers, and the map loads tiles from OpenStreetMap. Those servers see your IP address, as with any website.</li>
+</ul>
+
+<h2>Who made it</h2>
+<p>SkillMatch was built by Tidy Web for a Code Institute hackathon. The code is MIT-licensed. Fixture adverts are invented.</p>
+</article>
+{% endblock %}

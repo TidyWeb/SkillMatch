@@ -1,0 +1,5 @@
+platform,slug,employer,source_id,confirmed,checked_on,notes
+greenhouse,gymshark,Gymshark,gymshark,true,2026-10-21,"Solihull HQ. Public Job Board GET returned 200 on 2026-10-21; employer-specific reuse conditions not confirmed."
+greenhouse,monzo,Monzo,monzo,true,2026-10-21,"UK remote/hybrid employer. Public Job Board GET returned 200 on 2026-10-21."
+lever,kpler,Kpler,kpler,true,2026-10-21,"Postings API returned 200 on 2026-10-21; UK office/hybrid worksite needs checking per posting."
+workable,biffa,Biffa,biffa,true,2026-10-21,"Workable published-jobs account endpoint returned 200 on 2026-10-21."

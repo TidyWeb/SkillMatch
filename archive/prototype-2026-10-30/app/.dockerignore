@@ -1,0 +1,19 @@
+# Keep the image small and never ship secrets or raw vacancy data.
+.env
+.env.*
+.git
+.github
+.venv
+.pytest_cache
+.ruff_cache
+__pycache__
+*.pyc
+data/raw
+data/cache
+data/processed/*.tmp
+reports
+notebooks
+tests
+scripts
+docs
+build_prompt.md

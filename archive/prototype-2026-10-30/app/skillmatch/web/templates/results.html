@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Your matches{% endblock %}
+{% block content %}
+{% from "partials/_controls.html" import select_control, action_link %}
+<header class="page-head">
+  <h1>Your matches</h1>
+  <p class="lede">Entry-level and early-career data roles in the West Midlands and UK-remote, grouped by how well your skills and qualifications answer each advert. Within each group the nearest come first. Distances are straight-line, not travel time.</p>
+</header>
+
+<div data-if-no-profile hidden class="panel">
+  <h2>Start with your profile</h2>
+  <p>We need your skills and areas of expertise before we can match you.</p>
+  <p>{{ action_link("Edit my profile", url_for("web.profile"), "button-primary") }}</p>
+</div>
+
+<div data-send-profile data-if-profile hidden>
+  <form id="filters" class="filters" hx-post="{{ url_for('web.results_list') }}" hx-target="#results"
+        hx-trigger="load, change" hx-include="[name=reveal]" hx-indicator="#results-loading" aria-label="Filter your matches">
+    <div class="filter">
+      <label for="f-miles">Within (miles)</label>
+      <input id="f-miles" name="max_miles" type="number" min="1" max="200" inputmode="numeric" placeholder="Any">
+    </div>
+    <fieldset class="filter filter-tiers">
+      <legend class="label">Show</legend>
+      {% for t in tiers %}
+      <label class="choice"><input type="checkbox" name="tier" value="{{ t }}" checked> {{ {'strong': 'Strong match', 'good': 'Good match', 'stretch': 'Stretch', 'not_yet': 'Not yet'}[t] }}</label>
+      {% endfor %}
+    </fieldset>
+    {% call select_control("f-arr", "Arrangement", "arrangement", "filter") %}
+        <option value="any">Any</option><option value="onsite">On site</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option>
+      {% endcall %}
+    {% call select_control("f-src", "Source", "source_tier", "filter") %}
+        <option value="any">All sources</option>
+        {% for k, label in source_tiers.items() %}<option value="{{ k }}">{{ label }}</option>{% endfor %}
+      {% endcall %}
+    <div class="filter filter-check">
+      <label class="choice"><input type="checkbox" name="salary_stated"> Salary stated only</label>
+    </div>
+    <input type="hidden" name="reveal" value="">
+    <noscript><p>SkillMatch needs JavaScript to keep your profile in this tab.</p></noscript>
+  </form>
+  <p id="results-loading" class="loading" aria-live="polite">Matching your profile…</p>
+  <div id="results" aria-live="polite"></div>
+</div>
+{% endblock %}

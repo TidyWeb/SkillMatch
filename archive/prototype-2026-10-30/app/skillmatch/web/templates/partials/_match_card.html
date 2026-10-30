@@ -1,0 +1,23 @@
+{% from "partials/_controls.html" import action_button, action_link %}
+{% macro match_card(m, index) -%}
+<details class="match-card">
+  <summary>
+    <span class="match-card-title">{{ m.title }}</span>
+    <span class="match-card-meta">{{ m.company or "Employer not named" }} · {{ m.salary_text or "Salary not stated" }} · <span class="tier tier-{{ m.match_tier }}">{{ m.match_level }}</span></span>
+  </summary>
+  <div class="match-detail">
+    {% if m.guard_reason %}<p>{{ m.guard_reason }}</p>{% endif %}
+    {% for key, heading in [("requirements_met", "Met"), ("partly_met", "Partly met"), ("gaps", "Gaps")] %}
+      {% set items = m.detail.get(key, []) %}
+      {% if items %}<h4>{{ heading }}</h4><ul>{% for item in items %}<li>{{ item.sentence }}{% if item.strength == "desirable" %} <span class="hint">(desirable)</span>{% endif %}{% if item.confidence == "inferred" %} <span class="hint">(not explicitly required)</span>{% endif %}{% if item.answers %} — {{ item.answers|join("; ") }}{% endif %}{% if item.reasons %} ({{ item.reasons|join("; ") }}){% endif %}</li>{% endfor %}</ul>{% endif %}
+    {% endfor %}
+    {% if m.uncategorised %}<h4>Other requirements</h4><ul>{% for item in m.uncategorised %}<li>{{ item.sentence }}</li>{% endfor %}</ul>{% endif %}
+    <div class="match-actions">
+      {% if m.advert_url %}<a href="{{ m.advert_url }}" target="_blank" rel="noopener">Open advert</a>{% endif %}
+      {% if m.tailor_url %}{{ action_link("Tailor my CV", m.tailor_url, "button-secondary", true) }}
+      {% else %}{{ action_button("Tailor my CV", "button", "button-secondary", "", "brief-toggle", "brief-panel-" ~ index) }}{% endif %}
+    </div>
+    {% if not m.tailor_url %}<div id="brief-panel-{{ index }}" class="brief-panel" hidden><label for="brief-{{ index }}">Job brief for Tailor my CV</label>{{ action_button("Copy job brief", "button", "button-secondary", "", "copy-brief", "brief-" ~ index) }}<textarea id="brief-{{ index }}" class="brief-fallback" readonly>{{ m.job_brief }}</textarea></div>{% endif %}
+  </div>
+</details>
+{%- endmacro %}

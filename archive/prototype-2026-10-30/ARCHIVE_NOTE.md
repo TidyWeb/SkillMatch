@@ -1,0 +1,1 @@
+Deprecated on 30 October 2026. This is the prototype stage of SkillMatch, kept as a development record. The live app's code now lives in skillmatch-app/. The exact repository at this point is also kept as the git tag prototype-final.

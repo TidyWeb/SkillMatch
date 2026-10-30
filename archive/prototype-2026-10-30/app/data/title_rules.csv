@@ -1,0 +1,21 @@
+word,action,pattern,note
+senior,exclude,\bsenior\b,
+snr,exclude,\bsnr\b,
+sr,exclude,\bsr\b\.?,
+lead,exclude,\blead\b,"Also catches ""Team Lead"" and ""Lead Pricing Analyst""; brief excludes it."
+principal,exclude,\bprincipal\b,
+head of,exclude,\bhead\s+of\b,
+director,exclude,\bdirector\b,
+chief,exclude,\bchief\b,
+manager,exclude,\bmanager\b,
+architect,exclude,\barchitect\b,
+staff,exclude,\bstaff\s+(?:data|software|analytics|machine|ml|engineer|scientist|analyst)\b,"Only ""staff"" as a level (Staff Engineer), not ""Staff Nurse"" or ""staff data""."
+junior,boost,\bjunior\b,
+graduate,boost,\bgraduate\b,
+trainee,boost,\btrainee\b,
+apprentice,boost,\bapprentice(?:ship)?\b,
+assistant,boost,\bassistant\b,
+associate,boost,\bassociate\b,
+entry level,boost,\bentry[\s-]level\b,
+intern,boost,\bintern(?:ship)?\b,
+placement,boost,\bplacement\b,
