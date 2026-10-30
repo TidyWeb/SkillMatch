@@ -3,80 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <title>The big picture · SkillMatch team guides</title>
 <meta name="description" content="GitHub&#x27;s words make more sense next to something you may already know: a shared document in Microsoft Word with its Track Changes feature switched on. Read this once, and the rest of the guides will feel like steps you already understand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-<link rel="stylesheet" href="../assets/site.css">
-<link rel="stylesheet" href="../assets/guides.css">
+<link rel="stylesheet" href="../project-visual-language/navy-a/navy-a.css">
+<style>
+.guide-brand{display:flex;align-items:center;gap:10px}
+.guide-team-label{font-size:11px;color:var(--na-muted)}
+.guide-nav{flex:0 1 auto}
+.na-guide-layout{max-width:1360px}
+.na-guide-opening{padding:26px 30px}
+.na-guide-opening .na-phase-head{margin:0 0 10px}
+.na-guide-opening h1{font-size:clamp(30px,3.5vw,42px);max-width:24ch;margin:0 0 8px}
+.na-guide-opening p{margin:0;color:var(--na-muted);font-size:16px;line-height:1.5;max-width:76ch}
+.na-guide-contents>h2{margin-bottom:10px}
+.na-guide-contents li a{align-items:flex-start}
+.na-guide-contents li a b{flex:none}
+.na-guide-article{min-width:0}
+.na-guide-article>.na-panel,.na-guide-article>.na-panel--quiet{margin:0}
+.na-guide-article>.na-figure{margin:0}
+.na-guide-article>.na-details{margin:0}
+.na-guide-article>.na-steps{margin:0}
+.na-guide-article>.na-tiles{margin:0}
+.na-guide-article>.na-command{margin:0}
+.na-guide-article>.na-panel>p:first-child{margin-top:0}
+.na-guide-article .na-step>div>strong:first-child{display:block;margin-bottom:4px}
+.na-guide-article .na-step>div{flex:1;width:100%;min-width:0}
+.na-guide-done{margin:0}
+.na-command{position:relative;display:block;min-width:0}
+.na-command.na-brief{margin:0;padding:52px 96px 16px 18px;border:1px solid var(--na-line);border-radius:var(--na-r-sm);background:var(--na-surface-2);color:var(--na-ink);font:13px/1.6 var(--na-mono);overflow-wrap:anywhere}
+.na-command.na-codepane{margin:0;padding:52px 96px 16px 18px;border:1px solid var(--na-code);border-radius:var(--na-r-sm);background:var(--na-code);color:var(--na-code-ink);font:13px/1.7 var(--na-mono);overflow:visible}
+.na-command-text{display:block;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;line-height:inherit;white-space:pre-wrap;overflow-wrap:anywhere}
+.na-command .na-guide-copy{position:absolute;top:8px;right:8px;z-index:1;margin:0;font-size:12px;padding:7px 14px;border:1px solid var(--na-panel);background:var(--na-panel);color:var(--na-panel-ink)}
+.na-command--code .na-guide-copy{border-color:var(--na-panel-ink)}
+.na-note .na-command{margin-top:12px}
+.na-guide-picker{margin:10px 0}
+.na-guide-picker .na-btn{border-color:var(--na-muted)}
+.na-guide-picker [aria-pressed=true]{background:var(--na-panel);border-color:var(--na-panel);color:var(--na-panel-ink)}
+.na-guide-flow{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:stretch}
+.na-guide-flow .na-tile{min-width:0;min-height:0;justify-content:flex-start;align-items:flex-start;gap:6px;padding:16px}
+.na-guide-flow-tile{overflow-wrap:anywhere}
+.na-guide-flow .who,.na-guide-who{margin-top:4px;color:var(--na-muted);font:600 11px/1.35 var(--na-mono)}
+.na-guide-keypoints{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:stretch}
+.na-guide-keypoints .na-tile{min-width:0;min-height:0;justify-content:flex-start;align-items:flex-start;padding:16px;overflow-wrap:anywhere}
+.na-guide-keypoint-lead h3{color:var(--na-panel-ink)}
+.na-figure--stack{padding:18px}
+.na-stack-place{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:var(--na-r-sm);background:var(--na-surface-2)}
+.na-stack-link{display:flex;justify-content:space-between;gap:12px;padding:5px 10px;color:var(--na-muted);font:600 11px/1.35 var(--na-mono);text-align:center}
+.na-details .ct{margin-left:6px;color:var(--na-muted);font-weight:500}
+.na-guide-badge--built{background:var(--na-good);color:#faf9f6}
+.na-guide-badge--wait{background:var(--na-soft-blue);color:var(--na-soft-blue-ink)}
+.na-guide-badge--todo{background:var(--na-surface-2);color:var(--na-ink)}
+.na-guide-badge--skip{background:var(--na-surface);color:var(--na-muted)}
+.na-guide-article .na-badge{border:1px solid var(--na-panel);padding:5px 10px}
+.na-guide-article .na-chip{border-color:var(--na-muted)}
+.na-glossary th{width:18%;font:700 15px/1.5 var(--na-sans);letter-spacing:0;text-transform:none;color:var(--na-ink)}
+.na-guide-article table{max-width:100%}
+.na-guide-article th,.na-guide-article td{overflow-wrap:anywhere;vertical-align:top}
+.na-guide-article code{overflow-wrap:anywhere}
+.na-guide-pager{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.na-guide-pager a{display:flex;align-items:center;justify-content:center;min-width:0;min-height:56px;padding:12px 18px;border:1px solid var(--na-muted);border-radius:var(--na-pill);background:var(--na-surface-2);color:var(--na-ink);font-weight:600;line-height:1.35;text-align:center;text-decoration:none}
+.na-guide-pager a:hover{background:var(--na-surface);border-color:var(--na-accent);color:var(--na-ink)}
+.na-guide-footer{max-width:none;margin:0;padding:8px 0 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.na-guide-footer p{margin:0}
+.na-guide-footer .na-pill-link{padding:8px 14px;background:var(--na-surface-2);border:1px solid var(--na-muted);color:var(--na-ink);text-decoration:none}
+.na-guide-footer .na-pill-link:hover{background:var(--na-surface);border-color:var(--na-accent);color:var(--na-ink)}
+@media(max-width:850px){
+  .guide-nav{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;overflow:visible}
+  .na-guide-contents>h2{display:none}
+  .na-guide-contents ol{margin:0}
+  .na-guide-contents li a{border-color:rgba(250,249,246,.65)}
+  .na-guide-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .na-guide-keypoints{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .na-guide-pager{grid-template-columns:1fr}
+  .na-guide-footer{padding:8px 0 12px}
+}
+@media(max-width:560px){
+  .na-guide-opening{padding:20px 18px}
+  .na-guide-opening .na-phase-head{margin-bottom:8px}
+  .na-guide-flow,.na-guide-keypoints{grid-template-columns:1fr}
+  .na-stack-link{flex-direction:column;gap:2px}
+  .na-command.na-brief,.na-command.na-codepane{padding:52px 82px 16px 14px}
+  .na-glossary,.na-glossary tbody{display:block;width:100%}
+  .na-glossary tr{display:block;margin:0 0 8px;padding:10px 12px;border:1px solid var(--na-muted);border-radius:var(--na-r-sm);background:var(--na-surface-2)}
+  .na-glossary th,.na-glossary td{display:block;width:auto;padding:4px 0;border:0;text-align:left}
+  .na-glossary th{font-size:15px}
+  .na-glossary td{padding-top:0}
+}
+</style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to the text</a>
-<div class="shell">
-<header class="sidebar" id="top">
-  <a class="sidebar-logo" href="../index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
-  <a class="site-name" href="../index.html">SkillMatch team guides<small>Back to the team hub</small></a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
-  <nav class="nav" id="site-nav" aria-label="Guides">
-    <div class="nav-group"><h2>Getting started</h2><ol>
-      <li><a href="../index.html"><span class="n"></span><span>Team hub</span></a></li>
-      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
-      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Pick your AI assistant</span></a></li>
-      <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
-      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
-      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
-      </ol></div>
-    <div class="nav-group"><h2>Understanding GitHub</h2><ol>
-      <li><a href="b1-the-big-picture.html" aria-current="page"><span class="n">B1</span><span>The big picture</span></a></li>
-      <li><a href="b2-your-copy-and-the-shared-copy.html"><span class="n">B2</span><span>Your copy and the shared copy</span></a></li>
-      <li><a href="b3-add-files-to-the-repository.html"><span class="n">B3</span><span>Add files to the repository</span></a></li>
-      <li><a href="b4-open-a-pull-request-properly.html"><span class="n">B4</span><span>Open a pull request, properly</span></a></li>
-      <li><a href="b5-cards-and-closes.html"><span class="n">B5</span><span>Cards, numbers and &#x27;Closes&#x27;</span></a></li>
-      <li><a href="b6-glossary.html"><span class="n">B6</span><span>Glossary</span></a></li>
-      <li><a href="b7-who-does-what.html"><span class="n">B7</span><span>Who does what</span></a></li>
-      </ol></div>
-    <div class="nav-group"><h2>The prototype</h2><ol>
-      <li><a href="c1-try-the-prototype.html"><span class="n">C1</span><span>Try the prototype</span></a></li>
-      <li><a href="c2-real-jobs-with-your-own-reed-key.html"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
-      <li><a href="c3-how-skillmatch-finds-the-jobs.html"><span class="n">C3</span><span>How SkillMatch finds the jobs</span></a></li>
-      </ol></div>
-    <div class="nav-group"><h2>Working on a task</h2><ol>
-      <li><a href="d1-start-from-the-latest.html"><span class="n">D1</span><span>Start from the latest</span></a></li>
-      <li><a href="d2-make-a-branch.html"><span class="n">D2</span><span>Make a branch for your card</span></a></li>
-      <li><a href="d3-save-and-upload.html"><span class="n">D3</span><span>Save and upload</span></a></li>
-      <li><a href="d4-open-a-pull-request.html"><span class="n">D4</span><span>Open a pull request</span></a></li>
-      <li><a href="d5-after-its-merged.html"><span class="n">D5</span><span>After it&#x27;s merged</span></a></li>
-      </ol></div>
-    <div class="nav-group"><h2>Reviewing and merging</h2><ol>
-      <li><a href="e1-review-a-pull-request.html"><span class="n">E1</span><span>Review a pull request</span></a></li>
-      <li><a href="e2-merge-it.html"><span class="n">E2</span><span>Merge it</span></a></li>
-      <li><a href="e3-when-theres-a-conflict.html"><span class="n">E3</span><span>When there&#x27;s a conflict</span></a></li>
-      <li><a href="e4-protect-main.html"><span class="n">E4</span><span>Protect main</span></a></li>
-    </ol></div>
-    <div class="nav-group"><h2>The project</h2><ul>
-      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
-      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
-    </ul></div>
+<body class="na-guide">
+<a class="na-skip" href="#main">Skip to content</a>
+<header class="na-top na-top--document">
+  <div class="guide-brand">
+    <a class="na-mark" href="index.html"><i aria-hidden="true">S</i>SkillMatch</a>
+    <span class="na-label guide-team-label">TEAM</span>
+  </div>
+  <nav class="na-nav guide-nav" aria-label="Main">
+    <a href="index.html">Team hub</a>
+    <a href="../">Public site</a>
+    <a href="https://skillmatch-926015010605.europe-west2.run.app">Find jobs</a>
+    <a href="https://github.com/users/TidyWeb/projects/3">Project board</a>
   </nav>
 </header>
-<main class="content" id="main">
-<article class="page">
-<ol class="strip" aria-label="Steps"><li><span class="now" aria-current="step"><b>B1</b>The big picture</span></li><li><a href="b2-your-copy-and-the-shared-copy.html"><b>B2</b>Your copy and the shared copy</a></li><li><a href="b3-add-files-to-the-repository.html"><b>B3</b>Add files to the repository</a></li><li><a href="b4-open-a-pull-request-properly.html"><b>B4</b>Open a pull request, properly</a></li><li><a href="b5-cards-and-closes.html"><b>B5</b>Cards, numbers and &#x27;Closes&#x27;</a></li><li><a href="b6-glossary.html"><b>B6</b>Glossary</a></li><li><a href="b7-who-does-what.html"><b>B7</b>Who does what</a></li></ol>
-<header class="chapter-head">
-  <p class="chapter-num">Step 1 of 7</p>
-  <h1>The big picture</h1>
-  <p class="standfirst">GitHub's words make more sense next to something you may already know: a shared document in Microsoft Word with its Track Changes feature switched on. Read this once, and the rest of the guides will feel like steps you already understand.</p>
-</header>
-
-<h2>First, Microsoft Word's Track Changes</h2>
-<p>Microsoft Word, the word processor, has a feature called <strong>Track Changes</strong> (on the Review tab). When it's switched on, Word no longer quietly overwrites the text. Every edit you make is <em>marked</em>: deleted words are struck through, new words are underlined, and each mark carries your name. Someone else can then read through your marked edits, leave <strong>comments</strong> in the margin, and <strong>accept</strong> or <strong>reject</strong> each change. Clicking <strong>Accept All Changes</strong> folds them into the finished document.</p>
-<p>You don't need to have used it. The point is the habit it builds: you edit, someone checks, and only then does your edit become part of the document everyone relies on.</p>
-
-<h2>Now picture the team using it</h2>
-<p>Four people are writing one Microsoft Word document. Everyone needs to edit it, but nobody should be able to wreck it, and nobody wants to wait their turn. So each person works on their <em>own copy</em> with Track Changes on, hands it to a teammate to check, and only the accepted changes go into the master copy. GitHub works the same way. It just uses different names for each part, and the table below matches them up.</p>
-<table>
+<main class="na-page na-page--document na-layout na-guide-layout" id="main">
+<aside class="na-contents na-guide-contents" aria-label="Understanding GitHub">
+<h2>Understanding GitHub</h2>
+<ol>
+<li><a href="b1-the-big-picture.html" aria-current="page"><b>B1</b><span>The big picture</span></a></li>
+<li><a href="b2-your-copy-and-the-shared-copy.html"><b>B2</b><span>Your copy and the shared copy</span></a></li>
+<li><a href="b3-add-files-to-the-repository.html"><b>B3</b><span>Add files to the repository</span></a></li>
+<li><a href="b4-open-a-pull-request-properly.html"><b>B4</b><span>Open a pull request, properly</span></a></li>
+<li><a href="b5-cards-and-closes.html"><b>B5</b><span>Cards, numbers and &#x27;Closes&#x27;</span></a></li>
+<li><a href="b6-glossary.html"><b>B6</b><span>Glossary</span></a></li>
+</ol>
+</aside>
+<article class="na-flow na-guide-article" id="guide-content">
+  <section class="na-panel na-hero na-guide-opening" aria-labelledby="page-title">
+    <div class="na-phase-head"><span class="na-label">B1 · GITHUB BASICS</span></div>
+    <h1 id="page-title">The big picture</h1>
+    <p>GitHub&#x27;s words make more sense next to something you may already know: a shared document in Microsoft Word with its Track Changes feature switched on. Read this once, and the rest of the guides will feel like steps you already understand.</p>
+  </section>
+<section class="na-panel"><h2>First, Microsoft Word's Track Changes</h2><p>Microsoft Word, the word processor, has a feature called <strong>Track Changes</strong> (on the Review tab). When it's switched on, Word no longer quietly overwrites the text. Every edit you make is <em>marked</em>: deleted words are struck through, new words are underlined, and each mark carries your name. Someone else can then read through your marked edits, leave <strong>comments</strong> in the margin, and <strong>accept</strong> or <strong>reject</strong> each change. Clicking <strong>Accept All Changes</strong> folds them into the finished document.</p><p>You don't need to have used it. The point is the habit it builds: you edit, someone checks, and only then does your edit become part of the document everyone relies on.</p></section>
+<section class="na-panel"><h2>Now picture the team using it</h2><p>Four people are writing one Microsoft Word document. Everyone needs to edit it, but nobody should be able to wreck it, and nobody wants to wait their turn. So each person works on their <em>own copy</em> with Track Changes on, hands it to a teammate to check, and only the accepted changes go into the master copy. GitHub works the same way. It just uses different names for each part, and the table below matches them up.</p></section>
+<section class="na-panel"><table class="na-table">
 <thead><tr><th>GitHub says</th><th>In Microsoft Word terms</th><th>What you actually do</th></tr></thead>
 <tbody>
 <tr><td><strong>main</strong></td><td>The agreed master document</td><td>Never edit it directly. You read it and copy from it.</td></tr>
@@ -88,49 +142,65 @@
 <tr><td><strong>Merge</strong></td><td>"Accept all changes"</td><td>Phil clicks it, for now. Your work is now part of main.</td></tr>
 <tr><td><strong>Squash</strong></td><td>All your edits become one tidy entry</td><td>Nothing to do. GitHub does it when merging.</td></tr>
 </tbody>
-</table>
-<div class="flow" aria-label="Five stages in a change">
-<div class="box"><b>1 · Branch</b>Your own copy to edit.<span class="who">You</span></div>
-<div class="box"><b>2 · Commit</b>Save a checkpoint.<span class="who">You</span></div>
-<div class="box"><b>3 · Push</b>Send the branch to GitHub.<span class="who">You</span></div>
-<div class="box shared"><b>4 · Pull request + review</b>Ask for the changes to be accepted; a teammate checks them.<span class="who">You ask; a teammate reviews</span></div>
-<div class="box shared"><b>5 · Merge</b>Accepted into main.<span class="who">Phil, for now</span></div>
+</table></section>
+<div aria-label="Five stages in a change" class="na-tiles na-guide-flow">
+<div class="na-tile na-guide-flow-tile"><b>1 · Branch</b>Your own copy to edit.<span class="who na-guide-who">You</span></div>
+<div class="na-tile na-guide-flow-tile"><b>2 · Commit</b>Save a checkpoint.<span class="who na-guide-who">You</span></div>
+<div class="na-tile na-guide-flow-tile"><b>3 · Push</b>Send the branch to GitHub.<span class="who na-guide-who">You</span></div>
+<div class="na-tile na-guide-flow-tile"><b>4 · Pull request + review</b>Ask for the changes to be accepted; a teammate checks them.<span class="who na-guide-who">You ask; a teammate reviews</span></div>
+<div class="na-tile na-guide-flow-tile"><b>5 · Merge</b>Accepted into main.<span class="who na-guide-who">Phil, for now</span></div>
 </div>
-
-<h2>"Pull" means two different things</h2>
-<table>
+<section class="na-panel"><h2>"Pull" means two different things</h2><table class="na-table">
 <thead><tr><th>You see</th><th>It means</th><th>Which way it goes</th></tr></thead>
 <tbody>
 <tr><td><strong>Pull</strong> (Source Control → Pull)</td><td>Download the latest shared version onto your computer.</td><td>GitHub → you</td></tr>
 <tr><td><strong>Pull request</strong></td><td>Ask the team to accept your changes into main.</td><td>You → main</td></tr>
 </tbody>
-</table>
-<p>If a guide says "pull", it means the first. If it says "pull request", it means the second. GitLab calls a pull request a "merge request". Same thing.</p>
-
-<h2>One change, start to finish</h2>
-<p>Here is the whole route with a real task: Oana has a card to collect interface screenshots.</p>
-<ol class="do">
-<li><strong>She starts from the latest main</strong>
-So her copy matches what the team has agreed so far (<a href="d1-start-from-the-latest.html">D1</a>).</li>
-<li><strong>She makes a branch</strong>
-Named after her card, so everyone can see what it's for (<a href="d2-make-a-branch.html">D2</a>).</li>
-<li><strong>She adds her files and commits</strong>
-Checkpoints she can come back to (<a href="b3-add-files-to-the-repository.html">B3</a>).</li>
-<li><strong>She pushes and opens a pull request</strong>
-Her branch is now on GitHub, and she asks Phil to review it (<a href="b4-open-a-pull-request-properly.html">B4</a>).</li>
-<li><strong>Phil reviews and merges</strong>
-Her work is now in main. Everyone else's next "pull" brings it down to their computer (<a href="e1-review-a-pull-request.html">E1</a>, <a href="e2-merge-it.html">E2</a>).</li>
+</table></section>
+<section class="na-panel"><p>If a guide says "pull", it means the first. If it says "pull request", it means the second. GitLab calls a pull request a "merge request". Same thing.</p></section>
+<section class="na-panel"><h2>One change, start to finish</h2><p>Here is the whole route with a real task: Oana has a card to collect interface screenshots.</p></section>
+<ol class="na-steps na-steps--long">
+<li class="na-step"><div><strong>She starts from the latest main</strong>
+So her copy matches what the team has agreed so far (<a href="d1-start-from-the-latest.html">D1</a>).</div></li>
+<li class="na-step"><div><strong>She makes a branch</strong>
+Named after her card, so everyone can see what it's for (<a href="d2-make-a-branch.html">D2</a>).</div></li>
+<li class="na-step"><div><strong>She adds her files and commits</strong>
+Checkpoints she can come back to (<a href="b3-add-files-to-the-repository.html">B3</a>).</div></li>
+<li class="na-step"><div><strong>She pushes and opens a pull request</strong>
+Her branch is now on GitHub, and she asks Phil to review it (<a href="b4-open-a-pull-request-properly.html">B4</a>).</div></li>
+<li class="na-step"><div><strong>Phil reviews and merges</strong>
+Her work is now in main. Everyone else's next "pull" brings it down to their computer (<a href="e1-review-a-pull-request.html">E1</a>, <a href="e2-merge-it.html">E2</a>).</div></li>
 </ol>
-
-<h2>Why it works this way</h2>
-<p>Every change is seen by a second person before it becomes part of the shared version, and every mistake is confined to someone's own branch. Main is protected, so nobody can push to it directly, Phil included. That sounds like extra work. For a team that has never worked together, it's what stops one person's slip from becoming everyone's problem on Wednesday afternoon.</p>
-<p class="done-when"><strong>Done when:</strong> you can say the five stages in order (branch, commit, push, pull request and review, merge) and explain the two meanings of "pull".</p>
-
-<nav class="pager" aria-label="Steps"><a class="prev" href="../index.html"><small>Previous</small><strong>The team hub</strong></a><a class="next" href="b2-your-copy-and-the-shared-copy.html"><small>Next</small><strong>B2. Your copy and the shared copy</strong></a></nav>
+<section class="na-panel"><h2>Why it works this way</h2><p>Every change is seen by a second person before it becomes part of the shared version, and every mistake is confined to someone's own branch. Main is protected, so nobody can push to it directly, Phil included. That sounds like extra work. For a new team, it catches a slip before it affects the shared project.</p></section>
+<p class="na-panel na-panel--quiet na-guide-done"><strong>Done when:</strong> you can say the five stages in order (branch, commit, push, pull request and review, merge) and explain the two meanings of "pull".</p>
+<nav class="na-guide-pager" aria-label="Previous and next guide"><a href="index.html">← Previous: Team hub</a><a href="b2-your-copy-and-the-shared-copy.html">Next: Your copy and the shared copy →</a></nav>
+  <footer class="na-footer na-guide-footer">
+    <a class="na-pill-link" href="archive/2026-10-30_before_navy_a/README.md">Archive: how the project developed <b aria-hidden="true">→</b></a>
+    <p>Phil · John · SK · Esmat · Oana</p>
+  </footer>
 </article>
 </main>
-</div>
-<script src="../assets/guides.js"></script>
+<script>
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-copy-target]");
+  if (!button) return;
+  const target = document.getElementById(button.dataset.copyTarget);
+  if (!target) return;
+  try {
+    await navigator.clipboard.writeText(target.innerText || target.textContent);
+    button.textContent = "Copied";
+    button.dataset.copyStatus = "copied";
+  } catch (_error) {
+    const range = document.createRange();
+    range.selectNodeContents(target);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    button.textContent = "Selected: press Ctrl+C";
+    button.dataset.copyStatus = "selected";
+  }
+});
+</script>
 
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open a pull request, properly · SkillMatch team guides</title>
+<meta name="description" content="A pull request asks the team to check your branch before it joins the shared version. This guide covers the form, every box on its right-hand side, and what happens after you click Create.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/guides.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the text</a>
+<div class="shell">
+<header class="sidebar" id="top">
+  <a class="sidebar-logo" href="index.html" title="SkillMatch team hub"><img src="../assets/img/tidyweb-logo.png" width="120" height="120" alt="SkillMatch team hub"></a>
+  <a class="site-name" href="index.html">SkillMatch team guides<small>Back to the team hub</small></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Contents</button>
+  <nav class="nav" id="site-nav" aria-label="Guides">
+    <div class="nav-group"><h2>Getting started</h2><ol>
+      <li><a href="index.html"><span class="n"></span><span>Team hub</span></a></li>
+      <li><a href="a1-get-skillmatch.html"><span class="n">A1</span><span>Get SkillMatch onto your machine</span></a></li>
+      <li><a href="a2-switch-on-the-ai.html"><span class="n">A2</span><span>Pick your AI assistant</span></a></li>
+      <li><a href="a3-add-your-folder.html"><span class="n">A3</span><span>Add your folder</span></a></li>
+      <li><a href="a4-send-it-for-review.html"><span class="n">A4</span><span>Send it for review</span></a></li>
+      <li><a href="help.html"><span class="n">?</span><span>Stuck? Help and other routes</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Understanding GitHub</h2><ol>
+      <li><a href="b1-the-big-picture.html"><span class="n">B1</span><span>The big picture</span></a></li>
+      <li><a href="b2-your-copy-and-the-shared-copy.html"><span class="n">B2</span><span>Your copy and the shared copy</span></a></li>
+      <li><a href="b3-add-files-to-the-repository.html"><span class="n">B3</span><span>Add files to the repository</span></a></li>
+      <li><a href="b4-open-a-pull-request-properly.html" aria-current="page"><span class="n">B4</span><span>Open a pull request, properly</span></a></li>
+      <li><a href="b5-cards-and-closes.html"><span class="n">B5</span><span>Cards, numbers and &#x27;Closes&#x27;</span></a></li>
+      <li><a href="b6-glossary.html"><span class="n">B6</span><span>Glossary</span></a></li>
+      <li><a href="b7-who-does-what.html"><span class="n">B7</span><span>Who does what</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>The prototype</h2><ol>
+      <li><a href="c1-try-the-prototype.html"><span class="n">C1</span><span>Try the prototype</span></a></li>
+      <li><a href="c2-real-jobs-with-your-own-reed-key.html"><span class="n">C2</span><span>See real jobs with your own Reed key</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Working on a task</h2><ol>
+      <li><a href="d1-start-from-the-latest.html"><span class="n">D1</span><span>Start from the latest</span></a></li>
+      <li><a href="d2-make-a-branch.html"><span class="n">D2</span><span>Make a branch for your card</span></a></li>
+      <li><a href="d3-save-and-upload.html"><span class="n">D3</span><span>Save and upload</span></a></li>
+      <li><a href="d4-open-a-pull-request.html"><span class="n">D4</span><span>Open a pull request</span></a></li>
+      <li><a href="d5-after-its-merged.html"><span class="n">D5</span><span>After it&#x27;s merged</span></a></li>
+      </ol></div>
+    <div class="nav-group"><h2>Reviewing and merging</h2><ol>
+      <li><a href="e1-review-a-pull-request.html"><span class="n">E1</span><span>Review a pull request</span></a></li>
+      <li><a href="e2-merge-it.html"><span class="n">E2</span><span>Merge it</span></a></li>
+      <li><a href="e3-when-theres-a-conflict.html"><span class="n">E3</span><span>When there&#x27;s a conflict</span></a></li>
+      <li><a href="e4-protect-main.html"><span class="n">E4</span><span>Protect main</span></a></li>
+    </ol></div>
+    <div class="nav-group"><h2>The project</h2><ul>
+      <li><a href="https://github.com/users/TidyWeb/projects/3"><span class="n"></span><span>The project board</span></a></li>
+      <li><a href="https://github.com/TidyWeb/SkillMatch"><span class="n"></span><span>The repository</span></a></li>
+    </ul></div>
+  </nav>
+</header>
+<main class="content" id="main">
+<article class="page">
+<ol class="strip" aria-label="Steps"><li><a href="b1-the-big-picture.html"><b>B1</b>The big picture</a></li><li><a href="b2-your-copy-and-the-shared-copy.html"><b>B2</b>Your copy and the shared copy</a></li><li><a href="b3-add-files-to-the-repository.html"><b>B3</b>Add files to the repository</a></li><li><span class="now" aria-current="step"><b>B4</b>Open a pull request, properly</span></li><li><a href="b5-cards-and-closes.html"><b>B5</b>Cards, numbers and &#x27;Closes&#x27;</a></li><li><a href="b6-glossary.html"><b>B6</b>Glossary</a></li><li><a href="b7-who-does-what.html"><b>B7</b>Who does what</a></li></ol>
+<header class="chapter-head">
+  <p class="chapter-num">Step 4 of 7</p>
+  <h1>Open a pull request, properly</h1>
+  <p class="standfirst">A pull request asks the team to check your branch before it joins the shared version. This guide covers the form, every box on its right-hand side, and what happens after you click Create.</p>
+</header>
+
+<ol class="do">
+<li><strong>Start it</strong>
+After you've published your branch, open <a href="https://github.com/TidyWeb/SkillMatch">the repository</a>. A yellow banner offers <strong>Compare &amp; pull request</strong>. Click it. (No banner? <strong>Pull requests → New pull request</strong>, and choose your branch.)</li>
+<li><strong>Check the direction</strong>
+At the top it should read <code>base: main ← compare: your-branch</code>. That means: "take the changes on my branch and propose them for main". If the two are the wrong way round, fix them before going on.</li>
+<li><strong>Write the title</strong>
+Say what the change does, in plain words: <code>Add interface screenshot examples</code>.</li>
+<li><strong>Write the description</strong>
+Two or three lines: what you changed, why, and which card it belongs to. For example:
+<div class="cmd">Adds my interface examples (6 screenshots and a links.md with sources) for the prototype comparison.
+
+Closes #31</div>
+The last line connects the pull request to a card. <strong>The number here is an example. Use your own card's number.</strong> <a href="b5-cards-and-closes.html">B5</a> explains it, and how to get it right.</li>
+<li><strong>Go through the sidebar, top to bottom</strong>
+The column on the right has several boxes. The table below says which ones matter.</li>
+<li><strong>Read it once more, then create it</strong>
+Base, branch, reviewer, assignee, the Development box. Then <strong>Create pull request</strong>.</li>
+</ol>
+
+<h2>The sidebar, box by box</h2>
+<table>
+<thead><tr><th>Box</th><th>What it's for</th><th>Do you need it?</th></tr></thead>
+<tbody>
+<tr><td><strong>Reviewers</strong></td><td>Who should check it. You can't review your own.</td><td><strong>Yes, always.</strong> Choose Phil, or whoever the team has agreed.</td></tr>
+<tr><td><strong>Assignees</strong></td><td>Who is responsible for it.</td><td><strong>Yes: assign yourself</strong> (click "assign yourself").</td></tr>
+<tr><td><strong>Labels</strong></td><td>Tags for sorting.</td><td>No. Labels live on the card, not the pull request.</td></tr>
+<tr><td><strong>Projects</strong></td><td>Puts it on a project board.</td><td>No. The card is already on the board.</td></tr>
+<tr><td><strong>Milestone</strong></td><td>Groups work by target.</td><td>No. The card carries it.</td></tr>
+<tr><td><strong>Development</strong></td><td>Which card this pull request will close when it's merged.</td><td><strong>Check it.</strong> It should say "None yet" unless this pull request finishes a card.</td></tr>
+</tbody>
+</table>
+<section class="keypoints" aria-label="Assignees"><h2>"Do I have to assign myself?"</h2>
+<p>No. Nothing breaks if you don't. But the board's <strong>Team items</strong> view groups work by person, so a pull request with no assignee appears under nobody, and nobody can see whose it is. It costs one click, so do it.</p></section>
+
+<h2>After you click Create</h2>
+<ol class="do">
+<li><strong>Your reviewer is notified</strong>
+They'll read the <strong>Files changed</strong> tab and either approve, comment, or ask for changes.</li>
+<li><strong>If they comment or ask for changes</strong>
+Fix things on the <em>same branch</em>, commit and Sync. The pull request updates itself. You don't open a new one (<a href="d5-after-its-merged.html">D5</a>).</li>
+<li><strong>When it's merged</strong>
+The top of the page turns purple and says <strong>Merged</strong>. Your branch is deleted for you. Now pull main (<a href="d1-start-from-the-latest.html">D1</a>) and start your next card.</li>
+</ol>
+<p class="done-when"><strong>Done when:</strong> the pull request is open with the right base and branch, a reviewer, you as assignee, and a Development box that says what you meant it to.</p>
+
+<nav class="pager" aria-label="Steps"><a class="prev" href="b3-add-files-to-the-repository.html"><small>Previous</small><strong>B3. Add files to the repository</strong></a><a class="next" href="b5-cards-and-closes.html"><small>Next</small><strong>B5. Cards, numbers and &#x27;Closes&#x27;</strong></a></nav>
+</article>
+</main>
+</div>
+<script src="../assets/guides.js"></script>
+
+</body>
+</html>
