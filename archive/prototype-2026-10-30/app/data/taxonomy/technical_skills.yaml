@@ -1,0 +1,342 @@
+# DRAFT: for team review
+#
+# Technical skills that adverts ask for, and how adverts spell them.
+#
+# Each skill:
+#   id              lower_snake_case, never change once used
+#   label           what the user sees
+#   category        programming | database | bi | spreadsheet | analysis | data_engineering | platform | business_system | ways_of_working | governance
+#   course_covered  true if the Code Institute Data Analytics with AI course teaches it
+#   variants        advert spellings, matched case-insensitively on whole words
+#   variants_cs     advert spellings matched case-sensitively (for words that are also ordinary English, e.g. "Excel")
+#   regex           (rare) a Python regular expression, for spellings variants can't express
+#   portfolio_idea  for course-covered skills: a small project that turns "learned" into "used in a project"
+#
+# families: groups of related skills that partly satisfy each other ("partly met").
+
+skills:
+  # ---------- programming ----------
+  - id: python
+    label: Python
+    category: programming
+    course_covered: true
+    variants: [Python, Python 3, Python3]
+    portfolio_idea: Clean and analyse a messy public dataset (for example West Midlands bus punctuality) in a Jupyter notebook and publish it on GitHub.
+  - id: pandas
+    label: pandas
+    category: programming
+    course_covered: true
+    variants: [pandas, dataframes, dataframe]
+    portfolio_idea: Use pandas to merge two public datasets (for example ONS population and NHS GP data) and explain one finding.
+  - id: numpy
+    label: NumPy
+    category: programming
+    course_covered: true
+    variants: [NumPy, numpy]
+    portfolio_idea: Write a small NumPy simulation (for example queue waiting times) and chart the results.
+  - id: r_language
+    label: R
+    category: programming
+    course_covered: false
+    variants: [R programming, RStudio, R Studio, tidyverse, ggplot2, dplyr]
+    regex: ['(?<![\w&.-])R(?=\s*(?:[,/);]|\bor\b|\band\b|$)|\s+(?:programming|language|for\b|skills|experience))']
+  - id: vba
+    label: VBA and macros
+    category: programming
+    course_covered: false
+    variants: [VBA, macros, Excel VBA, Visual Basic]
+  - id: sas
+    label: SAS
+    category: analysis
+    course_covered: false
+    variants_cs: [SAS]
+  - id: spss
+    label: SPSS
+    category: analysis
+    course_covered: false
+    variants: [SPSS]
+  - id: stata
+    label: Stata
+    category: analysis
+    course_covered: false
+    variants: [Stata]
+
+  # ---------- databases ----------
+  - id: sql
+    label: SQL
+    category: database
+    course_covered: false
+    variants: [structured query language, SQL queries, SQL skills]
+    regex: ['(?<![-\w])SQL\b']
+    portfolio_idea: Load a public dataset into SQLite and answer five business questions with SQL joins and aggregations; include the queries in a README.
+  - id: t_sql
+    label: Microsoft SQL Server (T-SQL)
+    category: database
+    course_covered: false
+    variants: [T-SQL, TSQL, SQL Server, MS SQL, MSSQL, SSMS, SSIS, SSRS]
+  - id: mysql
+    label: MySQL
+    category: database
+    course_covered: false
+    variants: [MySQL]
+  - id: postgresql
+    label: PostgreSQL
+    category: database
+    course_covered: false
+    variants: [PostgreSQL, Postgres]
+  - id: oracle_db
+    label: Oracle database
+    category: database
+    course_covered: false
+    variants: [Oracle SQL, PL/SQL, Oracle database]
+  - id: databases
+    label: Databases
+    category: database
+    course_covered: true
+    variants: [database, databases, relational database, relational databases, tables and keys]
+    portfolio_idea: Open a supplied relational database, inspect its tables and keys, and describe how the tables relate.
+  - id: data_modelling
+    label: Data modelling (schema design)
+    category: database
+    course_covered: false
+    variants: [data modelling, data modeling, dimensional modelling, star schema, schema design]
+  - id: data_warehousing
+    label: Data warehousing
+    category: database
+    course_covered: false
+    variants: [data warehouse, data warehouses, data warehousing, lakehouse, data lake]
+
+  # ---------- BI and visualisation ----------
+  - id: power_bi
+    label: Power BI
+    category: bi
+    course_covered: true
+    variants: [Power BI, PowerBI, PBI, DAX, Power Query, M query]
+    portfolio_idea: Build a three-page Power BI report on a public dataset with a clear question, a measure written in DAX and notes for a non-technical reader.
+  - id: tableau
+    label: Tableau
+    category: bi
+    course_covered: true
+    variants: [Tableau, Tableau Public, Tableau Desktop]
+    portfolio_idea: Publish a Tableau Public dashboard that answers one local question (for example house prices by West Midlands district).
+  - id: looker
+    label: Looker / Looker Studio
+    category: bi
+    course_covered: false
+    variants: [Looker, Looker Studio, Google Data Studio, Data Studio]
+  - id: qlik
+    label: Qlik
+    category: bi
+    course_covered: false
+    variants: [Qlik, QlikView, Qlik Sense]
+  - id: dashboards_reporting
+    label: Building reports and dashboards
+    category: bi
+    course_covered: true
+    variants: [dashboards, dashboard, reporting tools, reporting packs, KPI reports, building reports, management information, MI reporting, MI reports, automating reporting, automated reports, visual reports, data visualisation, data visualization, visualisations, visualizations, BI tools, business intelligence tools]
+    portfolio_idea: Turn a monthly spreadsheet into an automated dashboard and write a one-page note on what changed for the reader.
+  - id: matplotlib_seaborn
+    label: Matplotlib and Seaborn
+    category: analysis
+    course_covered: true
+    variants: [Matplotlib, Seaborn]
+    portfolio_idea: Recreate a published chart from a news article with Matplotlib or Seaborn, then improve it and explain your changes.
+  - id: plotly
+    label: Plotly
+    category: analysis
+    course_covered: true
+    variants: [Plotly]
+    portfolio_idea: Make an interactive Plotly chart of a time series and embed it in a short write-up.
+
+  # ---------- spreadsheets ----------
+  - id: excel
+    label: Excel
+    category: spreadsheet
+    course_covered: false
+    variants: [spreadsheets, spreadsheet, pivot tables, pivot table, VLOOKUP, XLOOKUP, lookups, Power Pivot]
+    variants_cs: [Excel, MS Excel, Microsoft Excel, EXCEL]
+    portfolio_idea: Build an Excel workbook with pivot tables, XLOOKUP and a summary sheet that reconciles two data sources; document the checks.
+  - id: google_sheets
+    label: Google Sheets
+    category: spreadsheet
+    course_covered: false
+    variants: [Google Sheets, GSheet, GSheets, Google Workspace, G Suite, Google Suite]
+
+  # ---------- analysis methods ----------
+  - id: statistics
+    label: Statistics and hypothesis testing
+    category: analysis
+    course_covered: true
+    variants: [statistics, statistical analysis, statistical, hypothesis testing, regression, A/B testing, significance testing, statistical techniques, quantitative analysis, quantitative methods, time series]
+    portfolio_idea: Test one hypothesis on a public dataset (for example, do weekend A&E waits differ?) with the right test, and explain the result in plain English.
+  - id: data_cleaning
+    label: Data cleaning and validation
+    category: analysis
+    course_covered: true
+    variants: [data cleaning, data cleansing, cleanse, cleansing, data validation, validating data, data quality checks, data reconciliation, reconciling data, data integrity, data accuracy, data quality, messy data, unmanaged data, incomplete data, cross-check results]
+    portfolio_idea: Take a deliberately messy CSV, document every cleaning rule you apply, and show before-and-after quality counts.
+  - id: data_analysis
+    label: Data analysis
+    category: analysis
+    course_covered: true
+    variants: [data analysis, analysing data, analyzing data, analyse data, analyze data, data analytics, analysing large datasets, large datasets, complex datasets, datasets, data sets, large volumes of data, interrogate data, interrogating data, data manipulation, manipulate data, trend analysis]
+    regex: ['\banaly[sz](?:e|es|ed|ing)\b[^.;]{0,40}\bdata\b']
+    portfolio_idea: Write a short analysis of a public dataset that ends in three recommendations a manager could act on.
+  - id: etl
+    label: ETL and data pipelines
+    category: data_engineering
+    course_covered: true
+    variants: [ETL, ELT, data pipelines, data pipeline, data ingestion, extract transform load, data integration, data extraction]
+    portfolio_idea: Write a small Python pipeline that pulls a public API daily, cleans it and loads it into SQLite, with a data-quality report.
+  - id: machine_learning
+    label: Machine learning basics
+    category: analysis
+    course_covered: true
+    variants: [machine learning, predictive modelling, predictive modeling, predictive models, scikit-learn, sklearn, classification models, clustering]
+    portfolio_idea: Train and evaluate a simple model (for example predicting late deliveries) and explain its limits honestly.
+  - id: generative_ai
+    label: Using generative AI tools
+    category: ways_of_working
+    course_covered: true
+    variants: [generative AI, GenAI, AI tools, ChatGPT, Copilot, large language models, LLMs, LLM, prompt engineering, AI-assisted]
+    portfolio_idea: Document how you used an AI assistant in an analysis project, what you checked and what you rejected.
+  - id: jupyter
+    label: Jupyter notebooks
+    category: programming
+    course_covered: true
+    variants: [Jupyter, Jupyter Notebook, Jupyter notebooks, JupyterLab, Google Colab]
+    portfolio_idea: Publish a tidy, well-narrated Jupyter notebook on GitHub that someone else can re-run.
+  - id: survey_tools
+    label: Survey design and tools
+    category: analysis
+    course_covered: false
+    variants: [Qualtrics, SurveyMonkey, Smart Survey, survey data, survey design, questionnaires, survey methods]
+  - id: qualitative_analysis
+    label: Qualitative analysis tools
+    category: analysis
+    course_covered: false
+    variants: [NVivo, thematic analysis, qualitative data, qualitative analysis]
+  - id: gis
+    label: GIS and mapping
+    category: analysis
+    course_covered: false
+    variants: [GIS, ArcGIS, QGIS, geospatial, mapping software]
+
+  # ---------- data engineering and platforms ----------
+  - id: azure
+    label: Microsoft Azure data tools
+    category: platform
+    course_covered: false
+    variants: [Azure, Azure Data Factory, Synapse, Synapse Analytics, Microsoft Fabric, Fabric, Azure SQL, Data Lake]
+  - id: aws
+    label: AWS
+    category: platform
+    course_covered: false
+    variants: [AWS, Amazon Web Services, Redshift, S3, Athena]
+  - id: gcp
+    label: Google Cloud and BigQuery
+    category: platform
+    course_covered: false
+    variants: [BigQuery, Google Cloud, GCP]
+  - id: databricks
+    label: Databricks or Snowflake
+    category: platform
+    course_covered: false
+    variants: [Databricks, Snowflake, Spark, PySpark]
+  - id: dbt
+    label: dbt
+    category: data_engineering
+    course_covered: false
+    variants: [dbt, data build tool]
+  - id: power_automate
+    label: Power Automate and Power Apps
+    category: platform
+    course_covered: false
+    variants: [Power Automate, Power Apps, PowerApps, Power Platform]
+  - id: git
+    label: Git and GitHub
+    category: ways_of_working
+    course_covered: true
+    variants: [Git, GitHub, GitLab, version control]
+    portfolio_idea: Keep a project on GitHub with small, well-described commits and a clear README.
+  - id: testing_uat
+    label: Data testing and UAT
+    category: ways_of_working
+    course_covered: false
+    variants: [UAT, user acceptance testing, data testing, test scripts, testing checkpoints]
+  - id: agile_methods
+    label: Agile ways of working
+    category: ways_of_working
+    course_covered: false
+    variants: [Agile, Scrum, sprint planning, sprint-based, Jira, Azure DevOps, Kanban]
+
+  # ---------- business systems ----------
+  - id: business_analysis
+    label: Business analysis and requirements
+    category: ways_of_working
+    course_covered: false
+    variants: [business analysis, requirements gathering, gathering requirements, gather requirements, user stories, acceptance criteria, process mapping, BPMN, business requirements, functional specifications]
+  - id: apis_json
+    label: APIs and JSON
+    category: data_engineering
+    course_covered: false
+    variants: [API, APIs, REST API, REST APIs, JSON, XML, web services]
+  - id: crm_systems
+    label: CRM systems
+    category: business_system
+    course_covered: false
+    variants: [CRM, Salesforce, Dynamics 365, Microsoft Dynamics, HubSpot, Raiser's Edge, Donorfy, customer relationship management]
+  - id: erp_systems
+    label: ERP and finance systems
+    category: business_system
+    course_covered: false
+    variants: [ERP, SAP, NetSuite, Oracle Fusion, Xero, Dynamics NAV, Business Central]
+    variants_cs: [Sage]
+  - id: web_analytics
+    label: Web and digital analytics
+    category: business_system
+    course_covered: false
+    variants: [Google Analytics, GA4, Adobe Analytics, Google Tag Manager, web analytics, digital analytics]
+  - id: hr_systems
+    label: HR and payroll systems
+    category: business_system
+    course_covered: false
+    variants: [HRIS, iTrent, Workday, payroll software, HR system, HR systems]
+  - id: case_management_systems
+    label: Records and case management systems
+    category: business_system
+    course_covered: false
+    variants: [case management system, case management systems, EMIS, SystmOne, Liquidlogic, records system, records systems]
+  - id: microsoft_office
+    label: Microsoft Office and SharePoint
+    category: business_system
+    course_covered: false
+    variants: [Microsoft Office, MS Office, Office 365, Microsoft 365, SharePoint, PowerPoint, Microsoft Word, MS Word]
+
+  # ---------- governance ----------
+  - id: data_ethics_gdpr
+    label: Data protection, GDPR and data ethics
+    category: governance
+    course_covered: true
+    variants: [GDPR, data protection, Data Protection Act, data ethics, information governance, data governance, DPIA, subject access requests]
+    portfolio_idea: Write a one-page data-protection note for one of your projects (lawful basis, minimisation, retention) and add it to the repo.
+
+families:
+  - id: bi_tools
+    label: BI and dashboard tools
+    members: [power_bi, tableau, looker, qlik, dashboards_reporting]
+  - id: sql_dialects
+    label: SQL and SQL databases
+    members: [sql, t_sql, mysql, postgresql, oracle_db, gcp]
+  - id: analysis_languages
+    label: Programming for analysis
+    members: [python, r_language, pandas, sas, stata, spss]
+  - id: spreadsheets
+    label: Spreadsheets
+    members: [excel, google_sheets, vba]
+  - id: python_charts
+    label: Charting in code
+    members: [matplotlib_seaborn, plotly]
+  - id: cloud_platforms
+    label: Cloud data platforms
+    members: [azure, aws, gcp, databricks]

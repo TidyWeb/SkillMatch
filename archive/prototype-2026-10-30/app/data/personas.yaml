@@ -1,0 +1,356 @@
+# Six fictional demo personas for the "Try a demo profile" buttons and the matcher tests.
+# All are invented people. Each has the outward code of its town centre, a full set of skill
+# ratings, previous roles with ticked competencies and evidence lines, and a travel mode.
+# Skill levels: course (learned on the course) | project (used in a project) | confident.
+# A competency mapped to "" is ticked without an evidence line.
+
+personas:
+  - id: phd_coventry
+    button: PhD researcher, Coventry
+    summary: Finished a social policy PhD; strong on research methods and statistics, new to industry.
+    profile:
+      name: Demo — PhD researcher
+      postcode: CV1
+      travel: public_transport
+      include_remote: true
+      max_office_days: 3
+      data_years: 0
+      qualifications: {ci_diploma: true, degree: phd, other: "MSc Social Research Methods"}
+      skills:
+        python: confident
+        pandas: confident
+        numpy: project
+        jupyter: confident
+        matplotlib_seaborn: project
+        plotly: course
+        sql: project
+        excel: project
+        power_bi: course
+        tableau: course
+        dashboards_reporting: course
+        statistics: confident
+        data_cleaning: project
+        data_analysis: confident
+        etl: course
+        machine_learning: course
+        git: project
+        generative_ai: project
+        data_ethics_gdpr: project
+        r_language: project
+        spss: confident
+        survey_tools: confident
+        qualitative_analysis: project
+      roles:
+        - archetype: phd_researcher
+          title: PhD researcher
+          seniority: individual
+          years: 4
+          competencies:
+            research_methods: Designed and ran a three-year mixed-methods study of 1,200 survey respondents and 40 interviews
+            analytical_thinking: Built regression models of housing outcomes and tested them against two census datasets
+            technical_writing: Wrote a 90,000-word thesis and two peer-reviewed journal articles
+            communicating_non_technical: Presented findings to council officers and a residents' group in plain English
+            independent_working: Planned and managed my own research timetable for four years with monthly supervision
+            project_management: ""
+            numerical_confidence: Taught myself multilevel modelling and checked every figure in my thesis tables
+            organisation_prioritising: Balanced thesis deadlines with 6 hours a week of teaching
+            attention_to_detail: Checked and cleaned survey data from 1,200 respondents before any analysis
+            clear_communication: Presented at six academic conferences and wrote plain-English summaries for participants
+            stakeholder_management: Negotiated data access with two councils and a housing association
+            adaptability_learning: Learned R and then Python mid-PhD to handle larger datasets
+            problem_solving_pressure: Rebuilt my analysis in two weeks when a data provider withdrew a dataset
+        - archetype: lecturer
+          title: Graduate teaching assistant
+          seniority: individual
+          years: 3
+          competencies:
+            training_others: Taught weekly statistics seminars to 60 first-year undergraduates
+            clear_communication: Explained statistical ideas to students with no maths background
+            sector_education: Marked and moderated coursework within university assessment rules
+
+  - id: chef_wolverhampton
+    button: Ex-kitchen manager, Wolverhampton
+    summary: Nine years running busy kitchens; numbers, stock and rotas every day.
+    profile:
+      name: Demo — ex-kitchen manager
+      postcode: WV1
+      travel: car
+      include_remote: true
+      max_office_days: 5
+      data_years: 0
+      qualifications: {ci_diploma: true, degree: none, other: "Level 3 Food Safety; Personal Licence"}
+      skills:
+        python: course
+        pandas: course
+        numpy: course
+        jupyter: course
+        matplotlib_seaborn: course
+        plotly: course
+        excel: confident
+        power_bi: project
+        tableau: course
+        dashboards_reporting: project
+        statistics: course
+        data_cleaning: project
+        data_analysis: project
+        etl: course
+        machine_learning: course
+        git: course
+        generative_ai: project
+        data_ethics_gdpr: course
+      roles:
+        - archetype: kitchen_manager
+          title: Kitchen manager
+          seniority: manager
+          years: 9
+          competencies:
+            stock_inventory_supply: Ran weekly stock and margin reports for a 40-cover restaurant and cut food waste by 15%
+            budget_cost_control: Kept food cost under 30% of sales against a weekly budget agreed with the owners
+            scheduling_rota_planning: Planned rotas for a kitchen team of 12 around covers forecasts
+            team_leadership: Led a brigade of 12 chefs and kitchen porters across two shifts
+            regulatory_compliance: Kept HACCP and allergen records that passed every environmental health inspection
+            problem_solving_pressure: Kept service running through equipment failures and staff shortages on Saturday nights
+            kpi_monitoring: Tracked gross profit, waste and ticket times every week and acted on the trends
+            training_others: ""
+            sector_retail_hospitality: Worked in restaurants and hotel kitchens for nine years
+            reporting_to_leadership: Reported weekly sales, margins and labour costs to the owners
+            clear_communication: Briefed front-of-house and kitchen staff before every service
+            stakeholder_management: Worked with the owners, suppliers and environmental health officers
+            organisation_prioritising: Planned prep lists and orders around three services a day
+            process_improvement: Redesigned the prep workflow and cut average ticket times by four minutes
+            customer_insight: Changed the menu using sales data on which dishes sold and which were wasted
+            negotiation: Negotiated prices with eight suppliers and saved about £12,000 a year
+        - archetype: kitchen_manager
+          title: Sous chef
+          seniority: supervisor
+          years: 3
+          competencies:
+            attention_to_detail: Checked deliveries against orders and recorded temperatures twice a day
+            teamwork: ""
+
+  - id: director_solihull
+    button: Ex-plc director, Solihull
+    summary: Former operations director of a listed manufacturer; boards, budgets and strategy.
+    profile:
+      name: Demo — ex-plc director
+      postcode: B91
+      travel: car
+      include_remote: true
+      max_office_days: 3
+      data_years: 0
+      min_salary: 30000
+      qualifications: {ci_diploma: true, degree: masters, other: "MBA"}
+      skills:
+        python: project
+        pandas: project
+        numpy: course
+        jupyter: project
+        matplotlib_seaborn: course
+        plotly: project
+        sql: project
+        excel: confident
+        power_bi: project
+        tableau: course
+        dashboards_reporting: confident
+        statistics: course
+        data_cleaning: course
+        data_analysis: project
+        etl: course
+        machine_learning: course
+        git: course
+        generative_ai: confident
+        data_ethics_gdpr: project
+      roles:
+        - archetype: company_director
+          title: Operations director (plc board)
+          seniority: director
+          years: 6
+          competencies:
+            reporting_to_leadership: Presented the monthly operations dashboard to the plc board and the audit committee
+            commercial_awareness: Owned a £60m cost base and the margin plan for three product lines
+            stakeholder_management: Managed relationships with investors, unions and our three biggest customers
+            budget_cost_control: Set and held a £60m operating budget and explained variances to the board each month
+            change_management: Led the move of two factories onto a single ERP system
+            kpi_monitoring: Introduced a weekly KPI pack covering safety, output, quality and cost across five sites
+            negotiation: Negotiated multi-year supply contracts worth £20m a year
+            regulatory_compliance: ""
+            clear_communication: Wrote and presented the operations section of the annual report
+            analytical_thinking: Built the business case for a £15m factory investment from cost and demand data
+            problem_solving_pressure: Led the response when a major supplier failed and production was at risk
+            attention_to_detail: Checked every figure in the monthly board pack before signing it off
+        - archetype: operations_manager
+          title: Operations manager
+          seniority: senior_manager
+          years: 10
+          competencies:
+            process_improvement: Ran a lean programme that cut order-to-delivery time by 20%
+            multi_site_coordination: Coordinated production planning across five UK sites
+            team_leadership: Managed a team of 180 through five site managers
+            sector_manufacturing_logistics: Spent 16 years in automotive and industrial manufacturing
+
+  - id: nurse_worcester
+    button: Nurse, Worcester
+    summary: Twelve years on NHS wards; meticulous records, audits and patient confidentiality.
+    profile:
+      name: Demo — nurse
+      postcode: WR1
+      travel: car
+      include_remote: true
+      max_office_days: 4
+      data_years: 0
+      qualifications: {ci_diploma: true, degree: bachelors, other: "Registered Nurse (Adult)"}
+      skills:
+        python: course
+        pandas: course
+        numpy: course
+        jupyter: course
+        matplotlib_seaborn: course
+        plotly: course
+        excel: project
+        power_bi: project
+        tableau: course
+        dashboards_reporting: project
+        statistics: course
+        data_cleaning: project
+        data_analysis: course
+        etl: course
+        machine_learning: course
+        git: course
+        generative_ai: course
+        data_ethics_gdpr: project
+      roles:
+        - archetype: nurse
+          title: Ward sister
+          seniority: supervisor
+          years: 12
+          competencies:
+            attention_to_detail: Audited medication charts on a 28-bed ward every month and cut recording errors by a third
+            data_entry_records: Kept accurate patient records on the hospital's electronic system every shift
+            confidential_data: Handled sensitive patient information under NHS data protection rules for twelve years
+            regulatory_compliance: Prepared the ward for CQC inspections and kept infection-control audits up to date
+            sector_health_care: Worked in NHS acute medicine for twelve years
+            problem_solving_pressure: Coordinated the ward during emergencies and winter pressure surges
+            scheduling_rota_planning: Planned the nursing rota for 30 staff
+            training_others: Mentored student nurses and trained new staff on the e-records system
+            teamwork: ""
+            following_procedures: Followed and taught clinical procedures and escalated deteriorating patients
+            clear_communication: Explained care plans and test results to patients and families every shift
+            stakeholder_management: Coordinated care with doctors, therapists, social workers and families
+            organisation_prioritising: Prioritised care for up to eight patients a shift
+            analytical_thinking: Spotted a pattern in the ward's falls data and changed the night-time checks
+            process_improvement: Led a change to handover notes that cut handover time by ten minutes
+            kpi_monitoring: Tracked the ward's infection and falls figures monthly against trust targets
+            communicating_non_technical: Explained audit results to healthcare assistants at team meetings
+
+  - id: retail_telford
+    button: Retail store manager, Telford
+    summary: Seven years running a large store; daily KPIs, stock, staffing and customers.
+    profile:
+      name: Demo — retail store manager
+      postcode: TF3
+      travel: car
+      include_remote: false
+      max_office_days: 5
+      data_years: 0
+      qualifications: {ci_diploma: true, degree: none, other: "A levels"}
+      skills:
+        python: course
+        pandas: course
+        numpy: course
+        jupyter: course
+        matplotlib_seaborn: course
+        plotly: course
+        sql: project
+        excel: confident
+        power_bi: project
+        tableau: course
+        dashboards_reporting: project
+        statistics: course
+        data_cleaning: course
+        data_analysis: project
+        etl: course
+        machine_learning: course
+        git: course
+        generative_ai: project
+        data_ethics_gdpr: course
+      roles:
+        - archetype: retail_store_manager
+          title: Store manager
+          seniority: manager
+          years: 7
+          competencies:
+            kpi_monitoring: Reviewed weekly sales, conversion, margin and shrinkage KPIs with my area manager
+            team_leadership: Managed a team of 35 including four supervisors
+            stock_inventory_supply: Ran stock counts and replenishment for a £4m-turnover store
+            scheduling_rota_planning: Built rotas around footfall data for 35 staff
+            budget_cost_control: Kept wage costs within budget every quarter
+            customer_insight: Used customer feedback and sales data to change the store layout
+            commercial_awareness: ""
+            reporting_to_leadership: Reported trading performance to the regional director each week
+            sector_retail_hospitality: Worked in retail for ten years
+            training_others: Trained new staff and supervisors on tills, stock and safety procedures
+            clear_communication: Ran daily briefings for a team of 35
+            stakeholder_management: Worked with my area manager, head office teams and the shopping centre landlord
+            attention_to_detail: Kept stock loss below target through accurate counts and checks
+            problem_solving_pressure: Kept the store trading through Christmas peaks and short-staffed weekends
+            process_improvement: Changed the delivery routine so stock reached the shelves two hours sooner
+            analytical_thinking: Used weekly sales data to work out which promotions actually paid off
+            organisation_prioritising: Planned deliveries, rotas and promotions around trading deadlines
+        - archetype: retail_assistant
+          title: Sales assistant
+          seniority: individual
+          years: 3
+          competencies:
+            customer_service: Served customers and handled complaints on a busy shop floor
+
+  - id: teacher_stoke
+    button: Teacher, Stoke-on-Trent
+    summary: Eleven years teaching maths; tracks attainment data and explains numbers for a living.
+    profile:
+      name: Demo — teacher
+      postcode: ST1
+      travel: public_transport
+      include_remote: true
+      max_office_days: 4
+      data_years: 0
+      qualifications: {ci_diploma: true, degree: bachelors, other: "PGCE (secondary maths)"}
+      skills:
+        python: project
+        pandas: project
+        numpy: course
+        jupyter: project
+        matplotlib_seaborn: project
+        plotly: course
+        excel: confident
+        power_bi: course
+        tableau: project
+        dashboards_reporting: project
+        statistics: project
+        data_cleaning: course
+        data_analysis: project
+        etl: course
+        machine_learning: course
+        git: course
+        generative_ai: project
+        data_ethics_gdpr: course
+      roles:
+        - archetype: teacher
+          title: Head of maths
+          seniority: supervisor
+          years: 11
+          competencies:
+            communicating_non_technical: Explained progress data to parents and governors without jargon
+            training_others: Trained the maths department to use our assessment tracker
+            kpi_monitoring: Tracked attainment for 180 pupils each term and set targets from the data
+            data_entry_records: Kept assessment and attendance records accurate on the school MIS
+            organisation_prioritising: Planned teaching, marking and data deadlines for a department of eight
+            stakeholder_management: Worked with parents, governors and the senior leadership team
+            sector_education: Taught in secondary schools for eleven years
+            reporting_to_leadership: Presented department results to the senior leadership team each term
+            regulatory_compliance: ""
+            numerical_confidence: Taught A-level maths and statistics
+            clear_communication: Wrote reports for 180 families a year and explained them at parents' evenings
+            attention_to_detail: Checked and moderated exam data before it went to the exam boards
+            analytical_thinking: Analysed mock results to find topics a whole year group struggled with
+            teamwork: Wrote shared schemes of work with a team of eight teachers
+            process_improvement: Replaced paper markbooks with a shared spreadsheet tracker

@@ -1,0 +1,16 @@
+{% macro select_control(id, label, name="", wrapper="field") -%}
+<div class="{{ wrapper }}">
+  <label for="{{ id }}">{{ label }}</label>
+  <select id="{{ id }}" name="{{ name or id }}">{{ caller() }}</select>
+</div>
+{%- endmacro %}
+{% macro action_button(label, type="button", class_name="button-secondary", id="", data_action="", target="") -%}
+<button type="{{ type }}" class="{{ class_name }}"{% if id %} id="{{ id }}"{% endif %}{% if data_action %} data-{{ data_action }}="{{ target }}"{% endif %}>{{ label }}</button>
+{%- endmacro %}
+{% macro skill_chip_template() -%}
+<template id="selected-item-template"><div class="selected-item"><span data-item-label></span>{{ action_button("Remove", "button", "button-quiet", "", "remove-item") }}</div></template>
+{%- endmacro %}
+
+{% macro action_link(label, href, class_name="button-secondary", new_tab=false) -%}
+<a class="{{ class_name }}" href="{{ href }}"{% if new_tab %} target="_blank"{% endif %} rel="noopener">{{ label }}</a>
+{%- endmacro %}

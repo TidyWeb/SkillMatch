@@ -1,0 +1,57 @@
+{% from "partials/_match_card.html" import match_card %}
+{% from "partials/_tier.html" import meter with context %}
+<section class="summary" aria-label="Summary">
+  <p class="summary-line">
+    <strong>{{ sl.count }} {{ "match" if sl.count == 1 else "matches" }}</strong>
+    {% if profile.outcode %} near {{ profile.outcode }}{% if sl.town %} ({{ sl.town }}){% endif %}{% else %}. Add your postcode to sort by distance{% endif %}.
+    {% if profile.travel %}You travel by {{ {'car': 'car', 'motorbike': 'motorbike', 'public_transport': 'public transport', 'bike_walk': 'bike or on foot'}[profile.travel] }}; travel times are coming later, so for now we sort by straight-line distance.{% endif %}
+  </p>
+  <div class="tier-key" aria-label="What the groups mean">
+    {% for t in ['strong', 'good', 'stretch', 'not_yet'] %}
+    <p>{{ meter(t, tier_labels[t]) }} <span class="count">{{ sl.by_tier[t]|length }}</span></p>
+    {% endfor %}
+  </div>
+  {% set excluded_reasons = ['senior role', 'not a data role', 'training course, not a job', 'outside the West Midlands', 'remote role not open to UK applicants', 'details not fetched (request cap reached)'] %}
+  {% set hidden_rows = [] %}
+  {% for reason, n in sl.hidden.items() if n %}{% set _ = hidden_rows.append((reason, n)) %}{% endfor %}
+  {% if hidden_rows %}
+  <div class="hidden-box">
+    <h2 class="small-head">Hidden from this list</h2>
+    <ul class="hidden-list">
+      {% for reason, n in hidden_rows|sort(attribute=1, reverse=True) %}
+      <li>
+        <span>{{ n }} {{ hidden_labels.get(reason, reason) }}</span>
+        {% if reason in excluded_reasons %}
+        <label class="choice reveal"><input type="checkbox" name="reveal" value="{{ reason }}"
+            hx-post="{{ url_for('web.results_list') }}" hx-target="#results" hx-include="#filters, [name=reveal]"
+            {% if reason in filters.reveal %}checked{% endif %}> Show them</label>
+        {% else %}
+        <a class="reveal" href="{{ url_for('web.profile') }}">Change on your profile</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</section>
+
+{% if cards %}
+  {% for m in cards %}{{ match_card(m, loop.index) }}{% endfor %}
+{% else %}
+  <p>No matches with these filters. Try a wider distance or update your profile.</p>
+{% endif %}
+
+<section class="discovery" aria-labelledby="disc-h">
+  <h2 id="disc-h">Also search these sources near you</h2>
+  <p class="hint">We can't collect adverts from these sites, so these links open their own searches{% if sl.town %}, filled in with “data analyst” near {{ sl.town }} where the site allows it{% endif %}. Links marked “search page” open the site's search for you to fill in.</p>
+  {% for kind, rows in links.items() %}
+  <details class="disc-group">
+    <summary>{{ kind }} <span class="count">{{ rows|length }}</span></summary>
+    <ul class="disc-list">
+      {% for r in rows %}
+      <li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }}</a> <span class="hint">{{ "pre-filled search" if r.prefilled else "search page" }}</span></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endfor %}
+</section>
