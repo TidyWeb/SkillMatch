@@ -132,12 +132,14 @@ main.wrap > script { display: none; }
   white-space: nowrap;
 }
 .masthead nav a:hover { background: var(--paper); color: var(--app-panel); }
+.masthead nav a.nav-site { background: var(--accent-wash); color: var(--tier-light-ink); }
+.masthead nav a.nav-site:hover { background: var(--paper-raised); }
 .masthead nav a[aria-current="page"] { background: var(--app-panel-ink); color: var(--app-panel); }
 main { min-width: 0; }
 .colophon { color: var(--ink-soft); font-size: var(--font-size-small); }
 .colophon-inner { padding-block: 20px 32px; }
 .colophon p { margin: 0 0 10px; }
-.colophon a { color: var(--accent); }
+.colophon .badge-live a, .colophon .badge-live a:hover, .colophon .badge-live a:focus-visible { color: var(--app-panel-ink); text-decoration: underline; }
 .badge {
   display: inline-flex;
   align-items: center;
@@ -299,6 +301,22 @@ input[type="checkbox"], input[type="radio"] {
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .actions button { min-height: 46px; }
 #profile-form { display: flex; flex-direction: column; gap: var(--app-gap); }
+.profile-bento { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: var(--app-gap); }
+.profile-column { display: flex; flex-direction: column; gap: var(--app-gap); min-width: 0; }
+.profile-eyebrow { display: block; margin-bottom: 12px; color: var(--ink-soft); font: 500 12px/1.5 var(--app-mono); letter-spacing: .08em; text-transform: uppercase; }
+.profile-skills { background: var(--accent-wash); }
+.profile-skills .profile-eyebrow, .profile-skills .hint { color: var(--tier-light-ink); }
+.profile-skills .course-skill-list li { background: var(--paper-raised); }
+.travel-options { margin-bottom: 18px; }
+.travel-options .choices { gap: 6px; }
+.travel-options .choice { margin: 0; }
+.profile-submit { background: var(--coral); border-color: var(--coral); color: var(--tier-light-ink); }
+.profile-submit:hover { background: var(--coral-hover); border-color: var(--coral-hover); color: var(--tier-light-ink); }
+@media (max-width: 850px) {
+  .profile-bento { grid-template-columns: minmax(0, 1fr); }
+  .profile-column { display: flex; flex-direction: column; }
+  .masthead nav { mask-image: linear-gradient(to right, var(--ink) calc(100% - 28px), transparent); padding-right: 32px; }
+}
 .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 12px; margin-bottom: 16px; }
 .skill-row label { margin-bottom: 2px; }
 .role { margin-bottom: 20px; border-top: 1px solid var(--rule); padding-top: 18px; }

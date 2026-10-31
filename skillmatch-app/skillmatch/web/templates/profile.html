@@ -9,18 +9,24 @@
 </header>
 
 <form id="profile-form" class="profile-form" novalidate>
-  <fieldset class="block">
-    <legend>Where you live and how you travel</legend>
+  <div class="profile-bento">
+    <div class="profile-column">
+<fieldset class="block profile-travel">
+    <legend><span class="profile-eyebrow">01 · Where you live</span>Where you live and how you travel</legend>
     <div class="field">
       <label for="postcode">Home postcode</label>
       <input id="postcode" name="postcode" autocomplete="postal-code" inputmode="text" maxlength="8" aria-describedby="postcode-hint postcode-error">
       <p class="hint" id="postcode-hint">A full postcode or its first part, like B91. Only the first part is used to estimate distance.</p>
       <p class="error" id="postcode-error" aria-live="polite"></p>
     </div>
-    {% call select_control("travel", "How do you travel?") %}
-      <option value="">Choose…</option>
-      {% for value, label in travel.items() %}<option value="{{ value }}">{{ label }}</option>{% endfor %}
-    {% endcall %}
+    <fieldset class="field travel-options" id="travel">
+      <legend class="label">How do you travel?</legend>
+      <div class="choices">
+        {% for value, label in travel.items() %}
+        <label class="choice"><input type="checkbox" name="travel" value="{{ value }}">{{ label }}</label>
+        {% endfor %}
+      </div>
+    </fieldset>
     <div class="field-row">
       <div class="field">
         <label for="max_miles">Maximum distance in miles</label>
@@ -32,9 +38,16 @@
     </div>
     <div class="field"><label class="choice"><input type="checkbox" id="include_remote" name="include_remote" checked> Include UK-remote jobs</label></div>
   </fieldset>
-
   <fieldset class="block">
-    <legend>Technical skills</legend>
+    <legend><span class="profile-eyebrow">02 · Highest qualification</span>Highest qualification</legend>
+    {% call select_control("highest_qualification", "Choose your highest qualification") %}
+      {% for level, label in qualifications.items() %}<option value="{{ level }}">{{ label }}</option>{% endfor %}
+    {% endcall %}
+  </fieldset>
+    </div>
+    <div class="profile-column">
+  <fieldset class="block profile-skills">
+    <legend><span class="profile-eyebrow">03 · Technical skills</span>Technical skills</legend>
     <p class="hint">Course skills are included automatically. Add other skills you have learned or used.</p>
     <ul class="course-skill-list" aria-label="Skills from the course">
       {% for s in course_skills %}<li>{{ s.label }}</li>{% endfor %}
@@ -47,9 +60,8 @@
     </div>
     <div id="selected-skills" class="selected-items" aria-live="polite"></div>
   </fieldset>
-
   <fieldset class="block">
-    <legend>Areas of expertise</legend>
+    <legend><span class="profile-eyebrow">04 · Areas of expertise</span>Areas of expertise</legend>
     <p class="hint">Choose up to five areas. Each area suggests skills; untick any that do not apply to you.</p>
     {% call select_control("add-area", "Add an area") %}
       <option value="">Choose an area…</option>
@@ -57,16 +69,11 @@
     {% endcall %}
     <div id="selected-areas" class="area-list" aria-live="polite"></div>
   </fieldset>
-
-  <fieldset class="block">
-    <legend>Highest qualification</legend>
-    {% call select_control("highest_qualification", "Choose your highest qualification") %}
-      {% for level, label in qualifications.items() %}<option value="{{ level }}">{{ label }}</option>{% endfor %}
-    {% endcall %}
-  </fieldset>
+    </div>
+  </div>
 
   <div class="actions">
-    {{ action_button("See my matches", "submit", "button-primary") }}
+    {{ action_button("See my matches", "submit", "button-primary profile-submit") }}
     {{ action_button("Clear", "button", "button-quiet", "clear-profile") }}
   </div>
   <p class="status" id="form-status" role="status" aria-live="polite"></p>
@@ -74,4 +81,4 @@
 {{ skill_chip_template() }}
 <script type="application/json" id="taxonomy-data">{{ taxonomy_json|tojson }}</script>
 {% endblock %}
-{% block scripts %}<script src="{{ url_for('static', filename='profile.js', v='20261028-stage3') }}" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='profile.js', v='20261031-evening') }}" defer></script>{% endblock %}

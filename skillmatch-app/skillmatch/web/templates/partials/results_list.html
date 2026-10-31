@@ -4,7 +4,12 @@
   <p class="summary-line">
     <strong>{{ sl.count }} {{ "match" if sl.count == 1 else "matches" }}</strong>
     {% if profile.outcode %} near {{ profile.outcode }}{% if sl.town %} ({{ sl.town }}){% endif %}{% else %}. Add your postcode to sort by distance{% endif %}.
-    {% if profile.travel %}You travel by {{ {'car': 'car', 'motorbike': 'motorbike', 'public_transport': 'public transport', 'bike_walk': 'bike or on foot'}[profile.travel] }}; travel times are coming later, so for now we sort by straight-line distance.{% endif %}
+    {% if profile.travel %}
+      {% set labels = {'car': 'car', 'motorbike': 'motorbike', 'public_transport': 'public transport', 'bike_walk': 'bike or on foot'} %}
+      {% set chosen = [] %}
+      {% for value in profile.travel %}{% set _ = chosen.append(labels[value]) %}{% endfor %}
+      You travel by {% if chosen|length > 1 %}{{ chosen[:-1]|join(', ') }} or {{ chosen[-1] }}{% else %}{{ chosen[0] }}{% endif %}; travel times are coming later, so for now we sort by straight-line distance.
+    {% endif %}
   </p>
   <div class="tier-key" aria-label="What the groups mean">
     {% for t in ['strong', 'good', 'stretch', 'not_yet'] %}

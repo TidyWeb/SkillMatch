@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261030-navy-a') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261030-navy-a') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='tokens.css', v='20261031-evening') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='site.css', v='20261031-evening') }}">
   {% block head %}{% endblock %}
   <script src="https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js" defer></script>
   <script src="{{ url_for('static', filename='app.js', v='20261028-stage3') }}" defer></script>
@@ -22,6 +22,8 @@
       <a class="brand" href="{{ url_for('web.profile') }}"><i aria-hidden="true">S</i><span>SkillMatch</span></a>
       <nav aria-label="Main">
         {% set here = request.endpoint %}
+        <a class="nav-site" href="https://tidyweb.github.io/SkillMatch/">SkillMatch site</a>
+        <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/">CV Tailor</a>
         <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
         <a href="{{ url_for('web.results') }}" {% if here == 'web.results' %}aria-current="page"{% endif %}>Your matches</a>
         <a href="{{ url_for('web.insights') }}" {% if here == 'web.insights' %}aria-current="page"{% endif %}>Insights</a>

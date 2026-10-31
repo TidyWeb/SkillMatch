@@ -111,7 +111,7 @@ def test_invalid_untrusted_shapes_and_nonfinite_values_are_ignored():
             "highest_qualification": 7.9,
         }
     )
-    assert p.travel is None and p.areas == [] and p.max_miles is None
+    assert p.travel == [] and p.areas == [] and p.max_miles is None
     assert p.max_office_days == 5 and p.highest_qualification == 0
 
 
@@ -286,3 +286,25 @@ def test_nonrequired_degree_does_not_create_a_requirement(sentence):
     from skillmatch.match import qualification_level
 
     assert qualification_level(sentence) is None
+
+
+@pytest.mark.parametrize(
+    "value, expected",
+    [
+        (["car", "public_transport", "bike_walk"], ["car", "public_transport", "bike_walk"]),
+        ("car", ["car"]),
+        ([], []),
+        (None, []),
+        ("plane", []),
+        ({"car": True}, []),
+        (["car", "car", "plane", [], None, 1, "motorbike"], ["car", "motorbike"]),
+    ],
+)
+def test_travel_accepts_choices_and_legacy_value_and_ignores_invalid(value, expected):
+    assert profile_from_dict({"travel": value}).travel == expected
+
+
+def test_profile_travel_defaults_are_independent():
+    first, second = Profile(), Profile()
+    first.travel.append("car")
+    assert second.travel == []
