@@ -1,6 +1,6 @@
 # SkillMatch
 
-Free job matching for Code Institute Data Analytics with AI graduates moving into data, starting in the West Midlands.
+Free private job matching for Code Institute Data Analytics with AI graduates moving into data in the West Midlands.
 
 ## [Open SkillMatch](https://tidyweb.github.io/SkillMatch/)
 
