@@ -200,18 +200,81 @@
   border-left: 6px solid #e07a5f;
 }
 
+.job-brief-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 250px);
+  align-items: center;
+  gap: 24px;
+  margin: 14px 0 20px;
+}
+
+.job-brief-layout > * { min-width: 0; }
+
 .job-brief-title {
-  margin: 8px 0 4px;
-  font-size: clamp(20px, 2vw, 28px);
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3vw, 42px);
   font-weight: 600;
   letter-spacing: -.03em;
-  line-height: 1.2;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 
-.job-employer {
-  margin: 0 0 12px;
+.job-employer,
+.job-location {
+  margin: 0;
   color: var(--na-muted);
+  overflow-wrap: anywhere;
+}
+
+.job-copy-action .na-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e07a5f;
+  background: #e07a5f;
+  color: #1e2a4a;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.job-copy-action .na-btn::before {
+  content: "";
+  flex: 0 0 22px;
+  height: 24px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 26'%3E%3Cg fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 5H5a2 2 0 0 0-2 2v16h18V7a2 2 0 0 0-2-2h-3'/%3E%3Crect x='8' y='2' width='8' height='6' rx='2'/%3E%3Cpath d='M8 13h8M8 18h6'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.job-copy-action .na-btn:hover,
+.job-copy-action .na-btn:focus-visible {
+  border-color: #d8775d;
+  background: #d8775d;
+  color: #1e2a4a;
+  text-decoration: none;
+}
+
+.job-copy-action .na-btn:focus-visible {
+  outline: 3px solid var(--na-accent);
+  outline-offset: 3px;
+}
+
+.job-copy-next {
+  margin: 10px 0 0;
+  color: var(--na-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.job-brief-panel .brief-status:empty { display: none; }
+
+@media (max-width: 1100px) {
+  .job-brief-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .job-copy-action { max-width: 320px; }
 }
 
 .copy-layout {
@@ -423,9 +486,95 @@
 
 .cardF-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
   margin-bottom: 10px;
+}
+
+.cardF-head h3 {
+  flex: 1 1 9rem;
+  min-width: 0;
+}
+
+.skill-download.na-btn {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  max-width: 100%;
+  margin-left: auto;
+  padding: 11px 15px;
+  border: 2px solid #e07a5f;
+  border-radius: var(--na-pill);
+  background: #e07a5f;
+  color: #1e2a4a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+}
+
+.skill-download.na-btn:hover,
+.skill-download.na-btn:focus-visible {
+  border-color: #d8775d;
+  background: #d8775d;
+  color: #1e2a4a;
+  text-decoration: none;
+}
+
+.skill-download.na-btn:focus-visible {
+  outline: 3px solid #faf9f6;
+  outline-offset: 3px;
+}
+
+.icon-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.zip-folder-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 28px;
+}
+
+.skill-download-signpost {
+  display: block;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--na-panel-line);
+}
+
+.skill-download-signpost a {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 8px;
+  color: var(--na-panel-ink);
+  text-decoration: none;
+}
+
+.skill-download-signpost .zip-folder-icon {
+  grid-row: 1 / span 2;
+  width: 28px;
+  height: 23px;
+}
+
+.skill-download-signpost strong {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.skill-download-signpost small {
+  color: var(--na-panel-muted);
+  font-size: 12px;
+  line-height: 1.25;
 }
 
 .cardF-letter {
@@ -596,6 +745,16 @@
     flex: none;
   }
 
+  .skill-download-signpost {
+    display: none;
+  }
+
+  .skill-download.na-btn {
+    flex: 1 0 100%;
+    width: 100%;
+    margin-left: 0;
+  }
+
   .na-contents li a {
     margin: 0;
     border: 1px solid var(--na-panel-line);
@@ -676,8 +835,17 @@
 }
 /* Hover/focus contrast on navy (Rory, 31 Oct): the global a:hover turns links dark blue, which vanishes on navy. Links on navy go light coral instead. */
 .cardF-navy a:hover,.cardF-navy a:focus-visible,.na-hero a:not(.na-btn):hover,.na-hero a:not(.na-btn):focus-visible{color:#f09a80;text-decoration-color:#f09a80}
+.cardF-navy .skill-download.na-btn:hover,.cardF-navy .skill-download.na-btn:focus-visible{color:#1e2a4a;text-decoration-color:#1e2a4a}
 </style></head>
 <body>
+<svg aria-hidden="true" class="icon-defs" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="zip-folder" viewBox="0 0 36 28">
+<path d="M2.5 6.5A3.5 3.5 0 0 1 6 3h8l3 3h12.5A3.5 3.5 0 0 1 33 9.5v13a3.5 3.5 0 0 1-3.5 3.5h-23A4 4 0 0 1 2.5 22Z" fill="#e07a5f" stroke="#1e2a4a" stroke-linejoin="round" stroke-width="1.5"/>
+<path d="M3.5 10h28.8" fill="none" stroke="#1e2a4a" stroke-linecap="round" stroke-width="1.5"/>
+<path d="M27 7.2v14.6m0-12h3m-3 4h3m-3 4h3m-3 4h3" fill="none" stroke="#1e2a4a" stroke-linecap="round" stroke-width="1.4"/>
+<circle cx="28.5" cy="23.7" r="1" fill="#1e2a4a"/>
+</symbol>
+</svg>
 <a class="na-skip" href="#main">Skip to content</a>
 <header class="na-top na-top--document">
 <a class="na-mark" href="../../"><i aria-hidden="true">S</i>SkillMatch</a>
@@ -705,14 +873,23 @@
 <li><a href="#tailor"><b>04</b>How to use it for a job</a></li>
 <li><a href="#stuck"><b>05</b>Stuck? Ask Claude</a></li>
 </ol>
+<div class="skill-download-signpost"><a href="#biography"><svg aria-hidden="true" class="zip-folder-icon" focusable="false"><use href="#zip-folder"></use></svg><strong>SkillMatch Skill</strong><small>Download it in step F</small></a></div>
 </aside>
 
 <main class="na-flow" id="main">
 <section aria-label="00 · Your job" class="na-panel job-brief-panel" hidden="" id="your-job">
-<span class="na-label">00 · Your job</span>
+<span class="na-label">00 · Your job, ready to tailor</span>
+<div class="job-brief-layout">
+<div>
 <p class="job-brief-title" id="hero-job-title"></p>
 <p class="job-employer" id="hero-employer"></p>
+<p class="job-location" id="hero-location"></p>
+</div>
+<div class="job-copy-action">
 <button class="na-btn" data-copy-job="" hidden="" type="button">Copy for Claude</button>
+<p class="job-copy-next">Then paste it into Claude desktop.</p>
+</div>
+</div>
 <p aria-live="polite" class="brief-status" id="top-copy-status"></p>
 <p class="na-muted clipboard-fallback" hidden="" id="top-clipboard-fallback">If the clipboard is blocked, the job brief is selected; press Ctrl+C (Mac: Cmd+C).</p>
 <p class="na-muted">First time here? Do the set-up below first. It takes about 15 minutes, once.</p>
@@ -834,7 +1011,7 @@ sudo apt update &amp;&amp; sudo apt install claude-desktop</code></pre>
 </li>
 <li>
 <div class="cardF-navy" id="biography">
-<div class="cardF-head"><span class="cardF-letter">F</span><h3>Start your biography</h3></div>
+<div class="cardF-head"><span class="cardF-letter">F</span><h3>Start your biography</h3><a class="na-btn skill-download" download="skillmatch_skill.zip" href="skillmatch_skill.zip"><svg aria-hidden="true" class="zip-folder-icon" focusable="false"><use href="#zip-folder"></use></svg>Download the SkillMatch Skill (.zip)</a></div>
 <p class="cardF-lead">This is the most important step.</p>
 <p class="cardF-line">Your biography is the cloth your tailor cuts from. Everything else depends on it.</p>
 <p class="cardF-label">Add the SkillMatch Skill:</p>
@@ -995,6 +1172,7 @@ Ask me questions one at a time if anything isn't clear. Give me one step at a ti
     jobNavItem.hidden = false;
     document.getElementById("hero-job-title").textContent = getField(brief, "Job", "Job title not stated");
     document.getElementById("hero-employer").textContent = "Employer: " + getField(brief, "Employer", "not named");
+    document.getElementById("hero-location").textContent = "Location: " + getField(brief, "Location", "not stated");
     briefBox.textContent = finalPrompt;
     briefBox.hidden = false;
     emptyBox.hidden = true;
