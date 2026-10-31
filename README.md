@@ -1,42 +1,73 @@
 # SkillMatch
 
-## [👉 OPEN THE TEAM HUB](https://tidyweb.github.io/SkillMatch/)
+Free job matching for Code Institute Data Analytics with AI graduates moving into data, starting in the West Midlands.
 
-Guides, the project board, prototypes and plans, all as clickable web pages. Start there.
+## [Open SkillMatch](https://tidyweb.github.io/SkillMatch/)
 
-An early-career job-matching project for Code Institute Data Analytics with AI graduates.
+[Try the app](https://skillmatch-926015010605.europe-west2.run.app)
 
-- **Focus:** West Midlands vacancies and remote roles with confirmed UK eligibility.
-- **Matching:** compare advert requirements with candidate-confirmed skills using local Python rules and supporting advert text; no paid LLM API.
-- **Travel:** account for workplace, remote or hybrid arrangements, and candidate commute preferences.
-- **Collection:** use APIs, feeds or other permitted source routes.
+## What's in it
 
-## Status
+- **Website:** start here for the project and its public pages. [Open SkillMatch](https://tidyweb.github.io/SkillMatch/)
+- **Job matches:** search vacancies in the [SkillMatch app](https://skillmatch-926015010605.europe-west2.run.app).
+- **GitHub guide:** make your projects easier to see on [GitHub](https://tidyweb.github.io/SkillMatch/project-visual-language/github-profile-guide/).
+- **LinkedIn guide:** explain your move into data with the [LinkedIn guide](https://tidyweb.github.io/SkillMatch/project-visual-language/linkedin-profile-guide/).
+- **CV Tailor:** set it up in Claude desktop with Desktop Commander, then use the SkillMatch Skill; your files stay in your own folder. [Open CV Tailor](https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/).
+- **Data analysis:** explore one captured West Midlands search and its limits. [Read the analysis](https://tidyweb.github.io/SkillMatch/project-visual-language/skillmatch-da/).
 
-A working prototype exists: a Flask web app that compares a graduate's skills with West Midlands vacancies. Its code is in [`skillmatch-app/`](skillmatch-app/). **[Try it in your browser](https://codespaces.new/TidyWeb/SkillMatch)** with GitHub Codespaces: nothing to install. The prototype will eventually show live jobs. For now, Codespaces runs a saved copy of a live collection; if that copy is unavailable, it uses sample adverts. We are now designing the interface; the prototype designs will appear on the [team hub](https://tidyweb.github.io/SkillMatch/) as they are ready. Salary policy and the travel-routing provider remain open team decisions. Keep missing pay unknown and do not estimate it.
+## How it works
 
-## Project documents
+1. Open the [SkillMatch website](https://tidyweb.github.io/SkillMatch/).
+2. Use the GitHub and LinkedIn guides to prepare your profiles.
+3. Add your skills in the [app](https://skillmatch-926015010605.europe-west2.run.app) and search for jobs.
+4. Open a job card and choose **Tailor my CV**.
+5. Copy the job brief into Claude desktop, where it can be used with your CV and biography in your own SkillMatch Folder.
 
-- [VIEW THE PROJECT PLAN AS A WEB PAGE](https://tidyweb.github.io/SkillMatch/Job_Search_App_Plan.html)
-- [Code Institute Resources Visual Index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html)
-- [Code Institute resources — printable PDF index](Resources/Code_Institute_Resource_Index.pdf)
-- [Open the Code Institute resources in the LMS (sign-in required)](https://lms.codeinstitute.net/learner_resources/list/125519#resource_4602588)
-- [Project plan (Markdown)](Job_Search_App_Plan.md)
-- [Vacancy source inventory](Research/Vacancy_Source_Inventory.md)
-- [Source library](Research/Vacancy_Sources/Source_Library.html)
-- [Search method and coverage](Research/Vacancy_Sources/Search_Method_and_Coverage.md)
+The job brief is carried in the page address after a `#` fragment. The app and CV Tailor page do not store it on their servers.
 
-## Viewing the Code Institute resource index
+## Privacy
 
-Open the [Code Institute Resources Visual Index](https://tidyweb.github.io/SkillMatch/Resources/Code_Institute_Resource_Index.html) to follow the links to the LMS. You need an internet connection and your own Code Institute sign-in. The PDF is a printable list of resource names and links; it does not contain the course materials.
+- No account or login is needed.
+- Your profile stays in the browser tab. The app sends it with each search and does not store it on the server.
+- Your CV and biography stay in your SkillMatch Folder on your computer. The app cannot open that folder.
+- The job brief contains public advert details and may include match hints based on your profile.
 
-## Viewing the HTML plan
+## How it's built
 
-From the repository page, find **Project documents** in this README and select **VIEW THE PROJECT PLAN AS A WEB PAGE**. This opens the rendered plan published with GitHub Pages.
+- The app uses Python and Flask and runs on Google Cloud Run.
+- A daily process collects adverts from official APIs and documented feeds where collection is permitted.
+- Local Python rules compare job requirements with candidate-confirmed skills. No paid AI service writes the matches.
+- The static website is hosted on GitHub Pages and follows the Navy A style.
+- The analysis notebook uses the local data build. Public analysis pages show summary counts; source rows stay local. See the [Jupyter notebook](skillmatch-app/notebooks/skillmatch_analysis.ipynb).
 
-If you open `Job_Search_App_Plan.html` from the repository's **Code** file list and see HTML tags, you are viewing the source file. Return to this README and use the webpage link to read the formatted plan.
+## Run it yourself
 
-GitHub Pages displays these static pages; it does not run the Flask application itself.
+Open the project in [GitHub Codespaces](https://codespaces.new/TidyWeb/SkillMatch), then follow the setup instructions in [`skillmatch-app/README.md`](skillmatch-app/README.md).
+
+## Project structure
+
+| Folder | What it contains |
+|---|---|
+| `skillmatch-app/` | The Flask app, data collection and matching rules. |
+| `project-visual-language/` | Public pages, guides and data analysis. |
+| `team-guides/` | The team hub and working guides. |
+| `Research/` | Vacancy source research and project resources. |
+| `project-development-diary/` | Each team member's honest reflection on the project. |
+| Team folders | `Phil's Folder/`, `John's Folder/`, `Rahman SK's Folder/`, `Esmat's Folder/` and `Oana's Folder/`. |
+
+## Data and limits
+
+The analysis uses a captured search. It shows collected adverts, not the whole job market. Reed's results were partial and some searches reached their result limit. [Read the 30 October 2026 snapshot](https://github.com/TidyWeb/SkillMatch/tree/data-snapshots/data/live_snapshots/20261030_1848) or see the [data analysis](https://tidyweb.github.io/SkillMatch/project-visual-language/skillmatch-da/).
+
+Advertiser and sentence labels that use AI judgement are marked as awaiting a human check. The licence does not cover the job adverts collected on the `data-snapshots` branch. That content belongs to Reed and the employers who posted it.
+
+## Team
+
+Built during a four-day Code Institute Data Analytics with AI hackathon in October 2026 by Esmat, John, Oana, Phil and SK.
+
+## For the team
+
+Team members: open the [team hub](https://tidyweb.github.io/SkillMatch/team-guides/) for guides, the project board and working documents.
 
 ## Licence
 
