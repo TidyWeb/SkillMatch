@@ -1,0 +1,5 @@
+comparison,group_one,group_two,n_one,n_two,median_one,median_two,mann_whitney_u,p_value,rank_biserial,test
+matched vs senior,Matched,senior,65,179,0.16666666666666666,0.13043478260869565,7162.0,0.005679536836538794,0.23111302105715503,Two-sided Mann–Whitney U; compares independent advert-level shares
+agency vs direct employer (reviewed),agency,direct employer (reviewed),77,157,0.18181818181818182,0.14285714285714285,7414.0,0.004817530152697803,0.2265696087352138,Two-sided Mann–Whitney U; compares independent advert-level shares
+agency vs unclear (reviewed),agency,unclear (reviewed),77,131,0.18181818181818182,0.14285714285714285,6074.5,0.013813581955899176,0.20442153266580743,Two-sided Mann–Whitney U; compares independent advert-level shares
+direct employer (reviewed) vs unclear (reviewed),direct employer (reviewed),unclear (reviewed),157,131,0.14285714285714285,0.14285714285714285,10218.5,0.9267803289325316,-0.006320805173335886,Two-sided Mann–Whitney U; compares independent advert-level shares

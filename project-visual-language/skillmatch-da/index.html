@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2b3a55">
+  <meta name="description" content="A summary-only view of a captured West Midlands data-job search: the advert funnel, skills, pay, and AI wording.">
+  <title>Data analysis · SkillMatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../navy-a/navy-a.css?v=20261030b">
+  <link rel="stylesheet" href="assets/skillmatch.css?v=20261031-stage17">
+  <script src="assets/page-data.js?v=20261031-stage13"></script>
+  <script defer src="assets/app.js?v=20261031-stage15"></script>
+  <script defer src="assets/maps.js?v=20261031-stage17"></script>
+</head>
+<body>
+  <a class="na-skip" href="#main-content">Skip to analysis</a>
+  <header class="na-top na-top--document sm-site-header">
+    <a class="na-mark" href="../../"><i aria-hidden="true">S</i>SkillMatch</a>
+    <nav class="na-nav" aria-label="Main">
+      <div class="na-nav-links">
+      <a href="../../">Home</a>
+      <a href="../github-profile-guide/">GitHub guide</a>
+      <a href="../linkedin-profile-guide/">LinkedIn guide</a>
+      <a href="../tailor-my-cv/">CV Tailor</a>
+      <a href="./" aria-current="page">Data analysis</a>
+      </div>
+      <a class="na-nav-findjobs findjobs--coral" href="https://skillmatch-926015010605.europe-west2.run.app">SkillMatch →</a>
+    </nav>
+  </header>
+  <div class="na-page na-page--document">
+    <div class="na-layout">
+      <aside class="na-contents" aria-label="Data analysis contents">
+        <h2>Data analysis</h2>
+        <p>Follow one captured West Midlands job search.</p>
+        <span class="na-label">Sections</span>
+        <ol role="tablist" aria-label="Data analysis sections">
+          <li><a role="tab" id="tab-overview" href="#overview" aria-controls="panel-overview" aria-selected="true" tabindex="0"><b>01</b>Overview</a></li>
+          <li><a role="tab" id="tab-haystack" href="#haystack" aria-controls="panel-haystack" aria-selected="false" tabindex="-1"><b>02</b>The haystack</a></li>
+          <li><a role="tab" id="tab-advertisers" href="#advertisers" aria-controls="panel-advertisers" aria-selected="false" tabindex="-1"><b>03</b>Who advertises?</a></li>
+          <li><a role="tab" id="tab-ask" href="#ask" aria-controls="panel-ask" aria-selected="false" tabindex="-1"><b>04</b>Skills &amp; wording</a></li>
+          <li><a role="tab" id="tab-pay" href="#pay" aria-controls="panel-pay" aria-selected="false" tabindex="-1"><b>05</b>Pay</a></li>
+          <li><a role="tab" id="tab-ai" href="#ai" aria-controls="panel-ai" aria-selected="false" tabindex="-1"><b>06</b>AI in adverts</a></li>
+          <li><a role="tab" id="tab-explore" href="#explore" aria-controls="panel-explore" aria-selected="false" tabindex="-1"><b>07</b>Explore skills</a></li>
+          <li><a role="tab" id="tab-next" href="#next" aria-controls="panel-next" aria-selected="false" tabindex="-1"><b>08</b>What to do next</a></li>
+          <li><a role="tab" id="tab-method" href="#method" aria-controls="panel-method" aria-selected="false" tabindex="-1"><b>09</b>How we did it</a></li>
+        </ol>
+      </aside>
+      <main class="na-flow" id="main-content">
+    <header class="na-panel na-hero sm-hero" id="page-hero">
+      <div class="sm-hero-copy">
+        <p class="sm-snapshot">Snapshot · 30 October 2026</p>
+        <p class="sm-kicker" id="hero-kicker">A graduate’s search, counted</p>
+        <h1 id="hero-title">24,656 sightings. 67 jobs matched to a graduate.</h1>
+        <p id="hero-description">One captured week of adverts in the West Midlands. Follow the search to the jobs matched to a graduate.</p>
+      </div>
+      <div class="sm-hero-stats" aria-label="Snapshot counts">
+        <div class="na-tile sm-stat sm-stat--search"><strong title="24,656 search appearances" aria-label="24,656 search appearances">24.7k</strong><span>search appearances</span></div>
+        <div class="na-tile sm-stat sm-stat--collected"><strong>4,654</strong><span>collected</span></div>
+        <div class="na-tile sm-stat sm-stat--data"><strong>1,988</strong><span>data jobs</span></div>
+        <div class="na-tile na-tile--navy sm-stat sm-stat--featured sm-stat--matched"><strong>67</strong><span>jobs matched to a graduate</span></div>
+      </div>
+    </header>
+
+
+
+    <div class="sm-panels">
+      <section class="sm-panel is-active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="-1" data-title="24,656 sightings. 67 jobs matched to a graduate." data-kicker="A graduate’s search, counted">
+        <span id="tab-anchor-overview" aria-hidden="true"></span>
+        <article class="na-panel sm-card sm-card--split sm-origin">
+          <figure class="sm-figure sm-origin-figure">
+            <a href="assets/john_radar_course_vs_market.png" target="_blank" rel="noopener" aria-label="Open the radar chart full size in a new tab"><img class="sm-origin-image" src="assets/john_radar_course_vs_market.png" alt="John's radar chart comparing course skill coverage with relative job market demand" width="1117" height="852"></a>
+            <figcaption>Chart: John, SkillMatch team. From his <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Data_Analyst_Workbook.ipynb" target="_blank" rel="noopener">analysis notebook</a>.</figcaption>
+          </figure>
+          <div class="sm-origin-copy">
+            <h2>Where this started</h2>
+            <p>SkillMatch matches graduates to jobs. John asked the next question: do the skills the course teaches match the skills employers ask for?</p>
+            <p>His radar chart was the first answer. It set the direction for everything that follows on this page.</p>
+            <p><strong>Reading it:</strong> the pink shape shows how often employers ask for each skill, relative to the most-asked skill. The blue shape shows the skills the course covers.</p>
+          </div>
+        </article>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">What the search found</p>
+          <h2>Most adverts never reach the jobs matched to graduates</h2>
+          <p>One captured week had 24,656 search appearances; an advert can appear more than once. We counted distinct adverts separately and matched 67 jobs to a graduate.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <nav class="sm-tab-cards" aria-label="Jump to a view">
+          <a class="sm-tab-card" href="#overview"><span class="sm-tab-card__label">01 · Overview</span><strong>24,656 → 67</strong><span>One captured search ends with 67 jobs matched to graduates.</span></a>
+          <a class="sm-tab-card" href="#haystack"><span class="sm-tab-card__label">02 · The haystack</span><strong>4,654 → 67</strong><span>Most collected adverts never reach the final list.</span></a>
+          <a class="sm-tab-card" href="#advertisers"><span class="sm-tab-card__label">03 · Who advertises?</span><strong>45 of 67</strong><span>Matched jobs placed by agencies; none confirmed direct.</span></a>
+          <a class="sm-tab-card" href="#ask"><span class="sm-tab-card__label">04 · Skills &amp; wording</span><strong>60 SQL · 42 Excel</strong><span>SQL leads. Neither skill is marked as covered in the course.</span></a>
+          <a class="sm-tab-card" href="#pay"><span class="sm-tab-card__label">05 · Pay</span><strong>£35,000–£45,000</strong><span>That is the middle half; 20 of 67 give no salary.</span></a>
+          <a class="sm-tab-card" href="#ai"><span class="sm-tab-card__label">06 · AI in adverts</span><strong>10 of 67</strong><span>These adverts mention AI.</span></a>
+          <a class="sm-tab-card" href="#explore"><span class="sm-tab-card__label">07 · Explore skills</span><strong>46 skills</strong><span>Search the list and compare the two job groups.</span></a>
+          <a class="sm-tab-card" href="#method"><span class="sm-tab-card__label">09 · How we did it</span><strong>4,654 → 67</strong><span>Open the records behind the summary.</span></a>
+        </nav>
+        <div class="sm-grid sm-grid--wide-left">
+          <article class="na-card na-card--navy sm-card sm-card--navy">
+            <p class="sm-kicker">THE SNAPSHOT</p>
+            <h3>Most collected adverts did not make the final list</h3>
+            <figure class="sm-figure">
+              <h4 class="sm-chart-title">A small version of the advert grid</h4>
+              <div class="sm-chart sm-mini-funnel" id="overview-funnel" role="img" aria-label="A count grid shows 4,654 collected adverts and 67 matched to graduates"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div>
+              <figcaption>The compact grid gives a rough sense of the reduction. The full view next gives each advert its own dot.</figcaption>
+            </figure>
+            <details class="sm-table-details" data-table="overview"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Stage</th><th scope="col">Adverts</th></tr></thead><tbody><tr><td>Search appearances</td><td>24,656</td></tr><tr><td>Primary distinct adverts</td><td>4,654</td></tr><tr><td>Data-role pool</td><td>1,988</td></tr><tr><td>Full-description data-role adverts</td><td>378</td></tr><tr><td>Matched to a graduate</td><td>67</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">BETWEEN COLLECTIONS</p>
+            <h3>Some listings appeared; others were gone next time</h3>
+            <figure class="sm-figure">
+              <h4 class="sm-chart-title">148 new adverts; 158 no longer seen</h4>
+              <div class="sm-chart" id="overview-churn" role="img" aria-label="148 new listings and 158 missing from the next collection"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div>
+              <figcaption>The median time between first and last sighting was 3.25 days.</figcaption>
+            </figure>
+            <details class="sm-table-details" data-table="churn"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Measure</th><th scope="col">Value</th></tr></thead><tbody><tr><td>New source listings</td><td>148</td></tr><tr><td>Listings missing next collection</td><td>158</td></tr><tr><td>Median observed first-to-last span in days</td><td>3.25</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <aside class="na-note sm-note"><b>One captured sample.</b> It describes the adverts found by this search, not every data job in the region.</aside>
+        <a class="sm-bridge sm-bridge--link" href="#haystack"><span>Next: watch the collected adverts narrow, one dot per advert.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-haystack" role="tabpanel" aria-labelledby="tab-haystack" tabindex="-1" data-title="Most of the blizzard was never meant for a graduate" data-kicker="The haystack">
+        <span id="tab-anchor-haystack" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">Follow the search</p>
+          <h2>Only 67 of the 4,654 collected adverts matched a graduate</h2>
+          <p>Follow five search steps. One dot is one collected advert; filtered-out dots fade.</p>
+          <div class="sm-tab-legend sm-tab-legend--scale" aria-label="Haystack dot colours">
+            <span><i class="sm-legend-swatch sm-legend-swatch--collected" aria-hidden="true"></i>Collected</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--data" aria-hidden="true"></i>Data jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--near" aria-hidden="true"></i>Near me</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--entry" aria-hidden="true"></i>Entry level</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--matched" aria-hidden="true"></i>Matched</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--filtered" aria-hidden="true"></i>Filtered out</span>
+          </div>
+        </div>
+        <article class="na-card na-card--navy sm-card sm-card--navy sm-haystack-card">
+          <div class="sm-haystack-heading"><div><p class="sm-kicker">ONE DOT = ONE ADVERT</p><h3>Watch the set narrow</h3></div><div class="sm-live-count" aria-live="polite"><strong id="funnel-count">4,654</strong><span id="funnel-step-label">Collected</span></div></div>
+          <figure class="sm-figure sm-figure--dots">
+            <h4 class="sm-chart-title">Each retained group takes its step colour; the 67 matched jobs glow coral</h4>
+            <div class="sm-chart sm-funnel-canvas" id="funnel-grid" role="img" tabindex="0" aria-label="4,654 adverts collected; 67 jobs matched to a graduate"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div>
+            <figcaption>The grid shows counts, not named employers or individual listings.</figcaption>
+          </figure>
+          <div class="sm-step-controls" id="funnel-controls" role="group" aria-label="Choose a search step">
+            <button type="button" data-step="0" aria-pressed="true">Collected</button><button type="button" data-step="1" aria-pressed="false">Data jobs</button><button type="button" data-step="2" aria-pressed="false">Near me</button><button type="button" data-step="3" aria-pressed="false">Entry level</button><button type="button" data-step="4" aria-pressed="false">Matched</button>
+          </div>
+          <details class="sm-table-details" data-table="funnel"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Filter step</th><th scope="col">Adverts remaining</th></tr></thead><tbody><tr><td>All primary adverts</td><td>4,654</td></tr><tr><td>Data-role pool</td><td>1,988</td></tr><tr><td>Local roles before seniority</td><td>1,512</td></tr><tr><td>After seniority</td><td>85</td></tr><tr><td>Matched to a graduate</td><td>67</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <article class="na-panel sm-card sm-card--split">
+          <div><p class="sm-kicker">LISTINGS CHANGE</p><h3>New and missing adverts were close in number</h3><p>Comparable collections recorded 148 new adverts and 158 no longer seen next time.</p></div>
+          <figure class="sm-figure"><h4 class="sm-chart-title">The weekly flow is visible on both sides</h4><div class="sm-chart" id="haystack-churn" role="img" aria-label="148 new listings and 158 missing listings"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>The median time between first and last sighting was 3.25 days.</figcaption></figure>
+          <details class="sm-table-details" data-table="churn"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Measure</th><th scope="col">Value</th></tr></thead><tbody><tr><td>New source listings</td><td>148</td></tr><tr><td>Listings missing next collection</td><td>158</td></tr><tr><td>Median observed first-to-last span in days</td><td>3.25</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <a class="sm-bridge sm-bridge--link" href="#advertisers"><span>Next: see which job sites and employers posted the adverts matched to a graduate.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-advertisers" role="tabpanel" aria-labelledby="tab-advertisers" tabindex="-1" data-title="Agencies place 45 of 67 matched jobs" data-kicker="Who advertises?">
+        <span id="tab-anchor-advertisers" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">Two things stand out</p>
+          <h2>Agencies place 45 of 67 matched jobs</h2>
+          <p class="sm-label-caveat">Advertiser labels, including agency labels, are AI-made and not yet checked by a person.</p>
+          <p>Adverts labelled as direct employers leave pay blank more often than agency adverts.</p>
+          <p>Here, “direct employer” means a job post on companies' own careers pages, including ATS boards; posts that are hard to place stay labelled “unclear”.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <div class="sm-grid">
+          <article class="na-panel sm-card sm-card--span sm-advertiser-surprise">
+            <p class="sm-kicker">PAY LEFT OUT</p><h3>Adverts from direct employers leave pay blank most</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">72% omit pay, compared with 12% of agency adverts</h4><div class="sm-chart" id="advertiser-hidden" role="img" aria-label="Share of adverts that omit pay: 72 percent direct-labelled, 12 percent agency, 42 percent unclear"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>114 of 159 adverts labelled as direct employers and 122 of 1,060 agency adverts omit pay. The names of 326 of 769 hard-to-place adverts also leave pay unstated.</figcaption></figure>
+            <details class="sm-table-details" data-table="advertiser_hidden"><summary>Pay counts by advertiser label</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Label set</th><th scope="col">Job group</th><th scope="col">Advertiser</th><th scope="col">Adverts</th><th scope="col">Adverts with no salary</th><th scope="col">Share with no salary</th></tr></thead><tbody><tr><td>Initial labels</td><td>Full data-job group</td><td>Agency</td><td>1,060</td><td>122</td><td>11.5%</td></tr><tr><td>Initial labels</td><td>Full data-job group</td><td>Direct employer</td><td>928</td><td>440</td><td>47.4%</td></tr><tr><td>Initial labels</td><td>Full data-job group</td><td>Unclear</td><td>0</td><td>0</td><td>—</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Agency</td><td>45</td><td>6</td><td>13.3%</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Direct employer</td><td>22</td><td>14</td><td>63.6%</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Unclear</td><td>0</td><td>0</td><td>—</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Agency</td><td>1,060</td><td>122</td><td>11.5%</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Direct employer</td><td>159</td><td>114</td><td>71.7%</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Unclear</td><td>769</td><td>326</td><td>42.4%</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Agency</td><td>45</td><td>6</td><td>13.3%</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Direct employer</td><td>0</td><td>0</td><td>—</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Unclear</td><td>22</td><td>14</td><td>63.6%</td></tr></tbody></table></div></noscript></div></details>
+            <details class="sm-table-details" data-table="advertiser_tests"><summary>Statistical checks</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Scope</th><th scope="col">Adverts</th><th scope="col">Chi-square</th><th scope="col">P-value</th><th scope="col">Cramér&#x27;s V</th></tr></thead><tbody><tr><td>Data-role pool; two current name groups</td><td>1,988</td><td>314.564</td><td>&lt;0.001</td><td>0.397783</td></tr><tr><td>Reed only; two current name groups</td><td>1,713</td><td>117.257</td><td>&lt;0.001</td><td>0.261632</td></tr><tr><td>Data-role pool; three checked groups</td><td>1,988</td><td>370.366</td><td>&lt;0.001</td><td>0.431625</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card sm-card--span">
+            <p class="sm-kicker">WHO POSTED THE JOBS?</p><h3>Agencies account for two in three jobs matched to a graduate</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">Agency adverts make up 67% of the matched set</h4><div class="sm-chart" id="advertiser-mix" role="img" aria-label="Agency, employer-labelled and unclear adverts in the wider and matched groups"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>The first bar shows data-related adverts; the second shows jobs presented to graduates.</figcaption></figure>
+            <p><strong>None of the 67 matched jobs is confirmed as posted by the employer directly.</strong></p>
+            <details class="sm-table-details" data-table="advertiser_mix"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Label set</th><th scope="col">Job group</th><th scope="col">Advertiser</th><th scope="col">Adverts</th><th scope="col">Share</th></tr></thead><tbody><tr><td>Initial labels</td><td>Full data-job group</td><td>Agency</td><td>1,060</td><td>53.3%</td></tr><tr><td>Initial labels</td><td>Full data-job group</td><td>Direct employer</td><td>928</td><td>46.7%</td></tr><tr><td>Initial labels</td><td>Full data-job group</td><td>Unclear</td><td>0</td><td>0.0%</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Agency</td><td>45</td><td>67.2%</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Direct employer</td><td>22</td><td>32.8%</td></tr><tr><td>Initial labels</td><td>Jobs matched to graduates</td><td>Unclear</td><td>0</td><td>0.0%</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Agency</td><td>1,060</td><td>53.3%</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Direct employer</td><td>159</td><td>8.0%</td></tr><tr><td>After sample check</td><td>Full data-job group</td><td>Unclear</td><td>769</td><td>38.7%</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Agency</td><td>45</td><td>67.2%</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Direct employer</td><td>0</td><td>0.0%</td></tr><tr><td>After sample check</td><td>Jobs matched to graduates</td><td>Unclear</td><td>22</td><td>32.8%</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <a class="sm-bridge sm-bridge--link" href="#ask"><span>Next: see which skills and wording appear in these adverts.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-ask" role="tabpanel" aria-labelledby="tab-ask" tabindex="-1" data-title="SQL leads. Excel also appears often. The course covers neither." data-kicker="Skills &amp; wording">
+        <span id="tab-anchor-ask" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">What employers ask for</p>
+          <h2>SQL leads the list. Excel is fourth. Neither is marked as covered.</h2>
+          <p>In adverts with full descriptions, SQL is essential in 60 and Excel in 42.</p>
+          <p>Broad requests for personal qualities are common too.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <article class="na-panel sm-card">
+          <div class="na-panel sm-card-heading"><div><p class="sm-kicker">SKILLS IN THE ADVERTS</p><h3>What appears most often as essential</h3></div></div>
+          <figure class="sm-figure"><h4 class="sm-chart-title">SQL: 60 adverts · Excel: 42 adverts</h4><div class="sm-chart" id="skills-bars" role="img" aria-label="Essential skill shares among 378 adverts with full descriptions"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Each bar gives the share of adverts where the skill is essential.</figcaption></figure>
+          <details class="sm-table-details" data-table="skills_top15"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Skill</th><th scope="col">Course-covered</th><th scope="col">Asking</th><th scope="col">Essential</th><th scope="col">Desirable</th><th scope="col">Essential share</th></tr></thead><tbody><tr><td>SQL</td><td>No</td><td>79</td><td>60</td><td>16</td><td>15.9%</td></tr><tr><td>Python</td><td>Yes</td><td>66</td><td>50</td><td>17</td><td>13.2%</td></tr><tr><td>Data analysis</td><td>Yes</td><td>72</td><td>49</td><td>11</td><td>13.0%</td></tr><tr><td>Excel</td><td>No</td><td>54</td><td>42</td><td>13</td><td>11.1%</td></tr><tr><td>Databases</td><td>Yes</td><td>46</td><td>37</td><td>4</td><td>9.8%</td></tr><tr><td>Using generative AI tools</td><td>Yes</td><td>45</td><td>31</td><td>15</td><td>8.2%</td></tr><tr><td>APIs and JSON</td><td>No</td><td>42</td><td>30</td><td>7</td><td>7.9%</td></tr><tr><td>Data cleaning and validation</td><td>Yes</td><td>59</td><td>30</td><td>5</td><td>7.9%</td></tr><tr><td>Power BI</td><td>Yes</td><td>37</td><td>25</td><td>11</td><td>6.6%</td></tr><tr><td>ETL and data pipelines</td><td>Yes</td><td>33</td><td>23</td><td>4</td><td>6.1%</td></tr><tr><td>AWS</td><td>No</td><td>28</td><td>22</td><td>6</td><td>5.8%</td></tr><tr><td>Building reports and dashboards</td><td>Yes</td><td>57</td><td>19</td><td>13</td><td>5.0%</td></tr><tr><td>Data protection, GDPR and data ethics</td><td>Yes</td><td>30</td><td>18</td><td>5</td><td>4.8%</td></tr><tr><td>CRM systems</td><td>No</td><td>49</td><td>17</td><td>23</td><td>4.5%</td></tr><tr><td>Data modelling (schema design)</td><td>No</td><td>19</td><td>17</td><td>1</td><td>4.5%</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <div class="sm-what-if-layout">
+          <article class="na-panel sm-card sm-card--span sm-what-if-card">
+            <p class="sm-kicker" id="what-if-kicker">COURSE COVERAGE · AS TAUGHT</p>
+            <h3>Essential skill requests covered</h3>
+            <div class="sm-coverage-track" id="what-if-coverage-bar" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="49.8489" aria-valuetext="330 of 662 essential skill requests covered, 49.8 percent" aria-label="Essential skill requests covered">
+              <span class="sm-stack-segment" style="width:49.8489%"></span>
+            </div>
+            <div class="sm-coverage-scale" id="what-if-coverage-scale" aria-hidden="true"><span><i></i><b>0%</b></span><span><i></i><b>10%</b></span><span><i></i><b>20%</b></span><span><i></i><b>30%</b></span><span><i></i><b>40%</b></span><span><i></i><b>50%</b></span><span><i></i><b>60%</b></span><span><i></i><b>70%</b></span><span><i></i><b>80%</b></span><span><i></i><b>90%</b></span><span><i></i><b>100%</b></span></div>
+            <p class="sm-coverage-readout" id="what-if-coverage-readout">330 of 662 · 49.8%</p>
+            <div class="sm-what-if-toggle" id="what-if-toggle" role="group" aria-label="Course coverage scenario">
+              <button type="button" data-scenario="as_taught" aria-pressed="true">As taught</button><button type="button" data-scenario="with_sql_excel" aria-pressed="false">With SQL and Excel</button>
+            </div>
+            <p class="sm-what-if-note">The as-taught figure follows Notebook 03’s essential-skill definitions and current taxonomy flags.</p>
+          </article>
+          <article class="na-panel sm-card sm-what-if-card">
+            <p class="sm-kicker">FULL COVERAGE</p>
+            <h3>Adverts where a graduate would meet every essential skill</h3>
+            <strong class="sm-advert-count" aria-live="polite"><span id="what-if-advert-count">38</span> <small>of <span id="what-if-advert-total">203</span></small></strong>
+            <p id="what-if-advert-share">19% of eligible adverts.</p>
+            <p class="sm-what-if-note">175 of the 378 full-description adverts list no classified essential skills, so they are excluded.</p>
+          </article>
+        </div>
+        <div class="sm-grid">
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">HOW LONG IS THE WISH LIST?</p><h3>Matched jobs ask for six essentials at the middle; senior jobs ask for five</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">The two groups overlap across the range</h4><div class="sm-chart" id="wishlist-chart" role="img" aria-label="Distribution of essential requests for matched and senior adverts"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Bars compare how many essential requests each advert lists.</figcaption></figure>
+            <details class="sm-table-details" data-table="wish_list"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Group</th><th scope="col">Essential requests</th><th scope="col">Adverts</th><th scope="col">Share of group</th></tr></thead><tbody><tr><td>Senior</td><td>0</td><td>24</td><td>12.8%</td></tr><tr><td>Senior</td><td>1</td><td>12</td><td>6.4%</td></tr><tr><td>Senior</td><td>2</td><td>22</td><td>11.7%</td></tr><tr><td>Senior</td><td>3</td><td>15</td><td>8.0%</td></tr><tr><td>Senior</td><td>4</td><td>7</td><td>3.7%</td></tr><tr><td>Senior</td><td>5</td><td>17</td><td>9.0%</td></tr><tr><td>Senior</td><td>6</td><td>18</td><td>9.6%</td></tr><tr><td>Senior</td><td>7</td><td>13</td><td>6.9%</td></tr><tr><td>Senior</td><td>8</td><td>7</td><td>3.7%</td></tr><tr><td>Senior</td><td>9</td><td>15</td><td>8.0%</td></tr><tr><td>Senior</td><td>10</td><td>7</td><td>3.7%</td></tr><tr><td>Senior</td><td>11</td><td>6</td><td>3.2%</td></tr><tr><td>Senior</td><td>12</td><td>6</td><td>3.2%</td></tr><tr><td>Senior</td><td>13</td><td>3</td><td>1.6%</td></tr><tr><td>Senior</td><td>14</td><td>2</td><td>1.1%</td></tr><tr><td>Senior</td><td>15</td><td>4</td><td>2.1%</td></tr><tr><td>Senior</td><td>16</td><td>1</td><td>0.5%</td></tr><tr><td>Senior</td><td>17</td><td>1</td><td>0.5%</td></tr><tr><td>Senior</td><td>18</td><td>3</td><td>1.6%</td></tr><tr><td>Senior</td><td>19</td><td>2</td><td>1.1%</td></tr><tr><td>Senior</td><td>20</td><td>2</td><td>1.1%</td></tr><tr><td>Senior</td><td>32</td><td>1</td><td>0.5%</td></tr><tr><td>Matched</td><td>0</td><td>3</td><td>4.5%</td></tr><tr><td>Matched</td><td>1</td><td>3</td><td>4.5%</td></tr><tr><td>Matched</td><td>2</td><td>3</td><td>4.5%</td></tr><tr><td>Matched</td><td>4</td><td>9</td><td>13.4%</td></tr><tr><td>Matched</td><td>5</td><td>7</td><td>10.4%</td></tr><tr><td>Matched</td><td>6</td><td>10</td><td>14.9%</td></tr><tr><td>Matched</td><td>7</td><td>8</td><td>11.9%</td></tr><tr><td>Matched</td><td>8</td><td>8</td><td>11.9%</td></tr><tr><td>Matched</td><td>9</td><td>3</td><td>4.5%</td></tr><tr><td>Matched</td><td>10</td><td>2</td><td>3.0%</td></tr><tr><td>Matched</td><td>11</td><td>4</td><td>6.0%</td></tr><tr><td>Matched</td><td>13</td><td>3</td><td>4.5%</td></tr><tr><td>Matched</td><td>14</td><td>1</td><td>1.5%</td></tr><tr><td>Matched</td><td>15</td><td>1</td><td>1.5%</td></tr><tr><td>Matched</td><td>18</td><td>1</td><td>1.5%</td></tr><tr><td>Matched</td><td>22</td><td>1</td><td>1.5%</td></tr></tbody></table></div></noscript></div><p class="sm-method-note">The comparison had p = 0.062, so this sample does not show a clear difference.</p></details>
+          </article>
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">BROAD OR SPECIFIC?</p><h3>About one in six requests describes a general quality, not a work task</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">939 of 5,840 requests are broad descriptions</h4><div class="sm-chart" id="generic-split" role="img" aria-label="939 broad and 4,901 specific requests"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>For example, a general personal quality is broad; a named action or output is specific.</figcaption></figure>
+            <details class="sm-table-details" data-table="generic_summary"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Wording label</th><th scope="col">Sentences</th><th scope="col">Share</th></tr></thead><tbody><tr><td>generic</td><td>939</td><td>16.1%</td></tr><tr><td>concrete</td><td>4,901</td><td>83.9%</td></tr></tbody></table></div></noscript></div><p class="sm-method-note">Earlier labels gave 12.0% overall and 10.5% per advert; the current labels give 16.1% overall and 15.4% per advert. The earlier 46.9% / 44% result could not be reproduced. A spot-check found 4 of 15 examples labelled specific were too broad, so 16.1% is a lower bound on the broad share.</p></details>
+            <figure class="sm-figure"><h4 class="sm-chart-title">Broad requests account for 18.2% at agencies and 14.3% in both other groups</h4><div class="sm-chart" id="generic-groups" role="img" aria-label="Median share of broad requests for advertiser groups"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>AI-made labels have not yet been checked by a person.</figcaption></figure>
+            <details class="sm-table-details" data-table="generic_by_advertiser"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Advertiser group</th><th scope="col">Adverts</th><th scope="col">Median share</th><th scope="col">Lower quartile</th><th scope="col">Upper quartile</th></tr></thead><tbody><tr><td>Agency</td><td>77</td><td>18.2%</td><td>13.3%</td><td>25.0%</td></tr><tr><td>Direct employer (reviewed)</td><td>157</td><td>14.3%</td><td>7.1%</td><td>20.0%</td></tr><tr><td>Unclear</td><td>131</td><td>14.3%</td><td>6.9%</td><td>22.2%</td></tr></tbody></table></div></noscript></div></details>
+            <details class="sm-table-details" data-table="generic_groups"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Comparison</th><th scope="col">First group</th><th scope="col">Second group</th><th scope="col">First median</th><th scope="col">Second median</th><th scope="col">Mann–Whitney U</th><th scope="col">P-value</th><th scope="col">Rank-biserial</th></tr></thead><tbody><tr><td>matched vs senior</td><td>65</td><td>179</td><td>0.166667</td><td>0.130435</td><td>7,162</td><td>0.006</td><td>0.231113</td></tr><tr><td>agency vs direct employer (reviewed)</td><td>77</td><td>157</td><td>0.181818</td><td>0.142857</td><td>7,414</td><td>0.005</td><td>0.22657</td></tr><tr><td>agency vs unclear (reviewed)</td><td>77</td><td>131</td><td>0.181818</td><td>0.142857</td><td>6,074.5</td><td>0.014</td><td>0.204422</td></tr><tr><td>direct employer (reviewed) vs unclear (reviewed)</td><td>157</td><td>131</td><td>0.142857</td><td>0.142857</td><td>10,218.5</td><td>0.927</td><td>-0.00632081</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <a class="sm-bridge sm-bridge--link" href="#pay"><span>Next: check what these adverts say about salary.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-pay" role="tabpanel" aria-labelledby="tab-pay" tabindex="-1" data-title="The middle half of stated pay is £35,000–£45,000. 20 of 67 say nothing." data-kicker="Pay">
+        <span id="tab-anchor-pay" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">Pay in the adverts</p>
+          <h2>20 of the 67 matched adverts give no salary</h2>
+          <p>Among the adverts with usable annual pay, the middle half is £35,000–£45,000.</p>
+          <p>The band uses 39 salaries. Daily rates stay separate.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <div class="sm-grid">
+          <article class="na-panel sm-card sm-card--span">
+            <p class="sm-kicker">THE MIDDLE HALF</p><h3>£35,000–£45,000</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">Annual pay among the 39 adverts with usable salaries</h4><div class="sm-chart" id="pay-band" role="img" aria-label="Annual salary midpoints from 25,000 to 70,000 pounds, with the middle half from 35,000 to 45,000"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Median: £40,250. The full range is £25,000–£70,000.</figcaption></figure>
+            <details class="sm-table-details" data-table="pay_band"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">With usable salary</th><th scope="col">No salary</th><th scope="col">Minimum midpoint</th><th scope="col">Lower quartile</th><th scope="col">Median midpoint</th><th scope="col">Upper quartile</th><th scope="col">Maximum midpoint</th><th scope="col">Lowest annual lower bound</th><th scope="col">Highest annual upper bound</th></tr></thead><tbody><tr><td>39</td><td>20</td><td>£25,000</td><td>£35,000</td><td>£40,250</td><td>£45,000</td><td>£70,000</td><td>£24,000</td><td>£70,000</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">SALARY VISIBILITY</p><h3>One square for each matched advert</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">20 leave pay blank; 39 give a salary and eight give a daily rate</h4><div class="sm-chart sm-pay-visibility" id="pay-visibility" role="img" aria-label="20 adverts with no pay, 39 with salary and eight with daily rates, out of 67"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Coral marks no salary, navy marks a salary, and stone marks a daily rate.</figcaption></figure>
+            <details class="sm-table-details" data-table="pay_audit"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><td>Adverts with stated salary</td><td>39</td></tr><tr><td>No stated salary</td><td>20</td></tr><tr><td>Daily rate</td><td>8</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">DAILY RATES</p><h3>Eight contracts give a daily amount</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">The stated range is £150–£550 per day</h4><div class="sm-chart" id="daily-rates" role="img" aria-label="Daily pay rate range from 150 to 550 pounds, kept separate from annual salaries"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Median: £412.50 per day.</figcaption></figure>
+            <details class="sm-table-details" data-table="daily_rates"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Adverts</th><th scope="col">Minimum daily rate</th><th scope="col">Median daily rate</th><th scope="col">Maximum daily rate</th></tr></thead><tbody><tr><td>8</td><td>150</td><td>412.5</td><td>550</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card sm-card--span">
+            <p class="sm-kicker">WHERE PAY IS MISSING</p><h3>Some job sites leave salary out more often</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">Share of adverts with no pay by job-site type</h4><div class="sm-chart" id="pay-hidden" role="img" aria-label="Share of adverts without salary by source family"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Each bar shows the share with pay missing.</figcaption></figure>
+            <details class="sm-table-details" data-table="hidden_by_source"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Source</th><th scope="col">Adverts</th><th scope="col">Adverts with no salary</th><th scope="col">Share hidden</th></tr></thead><tbody><tr><td>Company ATS boards</td><td>159</td><td>114</td><td>71.7%</td></tr><tr><td>Reed</td><td>1,713</td><td>334</td><td>19.5%</td></tr><tr><td>Remote boards</td><td>116</td><td>114</td><td>98.3%</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <aside class="na-note sm-note"><b>These are advertised amounts.</b> They do not show take-home pay.</aside>
+        <a class="sm-bridge sm-bridge--link" href="#ai"><span>Next: see how often these adverts mention AI.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai" tabindex="-1" data-title="10 of 67 jobs matched to a graduate mention AI" data-kicker="AI in adverts">
+        <span id="tab-anchor-ai" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">AI in job descriptions</p>
+          <h2>Most adverts in the final list do not mention AI</h2>
+          <p>Each square is one advert. Navy marks adverts that mention AI; coral marks adverts with no mention.</p>
+          <p>Labels made by AI, not yet checked by a person.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <article class="na-panel sm-card">
+          <p class="sm-kicker">WHERE AI APPEARS</p><h3>AI mentions are more common in senior and remote-board adverts</h3>
+          <div class="sm-ai-grids" id="ai-grids" aria-label="AI mention grids for matched, senior and remote-board adverts"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div>
+          <details class="sm-table-details" data-table="ai_grids"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Advert group</th><th scope="col">Adverts</th><th scope="col">Mentioning AI</th><th scope="col">No AI mention</th><th scope="col">Share mentioning</th></tr></thead><tbody><tr><td>Matched adverts</td><td>67</td><td>10</td><td>57</td><td>14.9%</td></tr><tr><td>Senior adverts</td><td>188</td><td>54</td><td>134</td><td>28.7%</td></tr><tr><td>Remote-board adverts</td><td>116</td><td>52</td><td>64</td><td>44.8%</td></tr></tbody></table></div></noscript></div></details>
+          <p class="sm-screening-line">Two of 378 adverts mention AI screening, but advert wording cannot show how often employers use it.</p>
+          <details class="sm-table-details" data-table="ai_screening"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Screening wording</th><th scope="col">Adverts</th></tr></thead><tbody><tr><td>Mentions AI screening</td><td>2</td></tr><tr><td>No AI screening mention</td><td>376</td></tr><tr><td>All adverts in this group</td><td>378</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <div class="sm-grid">
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">WHAT THE WORDS SAY</p><h3>Most AI mentions name a specific tool or task</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">149 of 194 AI sentences were labelled specific</h4><div class="sm-chart" id="ai-specificity" role="img" aria-label="149 specific and 45 vague AI sentence labels"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Specific means the sentence named an AI tool or work task.</figcaption></figure>
+            <details class="sm-table-details" data-table="ai_specificity"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Specific sentences</th><th scope="col">AI-family sentences</th><th scope="col">Specific share</th><th scope="col">Spot-check reviewed</th><th scope="col">Judged vague</th><th scope="col">Applicant-screening adverts</th></tr></thead><tbody><tr><td>149</td><td>194</td><td>76.8%</td><td>18</td><td>3</td><td>2</td></tr></tbody></table></div></noscript></div><p class="sm-method-note">A spot-check found 3 of 18 labels marked specific were too broad.</p></details>
+          </article>
+          <article class="na-panel na-panel--quiet sm-card sm-card--quiet">
+            <p class="sm-kicker">WHAT THIS DOES NOT SHOW</p><h3>Advert wording is not a record of the hiring process</h3>
+            <p>Two adverts mention AI screening. The words alone cannot tell us how employers use screening tools.</p>
+            <details class="sm-table-details" data-table="ai_specificity"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Specific sentences</th><th scope="col">AI-family sentences</th><th scope="col">Specific share</th><th scope="col">Spot-check reviewed</th><th scope="col">Judged vague</th><th scope="col">Applicant-screening adverts</th></tr></thead><tbody><tr><td>149</td><td>194</td><td>76.8%</td><td>18</td><td>3</td><td>2</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <a class="sm-bridge sm-bridge--link" href="#explore"><span>Next: explore the skills behind the adverts.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-explore" role="tabpanel" aria-labelledby="tab-explore" tabindex="-1" data-title="Look for yourself" data-kicker="Explore skills">
+        <span id="tab-anchor-explore" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">Browse the skill list</p>
+          <h2>Compare the skills adverts ask for</h2>
+          <p>Change the job group, search for a skill, or sort the table. The chart and table move together.</p>
+          <p>There are 46 skills in the list. The chart starts with the 15 asked for most.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <article class="na-panel sm-card">
+          <div class="sm-explore-head"><div><p class="sm-kicker">46 SKILLS</p><h3>Essential skill requests</h3></div><label class="sm-filter">Job group<select id="skill-group"><option value="data_role_full">All 378 adverts with full descriptions</option><option value="shown">Jobs matched to graduates (67)</option></select></label></div>
+          <label class="sm-show-all"><input id="skill-show-all" type="checkbox">Show all skills</label>
+          <figure class="sm-figure"><h4 class="sm-chart-title">Top 15 by default</h4><div class="sm-chart" id="explore-bars" role="img" aria-label="Essential skill share for the selected job group"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Navy marks a skill covered in the course; coral marks a gap.</figcaption></figure>
+          <details class="sm-table-details" data-table="skills_top15"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Skill</th><th scope="col">Course-covered</th><th scope="col">Asking</th><th scope="col">Essential</th><th scope="col">Desirable</th><th scope="col">Essential share</th></tr></thead><tbody><tr><td>SQL</td><td>No</td><td>79</td><td>60</td><td>16</td><td>15.9%</td></tr><tr><td>Python</td><td>Yes</td><td>66</td><td>50</td><td>17</td><td>13.2%</td></tr><tr><td>Data analysis</td><td>Yes</td><td>72</td><td>49</td><td>11</td><td>13.0%</td></tr><tr><td>Excel</td><td>No</td><td>54</td><td>42</td><td>13</td><td>11.1%</td></tr><tr><td>Databases</td><td>Yes</td><td>46</td><td>37</td><td>4</td><td>9.8%</td></tr><tr><td>Using generative AI tools</td><td>Yes</td><td>45</td><td>31</td><td>15</td><td>8.2%</td></tr><tr><td>APIs and JSON</td><td>No</td><td>42</td><td>30</td><td>7</td><td>7.9%</td></tr><tr><td>Data cleaning and validation</td><td>Yes</td><td>59</td><td>30</td><td>5</td><td>7.9%</td></tr><tr><td>Power BI</td><td>Yes</td><td>37</td><td>25</td><td>11</td><td>6.6%</td></tr><tr><td>ETL and data pipelines</td><td>Yes</td><td>33</td><td>23</td><td>4</td><td>6.1%</td></tr><tr><td>AWS</td><td>No</td><td>28</td><td>22</td><td>6</td><td>5.8%</td></tr><tr><td>Building reports and dashboards</td><td>Yes</td><td>57</td><td>19</td><td>13</td><td>5.0%</td></tr><tr><td>Data protection, GDPR and data ethics</td><td>Yes</td><td>30</td><td>18</td><td>5</td><td>4.8%</td></tr><tr><td>CRM systems</td><td>No</td><td>49</td><td>17</td><td>23</td><td>4.5%</td></tr><tr><td>Data modelling (schema design)</td><td>No</td><td>19</td><td>17</td><td>1</td><td>4.5%</td></tr></tbody></table></div></noscript></div></details>
+          <label class="sm-filter sm-filter--search">Search skills<input id="skill-search" type="search" placeholder="Type a skill name" autocomplete="off"></label>
+          <div class="sm-table-scroll"><table class="sm-data-table" id="skill-table"><caption class="sr-only">Skill requests by job group. Select a column heading to sort.</caption><thead><tr><th scope="col" aria-sort="none"><button type="button" class="sm-sort-button" data-sort="skill">Skill</button></th><th scope="col" aria-sort="none"><button type="button" class="sm-sort-button" data-sort="course_covered">Covered in course</button></th><th scope="col" aria-sort="none"><button type="button" class="sm-sort-button" data-sort="adverts_asking">Adverts asking</button></th><th scope="col" aria-sort="descending"><button type="button" class="sm-sort-button" data-sort="essential">Essential</button></th><th scope="col" aria-sort="none"><button type="button" class="sm-sort-button" data-sort="desirable">Desirable</button></th><th scope="col" aria-sort="none"><button type="button" class="sm-sort-button" data-sort="share_essential">Essential share</button></th></tr></thead><tbody><tr><td>SQL</td><td>Gap</td><td>79</td><td>60</td><td>16</td><td>15.9%</td></tr><tr><td>Python</td><td>Covered</td><td>66</td><td>50</td><td>17</td><td>13.2%</td></tr><tr><td>Data analysis</td><td>Covered</td><td>72</td><td>49</td><td>11</td><td>13.0%</td></tr><tr><td>Excel</td><td>Gap</td><td>54</td><td>42</td><td>13</td><td>11.1%</td></tr><tr><td>Databases</td><td>Covered</td><td>46</td><td>37</td><td>4</td><td>9.8%</td></tr><tr><td>Using generative AI tools</td><td>Covered</td><td>45</td><td>31</td><td>15</td><td>8.2%</td></tr><tr><td>APIs and JSON</td><td>Gap</td><td>42</td><td>30</td><td>7</td><td>7.9%</td></tr><tr><td>Data cleaning and validation</td><td>Covered</td><td>59</td><td>30</td><td>5</td><td>7.9%</td></tr><tr><td>Power BI</td><td>Covered</td><td>37</td><td>25</td><td>11</td><td>6.6%</td></tr><tr><td>ETL and data pipelines</td><td>Covered</td><td>33</td><td>23</td><td>4</td><td>6.1%</td></tr><tr><td>AWS</td><td>Gap</td><td>28</td><td>22</td><td>6</td><td>5.8%</td></tr><tr><td>Building reports and dashboards</td><td>Covered</td><td>57</td><td>19</td><td>13</td><td>5.0%</td></tr><tr><td>Data protection, GDPR and data ethics</td><td>Covered</td><td>30</td><td>18</td><td>5</td><td>4.8%</td></tr><tr><td>CRM systems</td><td>Gap</td><td>49</td><td>17</td><td>23</td><td>4.5%</td></tr><tr><td>Data modelling (schema design)</td><td>Gap</td><td>19</td><td>17</td><td>1</td><td>4.5%</td></tr><tr><td>Microsoft Azure data tools</td><td>Gap</td><td>23</td><td>17</td><td>6</td><td>4.5%</td></tr><tr><td>Machine learning basics</td><td>Covered</td><td>19</td><td>16</td><td>4</td><td>4.2%</td></tr><tr><td>Microsoft Office and SharePoint</td><td>Gap</td><td>21</td><td>16</td><td>5</td><td>4.2%</td></tr><tr><td>Statistics and hypothesis testing</td><td>Covered</td><td>23</td><td>14</td><td>5</td><td>3.7%</td></tr><tr><td>Data warehousing</td><td>Gap</td><td>16</td><td>13</td><td>3</td><td>3.4%</td></tr><tr><td>Git and GitHub</td><td>Covered</td><td>16</td><td>12</td><td>2</td><td>3.2%</td></tr><tr><td>PostgreSQL</td><td>Gap</td><td>16</td><td>12</td><td>2</td><td>3.2%</td></tr><tr><td>Business analysis and requirements</td><td>Gap</td><td>22</td><td>11</td><td>1</td><td>2.9%</td></tr><tr><td>Agile ways of working</td><td>Gap</td><td>20</td><td>10</td><td>5</td><td>2.6%</td></tr><tr><td>Google Cloud and BigQuery</td><td>Gap</td><td>14</td><td>10</td><td>4</td><td>2.6%</td></tr><tr><td>Databricks or Snowflake</td><td>Gap</td><td>17</td><td>9</td><td>8</td><td>2.4%</td></tr><tr><td>ERP and finance systems</td><td>Gap</td><td>18</td><td>7</td><td>7</td><td>1.9%</td></tr><tr><td>Microsoft SQL Server (T-SQL)</td><td>Gap</td><td>7</td><td>7</td><td>1</td><td>1.9%</td></tr><tr><td>Google Sheets</td><td>Gap</td><td>8</td><td>6</td><td>2</td><td>1.6%</td></tr><tr><td>dbt</td><td>Gap</td><td>6</td><td>5</td><td>1</td><td>1.3%</td></tr><tr><td>HR and payroll systems</td><td>Gap</td><td>5</td><td>4</td><td>3</td><td>1.1%</td></tr><tr><td>Web and digital analytics</td><td>Gap</td><td>4</td><td>4</td><td>4</td><td>1.1%</td></tr><tr><td>Looker / Looker Studio</td><td>Gap</td><td>13</td><td>3</td><td>7</td><td>0.8%</td></tr><tr><td>Tableau</td><td>Covered</td><td>12</td><td>3</td><td>7</td><td>0.8%</td></tr><tr><td>GIS and mapping</td><td>Gap</td><td>10</td><td>2</td><td>7</td><td>0.5%</td></tr><tr><td>MySQL</td><td>Gap</td><td>3</td><td>2</td><td>1</td><td>0.5%</td></tr><tr><td>Power Automate and Power Apps</td><td>Gap</td><td>2</td><td>2</td><td>0</td><td>0.5%</td></tr><tr><td>VBA and macros</td><td>Gap</td><td>2</td><td>2</td><td>0</td><td>0.5%</td></tr><tr><td>Data testing and UAT</td><td>Gap</td><td>4</td><td>1</td><td>0</td><td>0.3%</td></tr><tr><td>Matplotlib and Seaborn</td><td>Covered</td><td>1</td><td>1</td><td>0</td><td>0.3%</td></tr><tr><td>NumPy</td><td>Covered</td><td>1</td><td>1</td><td>0</td><td>0.3%</td></tr><tr><td>pandas</td><td>Covered</td><td>1</td><td>1</td><td>0</td><td>0.3%</td></tr><tr><td>SAS</td><td>Gap</td><td>2</td><td>1</td><td>0</td><td>0.3%</td></tr><tr><td>R</td><td>Gap</td><td>2</td><td>0</td><td>1</td><td>0.0%</td></tr><tr><td>Records and case management systems</td><td>Gap</td><td>2</td><td>0</td><td>0</td><td>0.0%</td></tr><tr><td>Survey design and tools</td><td>Gap</td><td>0</td><td>0</td><td>0</td><td>0.0%</td></tr></tbody></table></div>
+          <p class="sm-inline-finding" id="skill-table-status" aria-live="polite">46 skills</p>
+          <details class="sm-table-details" data-table="skills_top15"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Skill</th><th scope="col">Course-covered</th><th scope="col">Asking</th><th scope="col">Essential</th><th scope="col">Desirable</th><th scope="col">Essential share</th></tr></thead><tbody><tr><td>SQL</td><td>No</td><td>79</td><td>60</td><td>16</td><td>15.9%</td></tr><tr><td>Python</td><td>Yes</td><td>66</td><td>50</td><td>17</td><td>13.2%</td></tr><tr><td>Data analysis</td><td>Yes</td><td>72</td><td>49</td><td>11</td><td>13.0%</td></tr><tr><td>Excel</td><td>No</td><td>54</td><td>42</td><td>13</td><td>11.1%</td></tr><tr><td>Databases</td><td>Yes</td><td>46</td><td>37</td><td>4</td><td>9.8%</td></tr><tr><td>Using generative AI tools</td><td>Yes</td><td>45</td><td>31</td><td>15</td><td>8.2%</td></tr><tr><td>APIs and JSON</td><td>No</td><td>42</td><td>30</td><td>7</td><td>7.9%</td></tr><tr><td>Data cleaning and validation</td><td>Yes</td><td>59</td><td>30</td><td>5</td><td>7.9%</td></tr><tr><td>Power BI</td><td>Yes</td><td>37</td><td>25</td><td>11</td><td>6.6%</td></tr><tr><td>ETL and data pipelines</td><td>Yes</td><td>33</td><td>23</td><td>4</td><td>6.1%</td></tr><tr><td>AWS</td><td>No</td><td>28</td><td>22</td><td>6</td><td>5.8%</td></tr><tr><td>Building reports and dashboards</td><td>Yes</td><td>57</td><td>19</td><td>13</td><td>5.0%</td></tr><tr><td>Data protection, GDPR and data ethics</td><td>Yes</td><td>30</td><td>18</td><td>5</td><td>4.8%</td></tr><tr><td>CRM systems</td><td>No</td><td>49</td><td>17</td><td>23</td><td>4.5%</td></tr><tr><td>Data modelling (schema design)</td><td>No</td><td>19</td><td>17</td><td>1</td><td>4.5%</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <a class="sm-bridge sm-bridge--link" href="#next"><span>Next: see what to learn next, based on the gaps in these adverts.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-next" role="tabpanel" aria-labelledby="tab-next" tabindex="-1" data-title="Recommended next steps" data-kicker="What to do next">
+        <span id="tab-anchor-next" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro sm-next-opening sm-next-opening--navy">
+          <p class="sm-eyebrow">What to do next</p>
+          <h2>Learn Excel first, then SQL</h2>
+          <div class="sm-next-stats" role="group" aria-label="What adding SQL and Excel could change">
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span class="sm-next-before">49.8%</span><span class="sm-next-arrow" aria-hidden="true">→</span><span class="sm-next-after">65.3%</span></p>
+              <figcaption>of the essential skills employers ask for, covered by the course, before and after adding SQL and Excel</figcaption>
+            </figure>
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span class="sm-next-before">38</span><span class="sm-next-arrow" aria-hidden="true">→</span><span class="sm-next-after">79</span></p>
+              <figcaption>of 203 adverts where you'd meet every essential skill: roughly double</figcaption>
+            </figure>
+          </div>
+          <p class="sm-next-order"><strong>Why this order?</strong> Excel is a familiar workplace tool; SQL builds on the filter, group and join logic you already know from pandas.</p>
+          <p class="sm-price-legend"><span class="sm-course-asterisk">*</span> coral asterisk: the course or its certificate costs money.</p>
+        </div>
+
+        <section class="sm-next-subject" aria-labelledby="next-excel-title">
+          <div class="na-panel na-phase sm-next-subject-heading sm-next-divider">
+            <p class="sm-eyebrow">First</p>
+            <h2 id="next-excel-title">Excel</h2>
+            <figure class="sm-map-figure sm-map-figure--excel">
+              <button class="sm-map-trigger" type="button" data-map-trigger="excel" aria-label="Open the Excel learning map full screen">
+                <span class="sm-map-loading" data-map-loading>Loading Excel map…</span>
+                <img src="assets/maps/excel_map.svg" alt="Excel at a glance, with a learning order" width="1992" height="1408" data-map-fallback hidden>
+              </button>
+              <figcaption><span>How Excel fits together, and what to learn first.</span><small>Map: Imogen, SkillMatch team.</small></figcaption>
+            </figure>
+            <!-- BLOCK START: Excel worked example (Imogen, 31 Oct 2026). Sits directly under Excel_Map_B2.svg. -->
+<style>
+.xlq{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--na-gap-tiles,14px);align-items:stretch}
+.xlq .q{font-size:17px;margin:8px 0 0}
+.xlq ol{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:r}
+.xlq li{display:flex;align-items:center;gap:12px;counter-increment:r;font-size:15px}
+.xlq li::before{content:counter(r);flex:none;width:24px;height:24px;border-radius:50%;background:var(--na-panel);color:var(--na-panel-ink);font:700 13px/24px var(--na-sans);text-align:center}
+.xlq li b{font-family:var(--na-mono);font-size:14px;background:var(--na-surface-2);border-radius:var(--na-pill);padding:4px 12px;white-space:nowrap}
+.xlq li span{color:var(--na-muted)}
+.xlq .na-codepane{font-size:15px;line-height:1.7;margin:16px 0 0;white-space:pre;overflow-x:auto}
+.xlq .f{color:#f2c14e;font-weight:700}   /* functions: Calculate yellow, as on the SQL map's query words */
+.xlq .o{color:#8fd17a;font-weight:700}
+.xlq .sub{margin:16px 0 0}
+.xlq .big{font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.3;margin:10px 0 0}
+.xlq .why{margin:16px 0 0;padding:14px 16px;border-radius:var(--na-r-sm,16px);background:var(--na-soft-blue);color:var(--na-soft-blue-ink,#1e2a4a);font-size:15px;line-height:1.55}
+.xlq .src{margin:14px 0 0;font-size:13px;color:var(--na-muted)}
+@media (max-width:480px){.xlq .na-codepane{font-size:13px}}
+</style>
+<div class="xlq">
+  <div class="na-card">
+    <span class="na-label">The same question as the SQL map, in Excel</span>
+    <p class="q">“Show me the 10 best-paid entry-level data jobs in Birmingham.”</p>
+    <ol>
+      <li><b>Ctrl+T</b> <span>make the adverts a table</span></li>
+      <li><b>Filter</b> <span>Town = Birmingham, Level = Entry</span></li>
+      <li><b>Sort</b> <span>Salary, largest to smallest</span></li>
+      <li><b>Read</b> <span>the top 10 rows</span></li>
+    </ol>
+    <span class="na-label sub" style="display:block">Or one formula (Excel 365)</span>
+<pre class="na-codepane"><code><span class="f">=TAKE(SORT(FILTER(</span>Adverts,
+  (Adverts[Town]="Birmingham") <span class="o">*</span>
+  (Adverts[Level]="Entry")
+<span class="f">), 3, -1), 10)</span></code></pre>
+  </div>
+  <div class="na-card">
+    <span class="na-label">When an advert says “advanced Excel”</span>
+    <p class="big">It usually means lookups and PivotTables.</p>
+    <p class="q" style="font-size:15px">Most adverts ask for a level (“strong”, “advanced”) and never say which parts. When they do name features, it is VLOOKUP and pivot tables, together.</p>
+    <p class="why"><strong>So learn these two first:</strong> XLOOKUP (or VLOOKUP on older Excel) to pull values from another table, and a PivotTable to summarise thousands of rows in a few clicks.</p>
+    <p class="src">From 78 SkillMatch adverts that mention Excel, collected 30 October 2026. A guide, not a statistic.</p>
+  </div>
+</div>
+<!-- BLOCK END -->
+          </div>
+          <div class="sm-next-resource-grid">
+            <article class="na-panel sm-card sm-next-resource-block">
+              <h3>Learn it</h3>
+              <p class="sm-course-block-note">Free resources learners recommend.</p>
+              <ol class="sm-course-list" id="excel-learn-courses" data-course-list>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://support.microsoft.com/excel" target="_blank" rel="noopener">Microsoft's own Excel training</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">Microsoft</p>
+                  <p class="sm-course-length">Short videos</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">Straight from the source: short videos on the basics.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://edu.gcfglobal.org/en/excel/" target="_blank" rel="noopener">GCFGlobal Excel</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">GCFGlobal</p>
+                  <p class="sm-course-length">Self-paced lessons</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">Clear, well-organised tutorials, long recommended for beginners.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.youtube.com/@LeilaGharani" target="_blank" rel="noopener">Leila Gharani</a></h4><span class="sm-level sm-level--building">Starter to Building</span></div>
+                  <p class="sm-course-provider">YouTube</p>
+                  <p class="sm-course-length">Short videos</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">One of the two most recommended Excel teachers on YouTube.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.youtube.com/@excelisfun" target="_blank" rel="noopener">ExcelIsFun</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">YouTube</p>
+                  <p class="sm-course-length">Video series</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">Deep, thorough playlists; a long-time learner favourite.</p>
+                </article></li>
+              </ol>
+              <button class="sm-course-toggle" type="button" data-course-toggle aria-controls="excel-learn-courses" aria-expanded="false" hidden>Show all</button>
+            </article>
+
+            <article class="na-panel sm-card sm-next-resource-block">
+              <h3>Prove it</h3>
+              <p class="sm-course-block-note">Certificate options for your CV.</p>
+              <ol class="sm-course-list" id="excel-prove-courses" data-course-list>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.wallstreetmojo.com/free-excel-course/" target="_blank" rel="noopener">Free Excel Course</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">WallStreetMojo</p>
+                  <p class="sm-course-length">About 1 hour</p>
+                  <p class="sm-course-certificate">Free certificate</p>
+                  <p class="sm-course-reason">A quick first certificate.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.open.edu/openlearn/science-maths-technology/data-analysis-visualisations-excel/content-section-0" target="_blank" rel="noopener">Data analysis: visualisations in Excel</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">OpenLearn, The Open University</p>
+                  <p class="sm-course-length">6 hours</p>
+                  <p class="sm-course-certificate">Free Statement of Participation</p>
+                  <p class="sm-course-reason">A UK university course, written by an Open University team.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.udemy.com/course/microsoft-excel-2013-from-beginner-to-advanced-and-beyond/" target="_blank" rel="noopener">Microsoft Excel – Excel from Beginner to Advanced</a></h4><span class="sm-level sm-level--building">Starter to Building</span></div>
+                  <p class="sm-course-provider">Kyle Pew, Udemy</p>
+                  <p class="sm-course-length">About 22.5 hours</p>
+                  <p class="sm-course-certificate"><span class="sm-course-asterisk">*</span> <span class="sm-course-paid">Paid course, usually about £15–20 on sale; certificate included</span></p>
+                  <p class="sm-course-reason">The course learners recommend most for going from zero to confident.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.udemy.com/course/microsoft-excel-advanced-excel-formulas-functions/" target="_blank" rel="noopener">Advanced Excel Formulas &amp; Functions</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">Maven Analytics, Udemy</p>
+                  <p class="sm-course-length">About 9.5 hours</p>
+                  <p class="sm-course-certificate"><span class="sm-course-asterisk">*</span> <span class="sm-course-paid">Paid course, usually on sale; certificate included</span></p>
+                  <p class="sm-course-reason">The formulas analysts actually use.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.coursera.org/learn/excel-essentials" target="_blank" rel="noopener">Excel Skills for Business: Essentials</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">Macquarie University, Coursera</p>
+                  <p class="sm-course-length">Several weeks part-time</p>
+                  <p class="sm-course-certificate"><span class="sm-course-asterisk">*</span> <span class="sm-course-paid">Free to audit; the certificate is paid</span></p>
+                  <p class="sm-course-reason">The best-reviewed course of all.</p>
+                </article></li>
+              </ol>
+              <button class="sm-course-toggle" type="button" data-course-toggle aria-controls="excel-prove-courses" aria-expanded="false" hidden>Show all</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="sm-next-subject" aria-labelledby="next-sql-title">
+          <article class="na-panel sm-card sm-sql-dialect sm-next-divider sm-next-sql-divider">
+            <p class="sm-kicker">SQL</p>
+            <h2 id="next-sql-title">SQL isn't one thing</h2>
+            <p>SQL is a family of dialects, a bit like British and American English. The core is the same everywhere (<code>SELECT</code>, <code>WHERE</code>, <code>JOIN</code>, <code>GROUP BY</code>); the small print differs (<code>LIMIT 10</code> in one, <code>TOP 10</code> in another; dates; some function names).</p>
+            <p>The ones you'll meet: PostgreSQL (free, common in analytics teams); MySQL (free, behind many websites); Microsoft SQL Server, T-SQL (common in large UK organisations, alongside Excel and Power BI); SQLite (a small database in a single file; SkillMatch itself uses it); BigQuery, Snowflake, Databricks (cloud warehouses for very large data; Kaggle's course uses BigQuery).</p>
+            <p class="sm-sql-takeaway">Learn the core once, in any dialect; moving to another takes days, not months.</p>
+            <p class="sm-sql-counts">In the full-description data-role adverts, requests tagged SQL appear in 79 adverts; PostgreSQL in 16, MySQL in 3, SQL Server/T-SQL in 7, Google Cloud/BigQuery in 14, and Snowflake/Databricks in 17.</p>
+            <p class="sm-sql-source">Source: the project's <cite>skill_explorer.csv</cite>, column <code>data_role_full_adverts_asking</code>. Skill tags can overlap.</p>
+          </article>
+          <figure class="sm-map-figure sm-map-figure--sql">
+            <button class="sm-map-trigger" type="button" data-map-trigger="sql" aria-label="Open the SQL learning map full screen">
+              <span class="sm-map-loading" data-map-loading>Loading SQL map…</span>
+              <img src="assets/maps/sql_map.svg" alt="SQL at a glance, with a learning order" width="1826" height="1393" data-map-fallback hidden>
+            </button>
+            <figcaption><span>How SQL fits together, and what to learn first.</span><small>Map: Imogen, SkillMatch team.</small></figcaption>
+          </figure>
+          <!-- BLOCK START: SQL query block (Imogen, 31 Oct 2026). Sits directly under SQL_Map_B2.svg. -->
+<style>
+.sqlq{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--na-gap-tiles,14px);align-items:stretch}
+.sqlq .na-codepane{font-size:16px;line-height:1.75;white-space:pre;overflow-x:auto;margin:14px 0 0}
+.sqlq .k{color:#f2c14e;font-weight:700}   /* query words: DQL yellow, as on the map */
+.sqlq .o{color:#8fd17a;font-weight:700}   /* operators: green, as on the map */
+.sqlq .q{font-size:17px;margin:8px 0 0}
+.sqlq ol{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:r}
+.sqlq li{display:flex;align-items:center;gap:12px;counter-increment:r;font-size:15px}
+.sqlq li::before{content:counter(r);flex:none;width:24px;height:24px;border-radius:50%;background:var(--na-panel);color:var(--na-panel-ink);font:700 13px/24px var(--na-sans);text-align:center}
+.sqlq li b{font-family:var(--na-mono);font-size:14px;background:var(--na-surface-2);border-radius:var(--na-pill);padding:4px 12px}
+.sqlq li span{color:var(--na-muted)}
+.sqlq .why{margin:18px 0 0;padding:14px 16px;border-radius:var(--na-r-sm,16px);background:var(--na-soft-blue);color:var(--na-soft-blue-ink,#1e2a4a);font-size:15px;line-height:1.55}
+@media (max-width:480px){.sqlq .na-codepane{font-size:13px}}
+</style>
+<div class="sqlq">
+  <div class="na-card">
+    <span class="na-label">How the pieces fit: one real question</span>
+    <p class="q">“Show me the 10 best-paid entry-level data jobs in Birmingham.”</p>
+<pre class="na-codepane"><code><span class="k">SELECT</span>   title, employer, salary
+<span class="k">FROM</span>     adverts
+<span class="k">WHERE</span>    town <span class="o">=</span> 'Birmingham'
+  <span class="o">AND</span>    level <span class="o">=</span> 'Entry'
+<span class="k">ORDER BY</span> salary <span class="k">DESC</span>
+<span class="k">LIMIT</span>    10;</code></pre>
+  </div>
+  <div class="na-card">
+    <span class="na-label">You write it top to bottom. SQL runs it in this order:</span>
+    <ol>
+      <li><b>FROM</b> <span>find the adverts table</span></li>
+      <li><b>WHERE</b> <span>keep Birmingham, entry level</span></li>
+      <li><b>SELECT</b> <span>pick three columns</span></li>
+      <li><b>ORDER BY</b> <span>highest salary first</span></li>
+      <li><b>LIMIT</b> <span>stop after 10</span></li>
+    </ol>
+    <p class="why"><strong>Why it matters:</strong> WHERE runs before SELECT, so a column you rename in SELECT (with AS) doesn’t exist yet when WHERE runs. It’s one of the first errors beginners hit.</p>
+  </div>
+</div>
+<!-- BLOCK END -->
+          <div class="sm-next-resource-grid">
+            <article class="na-panel sm-card sm-next-resource-block">
+              <h3>Learn it</h3>
+              <p class="sm-course-block-note">Free resources learners recommend.</p>
+              <ol class="sm-course-list" id="sql-learn-courses" data-course-list>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://sqlbolt.com" target="_blank" rel="noopener">SQLBolt</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">SQLBolt</p>
+                  <p class="sm-course-length">18 short interactive lessons</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">Fast, browser-based lessons with instant exercises.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.khanacademy.org/computing/computer-programming/sql" target="_blank" rel="noopener">Intro to SQL</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">Khan Academy</p>
+                  <p class="sm-course-length">Short lessons</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">A gentle first contact.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://sqlzoo.net" target="_blank" rel="noopener">SQLZoo</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">SQLZoo</p>
+                  <p class="sm-course-length">Practice exercises</p>
+                  <p class="sm-course-certificate">Free, no certificate</p>
+                  <p class="sm-course-reason">Some of the best free exercises online; strict about exact answers.</p>
+                </article></li>
+              </ol>
+              <button class="sm-course-toggle" type="button" data-course-toggle aria-controls="sql-learn-courses" aria-expanded="false" hidden>Show all</button>
+            </article>
+
+            <article class="na-panel sm-card sm-next-resource-block">
+              <h3>Prove it</h3>
+              <p class="sm-course-block-note">Certificate options for your CV.</p>
+              <ol class="sm-course-list" id="sql-prove-courses" data-course-list>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.kaggle.com/learn/intro-to-sql" target="_blank" rel="noopener">Intro to SQL</a></h4><span class="sm-level sm-level--starter">Starter</span></div>
+                  <p class="sm-course-provider">Kaggle</p>
+                  <p class="sm-course-length">About 3 hours</p>
+                  <p class="sm-course-certificate">Free certificate · Dialect: BigQuery</p>
+                  <p class="sm-course-reason">Real datasets, in notebooks you already know.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.kaggle.com/learn/advanced-sql" target="_blank" rel="noopener">Advanced SQL</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">Kaggle</p>
+                  <p class="sm-course-length">About 4 hours</p>
+                  <p class="sm-course-certificate">Free certificate · Dialect: BigQuery</p>
+                  <p class="sm-course-reason">The natural next step.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://devgym.oracle.com/pls/apex/dg/competition/sql" target="_blank" rel="noopener">Databases for Developers: Foundations</a></h4><span class="sm-level sm-level--building">Building</span></div>
+                  <p class="sm-course-provider">Oracle Dev Gym</p>
+                  <p class="sm-course-length">10 modules</p>
+                  <p class="sm-course-certificate">Free certificate · Dialect: Oracle</p>
+                  <p class="sm-course-reason">Videos, live SQL and quizzes, from Oracle.</p>
+                </article></li>
+                <li data-course-card><article class="sm-course-card">
+                  <div class="sm-course-card__heading"><h4><a href="https://www.freecodecamp.org/learn/relational-databases-v9/" target="_blank" rel="noopener">Relational Databases certification</a></h4><span class="sm-level sm-level--further">Going further</span></div>
+                  <p class="sm-course-provider">freeCodeCamp</p>
+                  <p class="sm-course-length">5 projects plus a 50-question exam</p>
+                  <p class="sm-course-certificate">Free verified certification</p>
+                  <p class="sm-course-reason">Deeper: also covers Bash and Git.</p>
+                </article></li>
+              </ol>
+              <button class="sm-course-toggle" type="button" data-course-toggle aria-controls="sql-prove-courses" aria-expanded="false" hidden>Show all</button>
+            </article>
+          </div>
+        </section>
+
+        <aside class="na-panel sm-next-keep-going">
+          <h3>Keep your skills alive</h3>
+          <p>Start small: even a one-week course is a real step.</p>
+          <p>Then keep going. Do another course or a few exercises every week, so the skills stay fresh.</p>
+          <p>SQL and Excel lift how well you match these adverts from under 50% (49.8%) to about 65% (65.3%). That's your SkillMatch, improved.</p>
+        </aside>
+
+        <aside class="na-note sm-note sm-next-footer">Curated from learners' recommendations and reviews, not search rankings. Online ratings can be inflated, so treat them as a guide. Checked 31 October 2026. Course terms and prices change; check before you enrol.</aside>
+        <a class="sm-bridge sm-bridge--link" href="#method"><span>Next: open the notebooks and data behind these summaries.</span><span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sm-panel" id="panel-method" role="tabpanel" aria-labelledby="tab-method" tabindex="-1" data-title="How we did it" data-kicker="The data and method">
+        <span id="tab-anchor-method" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">How the summary was made</p>
+          <h2>The notebooks follow one captured search from collection to findings</h2>
+          <p>John's course-versus-market question and radar chart started this analysis.</p>
+          <p>They prepare and check the listings, narrow the search, compare skills and pay, then review AI wording and advertiser names.</p>
+          <p>Public charts show aggregate counts. The source rows stay local.</p>
+          <div class="sm-tab-legend" aria-label="Chart colour key">
+            <span><i class="sm-legend-swatch sm-legend-swatch--navy" aria-hidden="true"></i>Navy: kept or covered</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--coral" aria-hidden="true"></i>Coral: gaps, and the 67 matched jobs</span>
+            <span><i class="sm-legend-swatch sm-legend-swatch--stone" aria-hidden="true"></i>Stone: context or unclear</span>
+          </div>
+        </div>
+        <article class="na-panel sm-card">
+          <p class="sm-kicker">THE ANALYSIS FUNNEL</p><h3>Each filter narrows the same captured sample</h3>
+          <figure class="sm-figure"><h4 class="sm-chart-title">4,654 adverts collected; 67 matched to graduates</h4><div class="sm-chart" id="method-funnel" role="img" aria-label="Filter counts from 4,654 collected adverts to 67 matched"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>Counts at the five main analysis stages.</figcaption></figure>
+          <details class="sm-table-details" data-table="method"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Stage</th><th scope="col">Count</th></tr></thead><tbody><tr><td>Primary distinct adverts</td><td>4,654</td></tr><tr><td>Data-role pool</td><td>1,988</td></tr><tr><td>Full-description data-role adverts</td><td>378</td></tr><tr><td>Requirement-ID sentence occurrences</td><td>5,840</td></tr><tr><td>Matched adverts</td><td>67</td></tr></tbody></table></div></noscript></div></details>
+        </article>
+        <div class="sm-grid">
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">THE ADVERTISER SAMPLE</p><h3>The name check found several labels that needed review</h3>
+            <figure class="sm-figure"><h4 class="sm-chart-title">17 agency, 15 employer and 8 unclear labels</h4><div class="sm-chart" id="method-sample" role="img" aria-label="40 advertiser sample labels: 17 agency, 15 employer and 8 unclear"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>40 adverts carried 39 distinct advertiser names. The labels were made by AI and have not been checked by a person.</figcaption></figure>
+            <details class="sm-table-details" data-table="advertiser_sample"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Sample label</th><th scope="col">Adverts</th></tr></thead><tbody><tr><td>Agency</td><td>17</td></tr><tr><td>Employer</td><td>15</td></tr><tr><td>Unclear</td><td>8</td></tr><tr><td>All sampled adverts</td><td>40</td></tr><tr><td>Distinct advertiser names</td><td>39</td></tr></tbody></table></div></noscript></div></details>
+            <figure class="sm-figure"><h4 class="sm-chart-title">The sample had one repeated advertiser name</h4><div class="sm-chart" id="method-names" role="img" aria-label="40 sampled adverts contained 39 distinct advertiser names"><noscript><span class="sm-chart-fallback">Chart display needs JavaScript. Open the data table below for the numbers.</span></noscript></div><figcaption>The advertiser-name file and row-level audit stay local.</figcaption></figure>
+            <details class="sm-table-details" data-table="method_names"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Measure</th><th scope="col">Count</th></tr></thead><tbody><tr><td>Sampled adverts</td><td>40</td></tr><tr><td>Distinct advertiser names</td><td>39</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+          <article class="na-panel sm-card">
+            <p class="sm-kicker">LABEL STATUS</p><h3>AI and generic labels still need a person to check them</h3>
+            <p>The page keeps “AI judgement, human check pending” beside the relevant summaries. The Stage 8 generic wording rules check broad personal qualities before job-specific markers and exclude application text.</p>
+            <details class="sm-table-details" data-table="generic_summary"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Wording label</th><th scope="col">Sentences</th><th scope="col">Share</th></tr></thead><tbody><tr><td>generic</td><td>939</td><td>16.1%</td></tr><tr><td>concrete</td><td>4,901</td><td>83.9%</td></tr></tbody></table></div></noscript></div><p class="sm-method-note">The earlier 46.9% / 44% estimate could not be reproduced. A check found 4 of 15 examples labelled specific were not specific; treat the current broad-wording share as a lower bound.</p></details>
+          </article>
+          <article class="na-panel sm-card sm-card--span">
+            <p class="sm-kicker">REPRODUCIBLE NOTEBOOKS</p><h3>Read the work in order</h3>
+            <ol class="sm-notebook-list">
+              <li><a href="notebooks/01_data_prep.html">01 · Prepare the data</a></li>
+              <li><a href="notebooks/02_haystack.html">02 · The haystack</a></li>
+              <li><a href="notebooks/03_market.html">03 · Skills and pay</a></li>
+              <li><a href="notebooks/04_ai_gap.html">04 · AI wording</a></li>
+              <li><a href="notebooks/05_advertisers_and_wording.html">05 · Advertiser review and generic wording</a></li>
+            </ol>
+            <p class="sm-inline-finding">The page contains aggregate counts only. Vacancy identifiers, employer-name lists, advert rows, salary checks and sentence spot-check examples stay under local data folders.</p>
+            <details class="sm-table-details" data-table="method"><summary>The data</summary><div class="sm-table-host"><noscript><div class="sm-table-scroll"><table class="sm-data-table"><thead><tr><th scope="col">Stage</th><th scope="col">Count</th></tr></thead><tbody><tr><td>Primary distinct adverts</td><td>4,654</td></tr><tr><td>Data-role pool</td><td>1,988</td></tr><tr><td>Full-description data-role adverts</td><td>378</td></tr><tr><td>Requirement-ID sentence occurrences</td><td>5,840</td></tr><tr><td>Matched adverts</td><td>67</td></tr></tbody></table></div></noscript></div></details>
+          </article>
+        </div>
+        <aside class="na-note sm-note"><b>Limits:</b> the snapshot shows collected adverts, not the whole job market. Advertiser labels and sentence labels include AI judgement and remain unchecked by a person.</aside>
+        <a class="sm-bridge sm-bridge--link" href="#overview"><span>Next: return to Overview and follow the search from the first sighting.</span><span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="na-footer"><span>SkillMatch · Data analysis</span><span>· Summary counts only</span></footer>
+  <dialog class="sm-map-dialog" id="sm-map-dialog" aria-labelledby="sm-map-dialog-title" aria-describedby="sm-map-dialog-help">
+    <div class="sm-map-dialog__layout">
+      <div class="sm-map-dialog__toolbar">
+        <div class="sm-map-dialog__heading">
+          <h2 id="sm-map-dialog-title">Learning map</h2>
+          <p id="sm-map-dialog-help" class="sr-only">Zoom with the mouse wheel or pinch. Drag to pan. Keyboard: plus and minus zoom; arrow keys pan.</p>
+        </div>
+        <div class="sm-map-dialog__controls" aria-label="Map controls">
+          <button type="button" data-map-zoom-out aria-label="Zoom out">−</button>
+          <button type="button" data-map-zoom-in aria-label="Zoom in">+</button>
+          <button type="button" data-map-reset>Reset</button>
+          <button type="button" data-map-close>Close</button>
+        </div>
+      </div>
+      <div class="sm-map-dialog__viewport" data-map-viewport tabindex="0" aria-label="Zoomable learning map">
+        <div class="sm-map-dialog__stage" data-map-stage></div>
+      </div>
+      <p class="sr-only" data-map-zoom-status aria-live="polite"></p>
+    </div>
+  </dialog>
+</body>
+</html>

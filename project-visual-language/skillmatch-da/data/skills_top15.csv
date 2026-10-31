@@ -1,0 +1,16 @@
+skill,skill_id,course_covered,data_role_full_adverts_asking,data_role_full_essential,data_role_full_desirable,data_role_full_share_essential,shown_adverts_asking,shown_essential,shown_desirable,shown_share_essential
+SQL,sql,False,79,60,16,0.15873015873015872,31,26,4,0.3880597014925373
+Python,python,True,66,50,17,0.13227513227513227,7,6,0,0.08955223880597014
+Data analysis,data_analysis,True,72,49,11,0.12962962962962962,30,21,2,0.31343283582089554
+Excel,excel,False,54,42,13,0.1111111111111111,24,19,5,0.2835820895522388
+Databases,databases,True,46,37,4,0.09788359788359788,10,7,1,0.1044776119402985
+Using generative AI tools,generative_ai,True,45,31,15,0.082010582010582,2,0,1,0.0
+APIs and JSON,apis_json,False,42,30,7,0.07936507936507936,1,1,0,0.014925373134328358
+Data cleaning and validation,data_cleaning,True,59,30,5,0.07936507936507936,25,12,3,0.1791044776119403
+Power BI,power_bi,True,37,25,11,0.06613756613756613,21,14,6,0.208955223880597
+ETL and data pipelines,etl,True,33,23,4,0.06084656084656084,9,6,0,0.08955223880597014
+AWS,aws,False,28,22,6,0.0582010582010582,0,0,0,0.0
+Building reports and dashboards,dashboards_reporting,True,57,19,13,0.05026455026455026,28,13,5,0.19402985074626866
+"Data protection, GDPR and data ethics",data_ethics_gdpr,True,30,18,5,0.047619047619047616,13,6,4,0.08955223880597014
+CRM systems,crm_systems,False,49,17,23,0.04497354497354497,7,6,2,0.08955223880597014
+Data modelling (schema design),data_modelling,False,19,17,1,0.04497354497354497,9,8,0,0.11940298507462686

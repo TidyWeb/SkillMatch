@@ -1,0 +1,39 @@
+{
+  "scale_ticks": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+  ],
+  "scenarios": [
+    {
+      "scenario": "As taught",
+      "covered_skill_requests": 330,
+      "essential_skill_requests": 662,
+      "coverage_percent": 49.8489,
+      "full_description_adverts": 378,
+      "adverts_with_essential_skills": 203,
+      "adverts_without_essential_skills": 175,
+      "adverts_every_essential_skill_covered": 38,
+      "adverts_every_essential_skill_covered_percent": 18.7192
+    },
+    {
+      "scenario": "With SQL and Excel",
+      "covered_skill_requests": 432,
+      "essential_skill_requests": 662,
+      "coverage_percent": 65.2568,
+      "full_description_adverts": 378,
+      "adverts_with_essential_skills": 203,
+      "adverts_without_essential_skills": 175,
+      "adverts_every_essential_skill_covered": 79,
+      "adverts_every_essential_skill_covered_percent": 38.9163
+    }
+  ]
+}

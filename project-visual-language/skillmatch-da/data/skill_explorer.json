@@ -1,0 +1,788 @@
+{
+  "data_role_full_adverts": 378,
+  "shown_adverts": 67,
+  "skills": [
+    {
+      "skill": "SQL",
+      "skill_id": "sql",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 79,
+        "essential": 60,
+        "desirable": 16,
+        "share_essential": 0.15873015873015872
+      },
+      "shown": {
+        "adverts_asking": 31,
+        "essential": 26,
+        "desirable": 4,
+        "share_essential": 0.3880597014925373
+      }
+    },
+    {
+      "skill": "Python",
+      "skill_id": "python",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 66,
+        "essential": 50,
+        "desirable": 17,
+        "share_essential": 0.13227513227513227
+      },
+      "shown": {
+        "adverts_asking": 7,
+        "essential": 6,
+        "desirable": 0,
+        "share_essential": 0.08955223880597014
+      }
+    },
+    {
+      "skill": "Data analysis",
+      "skill_id": "data_analysis",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 72,
+        "essential": 49,
+        "desirable": 11,
+        "share_essential": 0.12962962962962962
+      },
+      "shown": {
+        "adverts_asking": 30,
+        "essential": 21,
+        "desirable": 2,
+        "share_essential": 0.31343283582089554
+      }
+    },
+    {
+      "skill": "Excel",
+      "skill_id": "excel",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 54,
+        "essential": 42,
+        "desirable": 13,
+        "share_essential": 0.1111111111111111
+      },
+      "shown": {
+        "adverts_asking": 24,
+        "essential": 19,
+        "desirable": 5,
+        "share_essential": 0.2835820895522388
+      }
+    },
+    {
+      "skill": "Databases",
+      "skill_id": "databases",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 46,
+        "essential": 37,
+        "desirable": 4,
+        "share_essential": 0.09788359788359788
+      },
+      "shown": {
+        "adverts_asking": 10,
+        "essential": 7,
+        "desirable": 1,
+        "share_essential": 0.1044776119402985
+      }
+    },
+    {
+      "skill": "Using generative AI tools",
+      "skill_id": "generative_ai",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 45,
+        "essential": 31,
+        "desirable": 15,
+        "share_essential": 0.082010582010582
+      },
+      "shown": {
+        "adverts_asking": 2,
+        "essential": 0,
+        "desirable": 1,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "APIs and JSON",
+      "skill_id": "apis_json",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 42,
+        "essential": 30,
+        "desirable": 7,
+        "share_essential": 0.07936507936507936
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Data cleaning and validation",
+      "skill_id": "data_cleaning",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 59,
+        "essential": 30,
+        "desirable": 5,
+        "share_essential": 0.07936507936507936
+      },
+      "shown": {
+        "adverts_asking": 25,
+        "essential": 12,
+        "desirable": 3,
+        "share_essential": 0.1791044776119403
+      }
+    },
+    {
+      "skill": "Power BI",
+      "skill_id": "power_bi",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 37,
+        "essential": 25,
+        "desirable": 11,
+        "share_essential": 0.06613756613756613
+      },
+      "shown": {
+        "adverts_asking": 21,
+        "essential": 14,
+        "desirable": 6,
+        "share_essential": 0.208955223880597
+      }
+    },
+    {
+      "skill": "ETL and data pipelines",
+      "skill_id": "etl",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 33,
+        "essential": 23,
+        "desirable": 4,
+        "share_essential": 0.06084656084656084
+      },
+      "shown": {
+        "adverts_asking": 9,
+        "essential": 6,
+        "desirable": 0,
+        "share_essential": 0.08955223880597014
+      }
+    },
+    {
+      "skill": "AWS",
+      "skill_id": "aws",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 28,
+        "essential": 22,
+        "desirable": 6,
+        "share_essential": 0.0582010582010582
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "Building reports and dashboards",
+      "skill_id": "dashboards_reporting",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 57,
+        "essential": 19,
+        "desirable": 13,
+        "share_essential": 0.05026455026455026
+      },
+      "shown": {
+        "adverts_asking": 28,
+        "essential": 13,
+        "desirable": 5,
+        "share_essential": 0.19402985074626866
+      }
+    },
+    {
+      "skill": "Data protection, GDPR and data ethics",
+      "skill_id": "data_ethics_gdpr",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 30,
+        "essential": 18,
+        "desirable": 5,
+        "share_essential": 0.047619047619047616
+      },
+      "shown": {
+        "adverts_asking": 13,
+        "essential": 6,
+        "desirable": 4,
+        "share_essential": 0.08955223880597014
+      }
+    },
+    {
+      "skill": "CRM systems",
+      "skill_id": "crm_systems",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 49,
+        "essential": 17,
+        "desirable": 23,
+        "share_essential": 0.04497354497354497
+      },
+      "shown": {
+        "adverts_asking": 7,
+        "essential": 6,
+        "desirable": 2,
+        "share_essential": 0.08955223880597014
+      }
+    },
+    {
+      "skill": "Data modelling (schema design)",
+      "skill_id": "data_modelling",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 19,
+        "essential": 17,
+        "desirable": 1,
+        "share_essential": 0.04497354497354497
+      },
+      "shown": {
+        "adverts_asking": 9,
+        "essential": 8,
+        "desirable": 0,
+        "share_essential": 0.11940298507462686
+      }
+    },
+    {
+      "skill": "Microsoft Azure data tools",
+      "skill_id": "azure",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 23,
+        "essential": 17,
+        "desirable": 6,
+        "share_essential": 0.04497354497354497
+      },
+      "shown": {
+        "adverts_asking": 9,
+        "essential": 6,
+        "desirable": 3,
+        "share_essential": 0.08955223880597014
+      }
+    },
+    {
+      "skill": "Machine learning basics",
+      "skill_id": "machine_learning",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 19,
+        "essential": 16,
+        "desirable": 4,
+        "share_essential": 0.042328042328042326
+      },
+      "shown": {
+        "adverts_asking": 2,
+        "essential": 2,
+        "desirable": 0,
+        "share_essential": 0.029850746268656716
+      }
+    },
+    {
+      "skill": "Microsoft Office and SharePoint",
+      "skill_id": "microsoft_office",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 21,
+        "essential": 16,
+        "desirable": 5,
+        "share_essential": 0.042328042328042326
+      },
+      "shown": {
+        "adverts_asking": 4,
+        "essential": 3,
+        "desirable": 1,
+        "share_essential": 0.04477611940298507
+      }
+    },
+    {
+      "skill": "Statistics and hypothesis testing",
+      "skill_id": "statistics",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 23,
+        "essential": 14,
+        "desirable": 5,
+        "share_essential": 0.037037037037037035
+      },
+      "shown": {
+        "adverts_asking": 6,
+        "essential": 4,
+        "desirable": 1,
+        "share_essential": 0.05970149253731343
+      }
+    },
+    {
+      "skill": "Data warehousing",
+      "skill_id": "data_warehousing",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 16,
+        "essential": 13,
+        "desirable": 3,
+        "share_essential": 0.03439153439153439
+      },
+      "shown": {
+        "adverts_asking": 8,
+        "essential": 8,
+        "desirable": 0,
+        "share_essential": 0.11940298507462686
+      }
+    },
+    {
+      "skill": "Git and GitHub",
+      "skill_id": "git",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 16,
+        "essential": 12,
+        "desirable": 2,
+        "share_essential": 0.031746031746031744
+      },
+      "shown": {
+        "adverts_asking": 5,
+        "essential": 3,
+        "desirable": 1,
+        "share_essential": 0.04477611940298507
+      }
+    },
+    {
+      "skill": "PostgreSQL",
+      "skill_id": "postgresql",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 16,
+        "essential": 12,
+        "desirable": 2,
+        "share_essential": 0.031746031746031744
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Business analysis and requirements",
+      "skill_id": "business_analysis",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 22,
+        "essential": 11,
+        "desirable": 1,
+        "share_essential": 0.0291005291005291
+      },
+      "shown": {
+        "adverts_asking": 9,
+        "essential": 5,
+        "desirable": 1,
+        "share_essential": 0.07462686567164178
+      }
+    },
+    {
+      "skill": "Agile ways of working",
+      "skill_id": "agile_methods",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 20,
+        "essential": 10,
+        "desirable": 5,
+        "share_essential": 0.026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 4,
+        "essential": 2,
+        "desirable": 2,
+        "share_essential": 0.029850746268656716
+      }
+    },
+    {
+      "skill": "Google Cloud and BigQuery",
+      "skill_id": "gcp",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 14,
+        "essential": 10,
+        "desirable": 4,
+        "share_essential": 0.026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 2,
+        "essential": 1,
+        "desirable": 1,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Databricks or Snowflake",
+      "skill_id": "databricks",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 17,
+        "essential": 9,
+        "desirable": 8,
+        "share_essential": 0.023809523809523808
+      },
+      "shown": {
+        "adverts_asking": 6,
+        "essential": 3,
+        "desirable": 3,
+        "share_essential": 0.04477611940298507
+      }
+    },
+    {
+      "skill": "ERP and finance systems",
+      "skill_id": "erp_systems",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 18,
+        "essential": 7,
+        "desirable": 7,
+        "share_essential": 0.018518518518518517
+      },
+      "shown": {
+        "adverts_asking": 5,
+        "essential": 1,
+        "desirable": 2,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Microsoft SQL Server (T-SQL)",
+      "skill_id": "t_sql",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 7,
+        "essential": 7,
+        "desirable": 1,
+        "share_essential": 0.018518518518518517
+      },
+      "shown": {
+        "adverts_asking": 5,
+        "essential": 5,
+        "desirable": 1,
+        "share_essential": 0.07462686567164178
+      }
+    },
+    {
+      "skill": "Google Sheets",
+      "skill_id": "google_sheets",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 8,
+        "essential": 6,
+        "desirable": 2,
+        "share_essential": 0.015873015873015872
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "dbt",
+      "skill_id": "dbt",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 6,
+        "essential": 5,
+        "desirable": 1,
+        "share_essential": 0.013227513227513227
+      },
+      "shown": {
+        "adverts_asking": 4,
+        "essential": 3,
+        "desirable": 1,
+        "share_essential": 0.04477611940298507
+      }
+    },
+    {
+      "skill": "HR and payroll systems",
+      "skill_id": "hr_systems",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 5,
+        "essential": 4,
+        "desirable": 3,
+        "share_essential": 0.010582010582010581
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 1,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Web and digital analytics",
+      "skill_id": "web_analytics",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 4,
+        "essential": 4,
+        "desirable": 4,
+        "share_essential": 0.010582010582010581
+      },
+      "shown": {
+        "adverts_asking": 2,
+        "essential": 2,
+        "desirable": 2,
+        "share_essential": 0.029850746268656716
+      }
+    },
+    {
+      "skill": "Looker / Looker Studio",
+      "skill_id": "looker",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 13,
+        "essential": 3,
+        "desirable": 7,
+        "share_essential": 0.007936507936507936
+      },
+      "shown": {
+        "adverts_asking": 3,
+        "essential": 1,
+        "desirable": 1,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Tableau",
+      "skill_id": "tableau",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 12,
+        "essential": 3,
+        "desirable": 7,
+        "share_essential": 0.007936507936507936
+      },
+      "shown": {
+        "adverts_asking": 5,
+        "essential": 1,
+        "desirable": 2,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "GIS and mapping",
+      "skill_id": "gis",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 10,
+        "essential": 2,
+        "desirable": 7,
+        "share_essential": 0.005291005291005291
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "MySQL",
+      "skill_id": "mysql",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 3,
+        "essential": 2,
+        "desirable": 1,
+        "share_essential": 0.005291005291005291
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "Power Automate and Power Apps",
+      "skill_id": "power_automate",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 2,
+        "essential": 2,
+        "desirable": 0,
+        "share_essential": 0.005291005291005291
+      },
+      "shown": {
+        "adverts_asking": 2,
+        "essential": 2,
+        "desirable": 0,
+        "share_essential": 0.029850746268656716
+      }
+    },
+    {
+      "skill": "VBA and macros",
+      "skill_id": "vba",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 2,
+        "essential": 2,
+        "desirable": 0,
+        "share_essential": 0.005291005291005291
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Data testing and UAT",
+      "skill_id": "testing_uat",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 4,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.0026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 3,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "Matplotlib and Seaborn",
+      "skill_id": "matplotlib_seaborn",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.0026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "NumPy",
+      "skill_id": "numpy",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.0026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "pandas",
+      "skill_id": "pandas",
+      "course_covered": true,
+      "data_role_full": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.0026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.014925373134328358
+      }
+    },
+    {
+      "skill": "SAS",
+      "skill_id": "sas",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 2,
+        "essential": 1,
+        "desirable": 0,
+        "share_essential": 0.0026455026455026454
+      },
+      "shown": {
+        "adverts_asking": 1,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "R",
+      "skill_id": "r_language",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 2,
+        "essential": 0,
+        "desirable": 1,
+        "share_essential": 0.0
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "Records and case management systems",
+      "skill_id": "case_management_systems",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 2,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    },
+    {
+      "skill": "Survey design and tools",
+      "skill_id": "survey_tools",
+      "course_covered": false,
+      "data_role_full": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      },
+      "shown": {
+        "adverts_asking": 0,
+        "essential": 0,
+        "desirable": 0,
+        "share_essential": 0.0
+      }
+    }
+  ]
+}

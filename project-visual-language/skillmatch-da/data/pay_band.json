@@ -1,0 +1,16 @@
+{
+  "shown_adverts_with_usable_annual_salary": 39.0,
+  "shown_adverts_without_stated_salary": 20.0,
+  "stated_salary_without_usable_annual_midpoint": 0.0,
+  "daily_rate_adverts_separate": 8.0,
+  "daily_rate_min": 150.0,
+  "daily_rate_max": 550.0,
+  "annual_midpoint_min": 25000.0,
+  "annual_midpoint_q25": 35000.0,
+  "annual_midpoint_median": 40250.0,
+  "annual_midpoint_q75": 45000.0,
+  "annual_midpoint_max": 70000.0,
+  "lowest_annual_salary_min": 24000.0,
+  "highest_annual_salary_max": 70000.0,
+  "scope": "shown"
+}

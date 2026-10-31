@@ -1,0 +1,13 @@
+classification,pool,advertiser_type,adverts,share
+current_name_rules,data_role_pool,agency,1060,0.5331991951710262
+current_name_rules,data_role_pool,direct_employer,928,0.46680080482897385
+current_name_rules,data_role_pool,unknown,0,0.0
+current_name_rules,shown,agency,45,0.6716417910447762
+current_name_rules,shown,direct_employer,22,0.3283582089552239
+current_name_rules,shown,unknown,0,0.0
+after_seed42_review,data_role_pool,agency,1060,0.5331991951710262
+after_seed42_review,data_role_pool,direct_employer,159,0.07997987927565392
+after_seed42_review,data_role_pool,unclear,769,0.3868209255533199
+after_seed42_review,shown,agency,45,0.6716417910447762
+after_seed42_review,shown,direct_employer,0,0.0
+after_seed42_review,shown,unclear,22,0.3283582089552239
