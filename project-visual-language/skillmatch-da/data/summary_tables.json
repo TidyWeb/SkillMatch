@@ -1,0 +1,1076 @@
+{
+  "overview": {
+    "columns": [
+      {
+        "key": "stage",
+        "label": "Stage"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      }
+    ],
+    "rows": [
+      {
+        "stage": "Search appearances",
+        "adverts": 24656
+      },
+      {
+        "stage": "Primary distinct adverts",
+        "adverts": 4654
+      },
+      {
+        "stage": "Data-role pool",
+        "adverts": 1988
+      },
+      {
+        "stage": "Full-description data-role adverts",
+        "adverts": 378
+      },
+      {
+        "stage": "Matched",
+        "adverts": 67
+      }
+    ],
+    "download": "snapshot_scope.csv"
+  },
+  "funnel": {
+    "columns": [
+      {
+        "key": "step",
+        "label": "Filter step"
+      },
+      {
+        "key": "remaining_adverts",
+        "label": "Adverts remaining"
+      }
+    ],
+    "rows": [
+      {
+        "step": "Collected",
+        "remaining_adverts": 4654
+      },
+      {
+        "step": "Data jobs",
+        "remaining_adverts": 1988
+      },
+      {
+        "step": "Near me",
+        "remaining_adverts": 1512
+      },
+      {
+        "step": "Entry level",
+        "remaining_adverts": 85
+      },
+      {
+        "step": "Matched",
+        "remaining_adverts": 67
+      }
+    ],
+    "download": "funnel_steps_page.csv"
+  },
+  "churn": {
+    "columns": [
+      {
+        "key": "measure",
+        "label": "Measure"
+      },
+      {
+        "key": "value",
+        "label": "Value"
+      }
+    ],
+    "rows": [
+      {
+        "measure": "New source listings",
+        "value": 148.0
+      },
+      {
+        "measure": "Listings missing next collection",
+        "value": 158.0
+      },
+      {
+        "measure": "Median observed first-to-last span in days",
+        "value": 3.25
+      }
+    ],
+    "download": "weekly_churn_summary.csv"
+  },
+  "advertiser_mix": {
+    "columns": [
+      {
+        "key": "pool",
+        "label": "Pool"
+      },
+      {
+        "key": "advertiser_type",
+        "label": "Advertiser"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "share",
+        "label": "Share"
+      }
+    ],
+    "rows": [
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "agency",
+        "adverts": 1060,
+        "share": 0.5331992
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "direct_employer",
+        "adverts": 928,
+        "share": 0.4668008
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "unknown",
+        "adverts": 0,
+        "share": 0.0
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "agency",
+        "adverts": 45,
+        "share": 0.67164179
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "direct_employer",
+        "adverts": 22,
+        "share": 0.32835821
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "unknown",
+        "adverts": 0,
+        "share": 0.0
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "agency",
+        "adverts": 1060,
+        "share": 0.5331992
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "direct_employer",
+        "adverts": 159,
+        "share": 0.07997988
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "unclear",
+        "adverts": 769,
+        "share": 0.38682093
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "agency",
+        "adverts": 45,
+        "share": 0.67164179
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "direct_employer",
+        "adverts": 0,
+        "share": 0.0
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "unclear",
+        "adverts": 22,
+        "share": 0.32835821
+      }
+    ],
+    "download": "advertiser_type_shares.csv"
+  },
+  "hidden_by_advertiser": {
+    "columns": [
+      {
+        "key": "pool",
+        "label": "Pool"
+      },
+      {
+        "key": "advertiser_type",
+        "label": "Advertiser"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "salary_hidden",
+        "label": "Salary hidden"
+      },
+      {
+        "key": "share_salary_hidden",
+        "label": "Share hidden"
+      }
+    ],
+    "rows": [
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "agency",
+        "adverts": 1060,
+        "salary_hidden": 122,
+        "share_salary_hidden": 0.11509434
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "direct_employer",
+        "adverts": 928,
+        "salary_hidden": 440,
+        "share_salary_hidden": 0.47413793
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "data_role_pool",
+        "advertiser_type": "unknown",
+        "adverts": 0,
+        "salary_hidden": 0,
+        "share_salary_hidden": null
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "agency",
+        "adverts": 45,
+        "salary_hidden": 6,
+        "share_salary_hidden": 0.13333333
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "direct_employer",
+        "adverts": 22,
+        "salary_hidden": 14,
+        "share_salary_hidden": 0.63636364
+      },
+      {
+        "classification": "current_name_rules",
+        "pool": "shown",
+        "advertiser_type": "unknown",
+        "adverts": 0,
+        "salary_hidden": 0,
+        "share_salary_hidden": null
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "agency",
+        "adverts": 1060,
+        "salary_hidden": 122,
+        "share_salary_hidden": 0.11509434
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "direct_employer",
+        "adverts": 159,
+        "salary_hidden": 114,
+        "share_salary_hidden": 0.71698113
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "data_role_pool",
+        "advertiser_type": "unclear",
+        "adverts": 769,
+        "salary_hidden": 326,
+        "share_salary_hidden": 0.42392718
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "agency",
+        "adverts": 45,
+        "salary_hidden": 6,
+        "share_salary_hidden": 0.13333333
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "direct_employer",
+        "adverts": 0,
+        "salary_hidden": 0,
+        "share_salary_hidden": null
+      },
+      {
+        "classification": "after_seed42_review",
+        "pool": "shown",
+        "advertiser_type": "unclear",
+        "adverts": 22,
+        "salary_hidden": 14,
+        "share_salary_hidden": 0.63636364
+      }
+    ],
+    "download": "hidden_pay_by_advertiser.csv"
+  },
+  "hidden_by_source": {
+    "columns": [
+      {
+        "key": "source_family",
+        "label": "Source"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "salary_hidden",
+        "label": "Salary hidden"
+      },
+      {
+        "key": "share_salary_hidden",
+        "label": "Share hidden"
+      }
+    ],
+    "rows": [
+      {
+        "source_family": "Company ATS boards",
+        "adverts": 159,
+        "salary_hidden": 114,
+        "share_salary_hidden": 0.71698113
+      },
+      {
+        "source_family": "Reed",
+        "adverts": 1713,
+        "salary_hidden": 334,
+        "share_salary_hidden": 0.19497957
+      },
+      {
+        "source_family": "Remote boards",
+        "adverts": 116,
+        "salary_hidden": 114,
+        "share_salary_hidden": 0.98275862
+      }
+    ],
+    "download": "hidden_pay_by_source.csv"
+  },
+  "advertiser_tests": {
+    "columns": [
+      {
+        "key": "scope",
+        "label": "Scope"
+      },
+      {
+        "key": "n",
+        "label": "Adverts"
+      },
+      {
+        "key": "chi_square",
+        "label": "Chi-square"
+      },
+      {
+        "key": "p_value",
+        "label": "P-value"
+      },
+      {
+        "key": "cramers_v",
+        "label": "Cramér's V"
+      }
+    ],
+    "rows": [
+      {
+        "classification": "current_name_rules",
+        "scope": "Data-role pool; two current name groups",
+        "test": "Pearson chi-square test of independence",
+        "n": 1988,
+        "chi_square": 314.56379759,
+        "degrees_of_freedom": 1,
+        "p_value": 2.2133756e-70,
+        "cramers_v": 0.39778296,
+        "minimum_expected_count": 262.34205231,
+        "agency_hidden": 122,
+        "agency_total": 1060,
+        "agency_share_hidden": 0.11509434,
+        "direct_employer_hidden": 440,
+        "direct_employer_total": 928,
+        "direct_employer_share_hidden": 0.47413793,
+        "unclear_hidden": null,
+        "unclear_total": null,
+        "unclear_share_hidden": null
+      },
+      {
+        "classification": "current_name_rules",
+        "scope": "Reed only; two current name groups",
+        "test": "Pearson chi-square test of independence",
+        "n": 1713,
+        "chi_square": 117.25707299,
+        "degrees_of_freedom": 1,
+        "p_value": 2.5216959e-27,
+        "cramers_v": 0.26163199,
+        "minimum_expected_count": 127.71161705,
+        "agency_hidden": 120,
+        "agency_total": 1058,
+        "agency_share_hidden": 0.11342155,
+        "direct_employer_hidden": 214,
+        "direct_employer_total": 655,
+        "direct_employer_share_hidden": 0.32671756,
+        "unclear_hidden": null,
+        "unclear_total": null,
+        "unclear_share_hidden": null
+      },
+      {
+        "classification": "after_seed42_review",
+        "scope": "Data-role pool; three checked groups",
+        "test": "Pearson chi-square test of independence",
+        "n": 1988,
+        "chi_square": 370.36551656,
+        "degrees_of_freedom": 2,
+        "p_value": 3.7683387e-81,
+        "cramers_v": 0.43162549,
+        "minimum_expected_count": 44.94869215,
+        "agency_hidden": 122,
+        "agency_total": 1060,
+        "agency_share_hidden": 0.11509434,
+        "direct_employer_hidden": 114,
+        "direct_employer_total": 159,
+        "direct_employer_share_hidden": 0.71698113,
+        "unclear_hidden": 326.0,
+        "unclear_total": 769.0,
+        "unclear_share_hidden": 0.42392718
+      }
+    ],
+    "download": "advertiser_salary_tests.csv"
+  },
+  "skills_top15": {
+    "columns": [
+      {
+        "key": "skill",
+        "label": "Skill"
+      },
+      {
+        "key": "course_covered",
+        "label": "Course-covered"
+      },
+      {
+        "key": "data_role_full_adverts_asking",
+        "label": "Asking"
+      },
+      {
+        "key": "data_role_full_essential",
+        "label": "Essential"
+      },
+      {
+        "key": "data_role_full_desirable",
+        "label": "Desirable"
+      },
+      {
+        "key": "data_role_full_share_essential",
+        "label": "Essential share"
+      }
+    ],
+    "rows": [
+      {
+        "skill": "SQL",
+        "skill_id": "sql",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 79,
+        "data_role_full_essential": 60,
+        "data_role_full_desirable": 16,
+        "data_role_full_share_essential": 0.15873016,
+        "shown_adverts_asking": 31,
+        "shown_essential": 26,
+        "shown_desirable": 4,
+        "shown_share_essential": 0.3880597
+      },
+      {
+        "skill": "Python",
+        "skill_id": "python",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 66,
+        "data_role_full_essential": 50,
+        "data_role_full_desirable": 17,
+        "data_role_full_share_essential": 0.13227513,
+        "shown_adverts_asking": 7,
+        "shown_essential": 6,
+        "shown_desirable": 0,
+        "shown_share_essential": 0.08955224
+      },
+      {
+        "skill": "Data analysis",
+        "skill_id": "data_analysis",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 72,
+        "data_role_full_essential": 49,
+        "data_role_full_desirable": 11,
+        "data_role_full_share_essential": 0.12962963,
+        "shown_adverts_asking": 30,
+        "shown_essential": 21,
+        "shown_desirable": 2,
+        "shown_share_essential": 0.31343284
+      },
+      {
+        "skill": "Excel",
+        "skill_id": "excel",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 54,
+        "data_role_full_essential": 42,
+        "data_role_full_desirable": 13,
+        "data_role_full_share_essential": 0.11111111,
+        "shown_adverts_asking": 24,
+        "shown_essential": 19,
+        "shown_desirable": 5,
+        "shown_share_essential": 0.28358209
+      },
+      {
+        "skill": "Databases",
+        "skill_id": "databases",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 46,
+        "data_role_full_essential": 37,
+        "data_role_full_desirable": 4,
+        "data_role_full_share_essential": 0.0978836,
+        "shown_adverts_asking": 10,
+        "shown_essential": 7,
+        "shown_desirable": 1,
+        "shown_share_essential": 0.10447761
+      },
+      {
+        "skill": "Using generative AI tools",
+        "skill_id": "generative_ai",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 45,
+        "data_role_full_essential": 31,
+        "data_role_full_desirable": 15,
+        "data_role_full_share_essential": 0.08201058,
+        "shown_adverts_asking": 2,
+        "shown_essential": 0,
+        "shown_desirable": 1,
+        "shown_share_essential": 0.0
+      },
+      {
+        "skill": "APIs and JSON",
+        "skill_id": "apis_json",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 42,
+        "data_role_full_essential": 30,
+        "data_role_full_desirable": 7,
+        "data_role_full_share_essential": 0.07936508,
+        "shown_adverts_asking": 1,
+        "shown_essential": 1,
+        "shown_desirable": 0,
+        "shown_share_essential": 0.01492537
+      },
+      {
+        "skill": "Data cleaning and validation",
+        "skill_id": "data_cleaning",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 59,
+        "data_role_full_essential": 30,
+        "data_role_full_desirable": 5,
+        "data_role_full_share_essential": 0.07936508,
+        "shown_adverts_asking": 25,
+        "shown_essential": 12,
+        "shown_desirable": 3,
+        "shown_share_essential": 0.17910448
+      },
+      {
+        "skill": "Power BI",
+        "skill_id": "power_bi",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 37,
+        "data_role_full_essential": 25,
+        "data_role_full_desirable": 11,
+        "data_role_full_share_essential": 0.06613757,
+        "shown_adverts_asking": 21,
+        "shown_essential": 14,
+        "shown_desirable": 6,
+        "shown_share_essential": 0.20895522
+      },
+      {
+        "skill": "ETL and data pipelines",
+        "skill_id": "etl",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 33,
+        "data_role_full_essential": 23,
+        "data_role_full_desirable": 4,
+        "data_role_full_share_essential": 0.06084656,
+        "shown_adverts_asking": 9,
+        "shown_essential": 6,
+        "shown_desirable": 0,
+        "shown_share_essential": 0.08955224
+      },
+      {
+        "skill": "AWS",
+        "skill_id": "aws",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 28,
+        "data_role_full_essential": 22,
+        "data_role_full_desirable": 6,
+        "data_role_full_share_essential": 0.05820106,
+        "shown_adverts_asking": 0,
+        "shown_essential": 0,
+        "shown_desirable": 0,
+        "shown_share_essential": 0.0
+      },
+      {
+        "skill": "Building reports and dashboards",
+        "skill_id": "dashboards_reporting",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 57,
+        "data_role_full_essential": 19,
+        "data_role_full_desirable": 13,
+        "data_role_full_share_essential": 0.05026455,
+        "shown_adverts_asking": 28,
+        "shown_essential": 13,
+        "shown_desirable": 5,
+        "shown_share_essential": 0.19402985
+      },
+      {
+        "skill": "Data protection, GDPR and data ethics",
+        "skill_id": "data_ethics_gdpr",
+        "course_covered": true,
+        "data_role_full_adverts_asking": 30,
+        "data_role_full_essential": 18,
+        "data_role_full_desirable": 5,
+        "data_role_full_share_essential": 0.04761905,
+        "shown_adverts_asking": 13,
+        "shown_essential": 6,
+        "shown_desirable": 4,
+        "shown_share_essential": 0.08955224
+      },
+      {
+        "skill": "CRM systems",
+        "skill_id": "crm_systems",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 49,
+        "data_role_full_essential": 17,
+        "data_role_full_desirable": 23,
+        "data_role_full_share_essential": 0.04497354,
+        "shown_adverts_asking": 7,
+        "shown_essential": 6,
+        "shown_desirable": 2,
+        "shown_share_essential": 0.08955224
+      },
+      {
+        "skill": "Data modelling (schema design)",
+        "skill_id": "data_modelling",
+        "course_covered": false,
+        "data_role_full_adverts_asking": 19,
+        "data_role_full_essential": 17,
+        "data_role_full_desirable": 1,
+        "data_role_full_share_essential": 0.04497354,
+        "shown_adverts_asking": 9,
+        "shown_essential": 8,
+        "shown_desirable": 0,
+        "shown_share_essential": 0.11940299
+      }
+    ],
+    "download": "skills_top15.csv"
+  },
+  "wish_list": {
+    "columns": [
+      {
+        "key": "group",
+        "label": "Advert group"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "median_essential",
+        "label": "Median essentials"
+      }
+    ],
+    "rows": [
+      {
+        "group": "senior",
+        "adverts": 188,
+        "median_essential": 5.0
+      }
+    ],
+    "download": "wish_list_compare.csv"
+  },
+  "generic_summary": {
+    "columns": [
+      {
+        "key": "label",
+        "label": "Wording label"
+      },
+      {
+        "key": "sentences",
+        "label": "Sentences"
+      },
+      {
+        "key": "share",
+        "label": "Share"
+      }
+    ],
+    "rows": [
+      {
+        "label": "generic",
+        "sentences": 939,
+        "share": 0.16078767
+      },
+      {
+        "label": "concrete",
+        "sentences": 4901,
+        "share": 0.83921233
+      }
+    ],
+    "download": "generic_sentence_summary.csv"
+  },
+  "generic_distribution": {
+    "columns": [
+      {
+        "key": "generic_share_band",
+        "label": "Generic share per advert"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "share_of_adverts",
+        "label": "Share of adverts"
+      }
+    ],
+    "rows": [
+      {
+        "generic_share_band": "0–10%",
+        "adverts": 109,
+        "share_of_adverts": 0.29863014
+      },
+      {
+        "generic_share_band": "10–20%",
+        "adverts": 145,
+        "share_of_adverts": 0.39726027
+      },
+      {
+        "generic_share_band": "20–30%",
+        "adverts": 66,
+        "share_of_adverts": 0.18082192
+      },
+      {
+        "generic_share_band": "30–40%",
+        "adverts": 28,
+        "share_of_adverts": 0.07671233
+      },
+      {
+        "generic_share_band": "40–50%",
+        "adverts": 14,
+        "share_of_adverts": 0.03835616
+      },
+      {
+        "generic_share_band": "50–60%",
+        "adverts": 2,
+        "share_of_adverts": 0.00547945
+      },
+      {
+        "generic_share_band": "60–70%",
+        "adverts": 1,
+        "share_of_adverts": 0.00273973
+      },
+      {
+        "generic_share_band": "70–80%",
+        "adverts": 0,
+        "share_of_adverts": 0.0
+      },
+      {
+        "generic_share_band": "80–90%",
+        "adverts": 0,
+        "share_of_adverts": 0.0
+      },
+      {
+        "generic_share_band": "90–100%",
+        "adverts": 0,
+        "share_of_adverts": 0.0
+      }
+    ],
+    "download": "generic_share_distribution.csv"
+  },
+  "generic_groups": {
+    "columns": [
+      {
+        "key": "comparison",
+        "label": "Comparison"
+      },
+      {
+        "key": "n_one",
+        "label": "First group"
+      },
+      {
+        "key": "n_two",
+        "label": "Second group"
+      },
+      {
+        "key": "median_one",
+        "label": "First median"
+      },
+      {
+        "key": "median_two",
+        "label": "Second median"
+      },
+      {
+        "key": "mann_whitney_u",
+        "label": "Mann–Whitney U"
+      },
+      {
+        "key": "p_value",
+        "label": "P-value"
+      },
+      {
+        "key": "rank_biserial",
+        "label": "Rank-biserial"
+      }
+    ],
+    "rows": [
+      {
+        "comparison": "matched vs senior",
+        "group_one": "matched",
+        "group_two": "senior",
+        "n_one": 65,
+        "n_two": 179,
+        "median_one": 0.16666667,
+        "median_two": 0.13043478,
+        "mann_whitney_u": 7162.0,
+        "p_value": 0.00567954,
+        "rank_biserial": 0.23111302,
+        "test": "Two-sided Mann–Whitney U; compares independent advert-level shares"
+      },
+      {
+        "comparison": "agency vs direct employer (reviewed)",
+        "group_one": "agency",
+        "group_two": "direct employer (reviewed)",
+        "n_one": 77,
+        "n_two": 157,
+        "median_one": 0.18181818,
+        "median_two": 0.14285714,
+        "mann_whitney_u": 7414.0,
+        "p_value": 0.00481753,
+        "rank_biserial": 0.22656961,
+        "test": "Two-sided Mann–Whitney U; compares independent advert-level shares"
+      },
+      {
+        "comparison": "agency vs unclear (reviewed)",
+        "group_one": "agency",
+        "group_two": "unclear (reviewed)",
+        "n_one": 77,
+        "n_two": 131,
+        "median_one": 0.18181818,
+        "median_two": 0.14285714,
+        "mann_whitney_u": 6074.5,
+        "p_value": 0.01381358,
+        "rank_biserial": 0.20442153,
+        "test": "Two-sided Mann–Whitney U; compares independent advert-level shares"
+      },
+      {
+        "comparison": "direct employer (reviewed) vs unclear (reviewed)",
+        "group_one": "direct employer (reviewed)",
+        "group_two": "unclear (reviewed)",
+        "n_one": 157,
+        "n_two": 131,
+        "median_one": 0.14285714,
+        "median_two": 0.14285714,
+        "mann_whitney_u": 10218.5,
+        "p_value": 0.92678033,
+        "rank_biserial": -0.00632081,
+        "test": "Two-sided Mann–Whitney U; compares independent advert-level shares"
+      }
+    ],
+    "download": "generic_group_comparison.csv"
+  },
+  "pay_band": {
+    "columns": [
+      {
+        "key": "shown_adverts_with_usable_annual_salary",
+        "label": "With usable salary"
+      },
+      {
+        "key": "shown_adverts_without_stated_salary",
+        "label": "No salary"
+      },
+      {
+        "key": "annual_midpoint_min",
+        "label": "Minimum midpoint"
+      },
+      {
+        "key": "annual_midpoint_q25",
+        "label": "Lower quartile"
+      },
+      {
+        "key": "annual_midpoint_median",
+        "label": "Median midpoint"
+      },
+      {
+        "key": "annual_midpoint_q75",
+        "label": "Upper quartile"
+      },
+      {
+        "key": "annual_midpoint_max",
+        "label": "Maximum midpoint"
+      },
+      {
+        "key": "lowest_annual_salary_min",
+        "label": "Lowest annual lower bound"
+      },
+      {
+        "key": "highest_annual_salary_max",
+        "label": "Highest annual upper bound"
+      }
+    ],
+    "rows": [
+      {
+        "shown_adverts_with_usable_annual_salary": 39,
+        "shown_adverts_without_stated_salary": 20,
+        "stated_salary_without_usable_annual_midpoint": 0,
+        "daily_rate_adverts_separate": 8,
+        "daily_rate_min": 150.0,
+        "daily_rate_max": 550.0,
+        "annual_midpoint_min": 25000.0,
+        "annual_midpoint_q25": 35000.0,
+        "annual_midpoint_median": 40250.0,
+        "annual_midpoint_q75": 45000.0,
+        "annual_midpoint_max": 70000.0,
+        "lowest_annual_salary_min": 24000.0,
+        "highest_annual_salary_max": 70000.0
+      }
+    ],
+    "download": "pay_band_shown.csv"
+  },
+  "ai_grids": {
+    "columns": [
+      {
+        "key": "group",
+        "label": "Advert group"
+      },
+      {
+        "key": "adverts",
+        "label": "Adverts"
+      },
+      {
+        "key": "mentioning_ai",
+        "label": "Mentioning AI"
+      },
+      {
+        "key": "without_ai_mention",
+        "label": "No AI mention"
+      },
+      {
+        "key": "share_mentioning",
+        "label": "Share mentioning"
+      }
+    ],
+    "rows": [
+      {
+        "group": "Matched adverts",
+        "adverts": 67,
+        "mentioning_ai": 10,
+        "without_ai_mention": 57,
+        "share_mentioning": 0.14925373
+      },
+      {
+        "group": "Senior adverts",
+        "adverts": 188,
+        "mentioning_ai": 54,
+        "without_ai_mention": 134,
+        "share_mentioning": 0.28723404
+      },
+      {
+        "group": "Remote-board adverts",
+        "adverts": 116,
+        "mentioning_ai": 52,
+        "without_ai_mention": 64,
+        "share_mentioning": 0.44827586
+      }
+    ],
+    "download": "ai_grid_summary.csv"
+  },
+  "ai_specificity": {
+    "columns": [
+      {
+        "key": "specific_sentences",
+        "label": "Specific sentences"
+      },
+      {
+        "key": "total_ai_family_sentences",
+        "label": "AI-family sentences"
+      },
+      {
+        "key": "specific_share",
+        "label": "Specific share"
+      },
+      {
+        "key": "spotcheck_sentences_reviewed",
+        "label": "Spot-check reviewed"
+      },
+      {
+        "key": "spotcheck_judged_vague",
+        "label": "Judged vague"
+      },
+      {
+        "key": "applicant_screening_adverts",
+        "label": "Applicant-screening adverts"
+      }
+    ],
+    "rows": [
+      {
+        "specific_sentences": 149,
+        "total_ai_family_sentences": 194,
+        "specific_share": 0.768041,
+        "spotcheck_sentences_reviewed": 18,
+        "spotcheck_judged_vague": 3,
+        "applicant_screening_adverts": 2
+      }
+    ],
+    "download": "ai_specificity_summary.csv"
+  },
+  "method": {
+    "columns": [
+      {
+        "key": "step",
+        "label": "Stage"
+      },
+      {
+        "key": "count",
+        "label": "Count"
+      }
+    ],
+    "rows": [
+      {
+        "step": "Primary distinct adverts",
+        "count": 4654
+      },
+      {
+        "step": "Data-role pool",
+        "count": 1988
+      },
+      {
+        "step": "Full-description data-role adverts",
+        "count": 378
+      },
+      {
+        "step": "Requirement-ID sentence occurrences",
+        "count": 5840
+      },
+      {
+        "step": "Matched",
+        "count": 67
+      }
+    ],
+    "download": "method_summary.csv"
+  }
+}

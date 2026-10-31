@@ -1,0 +1,31 @@
+{
+  "groups": [
+    {
+      "key": "shown",
+      "label": "Matched adverts",
+      "total": 67,
+      "mentioned": 10
+    },
+    {
+      "key": "senior",
+      "label": "Senior adverts",
+      "total": 188,
+      "mentioned": 54
+    },
+    {
+      "key": "remote_boards",
+      "label": "Remote-board adverts",
+      "total": 116,
+      "mentioned": 52
+    }
+  ],
+  "shown_without_mention": 57,
+  "applicant_screening_adverts": 2,
+  "specificity": {
+    "specific_sentences": 149,
+    "sentence_total": 194,
+    "share": 0.768041,
+    "spotcheck_vague": 3,
+    "spotcheck_total": 18
+  }
+}

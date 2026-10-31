@@ -1,0 +1,796 @@
+{
+  "snapshot_date": {
+    "value": "30 Oct 2026",
+    "label": "Anchor snapshot date"
+  },
+  "anchor_sightings_collected": {
+    "value": 24656,
+    "label": "Search appearances collected in the anchor run"
+  },
+  "anchor_unique_vacancy_ids": {
+    "value": 5502,
+    "label": "Unique vacancy IDs before database primary-ad deduplication"
+  },
+  "anchor_primary_adverts": {
+    "value": 4654,
+    "label": "Distinct primary adverts after duplicate-group removal"
+  },
+  "anchor_data_role_pool": {
+    "value": 1988,
+    "label": "Primary adverts in the data-role pool"
+  },
+  "anchor_shown_adverts": {
+    "value": 67,
+    "label": "Primary adverts matched to a graduate"
+  },
+  "funnel_after_data_scope": {
+    "value": 2012,
+    "label": "Primary adverts remaining after the data-role scope filter"
+  },
+  "funnel_after_training_filter": {
+    "value": 1988,
+    "label": "Primary adverts remaining after excluding training courses"
+  },
+  "funnel_after_local_area": {
+    "value": 1523,
+    "label": "Primary adverts remaining after the local-area filter"
+  },
+  "funnel_local_before_seniority": {
+    "value": 1512,
+    "label": "Funnel local before seniority"
+  },
+  "funnel_after_seniority": {
+    "value": 85,
+    "label": "Funnel after seniority"
+  },
+  "funnel_after_professional_qualification": {
+    "value": 72,
+    "label": "Funnel after professional qualification"
+  },
+  "funnel_shown_after_location_filter": {
+    "value": 67,
+    "label": "Funnel matched after location filter"
+  },
+  "haystack_one_in_primary_adverts_shown": {
+    "value": 69,
+    "label": "About one in this many primary distinct adverts was matched"
+  },
+  "weekly_churn_new_listings": {
+    "value": 148,
+    "label": "New source listings across comparable collections this week"
+  },
+  "weekly_churn_gone_listings": {
+    "value": 158,
+    "label": "Source listings missing at the next comparable collection this week"
+  },
+  "history_median_observed_span_days": {
+    "value": 3.25,
+    "label": "Median first-to-last observed history span in days"
+  },
+  "salary_hours_per_week_conversion": {
+    "value": 37.5,
+    "label": "Weekly hours used for hourly-to-annual salary conversion"
+  },
+  "salary_days_per_week_conversion": {
+    "value": 5,
+    "label": "Work days used for daily-to-annual salary conversion"
+  },
+  "salary_weeks_per_year_conversion": {
+    "value": 52,
+    "label": "Weeks used for hourly and daily salary annualisation"
+  },
+  "shown_pay_midpoint_above_60k_count": {
+    "value": 8,
+    "label": "Matched adverts with annualised midpoint above £60,000"
+  },
+  "shown_pay_above_60k_daily_count": {
+    "value": 7,
+    "label": "Above-£60,000 matched midpoints whose stated period is daily"
+  },
+  "shown_pay_above_60k_annual_count": {
+    "value": 1,
+    "label": "Above-£60,000 matched midpoints whose stated period is annual"
+  },
+  "shown_pay_above_60k_period_mismatch_count": {
+    "value": 0,
+    "label": "Above-£60,000 matched midpoints with a mismatch between salary text and period"
+  },
+  "wishlist_shown_median_essential_requirements": {
+    "value": 6.0,
+    "label": "Median essential requirements among all matched full-description adverts"
+  },
+  "wishlist_senior_median_essential_requirements": {
+    "value": 5.0,
+    "label": "Median essential requirements among all senior-role full-description adverts"
+  },
+  "wishlist_mannwhitney_u": {
+    "value": 7262.5,
+    "label": "Two-sided Mann–Whitney U statistic comparing matched and senior full descriptions"
+  },
+  "wishlist_mannwhitney_p": {
+    "value": 0.0621214982974945,
+    "label": "Two-sided p-value comparing essential requirement counts in full descriptions"
+  },
+  "course_covered_essential_demand_pairs": {
+    "value": 330,
+    "label": "Distinct essential skill-advert pairs in the full-description pool marked course-covered"
+  },
+  "course_covered_essential_demand_share": {
+    "value": 0.498489,
+    "label": "Share of essential skill-advert pairs in the full-description pool marked course-covered"
+  },
+  "ai_where_group_shown_n": {
+    "value": 67,
+    "label": "Full-description adverts in the Matched / entry-level group"
+  },
+  "ai_where_group_shown_mentioned": {
+    "value": 10,
+    "label": "Matched / entry-level adverts with at least one AI-family sentence"
+  },
+  "ai_where_group_senior_n": {
+    "value": 188,
+    "label": "Full-description adverts in the Senior group"
+  },
+  "ai_where_group_senior_mentioned": {
+    "value": 54,
+    "label": "Senior adverts with at least one AI-family sentence"
+  },
+  "ai_where_source_remote_n": {
+    "value": 116,
+    "label": "Full-description adverts from International remote boards"
+  },
+  "ai_where_source_remote_mentioned": {
+    "value": 52,
+    "label": "International remote boards adverts with at least one AI-family sentence"
+  },
+  "ai_family_adverts_without_mention": {
+    "value": 299,
+    "label": "Full-description adverts with no AI-family sentence"
+  },
+  "ai_ai_family_specific_sentence_count": {
+    "value": 149,
+    "label": "Specific sentence occurrences in the AI tools and generative AI family"
+  },
+  "ai_family_sentence_occurrences": {
+    "value": 194,
+    "label": "Sentence occurrences assigned to AI tools and generative AI; overlap goes to this family"
+  },
+  "ai_ai_family_specific_sentence_share": {
+    "value": 0.768041,
+    "label": "Share of AI tools and generative AI sentences labelled specific"
+  },
+  "ai_sentence_used_on_applicants_count": {
+    "value": 2,
+    "label": "AI-family sentence occurrences describing AI use on applicants"
+  },
+  "ai_applicant_screening_adverts": {
+    "value": 2,
+    "label": "Distinct adverts with an AI-family sentence about applicant screening"
+  },
+  "ai_specificity_spotcheck_vague": {
+    "value": 3,
+    "label": "Earlier specificity spot-check sentences judged vague"
+  },
+  "ai_specificity_spotcheck_total": {
+    "value": 18,
+    "label": "Earlier specificity spot-check sentence count"
+  },
+  "rory_spotcheck_concrete": {
+    "value": "4 of 15 judged not concrete",
+    "label": "Rory review of a concrete-sentence spot-check; not a full human audit"
+  },
+  "rory_spotcheck_concrete_count": {
+    "value": 4,
+    "label": "Concrete-sample labels judged not concrete in Rory's spot-check"
+  },
+  "rory_spotcheck_concrete_sample_size": {
+    "value": 15,
+    "label": "Concrete-sample size in Rory's spot-check"
+  },
+  "generic_prior_reported_share_unverified": {
+    "value": 0.469,
+    "label": "Earlier reported generic-sentence share; not reproduced from retained data"
+  },
+  "generic_prior_reported_advert_median_unverified": {
+    "value": 0.44,
+    "label": "Earlier reported median generic share per advert; not reproduced from retained data"
+  },
+  "advertiser_check_agency_count": {
+    "value": 17,
+    "label": "Sample names judged to be agencies"
+  },
+  "advertiser_check_agency_share": {
+    "value": 0.425,
+    "label": "Sample share judged agency"
+  },
+  "advertiser_check_distinct_names": {
+    "value": 39,
+    "label": "Distinct advertiser labels in the 40-advert sample"
+  },
+  "advertiser_check_employer_count": {
+    "value": 15,
+    "label": "Sample names judged to be employers"
+  },
+  "advertiser_check_flagged_share": {
+    "value": 0.625,
+    "label": "Sample share judged agency or unclear"
+  },
+  "advertiser_check_sample_size": {
+    "value": 40,
+    "label": "Seed-42 advertiser-name sample size"
+  },
+  "advertiser_check_unclear_count": {
+    "value": 8,
+    "label": "Sample names that could not be classified from the name"
+  },
+  "advertiser_data_role_pool_agency_count": {
+    "value": 1060,
+    "label": "agency adverts in the data role pool"
+  },
+  "advertiser_data_role_pool_agency_share": {
+    "value": 0.5331991951710262,
+    "label": "Share of data role pool adverts classified as agency"
+  },
+  "advertiser_data_role_pool_direct_employer_count": {
+    "value": 928,
+    "label": "direct employer adverts in the data role pool"
+  },
+  "advertiser_data_role_pool_direct_employer_share": {
+    "value": 0.46680080482897385,
+    "label": "Share of data role pool adverts classified as direct employer"
+  },
+  "advertiser_data_role_pool_unknown_count": {
+    "value": 0,
+    "label": "unknown adverts in the data role pool"
+  },
+  "advertiser_data_role_pool_unknown_share": {
+    "value": 0.0,
+    "label": "Share of data role pool adverts classified as unknown"
+  },
+  "advertiser_listed_by_empty_primary": {
+    "value": 4654,
+    "label": "Primary adverts with an empty listed-by field"
+  },
+  "advertiser_salary_data-role_pool_chi_square": {
+    "value": 314.56379759340894,
+    "label": "Pearson chi-square statistic, data-role pool"
+  },
+  "advertiser_salary_data-role_pool_cramers_v": {
+    "value": 0.3977829640844355,
+    "label": "Cramér's V, data-role pool"
+  },
+  "advertiser_salary_data-role_pool_n": {
+    "value": 1988,
+    "label": "Advertiser salary-visibility test sample size, data-role pool"
+  },
+  "advertiser_salary_data-role_pool_p_value": {
+    "value": 2.2133756149495382e-70,
+    "label": "Pearson chi-square p-value, data-role pool"
+  },
+  "advertiser_salary_reed_only_chi_square": {
+    "value": 117.25707298797894,
+    "label": "Pearson chi-square statistic, Reed only"
+  },
+  "advertiser_salary_reed_only_cramers_v": {
+    "value": 0.2616319890920736,
+    "label": "Cramér's V, Reed only"
+  },
+  "advertiser_salary_reed_only_n": {
+    "value": 1713,
+    "label": "Advertiser salary-visibility test sample size, Reed only"
+  },
+  "advertiser_salary_reed_only_p_value": {
+    "value": 2.5216958736259828e-27,
+    "label": "Pearson chi-square p-value, Reed only"
+  },
+  "advertiser_shown_agency_count": {
+    "value": 45,
+    "label": "agency adverts in the matched"
+  },
+  "advertiser_shown_agency_share": {
+    "value": 0.6716417910447762,
+    "label": "Share of matched adverts classified as agency"
+  },
+  "advertiser_shown_direct_employer_count": {
+    "value": 22,
+    "label": "direct employer adverts in the matched"
+  },
+  "advertiser_shown_direct_employer_share": {
+    "value": 0.3283582089552239,
+    "label": "Share of matched adverts classified as direct employer"
+  },
+  "advertiser_shown_unknown_count": {
+    "value": 0,
+    "label": "unknown adverts in the matched"
+  },
+  "advertiser_shown_unknown_share": {
+    "value": 0.0,
+    "label": "Share of matched adverts classified as unknown"
+  },
+  "explorer_course_covered_pairs": {
+    "value": 330,
+    "label": "Essential skill-advert pairs marked course-covered in the full-description explorer pool"
+  },
+  "explorer_course_covered_share": {
+    "value": 0.4984894259818731,
+    "label": "Share of classified essential skill-advert pairs marked course-covered in the explorer"
+  },
+  "explorer_essential_skill_advert_pairs": {
+    "value": 662,
+    "label": "Essential skill-advert pairs in the full-description explorer pool"
+  },
+  "explorer_full_data_role_adverts": {
+    "value": 378,
+    "label": "Full-description data-role adverts in the skill explorer"
+  },
+  "explorer_shown_adverts": {
+    "value": 67,
+    "label": "Matched adverts in the skill explorer"
+  },
+  "explorer_skill_count": {
+    "value": 46,
+    "label": "Skills available in the summary explorer"
+  },
+  "generic_advert_share_median": {
+    "value": 0.15384615384615385,
+    "label": "Median generic-sentence share per advert"
+  },
+  "generic_advert_share_median_before_relabel": {
+    "value": 0.10526315789473684,
+    "label": "Pre-stage-8 saved labels: median generic share per advert"
+  },
+  "generic_advert_share_q25": {
+    "value": 0.08333333333333333,
+    "label": "Lower quartile of generic-sentence share per advert"
+  },
+  "generic_advert_share_q75": {
+    "value": 0.2222222222222222,
+    "label": "Upper quartile of generic-sentence share per advert"
+  },
+  "generic_adverts_with_sentence_labels": {
+    "value": 365,
+    "label": "Full-description adverts with at least one requirement sentence"
+  },
+  "generic_agency_direct_employer_(reviewed)_mann_whitney_u": {
+    "value": 7414.0,
+    "label": "Mann–Whitney U statistic for agency vs direct employer (reviewed)"
+  },
+  "generic_agency_direct_employer_(reviewed)_median_one": {
+    "value": 0.18181818181818182,
+    "label": "Median generic-sentence share in agency adverts"
+  },
+  "generic_agency_direct_employer_(reviewed)_median_two": {
+    "value": 0.14285714285714285,
+    "label": "Median generic-sentence share in direct employer (reviewed) adverts"
+  },
+  "generic_agency_direct_employer_(reviewed)_n_one": {
+    "value": 77,
+    "label": "Advert count in first group for agency vs direct employer (reviewed)"
+  },
+  "generic_agency_direct_employer_(reviewed)_n_two": {
+    "value": 157,
+    "label": "Advert count in second group for agency vs direct employer (reviewed)"
+  },
+  "generic_agency_direct_employer_(reviewed)_p_value": {
+    "value": 0.004817530152697803,
+    "label": "Mann–Whitney U p-value for agency vs direct employer (reviewed)"
+  },
+  "generic_agency_direct_employer_(reviewed)_rank_biserial": {
+    "value": 0.2265696087352138,
+    "label": "Rank-biserial effect size for agency vs direct employer (reviewed)"
+  },
+  "generic_agency_direct_employer_mann_whitney_u": {
+    "value": 13524.0,
+    "label": "Mann–Whitney U statistic for agency vs direct employer"
+  },
+  "generic_agency_direct_employer_median_one": {
+    "value": 0.18181818181818182,
+    "label": "Median generic-sentence share in agency adverts"
+  },
+  "generic_agency_direct_employer_median_two": {
+    "value": 0.14285714285714285,
+    "label": "Median generic-sentence share in direct employer adverts"
+  },
+  "generic_agency_direct_employer_n_one": {
+    "value": 77,
+    "label": "Advert count in first group for agency vs direct employer"
+  },
+  "generic_agency_direct_employer_n_two": {
+    "value": 288,
+    "label": "Advert count in second group for agency vs direct employer"
+  },
+  "generic_agency_direct_employer_p_value": {
+    "value": 0.003003475776647302,
+    "label": "Mann–Whitney U p-value for agency vs direct employer"
+  },
+  "generic_agency_direct_employer_rank_biserial": {
+    "value": 0.21969696969696972,
+    "label": "Rank-biserial effect size for agency vs direct employer"
+  },
+  "generic_agency_unclear_(reviewed)_mann_whitney_u": {
+    "value": 6074.5,
+    "label": "Mann–Whitney U statistic for agency vs unclear (reviewed)"
+  },
+  "generic_agency_unclear_(reviewed)_median_one": {
+    "value": 0.18181818181818182,
+    "label": "Median generic-sentence share in agency adverts"
+  },
+  "generic_agency_unclear_(reviewed)_median_two": {
+    "value": 0.14285714285714285,
+    "label": "Median generic-sentence share in unclear (reviewed) adverts"
+  },
+  "generic_agency_unclear_(reviewed)_n_one": {
+    "value": 77,
+    "label": "Advert count in first group for agency vs unclear (reviewed)"
+  },
+  "generic_agency_unclear_(reviewed)_n_two": {
+    "value": 131,
+    "label": "Advert count in second group for agency vs unclear (reviewed)"
+  },
+  "generic_agency_unclear_(reviewed)_p_value": {
+    "value": 0.013813581955899176,
+    "label": "Mann–Whitney U p-value for agency vs unclear (reviewed)"
+  },
+  "generic_agency_unclear_(reviewed)_rank_biserial": {
+    "value": 0.20442153266580743,
+    "label": "Rank-biserial effect size for agency vs unclear (reviewed)"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_mann_whitney_u": {
+    "value": 10218.5,
+    "label": "Mann–Whitney U statistic for direct employer (reviewed) vs unclear (reviewed)"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_median_one": {
+    "value": 0.14285714285714285,
+    "label": "Median generic-sentence share in direct employer (reviewed) adverts"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_median_two": {
+    "value": 0.14285714285714285,
+    "label": "Median generic-sentence share in unclear (reviewed) adverts"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_n_one": {
+    "value": 157,
+    "label": "Advert count in first group for direct employer (reviewed) vs unclear (reviewed)"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_n_two": {
+    "value": 131,
+    "label": "Advert count in second group for direct employer (reviewed) vs unclear (reviewed)"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_p_value": {
+    "value": 0.9267803289325316,
+    "label": "Mann–Whitney U p-value for direct employer (reviewed) vs unclear (reviewed)"
+  },
+  "generic_direct_employer_(reviewed)_unclear_(reviewed)_rank_biserial": {
+    "value": -0.006320805173335886,
+    "label": "Rank-biserial effect size for direct employer (reviewed) vs unclear (reviewed)"
+  },
+  "generic_non_requirement_count": {
+    "value": 13,
+    "label": "Application or advert-boilerplate sentences excluded"
+  },
+  "generic_sentence_count": {
+    "value": 939,
+    "label": "Requirement sentence occurrences labelled generic"
+  },
+  "generic_sentence_occurrences": {
+    "value": 5840,
+    "label": "Requirement sentence occurrences after excluding non-requirements"
+  },
+  "generic_sentence_share": {
+    "value": 0.1607876712328767,
+    "label": "Share of requirement sentence occurrences labelled generic"
+  },
+  "generic_sentence_share_before_relabel": {
+    "value": 0.12045105074320861,
+    "label": "Pre-stage-8 saved labels: generic share before generic-first relabeling"
+  },
+  "generic_sentence_spotcheck_per_label": {
+    "value": 15,
+    "label": "Local random sentence examples saved for each genericity label"
+  },
+  "generic_shown_senior_mann_whitney_u": {
+    "value": 7162.0,
+    "label": "Mann–Whitney U statistic for matched vs senior"
+  },
+  "generic_shown_senior_median_one": {
+    "value": 0.16666666666666666,
+    "label": "Median generic-sentence share in matched adverts"
+  },
+  "generic_shown_senior_median_two": {
+    "value": 0.13043478260869565,
+    "label": "Median generic-sentence share in senior adverts"
+  },
+  "generic_shown_senior_n_one": {
+    "value": 65,
+    "label": "Advert count in first group for matched vs senior"
+  },
+  "generic_shown_senior_n_two": {
+    "value": 179,
+    "label": "Advert count in second group for matched vs senior"
+  },
+  "generic_shown_senior_p_value": {
+    "value": 0.005679536836538794,
+    "label": "Mann–Whitney U p-value for matched vs senior"
+  },
+  "generic_shown_senior_rank_biserial": {
+    "value": 0.23111302105715503,
+    "label": "Rank-biserial effect size for matched vs senior"
+  },
+  "pay_band_shown_annual_midpoint_max": {
+    "value": 70000.0,
+    "label": "Highest annual salary midpoint among matched adverts; daily rates excluded"
+  },
+  "pay_band_shown_annual_midpoint_median": {
+    "value": 40250.0,
+    "label": "Median annual salary midpoint among matched adverts"
+  },
+  "pay_band_shown_annual_midpoint_min": {
+    "value": 25000.0,
+    "label": "Lowest annual salary midpoint among matched adverts"
+  },
+  "pay_band_shown_annual_midpoint_q25": {
+    "value": 35000.0,
+    "label": "Lower quartile annual salary midpoint among matched adverts"
+  },
+  "pay_band_shown_annual_midpoint_q75": {
+    "value": 45000.0,
+    "label": "Upper quartile annual salary midpoint among matched adverts"
+  },
+  "pay_band_shown_daily_rate_adverts_separate": {
+    "value": 8.0,
+    "label": "Matched adverts with a stated daily rate, matched separately"
+  },
+  "pay_band_shown_daily_rate_max": {
+    "value": 550.0,
+    "label": "Highest stated daily rate among matched adverts"
+  },
+  "pay_band_shown_daily_rate_min": {
+    "value": 150.0,
+    "label": "Lowest stated daily rate among matched adverts"
+  },
+  "pay_band_shown_highest_annual_salary_max": {
+    "value": 70000.0,
+    "label": "Highest annual salary upper bound among matched adverts; daily rates excluded"
+  },
+  "pay_band_shown_lowest_annual_salary_min": {
+    "value": 24000.0,
+    "label": "Lowest annual salary lower bound among matched adverts"
+  },
+  "pay_band_shown_shown_adverts_with_usable_annual_salary": {
+    "value": 39.0,
+    "label": "Matched adverts with annual or hourly-equivalent salary; daily rates separate"
+  },
+  "pay_band_shown_shown_adverts_without_stated_salary": {
+    "value": 20.0,
+    "label": "Matched adverts with no stated salary"
+  },
+  "pay_band_shown_stated_salary_without_usable_annual_midpoint": {
+    "value": 0.0,
+    "label": "Matched adverts with a stated salary but no usable annual midpoint"
+  },
+  "salary_hidden_current_agency_share": {
+    "value": 0.11509433962264151,
+    "label": "Hidden-salary share for agency labels in the data-role pool"
+  },
+  "salary_hidden_current_direct_share": {
+    "value": 0.47413793103448276,
+    "label": "Hidden-salary share for current direct-name labels in the data-role pool"
+  },
+  "salary_hidden_data_role_pool_agency_count": {
+    "value": 122,
+    "label": "Adverts without salary in the data role pool, agency group"
+  },
+  "salary_hidden_data_role_pool_agency_share": {
+    "value": 0.11509433962264151,
+    "label": "Share without salary in the data role pool, agency group"
+  },
+  "salary_hidden_data_role_pool_direct_employer_count": {
+    "value": 440,
+    "label": "Adverts without salary in the data role pool, direct employer group"
+  },
+  "salary_hidden_data_role_pool_direct_employer_share": {
+    "value": 0.47413793103448276,
+    "label": "Share without salary in the data role pool, direct employer group"
+  },
+  "salary_hidden_data_role_pool_unknown_count": {
+    "value": 0,
+    "label": "Adverts without salary in the data role pool, unknown group"
+  },
+  "salary_hidden_data_role_pool_unknown_share": {
+    "value": null,
+    "label": "Share without salary in the data role pool, unknown group"
+  },
+  "salary_hidden_reviewed_agency_share": {
+    "value": 0.11509433962264151,
+    "label": "Hidden-salary share for agency labels after the name check"
+  },
+  "salary_hidden_reviewed_direct_share": {
+    "value": 0.7169811320754716,
+    "label": "Hidden-salary share for ATS direct labels after the name check"
+  },
+  "salary_hidden_reviewed_unclear_share": {
+    "value": 0.42392717815344605,
+    "label": "Hidden-salary share for unclear labels after the name check"
+  },
+  "salary_hidden_shown_agency_count": {
+    "value": 6,
+    "label": "Adverts without salary in the matched, agency group"
+  },
+  "salary_hidden_shown_agency_share": {
+    "value": 0.13333333333333333,
+    "label": "Share without salary in the matched, agency group"
+  },
+  "salary_hidden_shown_direct_employer_count": {
+    "value": 14,
+    "label": "Adverts without salary in the matched, direct employer group"
+  },
+  "salary_hidden_shown_direct_employer_share": {
+    "value": 0.6363636363636364,
+    "label": "Share without salary in the matched, direct employer group"
+  },
+  "salary_hidden_shown_unknown_count": {
+    "value": 0,
+    "label": "Adverts without salary in the matched, unknown group"
+  },
+  "salary_hidden_shown_unknown_share": {
+    "value": null,
+    "label": "Share without salary in the matched, unknown group"
+  },
+  "salary_hidden_source_company_ats_boards_count": {
+    "value": 114,
+    "label": "Company ATS boards adverts without salary"
+  },
+  "salary_hidden_source_company_ats_boards_share": {
+    "value": 0.7169811320754716,
+    "label": "Share of Company ATS boards adverts without salary"
+  },
+  "salary_hidden_source_reed_count": {
+    "value": 334,
+    "label": "Reed adverts without salary"
+  },
+  "salary_hidden_source_reed_share": {
+    "value": 0.19497956800934033,
+    "label": "Share of Reed adverts without salary"
+  },
+  "salary_hidden_source_remote_boards_count": {
+    "value": 114,
+    "label": "Remote boards adverts without salary"
+  },
+  "salary_hidden_source_remote_boards_share": {
+    "value": 0.9827586206896551,
+    "label": "Share of Remote boards adverts without salary"
+  },
+  "what_if_skill_request_share_as_taught": {
+    "value": 0.498489426,
+    "label": "Share of classified essential-skill requests covered as taught"
+  },
+  "what_if_skill_request_share_with_sql_excel": {
+    "value": 0.6525679758,
+    "label": "Share of classified essential-skill requests covered with SQL and Excel"
+  },
+  "what_if_adverts_with_essential_skills": {
+    "value": 203,
+    "label": "Full-description adverts with at least one classified essential skill"
+  },
+  "what_if_adverts_without_essential_skills": {
+    "value": 175,
+    "label": "Full-description adverts with no classified essential skills"
+  },
+  "what_if_fully_covered_adverts_as_taught": {
+    "value": 38,
+    "label": "Adverts meeting every listed essential skill as taught"
+  },
+  "what_if_fully_covered_adverts_with_sql_excel": {
+    "value": 79,
+    "label": "Adverts meeting every listed essential skill with SQL and Excel"
+  },
+  "what_if_fully_covered_share_as_taught": {
+    "value": 0.1871921182,
+    "label": "Share of essential-skill adverts fully covered as taught"
+  },
+  "what_if_fully_covered_share_with_sql_excel": {
+    "value": 0.3891625616,
+    "label": "Share of essential-skill adverts fully covered with SQL and Excel"
+  },
+  "next_dialect_sql_adverts_asking": {
+    "value": 79,
+    "label": "Full-description data-role adverts tagged SQL / plain SQL; source skill_id sql",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "sql"
+  },
+  "next_dialect_postgresql_adverts_asking": {
+    "value": 16,
+    "label": "Full-description data-role adverts tagged PostgreSQL; source skill_id postgresql",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "postgresql"
+  },
+  "next_dialect_mysql_adverts_asking": {
+    "value": 3,
+    "label": "Full-description data-role adverts tagged MySQL; source skill_id mysql",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "mysql"
+  },
+  "next_dialect_sql_server_t_sql_adverts_asking": {
+    "value": 7,
+    "label": "Full-description data-role adverts tagged Microsoft SQL Server / T-SQL; source skill_id t_sql",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "t_sql"
+  },
+  "next_dialect_google_cloud_bigquery_adverts_asking": {
+    "value": 14,
+    "label": "Full-description data-role adverts tagged Google Cloud / BigQuery; source skill_id gcp",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "gcp"
+  },
+  "next_dialect_snowflake_databricks_adverts_asking": {
+    "value": 17,
+    "label": "Full-description data-role adverts tagged Snowflake / Databricks; source skill_id databricks",
+    "source_file": "outputs/tables/skill_explorer.csv",
+    "source_column": "data_role_full_adverts_asking",
+    "skill_id": "databricks"
+  },
+  "next_excel_wallstreetmojo_duration_hours": {
+    "value": 1,
+    "label": "Approximate WallStreetMojo Free Excel Course length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_excel_openlearn_duration_hours": {
+    "value": 6,
+    "label": "OpenLearn Data analysis: visualisations in Excel length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_excel_kyle_pew_duration_hours": {
+    "value": 22.5,
+    "label": "Approximate Kyle Pew Excel course length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_excel_maven_advanced_duration_hours": {
+    "value": 9.5,
+    "label": "Approximate Maven Analytics Advanced Excel course length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_excel_paid_price_low_gbp": {
+    "value": 15,
+    "label": "Lower end of the usual sale-price guide in pounds; supplied in the approved Stage 15 content"
+  },
+  "next_excel_paid_price_high_gbp": {
+    "value": 20,
+    "label": "Upper end of the usual sale-price guide in pounds; supplied in the approved Stage 15 content"
+  },
+  "next_sqlbolt_short_lesson_count": {
+    "value": 18,
+    "label": "SQLBolt short interactive lesson count; supplied in the approved Stage 15 content"
+  },
+  "next_sql_kaggle_intro_duration_hours": {
+    "value": 3,
+    "label": "Approximate Kaggle Intro to SQL length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_sql_kaggle_advanced_duration_hours": {
+    "value": 4,
+    "label": "Approximate Kaggle Advanced SQL length in hours; supplied in the approved Stage 15 content"
+  },
+  "next_sql_oracle_foundations_module_count": {
+    "value": 10,
+    "label": "Oracle Dev Gym Foundations module count; supplied in the approved Stage 15 content"
+  },
+  "next_sql_freecodecamp_project_count": {
+    "value": 5,
+    "label": "freeCodeCamp Relational Databases project count; supplied in the approved Stage 15 content"
+  },
+  "next_sql_freecodecamp_exam_question_count": {
+    "value": 50,
+    "label": "freeCodeCamp Relational Databases exam question count; supplied in the approved Stage 15 content"
+  },
+  "next_steps_tab_number": {
+    "value": 8,
+    "label": "What to do next tab number; supplied in the approved Stage 15 content"
+  },
+  "next_method_tab_number": {
+    "value": 9,
+    "label": "How we did it tab number after Stage 15; supplied in the approved Stage 15 content"
+  },
+  "next_steps_course_list_checked": {
+    "value": "31 October 2026",
+    "label": "Course list checked date in the approved Stage 15 content"
+  }
+}

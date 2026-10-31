@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-844 -647 1826 1393" width="1826" height="1393" role="img" aria-labelledby="t d">
+<title id="t">SQL at a glance, with a learning order and an example query</title><desc id="d">Mind map of SQL. The centre says SQL. Seven branches: DQL (ask questions of the data: SELECT, FROM with joins, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT) is the thickest because analysts use it every day. Operators and Functions are used often. DML (insert, update, delete rows) and DDL (create, alter, drop tables) are used sometimes. DCL (grant, revoke access) and TCL (begin, commit, rollback) are rarely used.</desc>
+<rect x="-844" y="-647" width="1826" height="1393" rx="26" fill="#2b3a55"/>
+<path d="M112.0,-30.0 C171.0,-30.0 171.0,-250.0 230.0,-250.0" fill="none" stroke="#f2c14e" stroke-width="16" stroke-linecap="round" opacity="1.0"/>
+<line x1="230" y1="-250" x2="412.609375" y2="-250" stroke="#f2c14e" stroke-width="9.6" stroke-linecap="round" opacity="1.0"/>
+<text x="232" y="-262" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="30" fill="#f2c14e" letter-spacing="-0.5">DQL</text>
+<text x="232" y="-226" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">ask questions of the data</text>
+<text x="232" y="-208" text-anchor="start" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">DATA QUERY LANGUAGE</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-538.0 482.6,-538.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-538" x2="720.2" y2="-538" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-545" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">SELECT</text>
+<text x="574.1" y="-545" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">choose the columns</text>
+<circle cx="464.6" cy="-538" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-533.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">1</text>
+<path d="M720.2,-538.0 C743.2,-538.0 743.2,-568.0 766.2,-568.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="766.2" y1="-568" x2="925.4" y2="-568" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="769.2" y="-575" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">DISTINCT</text>
+<text x="857.1" y="-575" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#c3cbdb">no repeats</text>
+<path d="M720.2,-538.0 C743.2,-538.0 743.2,-508.0 766.2,-508.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="766.2" y1="-508" x2="912.0" y2="-508" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="769.2" y="-515" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">AS</text>
+<text x="803.1" y="-515" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#c3cbdb">rename a column</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-413.0 482.6,-413.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-413" x2="677.3" y2="-413" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-420" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">FROM</text>
+<text x="556.2" y="-420" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">choose the table</text>
+<circle cx="464.6" cy="-413" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-408.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">1</text>
+<path d="M677.3,-413.0 C700.3,-413.0 700.3,-473.0 723.3,-473.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="723.3" y1="-473" x2="820.4" y2="-473" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="726.3" y="-480" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">INNER JOIN</text>
+<path d="M677.3,-413.0 C700.3,-413.0 700.3,-443.0 723.3,-443.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="723.3" y1="-443" x2="810.2" y2="-443" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="726.3" y="-450" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">LEFT JOIN</text>
+<path d="M677.3,-413.0 C700.3,-413.0 700.3,-413.0 723.3,-413.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="723.3" y1="-413" x2="820.9" y2="-413" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="726.3" y="-420" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">RIGHT JOIN</text>
+<path d="M677.3,-413.0 C700.3,-413.0 700.3,-383.0 723.3,-383.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="723.3" y1="-383" x2="869.6" y2="-383" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="726.3" y="-390" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">FULL OUTER JOIN</text>
+<path d="M677.3,-413.0 C700.3,-413.0 700.3,-353.0 723.3,-353.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="723.3" y1="-353" x2="826.9" y2="-353" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="726.3" y="-360" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">CROSS JOIN</text>
+<circle cx="699.3" cy="-413" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="699.3" y="-408.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">4</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-293.0 482.6,-293.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-293" x2="750.2" y2="-293" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-300" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">WHERE</text>
+<text x="570.2" y="-300" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">keep only matching rows</text>
+<circle cx="464.6" cy="-293" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-288.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">1</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-228.0 482.6,-228.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-228" x2="771.3" y2="-228" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-235" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">GROUP BY</text>
+<text x="601.1" y="-235" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">bunch rows into groups</text>
+<circle cx="464.6" cy="-228" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-223.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">3</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-163.0 482.6,-163.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-163" x2="691.6" y2="-163" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-170" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">HAVING</text>
+<text x="575.8" y="-170" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">filter the groups</text>
+<circle cx="464.6" cy="-163" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-158.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">3</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-88.0 482.6,-88.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-88" x2="707.3" y2="-88" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-95" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">ORDER BY</text>
+<text x="598.1" y="-95" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">sort the results</text>
+<circle cx="464.6" cy="-88" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-83.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">2</text>
+<path d="M707.3,-88.0 C730.3,-88.0 730.3,-111.0 753.3,-111.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="753.3" y1="-111" x2="883.1" y2="-111" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="756.3" y="-118" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">ASC</text>
+<text x="802.0" y="-118" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#c3cbdb">smallest first</text>
+<path d="M707.3,-88.0 C730.3,-88.0 730.3,-65.0 753.3,-65.0" fill="none" stroke="#f2c14e" stroke-width="1.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="753.3" y1="-65" x2="884.1" y2="-65" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="756.3" y="-72" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="16" fill="#faf9f6">DESC</text>
+<text x="811.7" y="-72" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#c3cbdb">largest first</text>
+<path d="M412.6,-250.0 C447.6,-250.0 447.6,-13.0 482.6,-13.0" fill="none" stroke="#f2c14e" stroke-width="7.2" stroke-linecap="round" opacity="1.0"/>
+<line x1="482.6" y1="-13" x2="719.7" y2="-13" stroke="#f2c14e" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="485.6" y="-20" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">LIMIT</text>
+<text x="551.6" y="-20" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">show the first few rows</text>
+<circle cx="464.6" cy="-13" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="464.6" y="-8.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">2</text>
+<path d="M112.0,20.4 C171.0,20.4 171.0,170.0 230.0,170.0" fill="none" stroke="#4cc3e6" stroke-width="5" stroke-linecap="round" opacity="1.0"/>
+<line x1="230" y1="170" x2="406.25" y2="170" stroke="#4cc3e6" stroke-width="3.0" stroke-linecap="round" opacity="1.0"/>
+<text x="232" y="158" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="30" fill="#4cc3e6" letter-spacing="-0.5">DML</text>
+<text x="232" y="194" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">change the rows</text>
+<text x="232" y="212" text-anchor="start" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">DATA MANIPULATION LANGUAGE</text>
+<path d="M406.2,170.0 C441.2,170.0 441.2,112.0 476.2,112.0" fill="none" stroke="#4cc3e6" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="476.2" y1="112" x2="665.5" y2="112" stroke="#4cc3e6" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="479.2" y="105" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">INSERT</text>
+<text x="563.3" y="105" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">add new rows</text>
+<path d="M406.2,170.0 C441.2,170.0 441.2,172.0 476.2,172.0" fill="none" stroke="#4cc3e6" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="476.2" y1="172" x2="723.8" y2="172" stroke="#4cc3e6" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="479.2" y="165" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">UPDATE</text>
+<text x="570.6" y="165" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">change existing rows</text>
+<path d="M406.2,170.0 C441.2,170.0 441.2,232.0 476.2,232.0" fill="none" stroke="#4cc3e6" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="476.2" y1="232" x2="661.0" y2="232" stroke="#4cc3e6" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="479.2" y="225" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">DELETE</text>
+<text x="566.5" y="225" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">remove rows</text>
+<path d="M112.0,40.0 C171.0,40.0 171.0,365.0 230.0,365.0" fill="none" stroke="#6c9cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<line x1="230" y1="365" x2="373.125" y2="365" stroke="#6c9cf0" stroke-width="2.0" stroke-linecap="round" opacity="0.8"/>
+<text x="232" y="353" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="30" fill="#6c9cf0" letter-spacing="-0.5">DCL</text>
+<text x="232" y="389" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">who's allowed in</text>
+<text x="232" y="407" text-anchor="start" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">DATA CONTROL LANGUAGE</text>
+<path d="M373.1,365.0 C408.1,365.0 408.1,342.0 443.1,342.0" fill="none" stroke="#6c9cf0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+<line x1="443.1" y1="342" x2="616.2" y2="342" stroke="#6c9cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="446.1" y="335" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">GRANT</text>
+<text x="529.1" y="335" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">give access</text>
+<path d="M373.1,365.0 C408.1,365.0 408.1,402.0 443.1,402.0" fill="none" stroke="#6c9cf0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+<line x1="443.1" y1="402" x2="667.6" y2="402" stroke="#6c9cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="446.1" y="395" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">REVOKE</text>
+<text x="538.6" y="395" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">take access away</text>
+<path d="M112.0,40.0 C171.0,40.0 171.0,530.0 230.0,530.0" fill="none" stroke="#9a8cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<line x1="230" y1="530" x2="419.5" y2="530" stroke="#9a8cf0" stroke-width="2.0" stroke-linecap="round" opacity="0.8"/>
+<text x="232" y="518" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="30" fill="#9a8cf0" letter-spacing="-0.5">TCL</text>
+<text x="232" y="554" text-anchor="start" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">save or undo changes</text>
+<text x="232" y="572" text-anchor="start" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">TRANSACTION CONTROL LANGUAGE</text>
+<path d="M419.5,530.0 C454.5,530.0 454.5,482.0 489.5,482.0" fill="none" stroke="#9a8cf0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+<line x1="489.5" y1="482" x2="741.0" y2="482" stroke="#9a8cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="492.5" y="475" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">BEGIN</text>
+<text x="565.5" y="475" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">start a batch of changes</text>
+<path d="M419.5,530.0 C454.5,530.0 454.5,537.0 489.5,537.0" fill="none" stroke="#9a8cf0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+<line x1="489.5" y1="537" x2="697.2" y2="537" stroke="#9a8cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="492.5" y="530" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">COMMIT</text>
+<text x="590.2" y="530" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">save the batch</text>
+<path d="M419.5,530.0 C454.5,530.0 454.5,592.0 489.5,592.0" fill="none" stroke="#9a8cf0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+<line x1="489.5" y1="592" x2="721.1" y2="592" stroke="#9a8cf0" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+<text x="492.5" y="585" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">ROLLBACK</text>
+<text x="611.3" y="585" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">undo the batch</text>
+<path d="M-112.0,-39.6 C-171.0,-39.6 -171.0,-330.0 -230.0,-330.0" fill="none" stroke="#f0955a" stroke-width="5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-393.0" y1="-330" x2="-230.0" y2="-330" stroke="#f0955a" stroke-width="3.0" stroke-linecap="round" opacity="1.0"/>
+<text x="-232.0" y="-342" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="30" fill="#f0955a" letter-spacing="-0.5">DDL</text>
+<text x="-232.0" y="-306" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">build the tables</text>
+<text x="-232.0" y="-288" text-anchor="end" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">DATA DEFINITION LANGUAGE</text>
+<path d="M-393.0,-330.0 C-428.0,-330.0 -428.0,-448.0 -463.0,-448.0" fill="none" stroke="#f0955a" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="-765.3" y1="-448" x2="-463.0" y2="-448" stroke="#f0955a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-762.3" y="-455" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Objects</text>
+<text x="-675.8" y="-455" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">database · table · view · index</text>
+<path d="M-393.0,-330.0 C-428.0,-330.0 -428.0,-388.0 -463.0,-388.0" fill="none" stroke="#f0955a" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="-709.6" y1="-388" x2="-463.0" y2="-388" stroke="#f0955a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-706.6" y="-395" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">CREATE</text>
+<text x="-616.6" y="-395" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">make something new</text>
+<path d="M-393.0,-330.0 C-428.0,-330.0 -428.0,-328.0 -463.0,-328.0" fill="none" stroke="#f0955a" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="-684.6" y1="-328" x2="-463.0" y2="-328" stroke="#f0955a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-681.6" y="-335" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">ALTER</text>
+<text x="-607.3" y="-335" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">change its structure</text>
+<path d="M-393.0,-330.0 C-428.0,-330.0 -428.0,-268.0 -463.0,-268.0" fill="none" stroke="#f0955a" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="-658.0" y1="-268" x2="-463.0" y2="-268" stroke="#f0955a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-655.0" y="-275" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">DROP</text>
+<text x="-587.2" y="-275" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">delete it for good</text>
+<path d="M-393.0,-330.0 C-428.0,-330.0 -428.0,-208.0 -463.0,-208.0" fill="none" stroke="#f0955a" stroke-width="2.25" stroke-linecap="round" opacity="1.0"/>
+<line x1="-698.8" y1="-208" x2="-463.0" y2="-208" stroke="#f0955a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-695.8" y="-215" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">RENAME</text>
+<text x="-598.4" y="-215" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#c3cbdb">give it a new name</text>
+<path d="M-112.0,4.8 C-171.0,4.8 -171.0,40.0 -230.0,40.0" fill="none" stroke="#8fd17a" stroke-width="10" stroke-linecap="round" opacity="1.0"/>
+<line x1="-392.640625" y1="40" x2="-230.0" y2="40" stroke="#8fd17a" stroke-width="6.0" stroke-linecap="round" opacity="1.0"/>
+<text x="-232.0" y="28" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="26" fill="#8fd17a" letter-spacing="-0.5">Operators</text>
+<text x="-232.0" y="64" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">compare and combine</text>
+<text x="-232.0" y="82" text-anchor="end" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">USED INSIDE QUERIES</text>
+<path d="M-392.6,40.0 C-427.6,40.0 -427.6,-73.0 -462.6,-73.0" fill="none" stroke="#8fd17a" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-770.1" y1="-73" x2="-462.6" y2="-73" stroke="#8fd17a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-767.1" y="-80" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Comparison</text>
+<text x="-637.2" y="-80" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">=  &lt;&gt;  &lt;  &gt;  &lt;=  &gt;=</text>
+<path d="M-392.6,40.0 C-427.6,40.0 -427.6,-13.0 -462.6,-13.0" fill="none" stroke="#8fd17a" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-658.8" y1="-13" x2="-462.6" y2="-13" stroke="#8fd17a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-655.8" y="-20" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Logical</text>
+<text x="-574.0" y="-20" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">AND  OR  NOT</text>
+<path d="M-392.6,40.0 C-427.6,40.0 -427.6,47.0 -462.6,47.0" fill="none" stroke="#8fd17a" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-724.9" y1="47" x2="-462.6" y2="47" stroke="#8fd17a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-721.9" y="40" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Matching</text>
+<text x="-619.2" y="40" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">LIKE  IN  BETWEEN</text>
+<path d="M-392.6,40.0 C-427.6,40.0 -427.6,107.0 -462.6,107.0" fill="none" stroke="#8fd17a" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-619.5" y1="107" x2="-462.6" y2="107" stroke="#8fd17a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-616.5" y="100" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Missing</text>
+<text x="-528.9" y="100" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">IS NULL</text>
+<path d="M-392.6,40.0 C-427.6,40.0 -427.6,167.0 -462.6,167.0" fill="none" stroke="#8fd17a" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-631.2" y1="167" x2="-462.6" y2="167" stroke="#8fd17a" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-628.2" y="160" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Maths</text>
+<text x="-556.0" y="160" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">+  −  *  /</text>
+<path d="M-112.0,40.0 C-171.0,40.0 -171.0,395.0 -230.0,395.0" fill="none" stroke="#c77dd9" stroke-width="10" stroke-linecap="round" opacity="1.0"/>
+<line x1="-409.125" y1="395" x2="-230.0" y2="395" stroke="#c77dd9" stroke-width="6.0" stroke-linecap="round" opacity="1.0"/>
+<text x="-232.0" y="383" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="26" fill="#c77dd9" letter-spacing="-0.5">Functions</text>
+<text x="-232.0" y="419" text-anchor="end" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">calculate and tidy values</text>
+<text x="-232.0" y="437" text-anchor="end" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="11" fill="#c3cbdb" letter-spacing="1">USED INSIDE QUERIES</text>
+<path d="M-409.1,395.0 C-444.1,395.0 -444.1,282.0 -479.1,282.0" fill="none" stroke="#c77dd9" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-788.1" y1="282" x2="-479.1" y2="282" stroke="#c77dd9" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-785.1" y="275" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Aggregate</text>
+<text x="-671.8" y="275" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">COUNT SUM AVG MIN MAX</text>
+<circle cx="-461.1" cy="282" r="11" fill="#faf9f6" stroke="#2b3a55" stroke-width="2"/><text x="-461.1" y="286.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">3</text>
+<path d="M-409.1,395.0 C-444.1,395.0 -444.1,342.0 -479.1,342.0" fill="none" stroke="#c77dd9" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-683.4" y1="342" x2="-479.1" y2="342" stroke="#c77dd9" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-680.4" y="335" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Text</text>
+<text x="-626.6" y="335" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">UPPER LOWER TRIM</text>
+<path d="M-409.1,395.0 C-444.1,395.0 -444.1,402.0 -479.1,402.0" fill="none" stroke="#c77dd9" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-667.1" y1="402" x2="-479.1" y2="402" stroke="#c77dd9" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-664.1" y="395" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Numbers</text>
+<text x="-563.4" y="395" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">ROUND ABS</text>
+<path d="M-409.1,395.0 C-444.1,395.0 -444.1,462.0 -479.1,462.0" fill="none" stroke="#c77dd9" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-733.4" y1="462" x2="-479.1" y2="462" stroke="#c77dd9" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-730.4" y="455" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Dates</text>
+<text x="-662.8" y="455" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">EXTRACT CURRENT_DATE</text>
+<path d="M-409.1,395.0 C-444.1,395.0 -444.1,522.0 -479.1,522.0" fill="none" stroke="#c77dd9" stroke-width="4.5" stroke-linecap="round" opacity="1.0"/>
+<line x1="-618.3" y1="522" x2="-479.1" y2="522" stroke="#c77dd9" stroke-width="2" stroke-linecap="round" opacity="1.0"/>
+<text x="-615.3" y="515" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="600" font-size="20" fill="#faf9f6">Nulls</text>
+<text x="-554.4" y="515" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="15" fill="#c3cbdb">COALESCE</text>
+<rect x="-118.0" y="-56.0" width="236" height="112" rx="56.0" fill="#faf9f6"/>
+<text x="0" y="22" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="64" fill="#2b3a55" letter-spacing="-2">SQL</text>
+<text x="0" y="86.0" text-anchor="middle" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="12" fill="#c3cbdb" letter-spacing="1.5">STRUCTURED QUERY LANGUAGE</text>
+<text x="0" y="108.0" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#faf9f6">how you ask a database questions</text>
+<text x="-788.09375" y="640" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="12" fill="#c3cbdb" letter-spacing="1.5">LINE THICKNESS = HOW MUCH AN ANALYST USES IT</text>
+<line x1="-778.09375" y1="672" x2="-726.09375" y2="672" stroke="#faf9f6" stroke-width="16" stroke-linecap="round"/>
+<text x="-708.09375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">Every day</text>
+<line x1="-603.09375" y1="672" x2="-551.09375" y2="672" stroke="#faf9f6" stroke-width="10" stroke-linecap="round"/>
+<text x="-533.09375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">Often</text>
+<line x1="-428.09375" y1="672" x2="-376.09375" y2="672" stroke="#faf9f6" stroke-width="5" stroke-linecap="round"/>
+<text x="-358.09375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">Sometimes</text>
+<line x1="-253.09375" y1="672" x2="-201.09375" y2="672" stroke="#faf9f6" stroke-width="2" stroke-linecap="round"/>
+<text x="-183.09375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">Rarely</text>
+<text x="925.421875" y="640" text-anchor="end" font-family="'JetBrains Mono', 'DejaVu Sans Mono', ui-monospace, monospace" font-size="12" fill="#c3cbdb" letter-spacing="1.5">SUGGESTED LEARNING ORDER</text>
+<circle cx="201.078125" cy="672" r="11" fill="#faf9f6"/><text x="201.078125" y="676.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">1</text><text x="220.078125" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">SELECT · FROM · WHERE</text>
+<circle cx="420.59375" cy="672" r="11" fill="#faf9f6"/><text x="420.59375" y="676.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">2</text><text x="439.59375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">ORDER BY · LIMIT</text>
+<circle cx="591.484375" cy="672" r="11" fill="#faf9f6"/><text x="591.484375" y="676.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">3</text><text x="610.484375" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">GROUP BY · HAVING · Aggregate</text>
+<circle cx="862.03125" cy="672" r="11" fill="#faf9f6"/><text x="862.03125" y="676.5" text-anchor="middle" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#2b3a55">4</text><text x="881.03125" y="677" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#faf9f6">JOINs</text>
+</svg>

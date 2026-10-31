@@ -58,8 +58,20 @@
     .overview-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;max-width:1360px;margin:0 auto;padding:0 40px 26px;color:var(--na-muted);font-size:13px}
     .overview-footer p{margin:0}
     .overview-footer a{color:var(--na-accent-deep);font-weight:600}
+
+    /* Home rework (Rory, 31 Oct, Phil's brief): three tool cards, shaded journey, coral outline panel */
+    .tool-card{grid-column:span 4;min-height:190px;padding:24px 26px}
+    .tool-card .tool-description{font-size:15px}
+    .tool-star{color:#e07a5f;font-weight:700}
+    .tool-key{display:block;margin:12px 0 14px;color:#a8462a;font-size:14px;font-weight:600;line-height:1.4}
+    .journey-card{background:var(--na-soft-blue)}
+    .journey-card h2{color:var(--na-soft-blue-ink)}
+    .journey-card .journey-intro{color:#3a4560}
+    .course-topics{background:#e07a5f}
+    .course-topics .na-label{color:#161616}
+    .stat-card .na-big{text-align:left}
     @media(max-width:900px){
-      .tool-card{grid-column:span 6}
+      .tool-card{grid-column:span 12}
       .course-card{grid-template-columns:minmax(0,1fr)}
       .course-topics{grid-template-columns:minmax(0,1fr);grid-template-rows:auto repeat(5,auto);gap:7px}
       .topic-chip{min-height:0}
@@ -94,11 +106,14 @@
   <header class="na-top">
     <a class="na-mark" href="./"><i aria-hidden="true">S</i>SkillMatch</a>
     <nav class="na-nav" aria-label="Main">
+      <div class="na-nav-links">
       <a href="./" aria-current="page">Home</a>
-      <a href="https://skillmatch-926015010605.europe-west2.run.app">Find jobs</a>
       <a href="project-visual-language/github-profile-guide/">GitHub guide</a>
       <a href="project-visual-language/linkedin-profile-guide/">LinkedIn guide</a>
-      <a href="project-visual-language/tailor-my-cv/">Tailor my CV</a>
+      <a href="project-visual-language/tailor-my-cv/">CV Tailor</a>
+      <a href="project-visual-language/skillmatch-da/">Data analysis</a>
+      </div>
+      <a class="na-nav-findjobs findjobs--coral" href="https://skillmatch-926015010605.europe-west2.run.app">SkillMatch →</a>
     </nav>
   </header>
 
@@ -114,26 +129,22 @@
         </div>
       </section>
 
-      <div class="overview-section"><h2>Choose a tool</h2><p>Four ways to find and prepare for your next step.</p></div>
+      <div class="overview-section"><h2>Three things to do first</h2><p>Work through them in this order, before you look for jobs.</p></div>
 
-      <a class="overview-tile tool-card" href="https://skillmatch-926015010605.europe-west2.run.app">
-        <span class="na-label">01 · FIND</span><strong>Find jobs</strong>
-        <span class="tool-description">Browse live West Midlands jobs matched to your skills.</span>
-        <span class="tool-go">Go →</span>
-      </a>
-      <a class="overview-tile tool-card" href="project-visual-language/github-profile-guide/">
-        <span class="na-label">02 · SHOW YOUR WORK</span><strong>GitHub profile guide</strong>
+            <a class="overview-tile tool-card" href="project-visual-language/github-profile-guide/">
+        <span class="na-label">01 · SHOW YOUR WORK</span><strong>GitHub profile guide</strong>
         <span class="tool-description">Build a profile that makes your projects easy to see.</span>
         <span class="tool-go">Go →</span>
       </a>
       <a class="overview-tile tool-card" href="project-visual-language/linkedin-profile-guide/">
-        <span class="na-label">03 · TELL YOUR STORY</span><strong>LinkedIn profile guide</strong>
+        <span class="na-label">02 · TELL YOUR STORY</span><strong>LinkedIn profile guide</strong>
         <span class="tool-description">Explain your move into data with clear examples.</span>
         <span class="tool-go">Go →</span>
       </a>
       <a class="overview-tile tool-card" href="project-visual-language/tailor-my-cv/">
-        <span class="na-label">04 · PREPARE TO APPLY</span><strong>Tailor my CV</strong>
-        <span class="tool-description">Use a job advert to prepare a focused CV draft.</span>
+        <span class="na-label">03 · PREPARE TO APPLY</span><strong>CV Tailor <span class="tool-star" aria-hidden="true">*</span></strong>
+        <span class="tool-description">Set up your own CV Tailor in Claude desktop and build your biography. Then use it for every job.</span>
+        <span class="tool-key"><span aria-hidden="true">* </span>Probably the most important step: your biography is what makes every CV yours.</span>
         <span class="tool-go">Go →</span>
       </a>
 
@@ -165,12 +176,12 @@
 
               <text x="778" y="73" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" letter-spacing=".2" fill="#1e3a8a">YOUR SKILLMATCH FOLDER</text>
               <text x="778" y="88" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" letter-spacing=".2" fill="#1e3a8a">THE APP CAN'T OPEN IT</text>
-              <rect x="776.5" y="106" width="234" height="128" rx="20" fill="#dfe3ec"/>
-              <text x="794.5" y="137" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#1e3a8a">STEP 04</text>
-              <text x="794.5" y="164" font-size="18" font-weight="700" fill="#161616">Tailor your CV</text>
-              <text x="794.5" y="185" font-size="14" fill="#1e2a4a">in Claude desktop</text>
-              <text x="794.5" y="200" font-size="12" font-weight="600" fill="#1e2a4a">CV stays in your</text>
-              <text x="794.5" y="213" font-size="12" font-weight="600" fill="#1e2a4a">SkillMatch Folder</text>
+              <rect x="776.5" y="106" width="234" height="128" rx="20" fill="#2b3a55"/>
+              <text x="794.5" y="137" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#c3cbdb">STEP 04</text>
+              <text x="794.5" y="164" font-size="18" font-weight="700" fill="#faf9f6">Tailor your CV</text>
+              <text x="794.5" y="185" font-size="14" fill="#faf9f6">in Claude desktop</text>
+              <text x="794.5" y="200" font-size="12" font-weight="600" fill="#faf9f6">CV stays in your</text>
+              <text x="794.5" y="213" font-size="12" font-weight="600" fill="#faf9f6">SkillMatch Folder</text>
 
               <rect x="1054" y="117" width="210" height="106" rx="22" fill="#efece5"/>
               <text x="1072" y="143" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 05</text>
@@ -213,11 +224,11 @@
               <text x="180" y="429" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" fill="#faf9f6">ONLY THE JOB BRIEF CROSSES</text>
               <text x="34" y="480" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="700" letter-spacing=".2" fill="#1e3a8a">YOUR SKILLMATCH FOLDER</text>
               <text x="34" y="495" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="700" letter-spacing=".2" fill="#1e3a8a">THE APP CAN'T OPEN IT</text>
-              <rect x="32" y="524" width="296" height="128" rx="20" fill="#dfe3ec"/>
-              <text x="52" y="556" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#1e3a8a">STEP 04</text>
-              <text x="52" y="585" font-size="20" font-weight="700" fill="#161616">Tailor your CV</text>
-              <text x="52" y="608" font-size="14" fill="#1e2a4a">in Claude desktop</text>
-              <text x="52" y="628" font-size="12" font-weight="600" fill="#1e2a4a">CV stays in your SkillMatch Folder</text>
+              <rect x="32" y="524" width="296" height="128" rx="20" fill="#2b3a55"/>
+              <text x="52" y="556" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#c3cbdb">STEP 04</text>
+              <text x="52" y="585" font-size="20" font-weight="700" fill="#faf9f6">Tailor your CV</text>
+              <text x="52" y="608" font-size="14" fill="#faf9f6">in Claude desktop</text>
+              <text x="52" y="628" font-size="12" font-weight="600" fill="#faf9f6">CV stays in your SkillMatch Folder</text>
 
               <rect x="32" y="702" width="296" height="102" rx="22" fill="#efece5"/>
               <text x="52" y="730" font-family="JetBrains Mono,monospace" font-size="12" font-weight="700" letter-spacing="1" fill="#3556a8">STEP 05</text>
@@ -235,20 +246,20 @@
         </figure>
       </section>
 
-      <div class="data-heading"><h2>The latest live collection</h2><p>Figures from 29 October 2026</p></div>
+      <div class="data-heading"><h2>The latest live collection</h2><p>Figures from 30 October 2026</p></div>
       <article class="overview-tile stat-card">
-        <span class="na-label">ADVERTS COLLECTED</span><strong class="na-big">5,447</strong>
-        <span class="stat-caption">Collected in one run of all six sources.</span>
+        <span class="na-label">ADVERTS COLLECTED</span><strong class="na-big">4,654</strong>
+        <span class="stat-caption">Distinct adverts from one run of all six sources.</span>
       </article>
       <article class="overview-tile stat-card">
-        <span class="na-label">PASSED THE GRADUATE FILTER</span><strong class="na-big">71</strong>
-        <span class="stat-caption">Adverts shown after the filters.</span>
+        <span class="na-label">MATCHED TO A GRADUATE</span><strong class="na-big">67</strong>
+        <span class="stat-caption">Adverts matched after the filters.</span>
       </article>
       <article class="overview-tile stat-card">
         <span class="na-label">SOURCES CHECKED</span><strong class="na-big">6</strong>
         <span class="stat-caption">Greenhouse, Lever, Reed, Remote OK, We Work Remotely and Workable.</span>
       </article>
-      <p class="snapshot-note">Reed's results were partial and some searches reached their result limit. <a href="https://github.com/TidyWeb/SkillMatch/tree/data-snapshots/data/live_snapshots/20261029_1350">Read the live snapshot</a>.</p>
+      <p class="snapshot-note">Reed's results were partial and some searches reached their result limit. <a href="https://github.com/TidyWeb/SkillMatch/tree/data-snapshots/data/live_snapshots/20261030_1848">Read the live snapshot</a>, or see the <a href="project-visual-language/skillmatch-da/">Data analysis</a> for the full story.</p>
 
       <section class="overview-tile course-card" aria-labelledby="course-title">
         <div class="course-copy">

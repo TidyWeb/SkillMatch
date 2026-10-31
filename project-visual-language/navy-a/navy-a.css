@@ -4,6 +4,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"> */
 
 :root{
+  --na-content-max:1360px;
   --na-bg:#e7e5df; --na-surface:#faf9f6; --na-surface-2:#efece5; --na-line:#e2ded5;
   --na-ink:#161616; --na-muted:#68655f;
   --na-panel:#2b3a55; --na-panel-ink:#faf9f6; --na-panel-muted:#c3cbdb; --na-panel-line:rgba(250,249,246,.14);
@@ -21,6 +22,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--na-bg);color:var(--na-ink);font:16px/1.6 var(--na-sans);-webkit-font-smoothing:antialiased}
+body:has(.na-page--document){--na-content-max:1380px}
 h1,h2,h3,h4{font-family:var(--na-sans);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin:0;text-wrap:balance}
 h1{font-size:clamp(32px,4vw,48px)} h2{font-size:clamp(24px,2.4vw,30px)} h3{font-size:19px;letter-spacing:-.02em} h4{font-size:16px;letter-spacing:-.01em}
 p{margin:.6em 0} img{max-width:100%;display:block}
@@ -34,7 +36,7 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 .na-skip{position:absolute;left:-999px}.na-skip:focus{left:16px;top:16px;background:var(--na-surface);padding:8px 14px;border-radius:var(--na-pill);z-index:10}
 
 /* Top bar */
-.na-top{display:flex;align-items:center;gap:28px;padding:22px 40px 6px;max-width:1440px;margin:0 auto}
+.na-top{display:flex;align-items:center;gap:28px;padding:22px 40px 6px;max-width:var(--na-content-max);margin:0 auto}
 .na-mark{display:flex;align-items:center;gap:10px;font-weight:600;font-size:22px;letter-spacing:-.03em;color:var(--na-ink);text-decoration:none}
 .na-mark i{width:28px;height:28px;border-radius:10px;background:var(--na-panel);color:var(--na-panel-ink);display:grid;place-items:center;font:700 15px var(--na-sans);font-style:normal}
 .na-nav{display:flex;gap:4px;background:var(--na-panel);border-radius:var(--na-pill);padding:6px;overflow-x:auto;scrollbar-width:none}
@@ -44,7 +46,7 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 .na-top .na-btn{margin-left:auto}
 
 /* Page width and cards */
-.na-page{max-width:1360px;margin:0 auto;padding:34px 40px 60px}
+.na-page{max-width:var(--na-content-max);margin:0 auto;padding:34px 40px 60px}
 .na-section{margin:0 0 46px}
 .na-card{background:var(--na-surface);border-radius:var(--na-r);padding:var(--na-pad)}
 .na-card--quiet{background:var(--na-surface-2)}
@@ -174,13 +176,15 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 
 /* Two-up and footer */
 .na-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--na-gap-tiles)}
-.na-footer{max-width:1360px;margin:0 auto;padding:20px 40px 40px;font-size:13px;color:var(--na-muted)}
+.na-footer{max-width:var(--na-content-max);margin:0 auto;padding:20px 40px 40px;font-size:13px;color:var(--na-muted)}
+body .na-footer{max-width:var(--na-content-max)}
 
 /* Phones and narrow screens */
 @media (max-width:850px){
   .na-top{flex-wrap:wrap;gap:14px;padding:16px 16px 4px}
   .na-top .na-nav{order:3;width:100%}
   .na-page{padding:22px 16px 40px}
+  .na-footer{padding-left:16px;padding-right:16px}
   .na-layout{grid-template-columns:minmax(0,1fr)}
   .na-contents{padding:14px 16px;min-width:0;top:8px;max-height:none;overflow:visible;z-index:5}
   .na-contents p,.na-legend,.na-contents .na-label{display:none}
@@ -204,7 +208,7 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 
 /* Document guide additions, Step 3: match the approved detached proof. */
 .na-top--document{padding-bottom:0}
-.na-page--document{max-width:1380px;padding-top:30px}
+.na-page--document{padding-top:30px}
 .na-panel>:last-child{margin-bottom:0}
 .na-examples--guide{grid-template-columns:repeat(3,minmax(0,1fr))}
 .na-examples--guide .na-dot{font-size:11px}
@@ -316,7 +320,6 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 .na-sources a{font-weight:600;text-decoration:none}
 .na-source-url{display:block;margin-top:3px;color:var(--na-muted);font:12px/1.5 var(--na-mono);overflow-wrap:anywhere}
 .na-source-url a{font-weight:400}
-.na-footer{max-width:1380px;padding:20px 40px 40px}
 .na-term{font-family:var(--na-mono);overflow-wrap:anywhere}
 .na-github-muted{color:#57606a;font-size:12px}
 .na-github-chip{display:inline-block;margin:2px;padding:4px 8px;border-radius:999px;background:#eaeef2;color:#24292f;font:600 11px ui-monospace,monospace}
@@ -469,3 +472,66 @@ code{font:.92em var(--na-mono);background:var(--na-surface-2);padding:1px 6px;bo
 
 /* Snapshot strips are lists visually, so remove the browser's list indentation. */
 .na-snapshot-changes{list-style:none;margin:0;padding:0}
+
+/* Main nav: agreed 31 Oct 2026 */
+.na-nav {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.na-top .na-nav {
+  min-width: 0;
+}
+
+.na-nav-links {
+  display: flex;
+  flex: 1 1 auto;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.na-nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.na-nav a {
+  flex: none;
+}
+
+.na-nav-findjobs {
+  flex: none;
+  margin-left: 8px;
+  white-space: nowrap;
+  background: #e07a5f;
+  color: #1e2a4a;
+}
+
+.na-nav a.na-nav-findjobs,
+.na-nav-findjobs:hover,
+.na-nav-findjobs.findjobs--coral:hover,
+.na-nav-findjobs:focus-visible {
+  background: #e07a5f;
+  color: #1e2a4a;
+}
+
+@media (max-width: 850px) {
+  .na-top .na-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .na-nav-links {
+    mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 32px), transparent 100%);
+  }
+}
+
+/* Links on navy surfaces stay visible on hover */
+:is(.na-card--navy, .na-tile--navy, .na-tile--hero, .na-contents, .na-nav) a:not(.na-nav-findjobs):not(.na-btn):not([aria-current="page"]):hover,
+:is(.na-card--navy, .na-tile--navy, .na-tile--hero, .na-contents, .na-nav) a:not(.na-nav-findjobs):not(.na-btn):not([aria-current="page"]):focus-visible {
+  color: #f09a80;
+}
+
