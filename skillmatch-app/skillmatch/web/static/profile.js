@@ -59,7 +59,7 @@
     event.target.value = "";
   });
   function collect() {
-    var travel = $("#travel").value;
+    var travel = $all('[name="travel"]:checked', form).map(function (cb) { return cb.value; });
     return {
       postcode: outwardCode($("#postcode").value), travel: travel,
       max_miles: $("#max_miles").value, include_remote: $("#include_remote").checked,
@@ -73,7 +73,9 @@
   }
   function fill(profile) {
     if (!profile || typeof profile !== "object" || !Array.isArray(profile.skills) || !Array.isArray(profile.areas) || !Number.isFinite(Number(profile.highest_qualification))) return false;
-    $("#postcode").value = profile.postcode || ""; $("#travel").value = profile.travel || "";
+    $("#postcode").value = profile.postcode || "";
+    var travel = Array.isArray(profile.travel) ? profile.travel : [profile.travel];
+    $all('[name="travel"]', form).forEach(function (cb) { cb.checked = travel.indexOf(cb.value) !== -1; });
     $("#max_miles").value = profile.max_miles || ""; $("#include_remote").checked = profile.include_remote !== false;
     $("#max_office_days").value = profile.max_office_days != null ? String(profile.max_office_days) : "5";
     skillsBox.replaceChildren(); profile.skills.forEach(skillChip);

@@ -26,6 +26,8 @@
 
   /* Navy A app surfaces and semantic result states. */
   --panel: #2b3a55;
+  --coral: #e07a5f;
+  --coral-hover: #d8775d;
   --panel-muted: #c3cbdb;
   --tier-ink: #1e2a4a;
   --status-met: #1f7a4a;

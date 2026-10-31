@@ -30,13 +30,27 @@ class Controls(HTMLParser):
             self.in_form = False
 
 
-def test_profile_has_exactly_ten_base_controls(tmp_path):
+def test_profile_preserves_base_controls_with_four_travel_choices(tmp_path):
     client = create_app({"TESTING": True, "DB_PATH": str(tmp_path / "absent.db")}).test_client()
     response = client.get("/")
     assert response.status_code == 200
     controls = Controls()
     controls.feed(response.get_data(as_text=True))
-    assert len(controls.controls) == 10
+    travel = [control for control in controls.controls if control.get("name") == "travel"]
+    assert len(controls.controls) == 13
+    assert len(travel) == 4
+    assert all(control["type"] == "checkbox" for control in travel)
+    assert {control.get("id") for control in controls.controls if control not in travel} == {
+        "postcode",
+        "max_miles",
+        "max_office_days",
+        "include_remote",
+        "add-skill",
+        "add-area",
+        "highest_qualification",
+        "clear-profile",
+        None,
+    }
     html = response.get_data(as_text=True)
     for old_control in ["min_salary", "data_years", "ci_diploma", "Try a demo profile"]:
         assert old_control not in html

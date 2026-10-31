@@ -222,3 +222,63 @@ def test_full_postcode_is_reduced_to_outward_code(client):
     r = client.post("/results", data={"profile": profile_json(postcode="WV1 1SH")})
     html = r.data.decode()
     assert r.status_code == 200 and "1SH" not in html
+
+
+@pytest.mark.parametrize(
+    "travel, phrase",
+    [
+        (
+            ["car", "public_transport", "bike_walk"],
+            "You travel by car, public transport or bike or on foot;",
+        ),
+        (["car", "motorbike"], "You travel by car or motorbike;"),
+        ("public_transport", "You travel by public transport;"),
+        ([], None),
+        (["plane", None, []], None),
+    ],
+)
+def test_results_travel_prose(client, travel, phrase):
+    response = client.post("/results", data={"profile": profile_json(travel=travel)})
+    assert response.status_code == 200
+    html = " ".join(response.data.decode().split())
+    if phrase:
+        assert phrase in html
+    else:
+        assert "You travel by" not in html
+
+
+@pytest.mark.parametrize(
+    "travel", [["car", "motorbike", "public_transport", "bike_walk"], "car", []]
+)
+def test_travel_does_not_change_matches_or_order(client, travel):
+    def feed(value):
+        response = client.get(
+            "/api/matches", headers={"X-SkillMatch-Profile": profile_json(travel=value)}
+        )
+        assert response.status_code == 200
+        return response.get_json()
+
+    assert feed(travel) == feed([])
+
+
+def test_profile_has_travel_checkboxes_and_site_routes(client):
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(client.get("/").data, "html.parser")
+    choices = soup.select('input[name="travel"]')
+    assert {choice["value"] for choice in choices} == {
+        "car",
+        "motorbike",
+        "public_transport",
+        "bike_walk",
+    }
+    assert all(choice["type"] == "checkbox" for choice in choices)
+    nav = soup.select_one('nav[aria-label="Main"]')
+    links = nav.select("a")
+    assert len(links) == 7
+    for href in (
+        "https://tidyweb.github.io/SkillMatch/",
+        "https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/",
+    ):
+        link = nav.find("a", href=href)
+        assert link is not None and link.get("target", "_self") == "_self"

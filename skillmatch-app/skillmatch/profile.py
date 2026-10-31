@@ -49,7 +49,7 @@ class Area:
 @dataclass
 class Profile:
     outcode: str | None = None
-    travel: str | None = None
+    travel: list[str] = field(default_factory=list)
     max_miles: float | None = None
     include_remote: bool = True
     max_office_days: float = 5
@@ -82,7 +82,13 @@ def profile_from_dict(data: dict | None, tax: Taxonomy | None = None) -> Profile
     p = Profile()
     p.outcode = outward_code(_text(data.get("postcode") or data.get("outcode"), 10))
     travel = data.get("travel")
-    p.travel = travel if isinstance(travel, str) and travel in TRAVEL else None
+    if isinstance(travel, str):
+        travel = [travel]
+    p.travel = (
+        list(dict.fromkeys(t for t in travel if isinstance(t, str) and t in TRAVEL))
+        if isinstance(travel, list)
+        else []
+    )
     p.max_miles = (
         _number(data.get("max_miles"), 1, 200) if data.get("max_miles") not in (None, "") else None
     )
