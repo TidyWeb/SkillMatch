@@ -30,6 +30,39 @@ class Controls(HTMLParser):
             self.in_form = False
 
 
+class NavigationLinks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.navigation = {}
+        self.current_nav = None
+        self.current_link = None
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "nav":
+            self.current_nav = values.get("aria-label")
+            self.navigation.setdefault(self.current_nav, [])
+        elif tag == "a" and self.current_nav:
+            self.current_link = {
+                "href": values.get("href"),
+                "current": values.get("aria-current"),
+                "target": values.get("target"),
+                "text": "",
+            }
+
+    def handle_data(self, data):
+        if self.current_link is not None:
+            self.current_link["text"] += data
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.current_link is not None:
+            self.current_link["text"] = self.current_link["text"].strip()
+            self.navigation[self.current_nav].append(self.current_link)
+            self.current_link = None
+        elif tag == "nav":
+            self.current_nav = None
+
+
 def test_profile_preserves_base_controls_with_four_travel_choices(tmp_path):
     client = create_app({"TESTING": True, "DB_PATH": str(tmp_path / "absent.db")}).test_client()
     response = client.get("/")
@@ -54,6 +87,47 @@ def test_profile_preserves_base_controls_with_four_travel_choices(tmp_path):
     html = response.get_data(as_text=True)
     for old_control in ["min_salary", "data_years", "ci_diploma", "Try a demo profile"]:
         assert old_control not in html
+
+
+def test_base_has_site_navigation_and_app_subnavigation(tmp_path):
+    client = create_app({"TESTING": True, "DB_PATH": str(tmp_path / "absent.db")}).test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+    navigation = NavigationLinks()
+    navigation.feed(response.get_data(as_text=True))
+
+    site_links = navigation.navigation["Main"]
+    assert len(site_links) == 6
+    assert [(link["text"], link["href"]) for link in site_links[:5]] == [
+        ("Home", "https://tidyweb.github.io/SkillMatch/"),
+        (
+            "GitHub guide",
+            "https://tidyweb.github.io/SkillMatch/project-visual-language/github-profile-guide/",
+        ),
+        (
+            "LinkedIn guide",
+            "https://tidyweb.github.io/SkillMatch/project-visual-language/linkedin-profile-guide/",
+        ),
+        ("CV Tailor", "https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/"),
+        (
+            "Data analysis",
+            "https://tidyweb.github.io/SkillMatch/project-visual-language/skillmatch-da/",
+        ),
+    ]
+    assert site_links[5]["text"] == "SkillMatch →"
+    assert site_links[5]["href"] == "/"
+    assert site_links[5]["current"] == "page"
+
+    app_links = navigation.navigation["SkillMatch app"]
+    assert [link["text"] for link in app_links] == [
+        "Your profile",
+        "Your matches",
+        "Insights",
+        "Sources",
+        "About",
+    ]
+    assert app_links[0]["current"] == "page"
+    assert all(link["target"] is None for link in site_links + app_links)
 
 
 @pytest.mark.parametrize(
