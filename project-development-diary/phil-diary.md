@@ -18,7 +18,7 @@ I felt excited, and wary, because I knew it would be tough. I'd never built a li
 
 I'm not naturally in the technical jargon, so I use analogies. The word architect is key for me. I saw myself as architect and plumber, architect and electrician, architect and bricklayer. The guy who puts up the wall that supports something, runs water to it, and wires it so a light comes on when someone walks into a certain part of the website.
 
-I like thinking about concepts. I like grilling myself about what I'm trying to do, what it's for, and how people will use it. That's the architecture side. Then I love the building side, actually making it work. I expected to lead the build, because I've probably got more technical experience than the rest of the team. We split the jobs up as the idea grew.  That growing came about because we talked about the idea as a team in live Google meetins.
+I like thinking about concepts. I like grilling myself about what I'm trying to do, what it's for, and how people will use it. That's the architecture side. Then I love the building side, actually making it work. I expected to lead the build, because I've probably got more technical experience than the rest of the team. We split the jobs up as the idea grew.  That growing came about because we talked about the idea as a team in live Google meetings.
 
 ## How the idea changed
 
