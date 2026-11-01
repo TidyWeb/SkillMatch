@@ -274,11 +274,33 @@ def test_profile_has_travel_checkboxes_and_site_routes(client):
     }
     assert all(choice["type"] == "checkbox" for choice in choices)
     nav = soup.select_one('nav[aria-label="Main"]')
-    links = nav.select("a")
-    assert len(links) == 7
+    links = nav.select(".site-nav-links a")
+    assert [link.get_text(strip=True) for link in links] == [
+        "Home",
+        "GitHub guide",
+        "LinkedIn guide",
+        "CV Tailor",
+        "Data analysis",
+    ]
     for href in (
         "https://tidyweb.github.io/SkillMatch/",
+        "https://tidyweb.github.io/SkillMatch/project-visual-language/github-profile-guide/",
+        "https://tidyweb.github.io/SkillMatch/project-visual-language/linkedin-profile-guide/",
         "https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/",
+        "https://tidyweb.github.io/SkillMatch/project-visual-language/skillmatch-da/",
     ):
         link = nav.find("a", href=href)
         assert link is not None and link.get("target", "_self") == "_self"
+    app_link = nav.select_one("a.site-nav-app")
+    assert app_link is not None
+    assert app_link.get_text(strip=True) == "SkillMatch →"
+    assert app_link.get("href") == "/"
+    assert app_link.get("aria-current") == "page"
+    app_nav = soup.select_one('nav[aria-label="SkillMatch app"]')
+    assert [link.get_text(strip=True) for link in app_nav.select("a")] == [
+        "Your profile",
+        "Your matches",
+        "Insights",
+        "Sources",
+        "About",
+    ]

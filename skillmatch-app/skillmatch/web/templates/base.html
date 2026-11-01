@@ -20,10 +20,18 @@
   <header class="masthead">
     <div class="wrap masthead-inner">
       <a class="brand" href="{{ url_for('web.profile') }}"><i aria-hidden="true">S</i><span>SkillMatch</span></a>
-      <nav aria-label="Main">
+      <nav class="site-nav" aria-label="Main">
+        <div class="site-nav-links">
+          <a href="https://tidyweb.github.io/SkillMatch/">Home</a>
+          <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/github-profile-guide/">GitHub guide</a>
+          <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/linkedin-profile-guide/">LinkedIn guide</a>
+          <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/">CV Tailor</a>
+          <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/skillmatch-da/">Data analysis</a>
+        </div>
+        <a class="site-nav-app" href="{{ url_for('web.profile') }}" aria-current="page">SkillMatch →</a>
+      </nav>
+      <nav class="app-nav" aria-label="SkillMatch app">
         {% set here = request.endpoint %}
-        <a class="nav-site" href="https://tidyweb.github.io/SkillMatch/">SkillMatch site</a>
-        <a href="https://tidyweb.github.io/SkillMatch/project-visual-language/tailor-my-cv/">CV Tailor</a>
         <a href="{{ url_for('web.profile') }}" {% if here == 'web.profile' %}aria-current="page"{% endif %}>Your profile</a>
         <a href="{{ url_for('web.results') }}" {% if here == 'web.results' %}aria-current="page"{% endif %}>Your matches</a>
         <a href="{{ url_for('web.insights') }}" {% if here == 'web.insights' %}aria-current="page"{% endif %}>Insights</a>
