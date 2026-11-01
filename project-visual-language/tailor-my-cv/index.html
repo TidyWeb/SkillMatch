@@ -609,6 +609,60 @@
   line-height: 1.55;
 }
 
+.cardF-windows-compare {
+  margin: 18px 0 6px;
+}
+
+.cardF-windows-compare .cardF-label {
+  margin: 0 0 4px;
+}
+
+.cardF-windows-intro {
+  margin: 0 0 10px;
+  color: var(--na-panel-ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.cardF-windows-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cardF-windows-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(244, 239, 227, .24);
+  border-radius: 12px;
+  background: rgba(244, 239, 227, .08);
+}
+
+.cardF-windows-item img {
+  display: block;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cardF-windows-item figcaption {
+  min-width: 0;
+  color: var(--na-panel-ink);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.cardF-windows-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
 .cardF-label {
   margin: 22px 0 8px;
   color: #fff;
@@ -792,6 +846,10 @@
 
   .cardF-bullets {
     padding-left: 8px;
+  }
+
+  .cardF-windows-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1014,6 +1072,20 @@ sudo apt update &amp;&amp; sudo apt install claude-desktop</code></pre>
 <div class="cardF-head"><span class="cardF-letter">F</span><h3>Start your biography</h3><a class="na-btn skill-download" download="skillmatch_skill.zip" href="skillmatch_skill.zip"><svg aria-hidden="true" class="zip-folder-icon" focusable="false"><use href="#zip-folder"></use></svg>Download the SkillMatch Skill (.zip)</a></div>
 <p class="cardF-lead">This is the most important step.</p>
 <p class="cardF-line">Your biography is the cloth your tailor cuts from. Everything else depends on it.</p>
+<div class="cardF-windows-compare">
+<p class="cardF-label">Windows: choose the local-file Desktop Commander.</p>
+<p class="cardF-windows-intro">Windows showed two Desktop Commander choices. We’re showing both because only the DC chip version worked with local files in our setup.</p>
+<div class="cardF-windows-grid">
+<figure class="cardF-windows-item">
+<img alt="Black chip icon with white DC letters" height="64" src="assets/desktop-commander-dc-chip.png" width="64">
+<figcaption><strong>DC chip — local-file version.</strong> Choose this one to let Claude read and write files in your SkillMatch folder.</figcaption>
+</figure>
+<figure class="cardF-windows-item">
+<img alt="White chip icon with black angle brackets and slash" height="64" src="assets/desktop-commander-cloud-chip.png" width="64">
+<figcaption><strong><code>&lt;/&gt;</code> chip — cloud version.</strong> This one cannot read or write files in your local SkillMatch folder.</figcaption>
+</figure>
+</div>
+</div>
 <p class="cardF-label">Add the SkillMatch Skill:</p>
 <ul class="cardF-bullets">
 <li><a class="cardF-link" download="skillmatch_skill.zip" href="skillmatch_skill.zip">Download the SkillMatch Skill package</a> and save it in your SkillMatch folder. Don't open or unzip it.</li>
