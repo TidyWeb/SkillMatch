@@ -1,0 +1,5732 @@
+{
+  "created_at": "2026-10-29T19:39:53+00:00",
+  "field_schema": [
+    {
+      "dataType": "TITLE",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40S4",
+      "name": "Title",
+      "options": []
+    },
+    {
+      "dataType": "ASSIGNEES",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40TA",
+      "name": "Assignees",
+      "options": []
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40TM",
+      "name": "Status",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "b822c54c",
+          "name": "Backlog"
+        },
+        {
+          "color": "BLUE",
+          "description": "",
+          "id": "f53c7a2e",
+          "name": "Ready"
+        },
+        {
+          "color": "YELLOW",
+          "description": "",
+          "id": "0671acd8",
+          "name": "In progress"
+        },
+        {
+          "color": "PURPLE",
+          "description": "",
+          "id": "9b49d417",
+          "name": "In review"
+        },
+        {
+          "color": "RED",
+          "description": "",
+          "id": "47716de6",
+          "name": "Blocked"
+        },
+        {
+          "color": "GREEN",
+          "description": "",
+          "id": "f0446538",
+          "name": "Done"
+        },
+        {
+          "color": "PINK",
+          "description": "",
+          "id": "fd18baf9",
+          "name": "Rejected"
+        }
+      ]
+    },
+    {
+      "dataType": "LABELS",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40TY",
+      "name": "Labels",
+      "options": []
+    },
+    {
+      "dataType": "LINKED_PULL_REQUESTS",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40To",
+      "name": "Linked pull requests",
+      "options": []
+    },
+    {
+      "dataType": "MILESTONE",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40T0",
+      "name": "Milestone",
+      "options": []
+    },
+    {
+      "dataType": "REPOSITORY",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40UA",
+      "name": "Repository",
+      "options": []
+    },
+    {
+      "dataType": "REVIEWERS",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40Uc",
+      "name": "Reviewers",
+      "options": []
+    },
+    {
+      "dataType": "PARENT_ISSUE",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40Uo",
+      "name": "Parent issue",
+      "options": []
+    },
+    {
+      "dataType": "SUB_ISSUES_PROGRESS",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40U0",
+      "name": "Sub-issues progress",
+      "options": []
+    },
+    {
+      "dataType": "CREATED",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40VA",
+      "name": "Created",
+      "options": []
+    },
+    {
+      "dataType": "UPDATED",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40VI",
+      "name": "Updated",
+      "options": []
+    },
+    {
+      "dataType": "CLOSED",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40VQ",
+      "name": "Closed",
+      "options": []
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40oc",
+      "name": "Priority",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "1baa57d2",
+          "name": "Must"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "b2487759",
+          "name": "Should"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "374535c4",
+          "name": "Could"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "8939f10c",
+          "name": "Won't"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40q4",
+      "name": "Gate",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "9255feb7",
+          "name": "Hackathon demo"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "d83b8c82",
+          "name": "Public launch"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "d28c5a45",
+          "name": "Later"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40sI",
+      "name": "Area",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "77105e60",
+          "name": "Matching"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "76585585",
+          "name": "ETL"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "30e8e658",
+          "name": "Data rights"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "71a2678b",
+          "name": "Privacy"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "8fd840ed",
+          "name": "Deploy & ops"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "f83f2c47",
+          "name": "Docs"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "c2accd06",
+          "name": "Presentation"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "bef41d49",
+          "name": "UX"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "fb84d748",
+          "name": "Team & meetings"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "6f42e6f8",
+          "name": "Interface design"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "23269652",
+          "name": "Analysis"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "f124b21e",
+          "name": "Chapter 1 guides"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "0a848b6c",
+          "name": "Chapter 2 app"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "fb727a7f",
+          "name": "Chapter 3 analysis"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "98381942",
+          "name": "Chapter 4 project"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40uA",
+      "name": "Brief role",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "3fe4e164",
+          "name": "Data Architect"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "073d1eaa",
+          "name": "Data Analyst"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "f493f9c1",
+          "name": "Project Manager"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "2b2866b6",
+          "name": "Sources & validation"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "ef6d9ded",
+          "name": "Whole team"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhm40uM",
+      "name": "Size",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "535bdf6c",
+          "name": "S"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "7e080257",
+          "name": "M"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "6a97a115",
+          "name": "L"
+        }
+      ]
+    },
+    {
+      "dataType": "NUMBER",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40vo",
+      "name": "Estimate (h)",
+      "options": []
+    },
+    {
+      "dataType": "NUMBER",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40wM",
+      "name": "Actual (h)",
+      "options": []
+    },
+    {
+      "dataType": "TEXT",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40xI",
+      "name": "Waiting on",
+      "options": []
+    },
+    {
+      "dataType": "DATE",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40yE",
+      "name": "Start date",
+      "options": []
+    },
+    {
+      "dataType": "DATE",
+      "id": "PVTF_lAHOD7drVM4BoYcbzhm40yM",
+      "name": "Target date",
+      "options": []
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhnaf4E",
+      "name": "Level",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "34bc9108",
+          "name": "Chapter"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "bf57ff30",
+          "name": "Section"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "8637beba",
+          "name": "Task"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhnaf5w",
+      "name": "Chapter",
+      "options": [
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "ea1dfa0f",
+          "name": "1 Guides"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "b4a0a80d",
+          "name": "2 App"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "3ff99d8b",
+          "name": "3 Data analysis"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "d42f3506",
+          "name": "4 Project"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhnj19Y",
+      "name": "Started in",
+      "options": [
+        {
+          "color": "ORANGE",
+          "description": "",
+          "id": "61ffdf39",
+          "name": "Plan 1"
+        },
+        {
+          "color": "YELLOW",
+          "description": "",
+          "id": "1e33fd56",
+          "name": "Plan 2"
+        },
+        {
+          "color": "GREEN",
+          "description": "",
+          "id": "18b8dbae",
+          "name": "Plan 3"
+        }
+      ]
+    },
+    {
+      "dataType": null,
+      "id": "PVTSSF_lAHOD7drVM4BoYcbzhnj2Dg",
+      "name": "In the current plan",
+      "options": [
+        {
+          "color": "GREEN",
+          "description": "",
+          "id": "08444afb",
+          "name": "Yes"
+        },
+        {
+          "color": "GRAY",
+          "description": "",
+          "id": "e98d1c82",
+          "name": "Retired"
+        }
+      ]
+    }
+  ],
+  "format": "skillmatch-board-snapshot-v1",
+  "item_count": 150,
+  "items": [
+    {
+      "Actual": null,
+      "Area": "Data rights",
+      "Chapter": "2 App",
+      "Estimate": 0.5,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "S",
+      "Status": "Blocked",
+      "Waiting on": "Reed reply",
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Data rights",
+        "Brief role": "Sources & validation",
+        "Chapter": "2 App",
+        "Estimate (h)": 0.5,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Blocked",
+        "Waiting on": "Reed reply"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-las",
+      "labels": [
+        "decision",
+        "external"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 7,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "Get Reed's written permission for caching, display and anonymous counts"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Rejected",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Whole team",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Rejected"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlps",
+      "labels": [
+        "decision",
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 34,
+      "parent": 85,
+      "state": "CLOSED",
+      "title": "Choose the hypothesis we'll test"
+    },
+    {
+      "Actual": null,
+      "Area": "Data rights",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Rejected",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Data rights",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Public launch",
+        "In the current plan": "Retired",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Rejected"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-mHs",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 9,
+      "parent": 83,
+      "state": "CLOSED",
+      "title": "Delete raw and cached advert files after the permitted period"
+    },
+    {
+      "Actual": null,
+      "Area": "Matching",
+      "Chapter": "2 App",
+      "Estimate": 4.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "L",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Matching",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 4.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "L",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-jg4",
+      "labels": [
+        "bug"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 1,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Do not give a Strong match when an essential skill is missing"
+    },
+    {
+      "Actual": null,
+      "Area": "Matching",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "M",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Matching",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-j10",
+      "labels": [
+        "bug"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 2,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Show every required skill the graduate is missing"
+    },
+    {
+      "Actual": null,
+      "Area": "Matching",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "M",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Matching",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-kPY",
+      "labels": [
+        "chore"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 3,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Add tests for missing skills and valid alternatives"
+    },
+    {
+      "Actual": null,
+      "Area": "ETL",
+      "Chapter": "2 App",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "M",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "ETL",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-kiE",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 4,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Hide adverts that require a professional qualification"
+    },
+    {
+      "Actual": null,
+      "Area": "ETL",
+      "Chapter": "2 App",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "ETL",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-k0k",
+      "labels": [
+        "bug"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 5,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Do not treat Azure Data Factory as factory experience"
+    },
+    {
+      "Actual": null,
+      "Area": "Docs",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Docs",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-lHk",
+      "labels": [
+        "good first issue",
+        "chore"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 6,
+      "parent": 87,
+      "state": "OPEN",
+      "title": "Check that the board views work"
+    },
+    {
+      "Actual": null,
+      "Area": "Privacy",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Privacy",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-l1s",
+      "labels": [
+        "bug"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 8,
+      "parent": 83,
+      "state": "OPEN",
+      "title": "Keep past job titles out of URLs and logs"
+    },
+    {
+      "Actual": null,
+      "Area": "Deploy & ops",
+      "Chapter": "2 App",
+      "Estimate": 4.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "L",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Deploy & ops",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 4.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "L",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-mfg",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 10,
+      "parent": 83,
+      "state": "OPEN",
+      "title": "Stop release when a data source fails"
+    },
+    {
+      "Actual": null,
+      "Area": "Deploy & ops",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Deploy & ops",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-m6M",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 11,
+      "parent": 83,
+      "state": "OPEN",
+      "title": "Tell users when job data is out of date"
+    },
+    {
+      "Actual": null,
+      "Area": "Deploy & ops",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Deploy & ops",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhC-nTU",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 6,
+        "title": "M5 — Launch readiness"
+      },
+      "number": 12,
+      "parent": 83,
+      "state": "OPEN",
+      "title": "Alert the owner when the data refresh stops"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.25,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.25,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAkrg",
+      "labels": [
+        "good first issue",
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 13,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Accept the repo invite and check you can move cards on the board"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAkuw",
+      "labels": [
+        "good first issue",
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 14,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Oana: add your personal folder (guide A1)"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAkyU",
+      "labels": [
+        "good first issue",
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 15,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "John: add your personal folder (guide A1)"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAk10",
+      "labels": [
+        "good first issue",
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 16,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Esmat: add your personal folder (guide A1)"
+    },
+    {
+      "Actual": 2.0,
+      "Area": "Deploy & ops",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Actual (h)": 2.0,
+        "Area": "Deploy & ops",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAk4Y",
+      "labels": [
+        "chore"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 17,
+      "parent": 83,
+      "state": "CLOSED",
+      "title": "Put the prototype app in the repository so everyone can try it"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 6.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "L",
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 6.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "L",
+        "Started in": "Plan 1",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAk6k",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 18,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Show the team three interface designs"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Data Architect",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAk9k",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 19,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Prepare the Monday walkthrough"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.25,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Data Architect",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.25,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlAY",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M0 — Get ahead"
+      },
+      "number": 20,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Post Monday's agenda and the board link in Discord"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlDI",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 21,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Kick-off: introductions and how we want to work"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlGc",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 22,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Read the brief and judging criteria together"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Whole team",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlJg",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 23,
+      "parent": 81,
+      "state": "CLOSED",
+      "title": "Prototype walkthrough: try SkillMatch as a graduate"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlLo",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 24,
+      "parent": 87,
+      "state": "CLOSED",
+      "title": "What do we like, what don't we like, what needs changing?"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlRE",
+      "labels": [
+        "decision",
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 26,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Agree roles"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlUs",
+      "labels": [
+        "decision",
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 27,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Agree how we work"
+    },
+    {
+      "Actual": null,
+      "Area": "Docs",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb",
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Docs",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlX8",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 28,
+      "parent": 87,
+      "state": "OPEN",
+      "title": "Write the project proposal"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 1.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb",
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlac",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 29,
+      "parent": 87,
+      "state": "OPEN",
+      "title": "Turn the Day 1 discussion into user stories and estimate them"
+    },
+    {
+      "Actual": null,
+      "Area": "Data rights",
+      "Chapter": "2 App",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Data rights",
+        "Brief role": "Sources & validation",
+        "Chapter": "2 App",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAld4",
+      "labels": [
+        "external"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 30,
+      "parent": 79,
+      "state": "CLOSED",
+      "title": "Confirm where our job data comes from and what we may do with it"
+    },
+    {
+      "Actual": null,
+      "Area": "ETL",
+      "Chapter": "2 App",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "ETL",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlhg",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 31,
+      "parent": 80,
+      "state": "CLOSED",
+      "title": "Walk the team through the data pipeline"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlko",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 32,
+      "parent": 90,
+      "state": "CLOSED",
+      "title": "Day 1 check-in and reflection"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.75,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.75,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlng",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 33,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Day 2 (Tue 27 Oct) check-in"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 5.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "L",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 5.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "L",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlsU",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 35,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Build the interface the team agrees on Thursday"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Whole team",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlvI",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 36,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Review the revised interface and give feedback"
+    },
+    {
+      "Actual": null,
+      "Area": "Matching",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Matching",
+        "Brief role": "Sources & validation",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlyY",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 37,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Check whether the job matches make sense"
+    },
+    {
+      "Actual": null,
+      "Area": "Presentation",
+      "Chapter": "4 Project",
+      "Estimate": 1.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Presentation",
+        "Brief role": "Data Analyst",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAl30",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 39,
+      "parent": 89,
+      "state": "OPEN",
+      "title": "Write the story the app tells"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb",
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAl6I",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 40,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Collect feedback and update the board"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAl9g",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 41,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Review the day's changes with Phil"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.75,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.75,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmAg",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 42,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Day 3 (Wed 28 Oct) check-in"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Whole team",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmDQ",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 43,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Try the app as a graduate and note problems"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmGY",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 44,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Fix or defer the main problems found in testing"
+    },
+    {
+      "Actual": null,
+      "Area": "Docs",
+      "Chapter": "4 Project",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Docs",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmNY",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 45,
+      "parent": 88,
+      "state": "OPEN",
+      "title": "Finish the project README"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmRs",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 46,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Check the app against each user story"
+    },
+    {
+      "Actual": null,
+      "Area": "Presentation",
+      "Chapter": "4 Project",
+      "Estimate": 1.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Presentation",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmWY",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 47,
+      "parent": 89,
+      "state": "OPEN",
+      "title": "Agree who presents each part"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.75,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.75,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmds",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 49,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Day 4 (Thu 29 Oct) final check-in"
+    },
+    {
+      "Actual": null,
+      "Area": "Deploy & ops",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Deploy & ops",
+        "Brief role": "Data Architect",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmjE",
+      "labels": [
+        "bug"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 50,
+      "parent": 83,
+      "state": "OPEN",
+      "title": "Fix the remaining problems in the SkillMatch App"
+    },
+    {
+      "Actual": null,
+      "Area": "Presentation",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Presentation",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmmw",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 51,
+      "parent": 89,
+      "state": "OPEN",
+      "title": "Rehearse the full presentation"
+    },
+    {
+      "Actual": null,
+      "Area": "Docs",
+      "Chapter": "4 Project",
+      "Estimate": 0.25,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Docs",
+        "Brief role": "Project Manager",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.25,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmqI",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 52,
+      "parent": 88,
+      "state": "OPEN",
+      "title": "Submit the project"
+    },
+    {
+      "Actual": null,
+      "Area": "Presentation",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Presentation",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmto",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 53,
+      "parent": 89,
+      "state": "OPEN",
+      "title": "Present the project"
+    },
+    {
+      "Actual": null,
+      "Area": "Team & meetings",
+      "Chapter": "4 Project",
+      "Estimate": 0.5,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb",
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Team & meetings",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 0.5,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmyo",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 5,
+        "title": "M4 — Day 4: Present and hand over"
+      },
+      "number": 54,
+      "parent": 90,
+      "state": "OPEN",
+      "title": "Record what worked and what the team would change"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDZq4o",
+      "labels": [],
+      "milestone": null,
+      "number": 58,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add Understanding GitHub guides (B1-B7) and renumber the team guides"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment"
+      ],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDj-MY",
+      "labels": [],
+      "milestone": null,
+      "number": 59,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add guide C3: how SkillMatch finds the jobs"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoHls",
+      "labels": [],
+      "milestone": null,
+      "number": 60,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Created a folder"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoKxA",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 61,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "Analyse job skills, course coverage and app filters"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoK14",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 62,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "Show which job skills the course did not teach"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Architect",
+        "Chapter": "3 Data analysis",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoK6I",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 63,
+      "parent": 84,
+      "state": "OPEN",
+      "title": "Show what each run collected, dropped and showed"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Ready",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 2",
+        "Status": "Ready"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoK-0",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 64,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "List the skills taught on the course"
+    },
+    {
+      "Actual": null,
+      "Area": "ETL",
+      "Chapter": "3 Data analysis",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": "M",
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "ETL",
+        "Brief role": "Data Architect",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Size": "M",
+        "Started in": "Plan 2",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoLBw",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 65,
+      "parent": 84,
+      "state": "CLOSED",
+      "title": "Record advert counts for every data run"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoLH0",
+      "labels": [
+        "chore"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 66,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "Label a sample of about 50 job adverts"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoLMk",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 67,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "Count requested skills in the advert sample"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoLRw",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 68,
+      "parent": 86,
+      "state": "OPEN",
+      "title": "Explain the data and its limits"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [
+        "john8647"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDoLV8",
+      "labels": [
+        "docs"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 69,
+      "parent": 86,
+      "state": "OPEN",
+      "title": "Write the findings in plain English"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDpdSs",
+      "labels": [],
+      "milestone": null,
+      "number": 70,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add Esmat's folder"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": null,
+      "Level": "Chapter",
+      "Priority": null,
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "In the current plan": "Yes",
+        "Level": "Chapter",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2eYo",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 71,
+      "parent": null,
+      "state": "OPEN",
+      "title": "1. Get ready to apply"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": null,
+      "Level": "Chapter",
+      "Priority": null,
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "In the current plan": "Yes",
+        "Level": "Chapter",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2eeA",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 72,
+      "parent": null,
+      "state": "OPEN",
+      "title": "2. SkillMatch App"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": null,
+      "Level": "Chapter",
+      "Priority": null,
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "In the current plan": "Yes",
+        "Level": "Chapter",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2elw",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 73,
+      "parent": null,
+      "state": "OPEN",
+      "title": "3. Data analysis"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": null,
+      "Level": "Chapter",
+      "Priority": null,
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "In the current plan": "Yes",
+        "Level": "Chapter",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2euM",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 74,
+      "parent": null,
+      "state": "OPEN",
+      "title": "4. Project and team"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2fBw",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 75,
+      "parent": 71,
+      "state": "OPEN",
+      "title": "1.1 GitHub profile guide"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2fOo",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 76,
+      "parent": 71,
+      "state": "OPEN",
+      "title": "1.2 LinkedIn profile guide"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": "Later",
+      "Level": "Section",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2fas",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 77,
+      "parent": 71,
+      "state": "OPEN",
+      "title": "1.3 Tailor my CV"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2fk4",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 78,
+      "parent": 71,
+      "state": "OPEN",
+      "title": "1.4 Guides site"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Section",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2fxg",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 79,
+      "parent": 72,
+      "state": "OPEN",
+      "title": "2.1 Collect live job adverts"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Section",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2f-o",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 80,
+      "parent": 72,
+      "state": "OPEN",
+      "title": "2.2 Improve matching and advert checks"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2gtE",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 81,
+      "parent": 72,
+      "state": "OPEN",
+      "title": "2.3 Make the app easier to use"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Later",
+      "Level": "Section",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2g6M",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 82,
+      "parent": 72,
+      "state": "OPEN",
+      "title": "2.4 Show employer details"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2hF4",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 83,
+      "parent": 72,
+      "state": "OPEN",
+      "title": "2.5 Prepare the app for launch"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Section",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2hUk",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 84,
+      "parent": 73,
+      "state": "OPEN",
+      "title": "3.1 Collect data for analysis"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2hhQ",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 85,
+      "parent": 73,
+      "state": "OPEN",
+      "title": "3.2 Compare job skills with course skills"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2huc",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 86,
+      "parent": 73,
+      "state": "OPEN",
+      "title": "3.3 Share the findings"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Section",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2h7w",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 87,
+      "parent": 74,
+      "state": "OPEN",
+      "title": "4.1 Plan the work and board"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2iJE",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 88,
+      "parent": 74,
+      "state": "OPEN",
+      "title": "4.2 Write project documents"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2iSM",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 89,
+      "parent": 74,
+      "state": "OPEN",
+      "title": "4.3 Prepare the presentation and handover"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": "Public launch",
+      "Level": "Section",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Section",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2ib4",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 90,
+      "parent": 74,
+      "state": "OPEN",
+      "title": "4.4 Work as a team"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 4 project",
+      "Chapter": "4 Project",
+      "Estimate": null,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 4 project",
+        "Chapter": "4 Project",
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2izY",
+      "labels": [
+        "decision",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 91,
+      "parent": 87,
+      "state": "OPEN",
+      "title": "Plan change after Day 1 (26 Oct 2026)"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 4.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 4.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2i-M",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 92,
+      "parent": 75,
+      "state": "CLOSED",
+      "title": "1.1.1 Research reliable GitHub profile advice"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In review",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In review"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2jKU",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 93,
+      "parent": 75,
+      "state": "OPEN",
+      "title": "1.1.2 Write the checklist and example profile README"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2jU4",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 94,
+      "parent": 75,
+      "state": "OPEN",
+      "title": "1.1.3 Try the checklist on a real profile"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2jfs",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 95,
+      "parent": 75,
+      "state": "OPEN",
+      "title": "1.1.4 Build the GitHub guide page"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2jqs",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 96,
+      "parent": 75,
+      "state": "OPEN",
+      "title": "1.1.5 Review and publish the GitHub guide"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 4.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 4.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2j3o",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 97,
+      "parent": 76,
+      "state": "CLOSED",
+      "title": "1.2.1 Research reliable LinkedIn profile advice"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2kDg",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 98,
+      "parent": 76,
+      "state": "OPEN",
+      "title": "1.2.2 Write the LinkedIn checklist and examples"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2kQ4",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 99,
+      "parent": 76,
+      "state": "OPEN",
+      "title": "1.2.3 Try the checklist on a real LinkedIn profile"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2kgA",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 100,
+      "parent": 76,
+      "state": "OPEN",
+      "title": "1.2.4 Build the LinkedIn guide page"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2kwY",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 101,
+      "parent": 76,
+      "state": "OPEN",
+      "title": "1.2.5 Review and publish the LinkedIn guide"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 2.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 2.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2k7g",
+      "labels": [
+        "decision",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 102,
+      "parent": 77,
+      "state": "CLOSED",
+      "title": "1.3.1 Record the Tailor my CV design"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 2.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 2.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2lHw",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 103,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.2 Job brief fields exported from a selected vacancy"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 2.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 2.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2lTo",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 104,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.3 SkillMatch Skill: the tailor job"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2lds",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 105,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.4 SkillMatch Skill: shared start, update my CV and biography"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 4.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 4.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2lns",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 106,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.5 Tailor my CV button in SkillMatch App"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 2.0,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 2.0,
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2lzI",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 107,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.6 Test with a made-up vacancy and dummy CV"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2l_U",
+      "labels": [
+        "decision",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 108,
+      "parent": 78,
+      "state": "OPEN",
+      "title": "1.4.1 Choose hosting for the public guides site"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 3.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 3.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2mJI",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 109,
+      "parent": 78,
+      "state": "OPEN",
+      "title": "1.4.2 Create the public site pages"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": 1.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Estimate (h)": 1.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2mVI",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 110,
+      "parent": 78,
+      "state": "OPEN",
+      "title": "1.4.3 Set and check the live app address"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "In review",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "In review"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2mgo",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 111,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.1 Back up the old data and run live job collection"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2mrA",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 112,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.3 Add DevITjobs as a job source"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 8.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 8.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2m1s",
+      "labels": [
+        "feature"
+      ],
+      "milestone": null,
+      "number": 113,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.4 Try job collection from the listed sites"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2nEA",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 114,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.5 Set up and test Careerjet"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2nSI",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 115,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.6 Follow up with the CV-Library partner team"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 2 app",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 2 app",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2nho",
+      "labels": [
+        "chore"
+      ],
+      "milestone": null,
+      "number": 116,
+      "parent": 79,
+      "state": "OPEN",
+      "title": "2.1.7 Check the broken targetjobs and council links"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 2.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Must",
+      "Size": null,
+      "Status": "In review",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 2.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Must",
+        "Started in": "Plan 2",
+        "Status": "In review"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2ntM",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 117,
+      "parent": 84,
+      "state": "OPEN",
+      "title": "3.1.2 Save a dated copy of data after each live run"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 3 analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 2.0,
+      "Gate": "Public launch",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 3 analysis",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 2.0,
+        "Gate": "Public launch",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Started in": "Plan 2",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD2n6I",
+      "labels": [
+        "docs",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 118,
+      "parent": 86,
+      "state": "OPEN",
+      "title": "3.3.3 Publish the research and findings page"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": "Task",
+      "Priority": null,
+      "Size": null,
+      "Status": "In review",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Started in": "Plan 2",
+        "Status": "In review"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD3160",
+      "labels": [
+        "docs"
+      ],
+      "milestone": null,
+      "number": 119,
+      "parent": null,
+      "state": "OPEN",
+      "title": "Start here: how to read the SkillMatch board"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD5E6A",
+      "labels": [],
+      "milestone": null,
+      "number": 120,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Document time limitations for SkillMatch data collection"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD5R7M",
+      "labels": [],
+      "milestone": null,
+      "number": 121,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add SkillMatch overview to prototype folder"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD8kHc",
+      "labels": [],
+      "milestone": null,
+      "number": 122,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Daily automatic job collection and live-data app update"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD9cNQ",
+      "labels": [],
+      "milestone": null,
+      "number": 123,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add Oana's GitHub Team Colab Guide"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD9oM0",
+      "labels": [],
+      "milestone": null,
+      "number": 124,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Update GitHub Actions to Node.js 24 versions"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhD9-0M",
+      "labels": [],
+      "milestone": null,
+      "number": 125,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add Oana's branch GitHub Colab guide #2 trial"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEBWNs",
+      "labels": [],
+      "milestone": null,
+      "number": 126,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Serve latest collected vacancies in Codespaces"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEIgDU",
+      "labels": [],
+      "milestone": null,
+      "number": 127,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Fix live-data release database path"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEJOT4",
+      "labels": [],
+      "milestone": null,
+      "number": 128,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Record team working practices on hub"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEJeV4",
+      "labels": [],
+      "milestone": null,
+      "number": 129,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Refresh the SkillMatch team hub"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEKw3c",
+      "labels": [],
+      "milestone": null,
+      "number": 130,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add SkillMatch app data to John's folder"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhELGVY",
+      "labels": [],
+      "milestone": null,
+      "number": 131,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add LinkedIn Research Document"
+    },
+    {
+      "Actual": null,
+      "Area": "Chapter 1 guides",
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": "Later",
+      "Level": "Task",
+      "Priority": "Could",
+      "Size": null,
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "skmizanurrahman07"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Chapter 1 guides",
+        "Chapter": "1 Guides",
+        "Gate": "Later",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Could",
+        "Started in": "Plan 3",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhELZRA",
+      "labels": [
+        "feature",
+        "scope-added"
+      ],
+      "milestone": null,
+      "number": 132,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "1.3.7 Tailor my CV page on the static site"
+    },
+    {
+      "Actual": null,
+      "Area": "Presentation",
+      "Chapter": "4 Project",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "S",
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Presentation",
+        "Brief role": "Whole team",
+        "Chapter": "4 Project",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "S",
+        "Started in": "Plan 1",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAmZA",
+      "labels": [
+        "team"
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M3 — Day 3: Refine, explain, document"
+      },
+      "number": 48,
+      "parent": 89,
+      "state": "OPEN",
+      "title": "Prepare for the judges' questions"
+    },
+    {
+      "Actual": null,
+      "Area": "Analysis",
+      "Chapter": "3 Data analysis",
+      "Estimate": 3.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "john8647",
+        "TidyWeb",
+        "EHemraj"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Analysis",
+        "Brief role": "Data Analyst",
+        "Chapter": "3 Data analysis",
+        "Estimate (h)": 3.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Yes",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAl0w",
+      "labels": [
+        "feature"
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M2 — Day 2: Working slice, first findings"
+      },
+      "number": 38,
+      "parent": 85,
+      "state": "OPEN",
+      "title": "Notebook analysis with an AI-assisted step, checked by the team"
+    },
+    {
+      "Actual": null,
+      "Area": "Interface design",
+      "Chapter": "2 App",
+      "Estimate": 1.0,
+      "Gate": "Hackathon demo",
+      "Level": "Task",
+      "Priority": "Should",
+      "Size": "M",
+      "Status": "In progress",
+      "Waiting on": null,
+      "assignees": [
+        "phonemes-and-speech-entrainment",
+        "john8647",
+        "TidyWeb"
+      ],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Area": "Interface design",
+        "Brief role": "Whole team",
+        "Chapter": "2 App",
+        "Estimate (h)": 1.0,
+        "Gate": "Hackathon demo",
+        "In the current plan": "Retired",
+        "Level": "Task",
+        "Priority": "Should",
+        "Size": "M",
+        "Started in": "Plan 1",
+        "Status": "In progress"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhDAlOc",
+      "labels": [
+        "decision",
+        "team"
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M1 — Day 1: Decide, collect, plan the analysis"
+      },
+      "number": 25,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Choose one look for the website and the app"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMdpk",
+      "labels": [],
+      "milestone": null,
+      "number": 133,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add SK contributor folder and README"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Must",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "2 App",
+        "In the current plan": "Yes",
+        "Priority": "Must",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMoBs",
+      "labels": [],
+      "milestone": null,
+      "number": 134,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Entry-level jobs"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "2 App",
+        "In the current plan": "Yes",
+        "Priority": "Should",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMobk",
+      "labels": [],
+      "milestone": null,
+      "number": 135,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Transferable skills"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "2 App",
+        "In the current plan": "Yes",
+        "Priority": "Should",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMo6o",
+      "labels": [],
+      "milestone": null,
+      "number": 136,
+      "parent": 80,
+      "state": "OPEN",
+      "title": "Missing job skills"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "2 App",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Could",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "2 App",
+        "In the current plan": "Yes",
+        "Priority": "Could",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMpVc",
+      "labels": [],
+      "milestone": null,
+      "number": 137,
+      "parent": 81,
+      "state": "OPEN",
+      "title": "Jobs within a travel distance"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "1 Guides",
+        "In the current plan": "Yes",
+        "Priority": "Should",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMpxY",
+      "labels": [],
+      "milestone": null,
+      "number": 138,
+      "parent": 77,
+      "state": "OPEN",
+      "title": "Tailor my CV to a chosen job"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "1 Guides",
+        "In the current plan": "Yes",
+        "Priority": "Should",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMqIU",
+      "labels": [],
+      "milestone": null,
+      "number": 139,
+      "parent": 75,
+      "state": "OPEN",
+      "title": "GitHub profile"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": "1 Guides",
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": "Should",
+      "Size": null,
+      "Status": "Backlog",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "Issue",
+      "custom_fields": {
+        "Chapter": "1 Guides",
+        "In the current plan": "Yes",
+        "Priority": "Should",
+        "Started in": "Plan 3",
+        "Status": "Backlog"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEMqgI",
+      "labels": [],
+      "milestone": null,
+      "number": 140,
+      "parent": 76,
+      "state": "OPEN",
+      "title": "LinkedIn profile"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhENHqE",
+      "labels": [],
+      "milestone": null,
+      "number": 141,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add SK Tailor my CV files"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhENqDM",
+      "labels": [],
+      "milestone": null,
+      "number": 142,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Replace SkillMatch skill overview graphic"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEOcBY",
+      "labels": [],
+      "milestone": null,
+      "number": 143,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Mark SQL and Excel as not covered by the course"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEOeac",
+      "labels": [],
+      "milestone": null,
+      "number": 144,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add SkillMatch Skill and v2 overview for SK"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEOnhE",
+      "labels": [],
+      "milestone": null,
+      "number": 145,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Delete sk-folder/SK_skillmatch-trial.zip"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhERTBk",
+      "labels": [],
+      "milestone": null,
+      "number": 146,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Linkedin Guide Version 1 Markdown"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEVVF8",
+      "labels": [],
+      "milestone": null,
+      "number": 147,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Simplified profile form, match cards and tier guard"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEakj0",
+      "labels": [],
+      "milestone": null,
+      "number": 148,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Stop non-data jobs showing as matches (relevance on title only)"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEfKtY",
+      "labels": [],
+      "milestone": null,
+      "number": 149,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Prepare Cloud Run hosting"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEgYeo",
+      "labels": [],
+      "milestone": null,
+      "number": 150,
+      "parent": null,
+      "state": "CLOSED",
+      "title": "Added 'Your skills' page data visualisation page and a new visualisation to 'insights' page. "
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": "Done",
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {
+        "Status": "Done"
+      },
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEgdIE",
+      "labels": [],
+      "milestone": null,
+      "number": 151,
+      "parent": null,
+      "state": "MERGED",
+      "title": "Add /health route for Cloud Run"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": null,
+      "Waiting on": null,
+      "assignees": [
+        "TidyWeb"
+      ],
+      "content_type": "PullRequest",
+      "custom_fields": {},
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEi_eY",
+      "labels": [],
+      "milestone": null,
+      "number": 152,
+      "parent": null,
+      "state": "OPEN",
+      "title": "Add the initial data analysis stage to insights html"
+    },
+    {
+      "Actual": null,
+      "Area": null,
+      "Chapter": null,
+      "Estimate": null,
+      "Gate": null,
+      "Level": null,
+      "Priority": null,
+      "Size": null,
+      "Status": null,
+      "Waiting on": null,
+      "assignees": [],
+      "content_type": "PullRequest",
+      "custom_fields": {},
+      "item_id": "PVTI_lAHOD7drVM4BoYcbzhEjwHk",
+      "labels": [],
+      "milestone": null,
+      "number": 153,
+      "parent": null,
+      "state": "OPEN",
+      "title": "Skmra/matching work"
+    }
+  ],
+  "label": null,
+  "project_id": "PVT_kwHOD7drVM4BoYcb",
+  "project_title": "SkillMatch",
+  "repository": "TidyWeb/SkillMatch"
+}

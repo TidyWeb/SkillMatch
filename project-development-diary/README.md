@@ -36,6 +36,12 @@ If AI helped you remember or draft, say so on the first line of your file, as th
 
 There's no word count and no set format. Honesty matters more than polish. Disagreement and frustration belong here too.
 
+## Project history
+
+Read [the dated history of how SkillMatch grew](project-history.md), including major decisions, completed work and selected planning records.
+
 ## Diaries
 
-Each one is linked here as it's added.
+- [Phil's project development diary](phil-diary.md)
+
+Each other diary will be linked here as it's added.
