@@ -986,7 +986,7 @@ sudo apt update &amp;&amp; sudo apt install claude-desktop</code></pre>
 <div class="step-body">
 <p>Desktop Commander lets the Claude desktop app open and save files in your SkillMatch folder, including Word and PDF.</p>
 <p>In the Claude desktop app, open <strong>Settings &gt; Extensions</strong>. In newer versions, use <strong>Settings &gt; Desktop app &gt; Manage</strong> beside Extensions. Find Desktop Commander and install it.</p>
-<div class="na-note"><strong>Windows: check both Desktop Commander entries.</strong> In our test, there were two entries with different icons: one looked like a chevron and slash, and one had a “DC” lettermark. One showed as installed, but Desktop Commander only worked after we installed the other entry. If it does not work, try the other entry. If it appears under <strong>Yours</strong>, that only links it to your account; make sure you install it on this computer too.</div>
+<div class="na-note"><strong>Windows: choose the local-file version.</strong> Select the Desktop Commander with the black chip-style <strong>DC</strong> icon. In our setup, this was the version that could read and write files in your SkillMatch folder. The <code>&lt;/&gt;</code> icon was the cloud version and could not read or write those local files. If the extension appears under <strong>Yours</strong>, that only links it to your account; make sure you install it on this computer too.</div>
 <p>Also open <strong>Settings &gt; Capabilities</strong> and switch on <strong>Code execution and file creation</strong>.</p>
 <p><strong>Still stuck? Use card A: tell Claude what's happening.</strong></p>
 </div>
@@ -1017,7 +1017,7 @@ sudo apt update &amp;&amp; sudo apt install claude-desktop</code></pre>
 <p class="cardF-label">Add the SkillMatch Skill:</p>
 <ul class="cardF-bullets">
 <li><a class="cardF-link" download="skillmatch_skill.zip" href="skillmatch_skill.zip">Download the SkillMatch Skill package</a> and save it in your SkillMatch folder. Don't open or unzip it.</li>
-<li>In the Claude desktop app, go to <strong>Customize &gt; Skills</strong>. Click <strong>+</strong>, then <strong>Create skill</strong>, then <strong>Upload a skill</strong>, and choose the zip from your SkillMatch folder. The SkillMatch Skill appears in your skills list: make sure its toggle is on. (No Skills section? Switch on <strong>Code execution and file creation</strong> in <strong>Settings &gt; Capabilities</strong>, as in card D.)</li>
+<li>In the Claude desktop app, go to <strong>Customize &gt; Skills</strong>. Click <strong>+</strong>, then <strong>Create skill</strong>, then <strong>Upload a skill</strong>, and choose the zip from your SkillMatch folder, or drag the SkillMatch zip across into Claude's receiving window. Click <strong>Upload Skill</strong> at the bottom to upload it. You should then see SkillMatch Skill in your Skills folder, with a version and upload time such as “Version 1 · uploaded a minute ago”. Make sure its toggle is on. (No Skills section? Switch on <strong>Code execution and file creation</strong> in <strong>Settings &gt; Capabilities</strong>, as in card D.)</li>
 </ul>
 <div class="cardF-privacy">
 <p class="cardF-privacy-title">Before you start: your training-data setting</p>
