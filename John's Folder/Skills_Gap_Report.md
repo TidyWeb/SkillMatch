@@ -21,7 +21,7 @@ Across the adverts, employers mentioned skills 1,512 times. We mapped these ment
 - **The course is strong on the analytical core.** Analysis (92% of mentions covered), BI and dashboards (90%), programming (95%) and governance (100%) are well served. Python, data cleaning, dashboards, Power BI and data ethics all appear near the top of demand and are covered.
 - **SQL is the biggest single gap.** It is the second most requested skill (111 mentions) and is flagged as not covered. Most employers call it essential.
 - **Whole areas are missing.** Business systems (CRM, ERP, HR), cloud platforms (AWS, Azure, GCP, Databricks) and spreadsheets (Excel) have 0% coverage, and together account for 403 mentions, about 27% of demand.
-- **Matching is difficult** because job titles are fragmented, recruiters dominate the listings, requirements are often unclear, and only about 1% of tracked adverts remain after filtering (see Section 4).
+- **Matching is difficult** because job titles are fragmented, recruiters dominate the listings and requirements are often unclear (see Section 4).
 
 ---
 

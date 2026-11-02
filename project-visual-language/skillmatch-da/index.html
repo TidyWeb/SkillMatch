@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../navy-a/navy-a.css?v=20261030b">
-  <link rel="stylesheet" href="assets/skillmatch.css?v=20261031-stage17">
+  <link rel="stylesheet" href="assets/skillmatch.css?v=20261101-stage18">
   <script src="assets/page-data.js?v=20261031-stage13"></script>
   <script defer src="assets/app.js?v=20261031-stage15"></script>
   <script defer src="assets/maps.js?v=20261031-stage17"></script>
@@ -46,6 +46,7 @@
           <li><a role="tab" id="tab-explore" href="#explore" aria-controls="panel-explore" aria-selected="false" tabindex="-1"><b>07</b>Explore skills</a></li>
           <li><a role="tab" id="tab-next" href="#next" aria-controls="panel-next" aria-selected="false" tabindex="-1"><b>08</b>What to do next</a></li>
           <li><a role="tab" id="tab-method" href="#method" aria-controls="panel-method" aria-selected="false" tabindex="-1"><b>09</b>How we did it</a></li>
+          <li><a role="tab" id="tab-skillsgap" href="#skillsgap" aria-controls="panel-skillsgap" aria-selected="false" tabindex="-1"><b>10</b>John’s skills gap report</a></li>
         </ol>
       </aside>
       <main class="na-flow" id="main-content">
@@ -100,6 +101,7 @@
           <a class="sm-tab-card" href="#ai"><span class="sm-tab-card__label">06 · AI in adverts</span><strong>10 of 67</strong><span>These adverts mention AI.</span></a>
           <a class="sm-tab-card" href="#explore"><span class="sm-tab-card__label">07 · Explore skills</span><strong>46 skills</strong><span>Search the list and compare the two job groups.</span></a>
           <a class="sm-tab-card" href="#method"><span class="sm-tab-card__label">09 · How we did it</span><strong>4,654 → 67</strong><span>Open the records behind the summary.</span></a>
+        <a class="sm-tab-card sm-tab-card--wide" href="#skillsgap"><span class="sm-tab-card__label">10 · John’s skills gap report</span><strong>741 of 1,512</strong><span>John’s own study: the course covers about half of what employers ask for. SQL is the biggest gap.</span></a>
         </nav>
         <div class="sm-grid sm-grid--wide-left">
           <article class="na-card na-card--navy sm-card sm-card--navy">
@@ -688,6 +690,93 @@
           </article>
         </div>
         <aside class="na-note sm-note"><b>Limits:</b> the snapshot shows collected adverts, not the whole job market. Advertiser labels and sentence labels include AI judgement and remain unchecked by a person.</aside>
+        <a class="sm-bridge sm-bridge--link" href="#overview"><span>Next: return to Overview and follow the search from the first sighting.</span><span aria-hidden="true">↗</span></a>
+      </section>
+      <section class="sm-panel" id="panel-skillsgap" role="tabpanel" aria-labelledby="tab-skillsgap" tabindex="-1" data-title="About half of what employers ask for is covered. SQL is the biggest gap." data-kicker="John’s skills gap report">
+        <span id="tab-anchor-skillsgap" aria-hidden="true"></span>
+        <div class="na-panel na-phase sm-intro">
+          <p class="sm-eyebrow">John’s own study</p>
+          <h2>Does the course teach what employers ask for?</h2>
+          <p>John wrote this analysis himself. He compared the skills the course teaches with the skills that job adverts name.</p>
+          <p>He counted every time an advert names a skill. That gives 1,512 mentions across 518 adverts in the 30 October snapshot, first seen between 21 and 30 October. Each skill sits on a list of 53, flagged as covered by the course or not.</p>
+        </div>
+        <aside class="na-note sm-note"><b>Two ways of counting.</b> The other tabs count adverts that name a skill as essential: SQL is essential in 60 full-description adverts. John counts every mention of a skill: SQL has 111. Both are valid. They answer different questions, so the numbers are not meant to match.</aside>
+        <div class="na-panel na-phase sm-intro sm-next-opening sm-next-opening--navy sm-gap-key">
+          <p class="sm-eyebrow">The main finding</p>
+          <h2>The course covers about half of what employers ask for</h2>
+          <div class="sm-next-stats" role="group" aria-label="Key numbers from John’s report">
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span>49%</span></p>
+              <figcaption>of skill mentions are for skills the course covers: 741 of 1,512</figcaption>
+            </figure>
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span>18 of 53</span></p>
+              <figcaption>listed skills are flagged as covered by the course (34%)</figcaption>
+            </figure>
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span>6 of 10</span></p>
+              <figcaption>of the most requested skills are covered by the course</figcaption>
+            </figure>
+            <figure class="sm-next-stat">
+              <p class="sm-next-stat-values"><span class="sm-next-after">27%</span></p>
+              <figcaption>of mentions are in three areas with no coverage: business systems, cloud platforms and spreadsheets such as Excel (403 mentions)</figcaption>
+            </figure>
+          </div>
+          <p class="sm-next-order"><strong>The biggest single gap is SQL.</strong> It is the second most requested skill, with 111 mentions, and the course does not cover it.</p>
+        </div>
+        <section class="sm-next-subject" aria-labelledby="gap-match-title">
+          <div class="na-panel na-phase sm-next-subject-heading sm-next-divider">
+            <p class="sm-eyebrow">Strengths</p>
+            <h2 id="gap-match-title">Where the course matches the market</h2>
+            <p class="sm-gap-lede">Analysis, dashboards, programming and governance are well served: the course covers 92%, 90%, 95% and 100% of their mentions. Generative AI is covered too, with 64 mentions.</p>
+            <div class="sm-gap-card">
+              <div class="sm-gap-pair">
+                <figure class="sm-figure sm-gap-figure">
+                  <a href="assets/john_radar_course_vs_market.png" target="_blank" rel="noopener" aria-label="Open the skills radar chart full size in a new tab"><img src="assets/john_radar_course_vs_market.png" alt="Radar chart of the 15 most requested skills. A red shape shows how often employers ask for each skill. A navy shape shows the skills the course covers. The navy reaches out on data analysis, dashboards, data cleaning, databases, ETL, generative AI, Power BI and Python. On SQL, Excel, CRM systems, ERP systems, AWS, APIs and Microsoft Office only red shows." width="1117" height="852" loading="lazy" decoding="async"></a>
+                  <figcaption><strong>Skills.</strong> Where the red shape sits on its own, employers ask for something the course does not teach. SQL is the longest of these. <span class="sm-gap-credit">Chart: John, SkillMatch team. From his <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Data_Analyst_Workbook.ipynb" target="_blank" rel="noopener">analysis notebook</a>.</span></figcaption>
+                </figure>
+                <figure class="sm-figure sm-gap-figure">
+                  <a href="assets/john_fig07_course_categories_radar.png" target="_blank" rel="noopener" aria-label="Open the skill-groups radar chart full size in a new tab"><img src="assets/john_fig07_course_categories_radar.png" alt="Radar chart of ten groups of skills. A red shape shows how often employers ask for each group. A navy shape shows the groups the course covers. The navy reaches out on analysis, dashboards and BI, governance, programming, databases, data engineering and ways of working. On business systems, platforms and spreadsheets only red shows." width="3723" height="2597" loading="lazy" decoding="async"></a>
+                  <figcaption><strong>Skill groups.</strong> The same comparison for ten groups of skills. Business systems, cloud platforms and spreadsheets have no navy at all. <span class="sm-gap-credit">Chart: John, SkillMatch team. From his <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Data_Analyst_Workbook.ipynb" target="_blank" rel="noopener">analysis notebook</a>.</span></figcaption>
+                </figure>
+              </div>
+              <p class="sm-gap-aside">The course is ahead of demand on libraries. pandas, NumPy and matplotlib/seaborn are taught, yet each appears in only one advert. Employers ask for “Python” and “data analysis” in general terms.</p>
+              <details class="sm-table-details"><summary>The data</summary><div class="sm-table-host"><div class="sm-table-scroll"><div class="sm-table-inner"><table class="sm-data-table"><caption class="sr-only">Skill mentions by group, and the share the course covers</caption><thead><tr><th scope="col">Skill group</th><th scope="col">Mentions</th><th scope="col">Covered by course</th></tr></thead><tbody><tr><td>Analysis</td><td>279</td><td>92%</td></tr><tr><td>Database</td><td>262</td><td>28%</td></tr><tr><td>Business systems</td><td>191</td><td>0%</td></tr><tr><td>Dashboards and BI</td><td>163</td><td>90%</td></tr><tr><td>Ways of working</td><td>159</td><td>58%</td></tr><tr><td>Platform (cloud)</td><td>124</td><td>0%</td></tr><tr><td>Data engineering</td><td>115</td><td>39%</td></tr><tr><td>Programming</td><td>97</td><td>95%</td></tr><tr><td>Spreadsheet</td><td>88</td><td>0%</td></tr><tr><td>Governance</td><td>34</td><td>100%</td></tr></tbody></table></div></div></div></details>
+            </div>
+          </div>
+        </section>
+        <section class="sm-next-subject" aria-labelledby="gap-sql-title">
+          <div class="na-panel na-phase sm-next-subject-heading sm-next-divider">
+            <p class="sm-eyebrow">Gaps</p>
+            <h2 id="gap-sql-title">SQL is the biggest gap</h2>
+            <p class="sm-gap-lede">SQL is the second most requested skill, behind data analysis. It is the only skill in the top three that the course does not cover. Most of its mentions call it essential: 82% (91 of 111).</p>
+            <div class="sm-gap-card">
+              <figure class="sm-figure sm-gap-figure sm-gap-figure--wide">
+                <a href="assets/john_fig04_covered_vs_not_covered.png" target="_blank" rel="noopener" aria-label="Open the covered-versus-not-covered bar chart full size in a new tab"><img src="assets/john_fig04_covered_vs_not_covered.png" alt="Bar chart of the 15 most requested skills, each as a share of all mentions. Skills the course covers are teal and skills it does not cover are coral. Data analysis is highest at 8.3%, then SQL at 7.3%, Python 6.0%, CRM systems 5.7%, dashboards and reporting 5.6%, data cleaning 5.4% and Excel 5.3%." width="4146" height="2349" loading="lazy" decoding="async"></a>
+                <figcaption><strong>Covered or not.</strong> Each bar is one skill’s share of all 1,512 mentions. John’s chart is titled “Top 20” but shows the 15 most requested. Teal means the course covers it. Coral means it does not. <span class="sm-gap-credit">Chart: John, SkillMatch team. From his <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Data_Analyst_Workbook.ipynb" target="_blank" rel="noopener">analysis notebook</a>.</span></figcaption>
+              </figure>
+              <div class="sm-gap-pair sm-gap-pair--text">
+                <div>
+                  <h3>Other gaps</h3>
+                  <ul class="sm-gap-list">
+                    <li>Excel (80 mentions) and Microsoft Office (40)</li>
+                    <li>CRM systems (86) and ERP systems (47)</li>
+                    <li>APIs and JSON (63)</li>
+                    <li>Cloud: AWS, Azure, Google Cloud and Databricks (119 in all)</li>
+                    <li>Business analysis (32) and Agile methods (31)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>A flag to check</h3>
+                  <p>The course does cover databases (74 mentions), but not the query language SQL itself. John’s own notebook notes that SQL was not in the course materials.</p>
+                  <p>The covered flags come from the team’s skills list, not a syllabus audit. Check SQL against the syllabus before quoting it outside the team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <aside class="na-note sm-note"><b>Limits:</b> this is a snapshot of about nine days, not a trend. The radar charts are indicative, because coverage is plotted as 0 or 1. Coverage is a team flag, not a syllabus audit. The sample is regional and has a strong agency presence.</aside>
+        <div class="sm-bridge sm-gap-readmore"><span>Read more: <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Skills_Gap_Report.md" target="_blank" rel="noopener">John’s full report</a> and <a href="https://github.com/TidyWeb/SkillMatch/blob/main/John%27s%20Folder/Data_Analyst_Workbook.ipynb" target="_blank" rel="noopener">his analysis notebook</a>, on GitHub.</span></div>
         <a class="sm-bridge sm-bridge--link" href="#overview"><span>Next: return to Overview and follow the search from the first sighting.</span><span aria-hidden="true">↗</span></a>
       </section>
     </div>
