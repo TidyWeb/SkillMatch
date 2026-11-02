@@ -9,11 +9,11 @@
 *   **Accessibility:** It’s free to use, requires no login, and initially focuses on the West Midlands.
 *   **Project Scope:** What started as a job-finding app evolved into five connected elements: the SkillMatch app, a GitHub guide, a LinkedIn guide, a 'Tailor My CV' tool, and our Data Analysis of the job market.
 *   **The Team:** Built by a team of five during the Code Institute hackathon (26-30 October), combining different skills to create something genuinely useful.
-*   **Handover:** "And now, [Your Name] will take you through the data analysis of the job market."
+*   **Handover:** "And now Phil will take you through the SkillMatch app."
 
 ---
 
-## Part 2: Data Analytics Section (Your Name) - 2 Minutes
+## Part 2: Data Analytics Section (Oana, after John) - 2 Minutes
 
 ### Slide 1: The Overview (30 seconds)
 *   **The Goal:** We looked at one captured week of job adverts for SkillMatch to see if the skills the course teaches match what employers actually want.
@@ -27,8 +27,8 @@
 ### Slide 3: Who Advertises? (30 seconds)
 *   **Agencies Dominate:** Looking at those 67 matched jobs, agencies placed 45 of them.
 *   **Direct Employers:** Strikingly, **zero** of the 67 jobs were confirmed as posted directly by the employer. The rest are 'Unclear.'
-*   **The Transparency Gap:** Direct employers hide pay 72% of the time, while agencies hide it only 12% of the time.
+*   **The Transparency Gap:** Across all adverts we could label, 114 of 159 direct-employer adverts (72%) omit pay, compared with 122 of 1,060 agency adverts (12%).
 
 ### Slide 4: The Takeaway & Limitations (15 seconds)
-*   **The AI Caveat:** A quick note on our data: the advertiser labels were AI-generated and human-checked. The AI over-guessed direct employers, which taught us that we can't fully trust automated labelling without a human check.
+*   **The AI Caveat:** The advertiser labels are AI-made and not yet checked by a person.
 *   **Conclusion:** Ultimately, matching isn't about casting a wide net; it's about aggressive elimination to find that perfect 67.
