@@ -39,5 +39,6 @@ About 19 minutes, then questions.
 - [Esmat: LinkedIn guide](esmat-linkedin.md)
 - [SK: Tailor my CV](sk-tailor-my-cv.md)
 - [John: data analysis](john-data-analysis.md)
+- [Oana: presentation materials](oana/)
 
 Oana's and Phil's sections are in the full guide.
