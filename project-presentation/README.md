@@ -1,3 +1,18 @@
+NB: The project order is deprecated.  The presentation plan was created by the entity AI Kevin, a bot that Phil (TidyWeb) created across, Claude, Codex, and Google Gemini, to watch all actions and developments in this project and to act as Guardian of the Repo for PRs.
+
+Kevin has access to every twist and turn in the story of this project, but sadly is not much of a showman.  So the order of presentation will be determined by the team.
+
+Intro and into Github Guide - Oana
+LinkedIn Guide - Esmat
+CV Tailor - SK
+SkillMatch app - Phil
+Data Analysis - John
+Outro - Oana
+
+The material below is preserved for historical reasons and the policy of leaving all steps visible so the archeology of the project remains discoverable.
+
+Phil.
+
 # Project presentation
 
 Speaking guides for the SkillMatch presentation on Monday 2 November 2026.
