@@ -160,3 +160,12 @@ run_id,run_date,source,new,gone,still_live,completeness,comparable,days_listed_g
 20261107T132120134917Z,2026-11-07,remote_ok,6,6,93,complete,true,3.5,2;2;2;2;2;11
 20261107T132120134917Z,2026-11-07,we_work_remotely,10,10,90,complete,true,2.2,1;9;2;1;2;1;1;2;2;1
 20261107T132120134917Z,2026-11-07,workable,3,7,109,complete,true,5.86,1;1;10;5;5;2;17
+20261108T134101780181Z,2026-11-08,ats,0,0,0,complete,true,0,
+20261108T134101780181Z,2026-11-08,curated,0,0,0,complete,true,0,
+20261108T134101780181Z,2026-11-08,cv_library,0,,0,incomplete,true,,
+20261108T134101780181Z,2026-11-08,greenhouse,0,0,64,complete,true,0,
+20261108T134101780181Z,2026-11-08,lever,0,0,115,complete,true,0,
+20261108T134101780181Z,2026-11-08,reed,3923,,1079,incomplete,true,,
+20261108T134101780181Z,2026-11-08,remote_ok,2,2,97,complete,true,8.0,12;4
+20261108T134101780181Z,2026-11-08,we_work_remotely,12,12,88,complete,true,3.25,3;3;2;2;2;2;3;3;3;2;2;12
+20261108T134101780181Z,2026-11-08,workable,0,0,112,complete,true,0,
