@@ -14,6 +14,7 @@ Each folder is one collection. The name is the date and time it ran.
 
 | Folder | What it is | Adverts collected | Adverts kept |
 |---|---|---:|---:|
+| `20261123_1842/` | Live collection from 23 November 2026 | 5,740 | 89 |
 | `20261122_1457/` | Live collection from 22 November 2026 | 5,727 | 93 |
 | `20261121_1500/` | Live collection from 21 November 2026 | 5,717 | 92 |
 | `20261120_1549/` | Live collection from 20 November 2026 | 5,742 | 94 |
